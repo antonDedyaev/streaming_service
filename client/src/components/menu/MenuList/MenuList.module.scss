@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex: 1 1 auto;
+
+    &__item {
+        margin: 0 16px 0 0;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    &__link {
+        color: #ffffff7a;
+        padding: 10px 0;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 500;
+        transition: .4s;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}
