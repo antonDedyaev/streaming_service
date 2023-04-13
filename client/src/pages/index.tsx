@@ -1,6 +1,5 @@
 import ButtonUI from "@/components/UI/Button/ButtonUI"
 import styles from '@/styles/pages/HomePage.module.scss'
-import searchIcon from '@/../public/icons/search.svg'
 
 function HomePage() {
     return (
