@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "compilerOptions": {
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -21,3 +22,40 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.js"],
   "exclude": ["node_modules"]
 }
+=======
+	"compilerOptions": {
+		"target": "es6",
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"paths": {
+			"@/*": [
+				"./src/*"
+			]
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"jest.config.js"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
+>>>>>>> e04a569c82ad295f3af7fef702cbe46d73612d37

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinksUI SNAPSHOTS TESTS AppStoreLinkUI should not be changed 1`] = `
+<a
+  class="appstore-link-wrapper"
+  href="https://go.onelink.me/app/devicesiOS"
+  role="link-to-store"
+>
+  <img
+    alt="App store logo"
+    class="appstore-link-logo"
+    src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/appleLogo.svg"
+  />
+  <div
+    class="appstore-link-textblock"
+  >
+    <div
+      class="appstore-link-preamble"
+    >
+      Загрузить в
+    </div>
+    <div
+      class="appstore-link-caption"
+    >
+      App Store
+    </div>
+  </div>
+</a>
+`;
+
+exports[`LinksUI SNAPSHOTS TESTS SocialLinkUI should not be changed 1`] = `
+<a
+  href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
+  role="link-to-media"
+  target="blank"
+>
+  <div
+    class="social-link"
+  >
+    <img
+      alt="Social media logo"
+      class="social-logo"
+      src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_vkontakte.svg"
+    />
+  </div>
+</a>
+`;
