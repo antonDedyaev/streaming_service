@@ -1,0 +1,115 @@
+.container {
+	display: block;
+
+	.imageSection {
+		position: relative;
+
+		&Large {
+			width: 153px;
+			height: 153px;
+		}
+
+		&Medium {
+			width: 128px;
+			height: 128px;
+		}
+
+		&Small{
+			width: 88px;
+			height: 88px;
+		}
+		
+		.imageActorWrapper {
+			position: absolute;
+			top: 0;
+   		right: 0;
+
+			border-radius: 50%;
+   		overflow: hidden;
+   		display: flex;
+  	 		align-items: center;
+  	 		width: 100%;
+   		height: 100%;
+		}
+
+		&Effect{
+			transform-origin: bottom;
+			transform: scale(1);
+			transition-duration: .4s;
+		}
+	}
+
+	.amountBadge {
+		box-sizing: border-box;
+		position: absolute;
+		left: 4px;
+  	 	bottom: 0;
+		background-color: #a869f0;
+		height: 30px;
+  	 	padding: 5px 7.5px;
+   	border-radius: 2px;
+		user-select: none;
+
+		.backBox {
+			position: absolute;
+   		left: 2px;
+   		right: 2px;
+   		top: -2px;
+   		bottom: 100%;
+			box-sizing: border-box;
+			user-select: none;
+			background-color: rgba(168,105,240,.64);
+   		border-top-left-radius: 1px;
+   		border-top-right-radius: 1px;
+		}
+
+		.text {
+			text-align: center;
+			position: relative;
+			color: #fff;
+			font-size: 15px;
+			line-height: 20px;
+			font-weight: 800;
+		}
+	}
+
+	.textSection {
+   	margin-top: 8px;
+		width: 100px;
+
+		.titleSection {
+			color: #d9d7e0;
+			font-weight: 600;
+			
+			white-space: nowrap; 
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			&Medium, &Large {
+				line-height: 20px;
+				font-size: 15px;
+			}
+
+			&Small {
+				font-size: 13px;
+				line-height: 16px;
+			}
+		}
+
+		.extra {
+			color: #a5a1b2;
+			font-size: 13px;
+			line-height: 16px;
+			font-weight: 500;
+		}
+	}
+
+	&:hover > .imageSectionEffect {	
+		transition-duration: .1s;
+		transform: scale(1.05);
+	}
+
+	&:hover > .textSection .titleSection {
+		color: #fff;
+	}
+}
