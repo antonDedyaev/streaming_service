@@ -1,0 +1,83 @@
+.appstore-link {
+    &-wrapper {
+        height: 40px;
+        width: fit-content;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        border-radius: 8px;
+        -webkit-transition-property: background-color;
+        -o-transition-property: background-color;
+        transition-property: background-color;
+        cursor: pointer;
+        border: 0;
+        padding: 0;
+        text-align: left;
+        background-color: #1f1b2e;
+
+        &:not(:hover):not(:active) {
+            transition-duration: .4s;
+        }
+    }
+
+    &-logo {
+        width: 20px;
+        height: 20px;
+
+        margin-left: 12px;
+
+        -webkit-align-self: center;
+        -ms-flex-item-align: center;
+        align-self: center;
+        -webkit-box-flex: 0;
+        -webkit-flex-grow: 0;
+        -ms-flex-positive: 0;
+        flex-grow: 0;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        margin-right: 8px;
+    }
+
+    &-textblock {
+        margin-right: 12px;
+        -webkit-align-self: center;
+        -ms-flex-item-align: center;
+        align-self: center;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -webkit-flex-shrink: 1;
+        -ms-flex-negative: 1;
+        flex-shrink: 1;
+        overflow: hidden;
+    }
+
+    &-preamble {
+        height: 12px;
+
+        font-size: 10px;
+        line-height: 12px;
+        color: rgba(255,255,255,.72);
+    }
+
+    &-caption {
+        height: 20px;
+    
+        font-size: 15px;
+        line-height: 20px;
+
+        color: #FFF;
+    }
+
+    &-preamble, &-caption {
+        font-weight: 500;
+        font-style: normal;
+
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}

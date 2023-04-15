@@ -1,0 +1,29 @@
+.social {
+   &-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-width: 2px;
+        border-radius: 20px;
+
+        background-color: #1f1b2e;
+        border-color: #1f1b2e;
+
+        &:active {
+            background-color: #0e0c14;
+            border-color: #0e0c14;
+        }
+
+        &:hover:not(:active) {
+            background-color: #2e2844;
+            border-color: #2e2844;
+        }
+    }
+
+    &-logo {
+        width: 16px;
+        height: 16px;
+    }
+}

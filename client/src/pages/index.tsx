@@ -1,5 +1,7 @@
 import MoviesSlider from "@/components/sliders/MoviesSlider/MoviesSlider"
 import ButtonUI from "@/components/UI/Button/ButtonUI"
+<<<<<<< HEAD
+=======
 import PreviewPoster from "@/components/posters/PreviewPoster/PreviewPoster"
 import styles from '@/styles/pages/HomePage.module.scss'
 
@@ -40,6 +42,7 @@ function HomePage() {
 			/>
 		</>
 	)
+>>>>>>> e04a569c82ad295f3af7fef702cbe46d73612d37
 }
 
 export default HomePage
