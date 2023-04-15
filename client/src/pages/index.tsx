@@ -1,5 +1,6 @@
 import MoviesSlider from "@/components/sliders/MoviesSlider/MoviesSlider"
 import ButtonUI from "@/components/UI/Button/ButtonUI"
+import PreviewPoster from "@/components/posters/PreviewPoster/PreviewPoster"
 import styles from '@/styles/pages/HomePage.module.scss'
 
 function HomePage() {
@@ -17,6 +18,7 @@ function HomePage() {
                 background="gray">
                 <div>Серая кнопка</div>
             </ButtonUI>
+            <PreviewPoster />
 
             <MoviesSlider
                 list={[
