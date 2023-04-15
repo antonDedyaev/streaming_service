@@ -1,0 +1,81 @@
+.properties {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; 
+    background-color: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    transition-property: opacity;
+
+    &__icons {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__info {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 500;
+        color: #d9d7e0;
+    }
+
+    &:hover {
+        opacity: 1;
+        transition-duration: .2s;
+    }
+
+    &:not(:hover) {
+        transition-duration: .2s;
+    }
+}
+
+.rating {
+    &__row {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        margin-bottom: 8px;
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 8px;
+    }
+
+    &__value {
+        &_integer { font-size: 24px; }
+        &_fraction { font-size: 20px; }
+    }
+}
+
+.icon_favorite,
+.icon_similar {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 4px;
+}
+
+.icon_favorite {
+    height: 20px;
+}
+
+.icon_rate {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 8px;
+}
+
+.icon_dislike {
+    width: 18px;
+    height: 18px;
+}

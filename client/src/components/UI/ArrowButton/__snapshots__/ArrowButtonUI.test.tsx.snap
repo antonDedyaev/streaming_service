@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArrowButtonUI SNAPSHOTS TESTS left-small ButtonUI should not be changed 1`] = `
+<button
+  class="button button"
+>
+  <img
+    alt=""
+    class="icon icon"
+    data-nimg="1"
+    decoding="async"
+    height="40"
+    loading="lazy"
+    src="/_next/image?url=%2Fimg.jpg&w=32&q=75"
+    srcset="/_next/image?url=%2Fimg.jpg&w=16&q=75 1x, /_next/image?url=%2Fimg.jpg&w=32&q=75 2x"
+    style="color: transparent;"
+    width="10"
+  />
+</button>
+`;
+
+exports[`ArrowButtonUI SNAPSHOTS TESTS right-large ArrowButtonUI should not be changed 1`] = `
+<button
+  class="button button"
+>
+  <img
+    alt=""
+    class="icon icon"
+    data-nimg="1"
+    decoding="async"
+    height="40"
+    loading="lazy"
+    src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+    srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+    style="color: transparent;"
+    width="30"
+  />
+</button>
+`;

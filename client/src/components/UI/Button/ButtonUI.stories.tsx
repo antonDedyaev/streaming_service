@@ -3,8 +3,9 @@ import ButtonUI from './ButtonUI'
 import './ButtonUI.module.scss'
 
 const meta: Meta<typeof ButtonUI> = {
-    title: 'Button',
+    title: 'Button/Button',
     component: ButtonUI,
+    tags: ['autodoc'],
     argTypes: {
         variant: {
             type: 'string',

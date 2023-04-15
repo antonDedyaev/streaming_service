@@ -1,0 +1,41 @@
+.previewPoster {
+    width: 170px;
+    margin: 10px;
+
+    &__title {
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 120%;
+        color: #D9D7E0;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.block {
+    &_image {
+        position: relative;
+        width: 170px;
+        height: 260px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        background-color: rgb(230, 230, 230);
+
+        &:hover {
+            transform: scale(105%, 105%);
+            transition-duration: .3s;
+        }
+
+        &:not(:hover) {
+            transition-duration: .3s;
+        }
+    }
+}
+
+.imageWrapper {
+    width: 170px;
+    height: 260px;
+}
+
