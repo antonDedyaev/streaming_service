@@ -1,6 +1,6 @@
 import AgeBadge from "@/components/UI/badges/AgeBadge";
 import PriceBadge from "@/components/UI/badges/PriceBadge";
-import PreviewPosterProperties from "./PreviewPosterProperties";
+import PreviewPosterProperties from "../PreviewPosterProperties/PreviewPosterProperties";
 import Image from "next/image";
 import Link from "next/link";
 import style from './PreviewPoster.module.scss';
