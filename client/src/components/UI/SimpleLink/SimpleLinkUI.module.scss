@@ -1,0 +1,22 @@
+.link {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.link_bright {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.link_dim {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.link:hover {
+  color: rgb(255, 255, 255);
+}
+
+.link:not(:hover):not(:active) {
+  transition-duration: 0.4s;
+}
