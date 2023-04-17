@@ -1,8 +1,8 @@
 import Image from "next/image";
-import bookmark from '../../../../public/icons/icons8_bookmark.png';
-import wand from '../../../../public/icons/icons8_wand.png';
-import star from '../../../../public/icons/icons8_star.png';
-import circle from '../../../../public/icons/icons8_circle.png';
+import bookmark from '../../../../public/icons/postersIcons/bookmark.png';
+import wand from '../../../../public/icons/postersIcons/wand.png';
+import star from '../../../../public/icons/postersIcons/star.png';
+import circle from '../../../../public/icons/postersIcons/circle.png';
 import style from './PreviewPosterContent.module.scss';
 
 function PreviewPosterContent() {

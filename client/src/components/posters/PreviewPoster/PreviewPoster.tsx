@@ -1,5 +1,5 @@
-import AgeBadge from "@/components/UI/badges/AgeBadge";
-import PriceBadge from "@/components/UI/badges/PriceBadge";
+import AgeBadge from "@/components/UI/badges/AgeBadge/AgeBadge";
+import PriceBadge from "@/components/UI/badges/PriceBadge/PriceBadge";
 import PreviewPosterContent from "../PreviewPosterContent/PreviewPosterContent";
 import Image from "next/image";
 import Link from "next/link";
