@@ -5,9 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import style from './PreviewPoster.module.scss';
 
-function PreviewPoster() {
+interface PreviewPosterProps {
+    className: string
+}
+
+function PreviewPoster({ className }: PreviewPosterProps) {
     return (
-        <div className={style.previewPoster}>
+        <div className={[style.previewPoster, className].join(' ')}>
             <Link href="/">
                 <div className={[style.block, style.block_image].join(' ')}>
                     <div className={style.imageWrapper}>
