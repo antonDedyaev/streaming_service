@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import ActorItem from '../ActorItem/ActorItem';
 import styles from './ActorList.module.scss';
 
@@ -9,25 +10,25 @@ interface ActorListProps {
 	effect?: boolean;
 	amt?: boolean;
 	size: 'Large' | 'Medium' | 'Small';
+	className: string
 }
 
-const ActorList = ({ actors, amt, role, effect, size }: ActorListProps) => {
+const ActorList = ({ actors, amt, role, effect, size, className }: ActorListProps) => {
 	return (
-		<div className={styles.container}>
+		<>
 			{actors.map(actor =>
-				<div className={styles.actorItem}>
-					<ActorItem
-						key={actor.id}
-						href="/"
-						actor={actor}
-						amt={amt}
-						effect={effect}
-						role={role}
-						size={size}
-					/>
-				</div>
+				<ActorItem
+					key={actor.id}
+					className={[styles.actorItem, className].join(' ')}
+					href="/"
+					actor={actor}
+					amt={amt}
+					effect={effect}
+					role={role}
+					size={size}
+				/>
 			)}
-		</div>
+		</>
 	)
 }
 

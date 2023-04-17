@@ -2,8 +2,21 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
+    opacity: .5;
+
+    &:not(:hover) {
+        transition: .4s;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
 .icon {
     height: auto;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

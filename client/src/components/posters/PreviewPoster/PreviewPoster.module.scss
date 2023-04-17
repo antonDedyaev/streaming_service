@@ -1,6 +1,4 @@
 .previewPoster {
-    width: 170px;
-    margin: 10px;
 
     &__title {
         font-size: 15px;
@@ -17,7 +15,6 @@
 .block {
     &_image {
         position: relative;
-        width: 170px;
         height: 260px;
         margin-bottom: 8px;
         border-radius: 8px;
@@ -35,7 +32,6 @@
 }
 
 .imageWrapper {
-    width: 170px;
     height: 260px;
 }
 

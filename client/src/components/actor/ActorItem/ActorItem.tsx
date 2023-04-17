@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { IActor } from "../ActorList/Temp/IActor";
 
 interface ActorItemProps {
+	className: string
 	href: string;
 	actor: IActor;
 	role?: boolean;
@@ -12,7 +13,7 @@ interface ActorItemProps {
 	size: 'Large' | 'Medium' | 'Small';
 }
 
-const ActorItem = ({ href, actor, amt, role, effect, size }: ActorItemProps) => {
+const ActorItem = ({ className, href, actor, amt, role, effect, size }: ActorItemProps) => {
 	let width = 153;
 	let height = 183;
 	if (size === 'Small') {
@@ -24,7 +25,7 @@ const ActorItem = ({ href, actor, amt, role, effect, size }: ActorItemProps) => 
 	}
 
 	return (
-		<Link href={href} className={styles.container}>
+		<Link href={href} className={[styles.container, className].join(' ')}>
 			<div className={[styles.imageSection, styles[`imageSection${size}`], effect && styles['imageSectionEffect']].join(' ')}>
 				<div className={styles.imageActorWrapper}>
 					<Image className={styles.image} src={actor.img} alt={`${actor.firstName} ${actor.lastName}`} width={width} height={height} />
