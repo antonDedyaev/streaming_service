@@ -15,15 +15,18 @@
 }
 
 .block {
+    border-radius: 8px;
+    overflow: hidden;
+
     &_image {
         position: relative;
         width: 170px;
         height: 260px;
         margin-bottom: 8px;
-        border-radius: 8px;
         background-color: rgb(230, 230, 230);
 
         &:hover {
+            transform-origin: bottom;
             transform: scale(105%, 105%);
             transition-duration: .3s;
         }
