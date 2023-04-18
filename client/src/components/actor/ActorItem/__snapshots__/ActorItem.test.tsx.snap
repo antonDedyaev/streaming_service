@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ACTORITEM SNAPSHOTS TESTS large ActorItem should not be changed 1`] = `
+<a
+  class="container  containerlarge"
+  href="/"
+>
+  <div
+    class="imageSection imageSection_large "
+  >
+    <div
+      class="imageActorWrapper"
+    >
+      <img
+        alt="Имя Фамилия"
+        class="image"
+        data-nimg="fill"
+        decoding="async"
+        loading="lazy"
+        sizes="100vw"
+        src="/_next/image?url=%2Fimg.jpg&w=3840&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=640&q=75 640w, /_next/image?url=%2Fimg.jpg&w=750&q=75 750w, /_next/image?url=%2Fimg.jpg&w=828&q=75 828w, /_next/image?url=%2Fimg.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimg.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimg.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimg.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimg.jpg&w=3840&q=75 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+      />
+    </div>
+  </div>
+  <div
+    class="textSection"
+  >
+    <div
+      class="textSection__title textSection__title_large"
+    >
+      Имя
+    </div>
+    <div
+      class="textSection__title textSection__title_large"
+    >
+      Фамилия
+    </div>
+    <div
+      class="textSection__extra textSection__extra_large"
+    >
+      4
+       
+      фильма
+    </div>
+  </div>
+</a>
+`;
+
+exports[`ACTORITEM SNAPSHOTS TESTS medium ActorItem should not be changed 1`] = `
+<a
+  class="container  containermedium"
+  href="/"
+>
+  <div
+    class="imageSection imageSection_medium "
+  >
+    <div
+      class="imageActorWrapper"
+    >
+      <img
+        alt="Имя Фамилия"
+        class="image"
+        data-nimg="fill"
+        decoding="async"
+        loading="lazy"
+        sizes="100vw"
+        src="/_next/image?url=%2Fimg.jpg&w=3840&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=640&q=75 640w, /_next/image?url=%2Fimg.jpg&w=750&q=75 750w, /_next/image?url=%2Fimg.jpg&w=828&q=75 828w, /_next/image?url=%2Fimg.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimg.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimg.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimg.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimg.jpg&w=3840&q=75 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+      />
+    </div>
+  </div>
+  <div
+    class="textSection"
+  >
+    <div
+      class="textSection__title textSection__title_medium"
+    >
+      Имя
+    </div>
+    <div
+      class="textSection__title textSection__title_medium"
+    >
+      Фамилия
+    </div>
+    <div
+      class="textSection__extra textSection__extra_medium"
+    >
+      4
+       
+      фильма
+    </div>
+  </div>
+</a>
+`;
+
+exports[`ACTORITEM SNAPSHOTS TESTS small ActorItem should not be changed 1`] = `
+<a
+  class="container  containersmall"
+  href="/"
+>
+  <div
+    class="imageSection imageSection_small "
+  >
+    <div
+      class="imageActorWrapper"
+    >
+      <img
+        alt="Имя Фамилия"
+        class="image"
+        data-nimg="fill"
+        decoding="async"
+        loading="lazy"
+        sizes="100vw"
+        src="/_next/image?url=%2Fimg.jpg&w=3840&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=640&q=75 640w, /_next/image?url=%2Fimg.jpg&w=750&q=75 750w, /_next/image?url=%2Fimg.jpg&w=828&q=75 828w, /_next/image?url=%2Fimg.jpg&w=1080&q=75 1080w, /_next/image?url=%2Fimg.jpg&w=1200&q=75 1200w, /_next/image?url=%2Fimg.jpg&w=1920&q=75 1920w, /_next/image?url=%2Fimg.jpg&w=2048&q=75 2048w, /_next/image?url=%2Fimg.jpg&w=3840&q=75 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+      />
+    </div>
+  </div>
+  <div
+    class="textSection"
+  >
+    <div
+      class="textSection__title textSection__title_small"
+    >
+      Имя
+    </div>
+    <div
+      class="textSection__title textSection__title_small"
+    >
+      Фамилия
+    </div>
+    <div
+      class="textSection__extra"
+    >
+      Роль
+    </div>
+  </div>
+</a>
+`;

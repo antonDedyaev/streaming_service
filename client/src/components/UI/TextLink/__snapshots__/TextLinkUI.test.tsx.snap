@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEXTLINKUI SNAPSHOTS TESTS bright TEXTLINKUI should not be changed 1`] = `
+<a
+  class="link link_bright"
+  href="/"
+>
+  Ссылка
+</a>
+`;
+
+exports[`TEXTLINKUI SNAPSHOTS TESTS dim TEXTLINKUI should not be changed 1`] = `
+<a
+  class="link link_dim"
+  href="/"
+>
+  Ссылка
+</a>
+`;
+
+exports[`TEXTLINKUI SNAPSHOTS TESTS gradient TEXTLINKUI should not be changed 1`] = `
+<a
+  class="link link_gradient"
+  href="/"
+>
+  Ссылка
+</a>
+`;
