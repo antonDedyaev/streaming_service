@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinksUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
+<a
+  class="link__wrapper link__wrapper_rectangular"
+  href="#"
+  role="link-to-media"
+  target="blank"
+>
+  <div
+    class="link__content"
+  >
+    <div
+      class="text__single"
+    >
+      <img
+        alt="Devices logo"
+        data-nimg="1"
+        decoding="async"
+        height="20"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+        style="color: transparent;"
+        width="20"
+      />
+      Все устройства
+    </div>
+  </div>
+</a>
+`;
+
+exports[`LinksUI SNAPSHOT TESTS Round link should not be changed 1`] = `
+<a
+  class="link__wrapper link__wrapper_round"
+  href="https://t.me/official_iviru"
+  role="link-to-media"
+  target="blank"
+>
+  <div
+    class="link__content"
+  >
+    <img
+      alt="Логотип Telegram"
+      src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_telegram.svg"
+    />
+  </div>
+</a>
+`;
