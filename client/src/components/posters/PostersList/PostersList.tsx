@@ -2,15 +2,21 @@ import PreviewPoster from '../PreviewPoster/PreviewPoster';
 import style from './PostersList.module.scss';
 
 interface PostersListProps {
-    posters: React.FC[]
+    posters: number[]
+    className: string
 }
 
-function PostersList({posters}: PostersListProps) {
+function PostersList({ posters, className }: PostersListProps) {
     return (
-        <ul className={style.postersList}>
-            {/* {posters.map(poster => {
-                <li><PreviewPoster /></li>
-            })} */}
-        </ul>
+        <>
+            {posters.map(poster => (
+                <PreviewPoster 
+                    key={poster}
+                    className={className}
+                />
+            ))}
+        </>
     )
 }
+
+export default PostersList

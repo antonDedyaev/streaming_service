@@ -5,7 +5,7 @@ import './ArrowButtonUI.module.scss'
 const meta: Meta<typeof ArrowButtonUI> = {
     title: 'Button/ArrowButton',
     component: ArrowButtonUI,
-    tags: ['autodoc'],
+    tags: ['autodocs'],
     argTypes: {
         diarection: {
             type: 'string',

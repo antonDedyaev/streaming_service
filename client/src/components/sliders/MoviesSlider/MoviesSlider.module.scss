@@ -6,6 +6,7 @@
     &__contentContainer {
         width: 100%;
         overflow: hidden;
+        padding: 10px 0;
     }
 
     &__content {
@@ -17,17 +18,15 @@
 
     &__item {
         min-width: calc(100% / 7 - 10px);
-        height: 200px;
-        background-color: rgb(92, 36, 36);
         margin: 0 5px;
     }
 
     &__button {
         width: 60px;
-        height: 100%;
+        height: 95%;
         position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
+        top: 0;
+        margin: 10px 0 30px 0;
 
         &_left {
             left: -60px;
@@ -35,6 +34,23 @@
 
         &_right {
             right: -60px;
+        }
+    }
+}
+
+@media (max-width: 1380px) {
+    .container {
+
+        &__button {
+            width: 25px;
+    
+            &_left {
+                left: -25px;
+            }
+    
+            &_right {
+                right: -25px;
+            }
         }
     }
 }

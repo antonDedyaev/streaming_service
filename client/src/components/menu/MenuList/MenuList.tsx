@@ -1,25 +1,31 @@
 import Link from "next/link"
-import styles from '@/styles/components/navbar/MenuList.module.scss'
+import styles from '@/components/menu/MenuList/MenuList.module.scss'
+import TextLinkUI from "@/components/UI/TextLink/TextLinkUI"
 
 interface ILink {
     href: string
     text: string
+    className?: string
+    onMouseOver?: () => void
 }
 
 interface MenuListProps {
+    className: string
     links: ILink[]
 }
 
-function MenuList({links}: MenuListProps) {
+function MenuList({ className, links }: MenuListProps) {
     return (
-        <ul className={styles.container}>
+        <ul className={[styles.container, className].join(' ')}>
             {links.map(link => (
                 <li className={styles.container__item} key={link.text}>
-                    <Link 
-                        className={styles.container__link}
-                        href={link.href}>
+                    <TextLinkUI
+                        className={link.className}
+                        onMouseOver={link.onMouseOver}
+                        href={link.href}
+                        option="dim">
                         {link.text}
-                    </Link>
+                    </TextLinkUI>
                 </li>
             ))}
         </ul>
