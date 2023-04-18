@@ -7,7 +7,6 @@ interface TextLinkUIProps {
     option: 'bright' | 'dim' | 'gradient';
     className?: string
     onMouseOver?: () => void;
-    onMouseOut?: () => void;
 }
 
 const TextLinkUI = ({ href, children, option, className, onMouseOver, onMouseOut }: TextLinkUIProps) => {

@@ -7,7 +7,6 @@ interface ILink {
     text: string
     className?: string
     onMouseOver?: () => void
-    onMouseOut?: () => void
 }
 
 interface MenuListProps {
@@ -23,7 +22,6 @@ function MenuList({ className, links }: MenuListProps) {
                     <TextLinkUI
                         className={link.className}
                         onMouseOver={link.onMouseOver}
-                        onMouseOut={link.onMouseOut}
                         href={link.href}
                         option="dim">
                         {link.text}
