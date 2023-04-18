@@ -1,4 +1,4 @@
-import { declensionOfWordFromNumber } from './function';
+import { declensionOfWordFromNumber } from './functions';
 
 describe('DECLENSION OF WORD FROM NUMBER TESTS', () => {
   const array = ['фильм', 'фильма', 'фильмов'];

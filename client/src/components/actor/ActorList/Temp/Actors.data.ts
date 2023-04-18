@@ -5,9 +5,9 @@ export const actors: IActor[] = [
     id: 1,
     img: '/img/actorTest1.jpg',
     amtMovies: 1,
-    firstName: 'Рупертgggggggggggggggggggggggggg',
-    lastName: 'Гринтggggggggggggggggggggggggggg',
-    role: 'актерgggggggggggg',
+    firstName: 'Рупертgggg',
+    lastName: 'Гринтgggg',
+    role: 'актерg',
   },
   {
     id: 2,

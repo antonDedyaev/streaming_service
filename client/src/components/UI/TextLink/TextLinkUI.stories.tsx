@@ -1,12 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react';
-import SimpleLinkUI from './SimpleLinkUI';
+import TextLinkUI from './TextLinkUI';
 import '../../../styles/nullstyle.scss';
 import '../../../styles/globals.scss';
-import './SimpleLinkUI.module.scss';
+import './TextLinkUI.module.scss';
 
-const meta: Meta<typeof SimpleLinkUI> = {
-  title: 'Links/SimpleLink',
-  component: SimpleLinkUI,
+const meta: Meta<typeof TextLinkUI> = {
+  title: 'Links/TextLink',
+  component: TextLinkUI,
   tags: ['autodocs'],
   decorators: [
     (Story) => (
@@ -19,7 +19,7 @@ const meta: Meta<typeof SimpleLinkUI> = {
 
 export default meta;
 
-type Story = StoryObj<typeof SimpleLinkUI>;
+type Story = StoryObj<typeof TextLinkUI>;
 
 export const Bright: Story = {
   args: {
@@ -34,5 +34,13 @@ export const Dim: Story = {
     href: '/',
     children: 'Ссылка',
     option: 'dim',
+  },
+};
+
+export const Gradient: Story = {
+  args: {
+    href: '/',
+    children: 'Градиентная ссылка',
+    option: 'gradient',
   },
 };

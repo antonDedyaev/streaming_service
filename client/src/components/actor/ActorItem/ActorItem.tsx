@@ -2,9 +2,10 @@ import Link from 'next/link';
 import styles from './ActorItem.module.scss';
 import Image from 'next/image';
 import { IActor } from '../ActorList/Temp/IActor';
-import { declensionOfWordFromNumber } from '../ActorList/function';
+import { declensionOfWordFromNumber } from '../../../utils/functions';
 
 interface ActorItemProps {
+  className?: string;
   href: string;
   actor: IActor;
   role?: boolean;
@@ -13,9 +14,9 @@ interface ActorItemProps {
   size: 'large' | 'medium' | 'small';
 }
 
-const ActorItem = ({ href, actor, amt, role, effect, size }: ActorItemProps) => {
+const ActorItem = ({ className, href, actor, amt, role, effect, size }: ActorItemProps) => {
   return (
-    <Link href={href} className={[styles.container, styles[`container${size}`]].join(' ')}>
+    <Link href={href} className={[styles.container, className, styles[`container${size}`]].join(' ')}>
       <div
         className={[styles.imageSection, styles[`imageSection_${size}`], effect && styles['imageSection_effect']].join(
           ' ',

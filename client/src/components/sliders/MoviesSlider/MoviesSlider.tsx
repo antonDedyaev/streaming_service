@@ -3,15 +3,18 @@ import styles from './MoviesSlider.module.scss';
 import { useWindowSize } from '@/hooks/useWindowResize/useWindowSize';
 import ArrowButton from '../../UI/ArrowButton/ArrowButtonUI';
 import { useMoviesCount } from '@/hooks/useMoviesCount/useMoviesCount';
-import ActorItem from '@/components/actor/ActorItem/ActorItem';
-
 import { IActor } from '@/components/actor/ActorList/Temp/IActor';
+import ActorList from '@/components/actor/ActorList/ActorList';
+import PostersList from '@/components/posters/PostersList/PostersList';
 
 interface MoviesSliderProps {
-  list: IActor[];
+  actors?: IActor[];
+  movies?: number[];
 }
 
-function MoviesSlider({ list }: MoviesSliderProps) {
+function MoviesSlider({ actors, movies }: MoviesSliderProps) {
+  const list = actors ?? movies!;
+
   const windowWidth = useWindowSize();
   const [position, setPosition] = useState<number>(0);
   const moviesCount = useMoviesCount(windowWidth);
@@ -57,12 +60,17 @@ function MoviesSlider({ list }: MoviesSliderProps) {
 
         <div className={[styles.container__contentContainer].join(' ')}>
           <div className={[styles.container__content, 'content'].join(' ')}>
-            {list.map((item) => (
-              <div key={item.id} className={styles.container__item}>
-                {/*item.id*/}
-                <ActorItem key={item.id} href="/" actor={item} amt={true} effect={true} size="large" />
-              </div>
-            ))}
+            {actors && (
+              <ActorList
+                actors={actors}
+                role={false}
+                effect={true}
+                amt={true}
+                size="large"
+                className={styles.container__item}
+              />
+            )}
+            {movies && <PostersList posters={movies} className={styles.container__item} />}
           </div>
         </div>
 

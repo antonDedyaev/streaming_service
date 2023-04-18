@@ -1,13 +1,13 @@
 import Link from 'next/link';
-import styles from './SimpleLinkUI.module.scss';
+import styles from './TextLinkUI.module.scss';
 
-interface SimpleLinkUIProps {
+interface TextLinkUIProps {
   href: string;
   children: React.ReactNode;
-  option: 'bright' | 'dim';
+  option: 'bright' | 'dim' | 'gradient';
 }
 
-const SimpleLinkUI = ({ href, children, option }: SimpleLinkUIProps) => {
+const TextLinkUI = ({ href, children, option }: TextLinkUIProps) => {
   return (
     <Link href={href} className={[styles.link, styles[`link_${option}`]].join(' ')}>
       {children}
@@ -15,4 +15,4 @@ const SimpleLinkUI = ({ href, children, option }: SimpleLinkUIProps) => {
   );
 };
 
-export default SimpleLinkUI;
+export default TextLinkUI;
