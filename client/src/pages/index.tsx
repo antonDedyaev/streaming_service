@@ -1,6 +1,7 @@
 import MoviesSlider from "@/components/sliders/MoviesSlider/MoviesSlider"
 import styles from '@/styles/pages/HomePage.module.scss'
 import { actors } from "@/components/actor/ActorList/Temp/Actors.data"
+import Navbar from "@/components/menu/Navbar/Navbar"
 
 function HomePage() {
 
@@ -8,6 +9,8 @@ function HomePage() {
 
 	return (
 		<>
+			<Navbar/>
+
 			<MoviesSlider
 				actors={actors}
 			/>

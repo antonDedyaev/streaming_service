@@ -1,5 +1,5 @@
 import Link from "next/link"
-import styles from '@/styles/components/navbar/MenuList.module.scss'
+import styles from '@/components/menu/MenuList/MenuList.module.scss'
 
 interface ILink {
     href: string
@@ -7,12 +7,13 @@ interface ILink {
 }
 
 interface MenuListProps {
+    className: string
     links: ILink[]
 }
 
-function MenuList({links}: MenuListProps) {
+function MenuList({ className, links }: MenuListProps) {
     return (
-        <ul className={styles.container}>
+        <ul className={[styles.container, className].join(' ')}>
             {links.map(link => (
                 <li className={styles.container__item} key={link.text}>
                     <Link 

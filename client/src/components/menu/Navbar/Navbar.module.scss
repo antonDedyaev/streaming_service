@@ -2,43 +2,111 @@
     display: flex;
     align-items: center;
     height: 72px;
+    width: 100%;
 
     &__logo {
         width: 66px;
         margin: 0 30px 0 0;
     }
-}
 
-.search {
-    padding: 10px 0;
+    &__menu {
+        flex: 1 1 auto;
+    }
 
-    &__container {
+    &__rightSide {
+        display: flex;
+        align-items: center;
+        justify-self: right;
+    }
+
+    &__button {
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 18px;
+        margin: 0 20px 0 0;
+    }
+
+    &__search {
+        padding: 10px 0;
+        opacity: 0.5;
+        transition: .4s;
+
+        .container__icon {
+            margin: 0 5px 0 0;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__textContainer {
         display: flex;
         align-items: center;
     }
 
     &__icon {
-        width: 16px;
-        height: 16px;
-        margin: 0 5px 0 0;
-        transition: .4s;
+        width: 18px;
+        height: 18px;
+
+        &_user {
+            width: 25px;
+            height: 25px;
+        }
     }
 
     &__text {
-        color: #ffffff7a;
         font-size: 15px;
         line-height: 20px;
-        font-weight: 500;
-        transition: .4s;
+        font-weight: 600;
+        color: #fff;
     }
 
-    &:hover {
-        .search__icon {
-            filter: brightness(0) invert(1);
+    &__link {
+        opacity: 0.5;
+        transition: .4s;
+
+        &_bell {
+            padding: 10px 20px;
         }
 
-        .search__text {
-            color: #fff;
+        &_user {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            
+            &:hover {
+                box-shadow: 0 0 15px #ffffff98;
+            }
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+@media (max-width: 1160px) {
+    .container {
+
+        &__logo {
+            flex: 1 1 auto;
+        }
+
+        &__menu {
+            display: none;
+        }
+
+        &__search {
+            display: none;
+        }
+
+        &__button {
+            margin: 0;
         }
     }
 }
