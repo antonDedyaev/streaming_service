@@ -5,7 +5,7 @@ interface TextLinkUIProps {
     href: string;
     children: React.ReactNode;
     option: 'bright' | 'dim' | 'gradient';
-    className?: string
+    className?: string;
     onMouseOver?: () => void;
 }
 
@@ -13,8 +13,8 @@ const TextLinkUI = ({ href, children, option, className, onMouseOver }: TextLink
     return (
         <Link
             href={href}
-            className={[styles.link, styles[`link_${option}`], className].join(' ')}
-            onMouseOver={() => onMouseOver ? onMouseOver() : ''}
+            className={[styles.link, styles[`link_${option}`], className].join(' ').trim()}
+            onMouseOver={() => (onMouseOver ? onMouseOver() : '')}
         >
             {children}
         </Link>
