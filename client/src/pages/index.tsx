@@ -1,7 +1,6 @@
 import MoviesSlider from "@/components/sliders/MoviesSlider/MoviesSlider"
 import styles from '@/styles/pages/HomePage.module.scss'
 import { actors } from "@/components/actor/ActorList/Temp/Actors.data"
-import RatingPoster from "@/components/posters/RatingPoster/RatingPoster"
 
 function HomePage() {
 
@@ -9,7 +8,6 @@ function HomePage() {
 
 	return (
 		<>
-			<RatingPoster className={styles.container__item} />
 			<MoviesSlider
 				actors={actors}
 			/>

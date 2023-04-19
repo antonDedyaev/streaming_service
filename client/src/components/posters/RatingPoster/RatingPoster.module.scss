@@ -10,6 +10,13 @@
 
     &:hover {
         cursor: pointer;
+        transform-origin: bottom;
+        transform: scale(102%, 102%);
+        transition-duration: .3s;
+    }
+
+    &:not(:hover) {
+        transition-duration: .3s;
     }
 }
 

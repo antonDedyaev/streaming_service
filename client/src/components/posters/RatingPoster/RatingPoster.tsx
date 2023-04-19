@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import style from './RatingPoster.module.scss';
+import { IRatingFilm } from "../PostersList/RatingPostersList/RatingPostersList";
 
 interface RatingPosterProps {
+    film: IRatingFilm
     className: string
 }
 
-function RatingPoster({ className }: RatingPosterProps) {
+function RatingPoster({ film, className }: RatingPosterProps) {
     return (
         <div className={[style.ratingPoster, className].join(' ')}>
             <Link href="/">
@@ -15,8 +17,8 @@ function RatingPoster({ className }: RatingPosterProps) {
                         className={style.ratingPoster__image}
                         width={200}
                         height={410}
-                        src="https://thumbs.dfs.ivi.ru/storage28/contents/d/e/f3afc43a0709ea1ebf35cdf142cc46.jpg/304x620//?q=85" 
-                        alt="семья" />
+                        src={film.image} 
+                        alt={film.name} />
                     <div className={style.fadeArea}></div>
                 </div>
                 <div className={style.contentWrapper}>
@@ -24,15 +26,15 @@ function RatingPoster({ className }: RatingPosterProps) {
                     <Image
                         className={style.logo}
                         width={153}
-                        height={33}
-                        src="https://thumbs.dfs.ivi.ru/storage9/contents/d/e/14ad136916cb3797041ef18a0b6149.png/x200/?q=85"
-                        alt="семья" />
+                        height={40}
+                        src={film.logo}
+                        alt={film.name} />
                     <Image 
                         className={style.placeNumber}
                         width={48}
                         height={66}
-                        src="https://solea-parent.dfs.ivi.ru/picture/bypass/number4.svg"
-                        alt="4" />    
+                        src={`https://solea-parent.dfs.ivi.ru/picture/bypass/number${film.place}.svg`}
+                        alt={`${film.place}`} />    
                 </div>
             </Link>
         </div>
