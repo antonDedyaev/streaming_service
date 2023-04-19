@@ -60,16 +60,7 @@ function MoviesSlider({ actors, movies }: MoviesSliderProps) {
 
                 <div className={[styles.container__contentContainer].join(' ')}>
                     <div className={[styles.container__content, 'content'].join(' ')}>
-                        {actors && (
-                            <ActorList
-                                actors={actors}
-                                role={false}
-                                effect={true}
-                                amt={true}
-                                size="large"
-                                className={styles.container__item}
-                            />
-                        )}
+                        {actors && <ActorList actors={actors} className={styles.container__item} />}
                         {movies && <PostersList posters={movies} className={styles.container__item} />}
                     </div>
                 </div>
