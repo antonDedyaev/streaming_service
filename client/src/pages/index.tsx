@@ -12,11 +12,13 @@ function HomePage() {
 
     return (
         <>
-            <Navbar page="home" />
-
             <Slider actors={actors} />
 
-            <PostersList posterType='promo' className='' movies={movies} />
+            <Slider movies={movies} />
+
+            <Slider movies={movies} />
+
+            <Slider></Slider>
         </>
     );
 }

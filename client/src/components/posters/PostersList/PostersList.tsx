@@ -13,25 +13,11 @@ interface PostersListProps {
 const PostersList = ({ posterType, movies, className }: PostersListProps) => {
     return (
         <>
-            <ul>
-                {movies.map(movie => (
-                    <li key={movie.name}>
-                        {
-                            posterType === 'preview' && <PreviewPoster className={className} movie={movie} /> ||
-                            posterType === 'rating' && <RatingPoster className={className} movie={movie} /> ||
-                            posterType === 'promo' && <PromoPoster className={className} movie={movie} />
-                        }
-                    </li>
-                ))}
-            </ul>
-            
-            <style jsx>
-                {`
-                    ul {
-                        display: flex;
-                    }
-                `}
-            </style>
+            {movies.map(movie => (
+                posterType === 'preview' && <PreviewPoster key={movie.name} className={className} movie={movie} /> ||
+                posterType === 'rating' && <RatingPoster key={movie.name} className={className} movie={movie} /> ||
+                posterType === 'promo' && <PromoPoster key={movie.name} className={className} movie={movie} />
+            ))}
         </>
     )
 }
