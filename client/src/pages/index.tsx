@@ -4,6 +4,9 @@ import { actors } from '@/components/actor/ActorList/Temp/Actors.data';
 import SquareCardsList from '@/components/squareCard/SquareCardsList/SquareCardsList';
 import { movies as movie } from '../components/squareCard/SquareCardsList/Temp/Movie.data';
 import Navbar from '@/components/menu/Navbar/Navbar';
+import Footer from '@/components/footer/Footer';
+import TabBar from '@/components/tabbar/TabBar';
+import FilmographyItem from '@/components/actor/ActorFilmography/FilmographyItem';
 
 function HomePage() {
     const movies = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
@@ -17,6 +20,12 @@ function HomePage() {
             <MoviesSlider movies={movies} />
 
             <SquareCardsList movie={movie[0]} />
+
+            <FilmographyItem />
+
+            <TabBar />
+
+            <Footer />
         </>
     );
 }

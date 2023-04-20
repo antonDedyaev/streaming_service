@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import TextLinkUI from './TextLinkUI';
-import '../../../styles/nullstyle.scss';
-import '../../../styles/globals.scss';
+import '../../../../styles/nullstyle.scss';
+import '../../../../styles/globals.scss';
 import './TextLinkUI.module.scss';
 
 const meta: Meta<typeof TextLinkUI> = {
