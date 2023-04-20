@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalUI SNAPSHOTS TESTS ModalUI should not be changed 1`] = `
+<div
+  class="container"
+>
+  Я модалка
+  <button
+    class="container__button"
+  >
+    <img
+      alt="закрыть"
+      class="container__image"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+  </button>
+</div>
+`;

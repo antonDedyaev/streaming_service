@@ -1,0 +1,36 @@
+.container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #100e19fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 5px;
+
+        &:hover {
+            .container__image {
+                opacity: 1;
+            }
+        }
+
+        &:not(:hover) {
+            .container__image {
+                transition: .4s;
+            }
+        }
+    }
+
+    &__image {
+        width: 30px;
+        height: 30px;
+        opacity: 0.5;
+    }
+}

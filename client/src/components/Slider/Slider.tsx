@@ -1,36 +1,34 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import styles from './Slider.module.scss';
-import { useWindowSize } from '@/hooks/useWindowResize/useWindowSize';
 import ArrowButton from '../UI/ArrowButton/ArrowButtonUI';
+import { useWindowSize } from '@/hooks/useWindowResize/useWindowSize';
 import { useMoviesCount } from '@/hooks/useMoviesCount/useMoviesCount';
 import { useRatingCount } from '@/hooks/useRatingCount/useRatingCount';
 
 interface SliderProps {
-    itemType: 'actor' | 'preview' | 'rating' | 'promo' | 'other'
-    children: ReactNode
-    length: number
+    itemType: 'actor' | 'preview' | 'rating' | 'promo' | 'other';
+    children: ReactNode;
+    length: number;
 }
 
-function Slider({ itemType, children, length }: SliderProps) {
+export const Slider = ({ itemType, children, length }: SliderProps) => {
     const windowWidth = useWindowSize();
     const [position, setPosition] = useState<number>(0);
 
-    const listCount = 
-        itemType === 'actor' || itemType === 'preview' 
-            ? useMoviesCount(windowWidth) :
-        itemType === 'rating'
-            ? useRatingCount(windowWidth) :
-        itemType === 'promo'
-            ? 1 : 2
+    const listCount =
+        itemType === 'actor' || itemType === 'preview'
+            ? useMoviesCount(windowWidth)
+            : itemType === 'rating'
+            ? useRatingCount(windowWidth)
+            : itemType === 'promo'
+            ? 1
+            : 2;
 
     const minPosition = 0;
     const maxPosition = (-100 / listCount) * length + 100;
 
     const leftHandler = () => {
-        const newPosition = 
-            itemType !== 'promo' 
-                ? position + (100 / listCount) * (listCount - 1)
-                : position + 100
+        const newPosition = itemType !== 'promo' ? position + (100 / listCount) * (listCount - 1) : position + 100;
 
         if (newPosition > minPosition) {
             setPosition(minPosition);
@@ -40,10 +38,7 @@ function Slider({ itemType, children, length }: SliderProps) {
     };
 
     const rightHandler = () => {
-        const newPosition = 
-            itemType !== 'promo' 
-                ? position - (100 / listCount) * (listCount - 1)
-                : position - 100
+        const newPosition = itemType !== 'promo' ? position - (100 / listCount) * (listCount - 1) : position - 100;
 
         if (newPosition < maxPosition) {
             setPosition(maxPosition);
@@ -69,9 +64,7 @@ function Slider({ itemType, children, length }: SliderProps) {
                 )}
 
                 <div className={[styles.container__contentContainer].join(' ')}>
-                    <div className={[styles.container__content, 'content'].join(' ')}>
-                        {children}
-                    </div>
+                    <div className={[styles.container__content, 'content'].join(' ')}>{children}</div>
                 </div>
 
                 {position > maxPosition && (
