@@ -1,4 +1,4 @@
-import MoviesSlider from '@/components/sliders/MoviesSlider/MoviesSlider';
+import Slider from '@/components/Slider/Slider';
 import styles from '@/styles/pages/HomePage.module.scss';
 import { actors } from '@/components/actor/ActorList/Temp/Actors.data';
 import SquareCardsList from '@/components/squareCard/SquareCardsList/SquareCardsList';
@@ -14,12 +14,7 @@ function HomePage() {
         <>
             <Navbar page="home" />
 
-            <MoviesSlider actors={actors} />
-
-            {/* <MoviesSlider movies={movies} /> */}
-
-            <SquareCardsList movie={movie[0]} />
-
+            <Slider actors={actors} />
 
             <PostersList posterType='promo' className='' movies={movies} />
         </>

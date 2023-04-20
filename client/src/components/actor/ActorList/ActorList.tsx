@@ -8,7 +8,7 @@ interface ActorListProps {
     role?: boolean;
     effect?: boolean;
     amt?: boolean;
-    size: 'large' | 'medium' | 'small';
+    size?: 'large' | 'medium' | 'small';
     className?: string;
 }
 
@@ -21,10 +21,10 @@ const ActorList = ({ actors, amt, role, effect, size, className }: ActorListProp
                     className={className}
                     href="/"
                     actor={actor}
-                    amt={amt}
-                    effect={effect}
-                    role={role}
-                    size={size}
+                    amt={amt ?? true}
+                    effect={effect ?? true}
+                    role={role ?? true}
+                    size={size ?? 'large'}
                 />
             ))}
         </>
