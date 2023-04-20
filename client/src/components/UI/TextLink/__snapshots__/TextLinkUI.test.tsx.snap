@@ -2,7 +2,7 @@
 
 exports[`TEXTLINKUI SNAPSHOTS TESTS bright TEXTLINKUI should not be changed 1`] = `
 <a
-  class="link link_bright"
+  class="link link_bright "
   href="/"
 >
   Ссылка
@@ -11,7 +11,7 @@ exports[`TEXTLINKUI SNAPSHOTS TESTS bright TEXTLINKUI should not be changed 1`] 
 
 exports[`TEXTLINKUI SNAPSHOTS TESTS dim TEXTLINKUI should not be changed 1`] = `
 <a
-  class="link link_dim"
+  class="link link_dim "
   href="/"
 >
   Ссылка
@@ -20,7 +20,7 @@ exports[`TEXTLINKUI SNAPSHOTS TESTS dim TEXTLINKUI should not be changed 1`] = `
 
 exports[`TEXTLINKUI SNAPSHOTS TESTS gradient TEXTLINKUI should not be changed 1`] = `
 <a
-  class="link link_gradient"
+  class="link link_gradient "
   href="/"
 >
   Ссылка

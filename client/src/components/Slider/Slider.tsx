@@ -12,7 +12,6 @@ interface SliderProps {
 }
 
 function Slider({ itemType, children, length }: SliderProps) {
-
     const windowWidth = useWindowSize();
     const [position, setPosition] = useState<number>(0);
 
