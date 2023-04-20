@@ -11,11 +11,18 @@ interface TabBarLinkUIProps {
 const TabBarLinkUI = ({ href, icon, text }: TabBarLinkUIProps) => {
     const [isSelected, setIsSelected] = useState(false);
 
+    const handleTabClicked = ({ currentTarget }: React.MouseEvent<HTMLAnchorElement>) => {
+        const allTabs = document.querySelectorAll(`.${styles.tabBar__item}`);
+        allTabs.forEach((item) => item.classList.remove(styles.tabBar__item_selected));
+        currentTarget.classList.add(styles.tabBar__item_selected);
+    };
+
     return (
         <a
+            id="tab-item"
             href={href}
             className={[styles.tabBar__item, isSelected ? styles.tabBar__item_selected : null].join(' ')}
-            onClick={() => setIsSelected(true)}
+            onClick={handleTabClicked}
             role="tab-link"
         >
             <div className={styles.tabBar__itemGlow}></div>

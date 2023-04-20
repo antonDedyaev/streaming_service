@@ -8,6 +8,8 @@ import ActorList from '@/components/actor/ActorList/ActorList';
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import { useState } from 'react';
 import MainContainer from '@/components/MainContainer/MainContainer';
+import TabBar from '@/components/tabbar/TabBar';
+import Footer from '@/components/footer/Footer';
 
 function HomePage() {
     const [isShowModal, setIsShowModal] = useState<boolean>(false);
@@ -34,6 +36,10 @@ function HomePage() {
                 <Slider itemType="rating" length={movies.length}>
                     <PostersList posterType="rating" movies={movies} />
                 </Slider>
+
+                <TabBar />
+
+                <Footer />
 
                 <button onClick={() => setIsShowModal(true)}>Показать модалку</button>
 

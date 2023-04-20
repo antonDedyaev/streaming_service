@@ -13,9 +13,9 @@ const TabBar: FC = () => {
             <div className={styles.tabBar}>
                 <TabBarLinkUI href="https://www.ivi.ru/" icon={homeIcon} text="Мой Иви" />
                 <TabBarLinkUI href="https://www.ivi.ru/movies" icon={catalogueIcon} text="Каталог" />
-                <TabBarLinkUI href="" icon={magnifyingGlass} text="Поиск" />
+                <TabBarLinkUI href="#!" icon={magnifyingGlass} text="Поиск" />
                 <TabBarLinkUI href="https://www.ivi.ru/tvplus" icon={monitorIcon} text="TV+" />
-                <TabBarLinkUI href="" icon={dotsIcon} text="Ещё" />
+                <TabBarLinkUI href="#!" icon={dotsIcon} text="Ещё" />
             </div>
         </div>
     );
