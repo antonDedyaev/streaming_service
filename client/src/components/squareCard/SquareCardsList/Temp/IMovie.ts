@@ -1,8 +1,18 @@
 import { IActor } from '../../../actor/ActorList/Temp/IActor';
 
 export interface IMovie {
-  id: number;
-  raiting: number;
-  nameraiting: string;
-  actors: IActor[];
+    id: number;
+    title: string;
+    year: number;
+    ageLimit: string;
+    time: string;
+    production: string;
+    genres: string[];
+    displays: string[];
+    voiceActing: string[];
+    subtitles: string[];
+    description: string[];
+    raiting: number;
+    nameraiting: string;
+    actors: IActor[];
 }

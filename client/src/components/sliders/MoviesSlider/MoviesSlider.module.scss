@@ -11,7 +11,7 @@
 
     &__content {
         position: relative;
-        transition: .4s;
+        transition: 0.4s;
         display: flex;
         width: 100%;
     }
@@ -40,14 +40,13 @@
 
 @media (max-width: 1380px) {
     .container {
-
         &__button {
             width: 25px;
-    
+
             &_left {
                 left: -25px;
             }
-    
+
             &_right {
                 right: -25px;
             }
@@ -57,7 +56,6 @@
 
 @media (max-width: 1270px) {
     .container {
-
         &__item {
             min-width: calc(100% / 6 - 10px);
         }
@@ -66,7 +64,6 @@
 
 @media (max-width: 1097px) {
     .container {
-
         &__item {
             min-width: calc(100% / 5 - 10px);
         }
@@ -75,7 +72,6 @@
 
 @media (max-width: 920px) {
     .container {
-
         &__item {
             min-width: calc(100% / 4 - 10px);
         }
@@ -84,7 +80,6 @@
 
 @media (max-width: 745px) {
     .container {
-
         &__item {
             min-width: calc(100% / 3 - 10px);
         }
@@ -93,7 +88,6 @@
 
 @media (max-width: 600px) {
     .container {
-
         &__item {
             min-width: calc(100% / 4 - 10px);
         }
@@ -102,7 +96,6 @@
 
 @media (max-width: 512px) {
     .container {
-
         &__item {
             min-width: calc(100% / 3 - 10px);
         }
@@ -111,7 +104,6 @@
 
 @media (max-width: 400px) {
     .container {
-
         &__item {
             min-width: calc(100% / 2 - 10px);
         }

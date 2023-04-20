@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
 import ActorItem from '../ActorItem/ActorItem';
-
 import { IActor } from './Temp/IActor';
 
 interface ActorListProps {
@@ -8,11 +6,11 @@ interface ActorListProps {
     role?: boolean;
     effect?: boolean;
     amt?: boolean;
-    size: 'large' | 'medium' | 'small';
+    size?: 'large' | 'medium' | 'small';
     className?: string;
 }
 
-const ActorList = ({ actors, amt, role, effect, size, className }: ActorListProps) => {
+const ActorList = ({ actors, amt = true, role, effect = true, size = 'large', className }: ActorListProps) => {
     return (
         <>
             {actors.map((actor) => (
