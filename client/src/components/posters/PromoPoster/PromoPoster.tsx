@@ -1,35 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import style from './PromoPoster.module.scss';
-import IPromoFilm from "@/models/IPromoFilm";
+import IMovie from "@/models/IMovie";
 import ButtonUI from "@/components/UI/Button/ButtonUI";
 
 interface PromoPosterProps {
-    film: IPromoFilm
+    movie: IMovie
     className: string
 }
 
-const PromoPoster = ({ film, className }: PromoPosterProps) => {
+const PromoPoster = ({ movie, className }: PromoPosterProps) => {
     return (
         <div className={[style.promoPoster, className].join(' ')}>
             <Image
                 className={style.promoPoster__image}
-                src={film.image}
-                alt={film.name}
-                width={1216}
-                height={524} />
+                src={movie.image}
+                alt={movie.name}
+                fill />
             <Link className={style.promoPoster__link} href="/">
                 <div className={style.promoPoster__content}>
                     <div className={style.promoPoster__logoContainer}>
                         <Image
                             className={style.logo}
-                            src={film.logo}
-                            alt={film.name}
+                            src={movie.logo}
+                            alt={movie.name}
                             width={486}
                             height={100} />
                     </div>
                     <div className={style.promoPoster__synopsis}>
-                        {film.synopsis}
+                        {movie.synopsis}
                     </div>
                 </div>
                 <div className={style.promoPoster__buttonContainer}>

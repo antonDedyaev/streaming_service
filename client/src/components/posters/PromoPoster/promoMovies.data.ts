@@ -1,6 +1,6 @@
-import IPromoFilm from "@/models/IPromoFilm";
+import IMovie from "@/models/IMovie";
 
-export const films: IPromoFilm[] = [
+export const movies: IMovie[] = [
     {
         name: 'сыщицы',
         image: 'https://thumbs.dfs.ivi.ru/storage33/contents/e/a/29d4105d2daaddc1591c6542d0571f.jpg/1216x524/?q=85',

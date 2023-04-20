@@ -1,20 +1,37 @@
+import IMovie from '@/models/IMovie';
 import PreviewPoster from '../PreviewPoster/PreviewPoster';
+import RatingPoster from '../RatingPoster/RatingPoster';
+import PromoPoster from '../PromoPoster/PromoPoster';
 import style from './PostersList.module.scss';
 
 interface PostersListProps {
-    posters: number[]
+    posterType: 'preview' | 'rating' | 'promo'
+    movies: IMovie[]
     className: string
 }
 
-const PostersList = ({ posters, className }: PostersListProps) => {
+const PostersList = ({ posterType, movies, className }: PostersListProps) => {
     return (
         <>
-            {posters.map(poster => (
-                <PreviewPoster 
-                    key={poster}
-                    className={className}
-                />
-            ))}
+            <ul>
+                {movies.map(movie => (
+                    <li key={movie.name}>
+                        {
+                            posterType === 'preview' && <PreviewPoster className={className} movie={movie} /> ||
+                            posterType === 'rating' && <RatingPoster className={className} movie={movie} /> ||
+                            posterType === 'promo' && <PromoPoster className={className} movie={movie} />
+                        }
+                    </li>
+                ))}
+            </ul>
+            
+            <style jsx>
+                {`
+                    ul {
+                        display: flex;
+                    }
+                `}
+            </style>
         </>
     )
 }
