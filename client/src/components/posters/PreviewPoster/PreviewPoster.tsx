@@ -1,6 +1,6 @@
-import AgeBadge from "@/components/UI/badges/AgeBadge";
-import PriceBadge from "@/components/UI/badges/PriceBadge";
-import PreviewPosterProperties from "./PreviewPosterProperties";
+import AgeBadge from "@/components/UI/badges/AgeBadge/AgeBadge";
+import PriceBadge from "@/components/UI/badges/PriceBadge/PriceBadge";
+import PreviewPosterContent from "../PreviewPosterContent/PreviewPosterContent";
 import Image from "next/image";
 import Link from "next/link";
 import style from './PreviewPoster.module.scss';
@@ -13,14 +13,14 @@ function PreviewPoster({ className }: PreviewPosterProps) {
     return (
         <div className={[style.previewPoster, className].join(' ')}>
             <Link href="/">
-                <div className={style.block_image}>
+                <div className={[style.block, style.block_image].join(' ')}>
                     <div className={style.imageWrapper}>
                         <Image
                             className={style.previewPoster__image} 
                             src="" 
                             alt="" />
                     </div>
-                    <PreviewPosterProperties />
+                    <PreviewPosterContent />
                     <AgeBadge value="18" />
                 </div>
 

@@ -1,9 +1,7 @@
 import styles from './MovieInfo.module.scss';
 import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
 import TextLinkUI from '@/components/UI/TextLink/TextLinkUI';
-import AgeBadge from '@/components/UI/badges/AgeBadge';
-import PriceBadge from '@/components/UI/badges/PriceBadge';
-import TextBadge from '@/components/UI/badges/TextBadge';
+import TextBadge from '@/components/UI/badges/TextBadge/TextBadge';
 import Image from 'next/image';
 import soundIcon from '@/../public/icons/sound.png';
 import subtitlesIcon from '@/../public/icons/subtitles.png';
