@@ -6,7 +6,6 @@
 
     height: 450px;
     width: 200px;
-    margin: 20px;
 
     &:hover {
         cursor: pointer;
@@ -36,12 +35,14 @@
 
 .logo {
     position: absolute;
-    left: 24px;
+    left: 50%;
+    transform: translate(-50%);
     bottom: 94px;
 }
 
 .placeNumber {
     position: absolute;
     bottom: 13px;
-    left: 76px;
+    left: 50%;
+    transform: translate(-50%);
 }

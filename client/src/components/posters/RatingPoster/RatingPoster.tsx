@@ -15,7 +15,7 @@ const RatingPoster = ({ movie, className }: RatingPosterProps) => {
                 <div className={style.imageWrapper}>
                     <Image
                         className={style.ratingPoster__image}
-                        width={200}
+                        width={250}
                         height={410}
                         src={movie.image} 
                         alt={movie.name} />
