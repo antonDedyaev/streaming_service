@@ -3,7 +3,7 @@ import styles from './MoviesSlider.module.scss';
 import { useWindowSize } from '@/hooks/useWindowResize/useWindowSize';
 import ArrowButton from '../../UI/ArrowButton/ArrowButtonUI';
 import { useMoviesCount } from '@/hooks/useMoviesCount/useMoviesCount';
-import { IActor } from '@/models/IActor';
+import IActor from '@/models/IActor';
 import ActorList from '@/components/actor/ActorList/ActorList';
 import PostersList from '@/components/posters/PostersList/PostersList';
 
