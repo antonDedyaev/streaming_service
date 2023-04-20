@@ -1,3 +1,4 @@
+import IMovie from "@/models/IMovie";
 import Image from "next/image";
 import bookmark from '../../../../public/icons/postersIcons/bookmark.png';
 import wand from '../../../../public/icons/postersIcons/wand.png';
@@ -5,7 +6,11 @@ import star from '../../../../public/icons/postersIcons/star.png';
 import circle from '../../../../public/icons/postersIcons/circle.png';
 import style from './PreviewPosterContent.module.scss';
 
-function PreviewPosterContent() {
+interface PreviewPosterContentProps {
+    movie: IMovie
+}
+
+const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
     return (
         <div className={style.content}>
             <div className={style.content__icons}>

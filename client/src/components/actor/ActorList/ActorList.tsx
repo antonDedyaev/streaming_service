@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import ActorItem from '../ActorItem/ActorItem';
 
-import { IActor } from './Temp/IActor';
+import IActor from '../../../models/IActor';
 
 interface ActorListProps {
     actors: IActor[];

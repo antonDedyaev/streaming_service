@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import style from './RatingPoster.module.scss';
-import { IRatingFilm } from "../PostersList/RatingPostersList/RatingPostersList";
+import IMovie from "@/models/IMovie";
 
 interface RatingPosterProps {
-    film: IRatingFilm
+    movie: IMovie
     className: string
 }
 
-function RatingPoster({ film, className }: RatingPosterProps) {
+const RatingPoster = ({ movie, className }: RatingPosterProps) => {
     return (
         <div className={[style.ratingPoster, className].join(' ')}>
             <Link href="/">
@@ -17,8 +17,8 @@ function RatingPoster({ film, className }: RatingPosterProps) {
                         className={style.ratingPoster__image}
                         width={200}
                         height={410}
-                        src={film.image} 
-                        alt={film.name} />
+                        src={movie.image} 
+                        alt={movie.name} />
                     <div className={style.fadeArea}></div>
                 </div>
                 <div className={style.contentWrapper}>
@@ -27,14 +27,14 @@ function RatingPoster({ film, className }: RatingPosterProps) {
                         className={style.logo}
                         width={153}
                         height={40}
-                        src={film.logo}
-                        alt={film.name} />
+                        src={movie.logo}
+                        alt={movie.name} />
                     <Image 
                         className={style.placeNumber}
                         width={48}
                         height={66}
-                        src={`https://solea-parent.dfs.ivi.ru/picture/bypass/number${film.place}.svg`}
-                        alt={`${film.place}`} />    
+                        src={`https://solea-parent.dfs.ivi.ru/picture/bypass/number${movie.place}.svg`}
+                        alt={`${movie.place}`} />    
                 </div>
             </Link>
         </div>

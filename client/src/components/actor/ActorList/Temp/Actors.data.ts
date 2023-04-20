@@ -1,4 +1,4 @@
-import { IActor } from './IActor';
+import IActor from '../../../../models/IActor';
 
 export const actors: IActor[] = [
   {
