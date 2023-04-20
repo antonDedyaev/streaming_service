@@ -9,7 +9,7 @@ interface PreviewPosterProps {
     className: string
 }
 
-function PreviewPoster({ className }: PreviewPosterProps) {
+const PreviewPoster = ({ className }: PreviewPosterProps) => {
     return (
         <div className={[style.previewPoster, className].join(' ')}>
             <Link href="/">

@@ -1,4 +1,4 @@
-import { IRatingFilm } from "../PostersList/RatingPostersList/RatingPostersList";
+import IRatingFilm from "@/models/IRatingFilm"
 
 export const films: IRatingFilm[] = [
     {

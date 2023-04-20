@@ -5,7 +5,7 @@ import star from '../../../../public/icons/postersIcons/star.png';
 import circle from '../../../../public/icons/postersIcons/circle.png';
 import style from './PreviewPosterContent.module.scss';
 
-function PreviewPosterContent() {
+const PreviewPosterContent = () => {
     return (
         <div className={style.content}>
             <div className={style.content__icons}>

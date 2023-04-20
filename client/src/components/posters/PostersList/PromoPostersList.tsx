@@ -1,18 +1,18 @@
-import RatingPoster from '../../RatingPoster/RatingPoster';
-import IRatingFilm from '@/models/IRatingFilm';
+import PromoPoster from '../PromoPoster/PromoPoster';
+import IPromoFilm from '@/models/IPromoFilm';
 
-interface RatingPostersListProps {
-    films: IRatingFilm[]
+interface PromoPostersListProps {
+    films: IPromoFilm[]
     className: string
 }
 
-const RatingPostersList = ({ films, className }: RatingPostersListProps) => {
+const PromoPostersList = ({ films, className }: PromoPostersListProps) => {
     return (
         <>
             <ul>
                 {films.map(film => (
                     <li key={film.name}>
-                        <RatingPoster 
+                        <PromoPoster 
                             className={className}
                             film={film}
                         />
@@ -31,4 +31,4 @@ const RatingPostersList = ({ films, className }: RatingPostersListProps) => {
     )
 }
 
-export default RatingPostersList
+export default PromoPostersList

@@ -4,7 +4,7 @@ interface TextBadgeProps {
     text: string
 }
 
-function TextBadge({text}: TextBadgeProps) {
+const TextBadge = ({text}: TextBadgeProps) => {
     return (
         <div className={style.textBadge}>
             {text}

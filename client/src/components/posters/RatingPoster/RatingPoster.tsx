@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import style from './RatingPoster.module.scss';
-import { IRatingFilm } from "../PostersList/RatingPostersList/RatingPostersList";
+import IRatingFilm from "@/models/IRatingFilm";
 
 interface RatingPosterProps {
     film: IRatingFilm
     className: string
 }
 
-function RatingPoster({ film, className }: RatingPosterProps) {
+const RatingPoster = ({ film, className }: RatingPosterProps) => {
     return (
         <div className={[style.ratingPoster, className].join(' ')}>
             <Link href="/">

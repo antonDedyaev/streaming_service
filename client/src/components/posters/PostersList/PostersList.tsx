@@ -6,7 +6,7 @@ interface PostersListProps {
     className: string
 }
 
-function PostersList({ posters, className }: PostersListProps) {
+const PostersList = ({ posters, className }: PostersListProps) => {
     return (
         <>
             {posters.map(poster => (
