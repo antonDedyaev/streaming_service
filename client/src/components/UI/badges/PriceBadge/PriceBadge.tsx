@@ -4,7 +4,7 @@ interface PriceBageProps {
     priceType: 'free' | 'subscription' | 'purchase'
 }
 
-function PriceBadge({priceType}: PriceBageProps) {
+const PriceBadge = ({priceType}: PriceBageProps) => {
     return (
         <div className={[styles.price_badge, styles[priceType]].join(' ')}>
                 {

@@ -8,7 +8,7 @@ describe('USE WINDOW SIZE TESTS' ,() => {
     test('useWindowSize should return defined value', () => {
         // arrange
         render(
-            HomePage()
+            <HomePage/>
         )
         const { result } = renderHook(() => useWindowSize())
         

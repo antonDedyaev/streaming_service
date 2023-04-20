@@ -1,29 +1,34 @@
-import { useEffect, useState } from 'react';
-import styles from './MoviesSlider.module.scss';
+import React, { ReactNode, useEffect, useState } from 'react';
+import styles from './Slider.module.scss';
+import ArrowButton from '../UI/ArrowButton/ArrowButtonUI';
 import { useWindowSize } from '@/hooks/useWindowResize/useWindowSize';
-import ArrowButton from '../../UI/ArrowButton/ArrowButtonUI';
 import { useMoviesCount } from '@/hooks/useMoviesCount/useMoviesCount';
-import { IActor } from '@/components/actor/ActorList/Temp/IActor';
-import ActorList from '@/components/actor/ActorList/ActorList';
-import PostersList from '@/components/posters/PostersList/PostersList';
+import { useRatingCount } from '@/hooks/useRatingCount/useRatingCount';
 
-interface MoviesSliderProps {
-    actors?: IActor[];
-    movies?: number[];
+interface SliderProps {
+    itemType: 'actor' | 'preview' | 'rating' | 'promo' | 'other';
+    children: ReactNode;
+    length: number;
 }
 
-function MoviesSlider({ actors, movies }: MoviesSliderProps) {
-    const list = actors ?? movies!;
-
+export const Slider = ({ itemType, children, length }: SliderProps) => {
     const windowWidth = useWindowSize();
     const [position, setPosition] = useState<number>(0);
-    const moviesCount = useMoviesCount(windowWidth);
+
+    const listCount =
+        itemType === 'actor' || itemType === 'preview'
+            ? useMoviesCount(windowWidth)
+            : itemType === 'rating'
+            ? useRatingCount(windowWidth)
+            : itemType === 'promo'
+            ? 1
+            : 2;
 
     const minPosition = 0;
-    const maxPosition = (-100 / moviesCount) * list.length + 100;
+    const maxPosition = (-100 / listCount) * length + 100;
 
     const leftHandler = () => {
-        const newPosition = position + (100 / moviesCount) * (moviesCount - 1);
+        const newPosition = itemType !== 'promo' ? position + (100 / listCount) * (listCount - 1) : position + 100;
 
         if (newPosition > minPosition) {
             setPosition(minPosition);
@@ -33,7 +38,7 @@ function MoviesSlider({ actors, movies }: MoviesSliderProps) {
     };
 
     const rightHandler = () => {
-        const newPosition = position - (100 / moviesCount) * (moviesCount - 1);
+        const newPosition = itemType !== 'promo' ? position - (100 / listCount) * (listCount - 1) : position - 100;
 
         if (newPosition < maxPosition) {
             setPosition(maxPosition);
@@ -44,7 +49,7 @@ function MoviesSlider({ actors, movies }: MoviesSliderProps) {
 
     useEffect(() => {
         setPosition(minPosition);
-    }, [moviesCount]);
+    }, [listCount]);
 
     return (
         <div className="container">
@@ -59,19 +64,7 @@ function MoviesSlider({ actors, movies }: MoviesSliderProps) {
                 )}
 
                 <div className={[styles.container__contentContainer].join(' ')}>
-                    <div className={[styles.container__content, 'content'].join(' ')}>
-                        {actors && (
-                            <ActorList
-                                actors={actors}
-                                role={false}
-                                effect={true}
-                                amt={true}
-                                size="large"
-                                className={styles.container__item}
-                            />
-                        )}
-                        {movies && <PostersList posters={movies} className={styles.container__item} />}
-                    </div>
+                    <div className={[styles.container__content, 'content'].join(' ')}>{children}</div>
                 </div>
 
                 {position > maxPosition && (
@@ -95,4 +88,4 @@ function MoviesSlider({ actors, movies }: MoviesSliderProps) {
     );
 }
 
-export default MoviesSlider;
+export default Slider;

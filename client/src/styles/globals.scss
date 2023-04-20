@@ -5,6 +5,11 @@ body {
     letter-spacing: 0.5px;
 }
 
+body.modal-active {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
 .container {
     max-width: 1300px;
     margin: 0 auto;

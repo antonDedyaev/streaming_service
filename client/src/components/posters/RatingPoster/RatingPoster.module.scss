@@ -1,0 +1,48 @@
+.ratingPoster {
+    position: relative;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    overflow: hidden;
+
+    height: 450px;
+    width: 200px;
+
+    &:hover {
+        cursor: pointer;
+        transform-origin: bottom;
+        transform: scale(102%, 102%);
+        transition-duration: .3s;
+    }
+
+    &:not(:hover) {
+        transition-duration: .3s;
+    }
+}
+
+.imageWrapper {
+    height: 410px;
+    position: relative;
+}
+
+.fadeArea {
+    position: absolute;
+    height: 243px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(0deg, #100e19, rgba(16,14,25,0));
+}
+
+.logo {
+    position: absolute;
+    bottom: 94px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.placeNumber {
+    position: absolute;
+    bottom: 13px;
+    left: 50%;
+    transform: translate(-50%);
+}

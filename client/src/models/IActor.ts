@@ -1,4 +1,4 @@
-export interface IActor {
+export default interface IActor {
 	id: number;
 	img: string;
 	amtMovies: number;

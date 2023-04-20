@@ -4,7 +4,7 @@ interface AgeBageProps {
     value: string
 }
 
-function AgeBadge({value}: AgeBageProps) {
+const AgeBadge = ({value}: AgeBageProps) => {
     return (
         <div className={styles.age_badge}>
             {value}+

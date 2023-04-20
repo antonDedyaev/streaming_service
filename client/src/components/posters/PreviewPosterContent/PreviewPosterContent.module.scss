@@ -1,4 +1,4 @@
-.properties {
+.content {
     position: absolute;
     top: 0;
     left: 0;
@@ -39,23 +39,8 @@
 }
 
 .rating {
-    &__row {
-        display: flex;
-        flex-direction: row;
-        align-items: baseline;
-        margin-bottom: 8px;
-    }
-
-    &__column {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 8px;
-    }
-
-    &__value {
-        &_integer { font-size: 24px; }
-        &_fraction { font-size: 20px; }
-    }
+    &_integer { font-size: 24px; }
+    &_fraction { font-size: 20px; }
 }
 
 .icon_favorite,
