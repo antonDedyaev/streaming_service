@@ -3,11 +3,12 @@ import styles from './LinkUI.module.scss';
 
 interface LinkUIProps {
     children: ReactNode;
-    linkTo?: string;
+    href: string;
     shape: 'rectangular' | 'square' | 'round';
+    className?: string;
 }
 
-const LinkUI = ({ children, linkTo, shape }: LinkUIProps) => {
+const LinkUI = ({ children, href, shape, className }: LinkUIProps) => {
     const linkFormClass =
         shape === 'round'
             ? styles.link__wrapper_round
@@ -17,8 +18,8 @@ const LinkUI = ({ children, linkTo, shape }: LinkUIProps) => {
 
     return (
         <a
-            href={linkTo}
-            className={[styles.link__wrapper, linkFormClass].join(' ')}
+            href={href}
+            className={[styles.link__wrapper, linkFormClass, className].join(' ')}
             target="blank"
             role="link-to-media"
         >

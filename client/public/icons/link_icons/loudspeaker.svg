@@ -1,0 +1,11 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
+<svg fill="#ffffff" width="800px" height="800px" viewBox="-2.4 -2.4 28.80 28.80" id="mute-4" data-name="Line Color" xmlns="http://www.w3.org/2000/svg" class="icon line-color" transform="matrix(-1, 0, 0, 1, 0, 0)">
+<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="SVGRepo_iconCarrier">
+<polyline id="primary" points="7 10.72 7 3 12.26 6.84" style="fill: none; stroke: #ffffff; stroke-linecap: round; stroke-linejoin: round; stroke-width:1.3679999999999999;"/>
+<path id="primary-2" data-name="primary" d="M7,15.68V21l6.84-5H18a1,1,0,0,0,1-1V9a1,1,0,0,0-1-1h-.57Z" style="fill: none; stroke: #ffffff; stroke-linecap: round; stroke-linejoin: round; stroke-width:1.3679999999999999;"/>
+<line id="secondary" x1="3" y1="18.63" x2="21" y2="5.37" style="fill: none; stroke: #ffffffff; stroke-linecap: round; stroke-linejoin: round; stroke-width:1.3679999999999999;"/>
+</g>
+</svg>

@@ -2,8 +2,17 @@
     border-radius: 8px;
     color: #fff;
     font-weight: 500;
-    transition: .4s;
+    transition: 0.4s;
     font-size: 15px;
     border: none;
     cursor: pointer;
+
+    &:hover:not(:active) {
+        transition-duration: 80ms;
+    }
+
+    &:active {
+        background-color: #0e0c14;
+        border-color: #0e0c14;
+    }
 }

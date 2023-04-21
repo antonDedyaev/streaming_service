@@ -13,9 +13,9 @@ const PostersList = ({ posterType, movies }: PostersListProps) => {
     return (
         <>
             {movies.map(movie => (
-                posterType === 'preview' && <PreviewPoster className={styles.previewItem} movie={movie} /> ||
-                posterType === 'rating' && <RatingPoster className={styles.ratingItem} movie={movie} /> ||
-                posterType === 'promo' && <PromoPoster className={styles.promoItem} movie={movie} />
+                posterType === 'preview' && <PreviewPoster key={movie.name} className={styles.previewItem} movie={movie} /> ||
+                posterType === 'rating' && <RatingPoster key={movie.name} className={styles.ratingItem} movie={movie} /> ||
+                posterType === 'promo' && <PromoPoster key={movie.name} className={styles.promoItem} movie={movie} />
             ))}
         </>
     )

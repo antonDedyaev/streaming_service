@@ -1,5 +1,7 @@
 import styles from './FilmographyItem.module.scss';
 import ButtonUI from '@/components/UI/Button/ButtonUI';
+import Image from 'next/image';
+import poster_1 from './test_posters/poster_1.jpeg';
 
 interface FilmographyItemProps {
     poster: string;
@@ -16,11 +18,12 @@ const FilmographyItem = ({ poster, year, title, rating }: FilmographyItemProps) 
                 <div className={styles.filmographyItem__poster}>
                     <div>
                         <div className={styles.poster__imageWrapper}>
-                            <img
-                                className={styles.poster__image}
-                                data-stub="false"
+                            <Image
                                 /*poster*/
-                                src="https://thumbs.dfs.ivi.ru/storage33/contents/9/2/0d4770a42abfc5ec8139d3e9cedbb6.jpg/172x264/?q=60"
+                                src={poster_1}
+                                height={123}
+                                width={80}
+                                alt={`Постер ${title}`}
                             />
                         </div>
                     </div>
@@ -46,7 +49,7 @@ const FilmographyItem = ({ poster, year, title, rating }: FilmographyItemProps) 
                                 className={styles.filmographyItem__action__text}
                                 background="gray"
                             >
-                                {/*В зависимости от наличия лицензии на показ в стране*/}
+                                {/*Оставляем один вариант кнопки*/}
                                 Подробнее
                             </ButtonUI>
                             <div className={styles.filmographyItem__action__text}></div>

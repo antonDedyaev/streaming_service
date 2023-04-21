@@ -1,6 +1,6 @@
 import styles from './MovieParams.module.scss';
 import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
-import TextLinkUI from '../../UI/TextLink/TextLinkUI';
+import TextLinkUI from '../../UI/links/TextLink/TextLinkUI';
 import TextBadge from '../../UI/badges/TextBadge/TextBadge';
 import Image from 'next/image';
 import soundIcon from '../../../../public/icons/sound.png';
