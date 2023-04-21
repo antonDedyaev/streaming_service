@@ -2,7 +2,7 @@
 
 exports[`ACTORITEM SNAPSHOTS TESTS large ActorItem should not be changed 1`] = `
 <a
-  class="container  containerlarge"
+  class="container  container_large"
   href="/"
 >
   <div
@@ -50,7 +50,7 @@ exports[`ACTORITEM SNAPSHOTS TESTS large ActorItem should not be changed 1`] = `
 
 exports[`ACTORITEM SNAPSHOTS TESTS medium ActorItem should not be changed 1`] = `
 <a
-  class="container  containermedium"
+  class="container  container_medium"
   href="/"
 >
   <div
@@ -98,7 +98,7 @@ exports[`ACTORITEM SNAPSHOTS TESTS medium ActorItem should not be changed 1`] = 
 
 exports[`ACTORITEM SNAPSHOTS TESTS small ActorItem should not be changed 1`] = `
 <a
-  class="container  containersmall"
+  class="container  container_small"
   href="/"
 >
   <div

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOVIERATING SNAPSHOTS TESTS MovieRating should not be changed 1`] = `
+<div
+  class="rating"
+  role="div-rating"
+>
+  <div
+    class="rating__value rating__value_good"
+  >
+    9.5
+  </div>
+  <div
+    class="rating__text"
+  >
+    <span>
+      Рейтинг
+    </span>
+    <span>
+      Интересный сюжет
+    </span>
+    <span>
+      118 163 оценки
+    </span>
+  </div>
+  <div
+    class="rating__estimate"
+  >
+    Оценить
+  </div>
+</div>
+`;

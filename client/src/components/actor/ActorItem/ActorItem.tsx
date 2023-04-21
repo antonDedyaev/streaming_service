@@ -11,12 +11,12 @@ interface ActorItemProps {
     role?: boolean;
     effect?: boolean;
     amt?: boolean;
-    size: 'large' | 'medium' | 'small';
+    size?: 'large' | 'medium' | 'small';
 }
 
 const ActorItem = ({ className, href, actor, amt, role, effect, size }: ActorItemProps) => {
     return (
-        <Link href={href} className={[styles.container, className, styles[`container${size}`]].join(' ')}>
+        <Link href={href} className={[styles.container, className, styles[`container_${size}`]].join(' ')}>
             <div
                 className={[
                     styles.imageSection,

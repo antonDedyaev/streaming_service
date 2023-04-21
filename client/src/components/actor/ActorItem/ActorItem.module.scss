@@ -4,6 +4,7 @@
 
     &_large {
         max-width: 153px;
+        padding-right: 15.85px;
         @media (max-width: 1270px) {
             max-width: 181px;
         }
@@ -17,6 +18,7 @@
             max-width: 211px;
         }
         @media (max-width: 600px) {
+            padding-right: 16px;
             max-width: 116px;
         }
         @media (max-width: 512px) {
@@ -54,7 +56,6 @@
 
         &_large {
             width: 153px;
-
             @media (max-width: 1270px) {
                 width: 181px;
             }

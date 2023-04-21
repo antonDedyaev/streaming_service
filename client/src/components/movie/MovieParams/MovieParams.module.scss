@@ -1,0 +1,64 @@
+.params {
+    width: 100%;
+
+    &__list {
+        display: flex;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.8);
+
+        @media (max-width: 1159px) {
+            justify-content: start;
+        }
+        @media (max-width: 879px) {
+            justify-content: center;
+        }
+
+        &Item {
+            position: relative;
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: 400;
+            display: inline-flex;
+            vertical-align: top;
+
+            &:not(:first-child)::before {
+                content: '';
+                width: 8px;
+                display: inline-block;
+            }
+
+            &_point {
+                display: inline-flex;
+                align-items: center;
+            }
+            &_point::before {
+                content: '';
+                text-align: center;
+            }
+
+            &_point:not(:first-child)::before {
+                width: 2px;
+                height: 2px;
+                background-color: rgba(255, 255, 255, 0.72);
+                margin-left: 6px;
+                margin-right: 6px;
+                margin-bottom: 3px;
+            }
+        }
+
+        &Icon {
+            width: 15px;
+            height: 15px;
+            margin-left: 6px;
+            margin-right: -5px;
+        }
+
+        &:not(:first-child) {
+            margin-top: 4px;
+        }
+    }
+}

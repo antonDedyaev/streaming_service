@@ -13,7 +13,7 @@ const TextLinkUI = ({ href, children, option, className, onMouseOver }: TextLink
     return (
         <Link
             href={href}
-            className={[styles.link, styles[`link_${option}`], className].join(' ')}
+            className={[styles.link, styles[`link_${option}`], className].join(' ').trim()}
             onMouseOver={() => (onMouseOver ? onMouseOver() : '')}
         >
             {children}

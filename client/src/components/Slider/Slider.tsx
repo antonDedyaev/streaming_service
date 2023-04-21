@@ -86,6 +86,6 @@ export const Slider = ({ itemType, children, length }: SliderProps) => {
             </style>
         </div>
     );
-}
+};
 
 export default Slider;

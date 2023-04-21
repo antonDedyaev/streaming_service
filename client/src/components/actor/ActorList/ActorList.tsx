@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
 import ActorItem from '../ActorItem/ActorItem';
-import styles from './ActorList.module.scss'
+import styles from './ActorList.module.scss';
 import IActor from '../../../models/IActor';
 
 interface ActorListProps {
@@ -20,10 +19,10 @@ const ActorList = ({ actors, amt, role, effect, size }: ActorListProps) => {
                     className={styles.item}
                     href="/"
                     actor={actor}
-                    amt={amt ?? true}
-                    effect={effect ?? true}
-                    role={role ?? true}
-                    size={size ?? 'large'}
+                    amt={amt}
+                    effect={effect}
+                    role={role}
+                    size={size}
                 />
             ))}
         </>
