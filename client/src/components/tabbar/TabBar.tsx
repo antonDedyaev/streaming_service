@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import styles from './TabBar.module.scss';
 import TabBarLinkUI from '../UI/links/TabBarLink/TabBarLinkUI';
-import homeIcon from '../../../public/icons/tabbar_icons/home.svg';
-import catalogueIcon from '../../../public/icons/tabbar_icons/catalogue.svg';
-import magnifyingGlass from '../../../public/icons/tabbar_icons/magnifying_glass.svg';
-import monitorIcon from '../../../public/icons/tabbar_icons/monitor.svg';
-import dotsIcon from '../../../public/icons/tabbar_icons/dots.svg';
+import homeIcon from '../../../public/icons/tabbar/home.svg';
+import catalogueIcon from '../../../public/icons/tabbar/catalogue.svg';
+import magnifyingGlass from '../../../public/icons/tabbar/magnifying_glass.svg';
+import monitorIcon from '../../../public/icons/tabbar/monitor.svg';
+import dotsIcon from '../../../public/icons/tabbar/dots.svg';
 
 const TabBar: FC = () => {
     return (

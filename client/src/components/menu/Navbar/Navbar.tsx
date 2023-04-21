@@ -6,7 +6,7 @@ import bellIcon from '@/../public/icons/bell.svg';
 import userIcon from '@/../public/icons/user.svg';
 import MenuList from '@/components/menu/MenuList/MenuList';
 import styles from '@/components/menu/Navbar/Navbar.module.scss';
-import ButtonUI from '@/components/UI/Button/ButtonUI';
+import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import DropMenu from '../DropMenu/DropMenu';
 import { useEffect, useState } from 'react';
 
@@ -24,25 +24,25 @@ function Navbar({ page }: NavbarProps) {
         setIsShowMoviesDrop(false);
         setIsShowSeriesDrop(false);
         setIsShowCartoonDrop(false);
-    }
+    };
 
     const mouseOverMovieHandler = () => {
-        clearShowHandler()
+        clearShowHandler();
         setIsShowMoviesDrop(true);
     };
 
     const mouseOverSeriesHandler = () => {
-        clearShowHandler()
+        clearShowHandler();
         setIsShowSeriesDrop(true);
     };
 
     const mouseOverСartoonHandler = () => {
-        clearShowHandler()
+        clearShowHandler();
         setIsShowCartoonDrop(true);
     };
 
     const clearMouseHandlers = (event: React.MouseEvent<HTMLDivElement>) => {
-        clearShowHandler()
+        clearShowHandler();
     };
 
     useEffect(() => {
@@ -69,15 +69,15 @@ function Navbar({ page }: NavbarProps) {
                 <MenuList
                     className={styles.container__menu}
                     links={[
-                        { 
-                            href: '/', 
+                        {
+                            href: '/',
                             text: 'Мой Иви',
-                            onMouseOver: clearShowHandler
+                            onMouseOver: clearShowHandler,
                         },
-                        { 
-                            href: '/', 
+                        {
+                            href: '/',
                             text: 'Что нового',
-                            onMouseOver: clearShowHandler
+                            onMouseOver: clearShowHandler,
                         },
                         {
                             href: '/',
@@ -97,23 +97,23 @@ function Navbar({ page }: NavbarProps) {
                             onMouseOver: mouseOverСartoonHandler,
                             className: [styles.container__menuLink, styles.container__menuLink_cartoon].join(' '),
                         },
-                        { 
-                            href: '/', 
+                        {
+                            href: '/',
                             text: 'TV+',
-                            onMouseOver: clearShowHandler
+                            onMouseOver: clearShowHandler,
                         },
                     ]}
                 />
 
                 <div className={styles.container__rightSide}>
-                    <ButtonUI className={styles.container__button} background="lightRed" variant="small">
+                    <ButtonUI background="lightRed" shape="small" className={styles.container__button}>
                         Смотреть 30 дней бесплатно
                     </ButtonUI>
 
-                    <button className={styles.container__search}>
+                    <ButtonUI background="transparent" shape="small" className={styles.container__search}>
                         <Image className={styles.container__icon} src={searchIcon} alt="" />
                         <p className={styles.container__text}>Поиск</p>
-                    </button>
+                    </ButtonUI>
 
                     <Link href={'/'} className={[styles.container__link, styles.container__link_bell].join(' ')}>
                         <Image className={styles.container__icon} src={bellIcon} alt="Уведомления" />
@@ -123,7 +123,7 @@ function Navbar({ page }: NavbarProps) {
                         <Image
                             className={[styles.container__icon, styles.container__icon_user].join(' ')}
                             src={userIcon}
-                            alt="Уведомления"
+                            alt="Пользователь"
                         />
                     </Link>
                 </div>
@@ -133,116 +133,113 @@ function Navbar({ page }: NavbarProps) {
                         ' ',
                     )}
                     content={
-                        isShowMoviesDrop ?
-                        [
-                            {
-                                title: 'Жанры',
-                                genres: [
-                                    { name: 'фильм', href: '/' },
-                                    { name: 'фильм', href: '/' },
-                                    { name: 'фильм', href: '/' },
-                                    { name: 'фильм', href: '/' },
-                                    { name: 'фильм', href: '/' },
-                                    { name: 'фильм', href: '/' },
-                                ],
-                            },
-                            {
-                                title: 'Страны',
-                                genres: [
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                ],
-                            },
-                            {
-                                title: 'Годы',
-                                genres: [
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                ],
-                            },
-                        ]
-                        :
-                        isShowSeriesDrop
-                        ?
-                        [
-                            {
-                                title: 'Жанры',
-                                genres: [
-                                    { name: 'Сериал', href: '/' },
-                                    { name: 'Сериал', href: '/' },
-                                    { name: 'Сериал', href: '/' },
-                                    { name: 'Сериал', href: '/' },
-                                    { name: 'Сериал', href: '/' },
-                                    { name: 'Сериал', href: '/' },
-                                ],
-                            },
-                            {
-                                title: 'Страны',
-                                genres: [
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                ],
-                            },
-                            {
-                                title: 'Годы',
-                                genres: [
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                ],
-                            },
-                        ]
-                        :
-                        [
-                            {
-                                title: 'Жанры',
-                                genres: [
-                                    { name: 'Мультик', href: '/' },
-                                    { name: 'Мультик', href: '/' },
-                                    { name: 'Мультик', href: '/' },
-                                    { name: 'Мультик', href: '/' },
-                                    { name: 'Мультик', href: '/' },
-                                    { name: 'Мультик', href: '/' },
-                                ],
-                            },
-                            {
-                                title: 'Страны',
-                                genres: [
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                    { name: 'Страна', href: '/' },
-                                ],
-                            },
-                            {
-                                title: 'Годы',
-                                genres: [
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                    { name: 'Год', href: '/' },
-                                ],
-                            },
-                        ]
+                        isShowMoviesDrop
+                            ? [
+                                  {
+                                      title: 'Жанры',
+                                      genres: [
+                                          { name: 'фильм', href: '/' },
+                                          { name: 'фильм', href: '/' },
+                                          { name: 'фильм', href: '/' },
+                                          { name: 'фильм', href: '/' },
+                                          { name: 'фильм', href: '/' },
+                                          { name: 'фильм', href: '/' },
+                                      ],
+                                  },
+                                  {
+                                      title: 'Страны',
+                                      genres: [
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                      ],
+                                  },
+                                  {
+                                      title: 'Годы',
+                                      genres: [
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                      ],
+                                  },
+                              ]
+                            : isShowSeriesDrop
+                            ? [
+                                  {
+                                      title: 'Жанры',
+                                      genres: [
+                                          { name: 'Сериал', href: '/' },
+                                          { name: 'Сериал', href: '/' },
+                                          { name: 'Сериал', href: '/' },
+                                          { name: 'Сериал', href: '/' },
+                                          { name: 'Сериал', href: '/' },
+                                          { name: 'Сериал', href: '/' },
+                                      ],
+                                  },
+                                  {
+                                      title: 'Страны',
+                                      genres: [
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                      ],
+                                  },
+                                  {
+                                      title: 'Годы',
+                                      genres: [
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                      ],
+                                  },
+                              ]
+                            : [
+                                  {
+                                      title: 'Жанры',
+                                      genres: [
+                                          { name: 'Мультик', href: '/' },
+                                          { name: 'Мультик', href: '/' },
+                                          { name: 'Мультик', href: '/' },
+                                          { name: 'Мультик', href: '/' },
+                                          { name: 'Мультик', href: '/' },
+                                          { name: 'Мультик', href: '/' },
+                                      ],
+                                  },
+                                  {
+                                      title: 'Страны',
+                                      genres: [
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                          { name: 'Страна', href: '/' },
+                                      ],
+                                  },
+                                  {
+                                      title: 'Годы',
+                                      genres: [
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                          { name: 'Год', href: '/' },
+                                      ],
+                                  },
+                              ]
                     }
                 />
             </div>

@@ -1,12 +1,12 @@
-import Head from "next/head";
-import { ReactNode } from "react";
-import Navbar from "../menu/Navbar/Navbar";
+import Head from 'next/head';
+import { ReactNode } from 'react';
+import Navbar from '../menu/Navbar/Navbar';
 
 interface MainContainerProps {
-    children: ReactNode
-    keywords: string[]
-    title: string
-    page: 'home' | 'other'
+    children: ReactNode;
+    keywords: string[];
+    title: string;
+    page: 'home' | 'other';
 }
 
 const MainContainer = ({ children, keywords, title, page }: MainContainerProps) => {
