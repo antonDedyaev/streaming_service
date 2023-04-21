@@ -3,7 +3,8 @@ import styles from '@/styles/pages/HomePage.module.scss';
 import { actors } from '@/components/actor/ActorList/Temp/Actors.data';
 import Navbar from '@/components/menu/Navbar/Navbar';
 import PostersList from '@/components/posters/PostersList/PostersList';
-import { movies } from '@/components/posters/RatingPoster/ratingMovies.data';
+import { promoMovies } from '@/components/posters/PromoPoster/promoMovies.data';
+import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.data';
 import ActorList from '@/components/actor/ActorList/ActorList';
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import { useState } from 'react';
@@ -23,16 +24,16 @@ function HomePage() {
                     <ActorList actors={actors} />
                 </Slider>
 
-                <Slider itemType="promo" length={movies.length}>
-                    <PostersList posterType="promo" movies={movies} />
+                <Slider itemType="promo" length={promoMovies.length}>
+                    <PostersList posterType="promo" movies={promoMovies} />
                 </Slider>
 
-                <Slider itemType="preview" length={movies.length}>
-                    <PostersList posterType="preview" movies={movies} />
+                <Slider itemType="preview" length={ratingMovies.length}>
+                    <PostersList posterType="preview" movies={ratingMovies} />
                 </Slider>
 
-                <Slider itemType="rating" length={movies.length}>
-                    <PostersList posterType="rating" movies={movies} />
+                <Slider itemType="rating" length={ratingMovies.length}>
+                    <PostersList posterType="rating" movies={ratingMovies} />
                 </Slider>
 
                 <button onClick={() => setIsShowModal(true)}>Показать модалку</button>
