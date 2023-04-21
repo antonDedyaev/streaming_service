@@ -5,7 +5,6 @@ import './Footer.module.scss';
 const meta: Meta<typeof Footer> = {
     title: 'Footer/Footer',
     component: Footer,
-    tags: ['autodocs'],
 };
 
 export default meta;
