@@ -1,5 +1,5 @@
 import styles from './FilmographyItem.module.scss';
-import ButtonUI from '@/components/UI/Button/ButtonUI';
+import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import Image from 'next/image';
 import poster_1 from './test_posters/poster_1.jpeg';
 

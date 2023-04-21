@@ -1,0 +1,112 @@
+.link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 85px;
+
+    &_disabled {
+        pointer-events: none;
+    }
+
+    &__content {
+        position: relative;
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.16);
+
+        @media (max-width: 599px) {
+            width: 44px;
+            height: 44px;
+        }
+    }
+
+    &__contentBlock {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        width: 44px;
+        height: 44px;
+        
+        @media (max-width: 599px) {
+            width: 36px;
+            height: 36px;
+        }
+    }
+
+    &__contentImg {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__contentImg img {
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    &__contentRating {
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 600;
+        color: #fff;
+
+        &_high {
+            background-color: #73a32f;  
+        }
+
+        @media (max-width: 599px) {
+            font-size: 13px;
+            line-height: 16px;
+            font-weight: 600;
+        }
+    }
+
+    &__caption {
+        position: relative;
+        max-width: 100%;
+
+        margin-top: 8px;
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 500;
+        height: 32px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.48);
+
+        @media (max-width: 599px) {
+            margin-top: 4px;
+            font-size: 10px;
+            line-height: 12px;
+            font-weight: 500;
+            height: 24px;
+        }
+    }
+
+    &:hover &__content {
+        background-color: rgba(255, 255, 255, 0.27);
+    }
+
+    &:hover &__caption {
+        color: #fff;
+    }
+
+    &:not(:hover) &__content,
+    &:not(:hover) &__caption {
+        transition-duration: 0.4s;
+    }
+}

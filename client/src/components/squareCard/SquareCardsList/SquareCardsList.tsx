@@ -1,5 +1,5 @@
 import styles from './SquareCardsList.module.scss';
-import SquareCard from '../SquareCard/SquareCard';
+import SquareCard from '../SquareCardItem/SquareCard';
 import { IMovie } from './Temp/IMovie';
 
 interface SquareCardsListProps {

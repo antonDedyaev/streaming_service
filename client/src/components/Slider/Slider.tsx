@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import styles from './Slider.module.scss';
-import ArrowButton from '../UI/ArrowButton/ArrowButtonUI';
-import { useWindowSize } from '@/hooks/useWindowResize/useWindowSize';
+import ArrowButton from '../UI/buttons/ArrowButton/ArrowButtonUI';
+import { useWindowSize } from '@/hooks/useWindowSize/useWindowSize';
 import { useMoviesCount } from '@/hooks/useMoviesCount/useMoviesCount';
 import { useRatingCount } from '@/hooks/useRatingCount/useRatingCount';
 
