@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LinksUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
+exports[`LinkUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
 <a
-  class="link__wrapper link__wrapper_rectangular"
-  href="#"
+  class="link__wrapper link__wrapper_rectangular iviFooter__storeLink"
+  href="#!"
   role="link-to-media"
   target="blank"
 >
@@ -11,10 +11,10 @@ exports[`LinksUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
     class="link__content"
   >
     <div
-      class="text__single"
+      class="iviFooter__storeLink_textSingle"
     >
       <img
-        alt="Devices logo"
+        alt="Иконка умных устройств"
         data-nimg="1"
         decoding="async"
         height="20"
@@ -30,9 +30,9 @@ exports[`LinksUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
 </a>
 `;
 
-exports[`LinksUI SNAPSHOT TESTS Round link should not be changed 1`] = `
+exports[`LinkUI SNAPSHOT TESTS Round link should not be changed 1`] = `
 <a
-  class="link__wrapper link__wrapper_round"
+  class="link__wrapper link__wrapper_round "
   href="https://t.me/official_iviru"
   role="link-to-media"
   target="blank"
@@ -42,7 +42,13 @@ exports[`LinksUI SNAPSHOT TESTS Round link should not be changed 1`] = `
   >
     <img
       alt="Логотип Telegram"
+      data-nimg="1"
+      decoding="async"
+      height="16"
+      loading="lazy"
       src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_telegram.svg"
+      style="color: transparent;"
+      width="16"
     />
   </div>
 </a>

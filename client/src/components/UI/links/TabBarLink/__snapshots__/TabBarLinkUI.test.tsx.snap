@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabBarLinkUI SNAPSHOT TEST TabBarLinkUI should not be changed 1`] = `
+<a
+  class="tabBar__item "
+  href=""
+  role="tab-link"
+>
+  <div
+    class="tabBar__itemGlow"
+  />
+  <div
+    class="tabBar__itemIcon"
+  >
+    <img
+      alt="Иконка Каталог"
+      data-nimg="1"
+      decoding="async"
+      height="20"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+      style="color: transparent;"
+      width="20"
+    />
+  </div>
+  <div
+    class="tabBar__itemCaption"
+  >
+    Каталог
+  </div>
+</a>
+`;
