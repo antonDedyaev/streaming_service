@@ -7,7 +7,6 @@ interface SpoilerUIProps {
     buttonTextColor?: 'bright' | 'faded';
     shownLines?: number;
     truncateFormat?: 'horizontal' | 'vertical';
-    className?: string;
 }
 
 const SpoilerUI = ({
@@ -16,7 +15,6 @@ const SpoilerUI = ({
     buttonTextColor = 'bright',
     shownLines = 2,
     truncateFormat = 'vertical',
-    className,
 }: SpoilerUIProps) => {
     const [isCollapsed, setIsCollapsed] = useState(true);
 
@@ -29,7 +27,7 @@ const SpoilerUI = ({
 
     return (
         <>
-            <div className={[styles.clause, className].join(' ').trim()} role="spoiler-wrapper">
+            <div className={styles.clause} role="spoiler-wrapper">
                 <div
                     id="text-wrapper"
                     data-testid="clipped-text"

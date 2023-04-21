@@ -1,7 +1,9 @@
 .info {
     position: relative;
-    z-index: 1;
     width: 37.5%;
+    @media (max-width: 1159px) {
+        width: 100%;
+    }
 
     &__title {
         margin: 8px 0px 20px;
@@ -11,6 +13,21 @@
         color: #fff;
         text-align: center;
         font-weight: 700;
+
+        @media (max-width: 1159px) {
+            margin: 0px 0px 20px;
+            font-size: 56px;
+            line-height: 56px;
+            text-align: start;
+        }
+        @media (max-width: 879px) {
+            text-align: center;
+        }
+        @media (max-width: 599px) {
+            margin: 0px 0px 16px;
+            font-size: 32px;
+            line-height: 36px;
+        }
     }
 
     &__title,
@@ -18,167 +35,50 @@
     &__cards,
     &__ratingBox {
         padding: 0px 12px;
+        @media (max-width: 599px) {
+            padding: 0px 8px;
+        }
+    }
+
+    &__ratingBox {
+        @media (max-width: 1159px) {
+            padding: 0px;
+            max-width: 722px;
+        }
+        @media (max-width: 879px) {
+            max-width: 100%;
+        }
     }
 
     &__params {
         width: 100%;
         margin-bottom: 24px;
-        text-align: center;
-
-        &List {
-            display: flex;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.8);
-
-            &Item {
-                position: relative;
-                font-size: 15px;
-                line-height: 20px;
-                font-weight: 400;
-                display: inline-flex;
-                vertical-align: top;
-
-                &:not(:first-child)::before {
-                    content: '';
-                    width: 8px;
-                    display: inline-block;
-                }
-
-                &_point {
-                    display: inline-flex;
-                    align-items: center;
-                }
-                &_point::before {
-                    content: '';
-                    text-align: center;
-                }
-
-                &_point:not(:first-child)::before {
-                    width: 2px;
-                    height: 2px;
-                    background-color: rgba(255, 255, 255, 0.72);
-                    margin-left: 6px;
-                    margin-right: 6px;
-                    margin-bottom: 3px;
-                }
-            }
-
-            &Icon {
-                width: 15px;
-                height: 15px;
-                margin-left: 6px;
-                margin-right: -5px;
-            }
-
-            &:not(:first-child) {
-                margin-top: 4px;
-            }
-        }
     }
 
     &__spoiler {
         width: 100%;
+
+        @media (max-width: 1159px) {
+            max-width: 720px;
+            &Options {
+                display: none;
+            }
+        }
+        @media (max-width: 879px) {
+            max-width: 100%;
+        }
     }
 
     &__options {
-        margin: 32px 0px 8px;
-        border-top: 1px solid rgba(255, 255, 255, 0.16);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-        padding: 16px 0px 32px;
+        display: none;
+        color: #a5a1b2;
 
-        &Block {
-            &:not(:first-child) {
-                margin-top: 16px;
-            }
-
-            &Title > span {
-                color: rgba(255, 255, 255, 0.4);
-            }
-
-            &Value {
-                margin-top: 4px;
-                color: #fff;
-            }
-        }
-        &Badge {
+        @media (max-width: 1159px) {
             display: flex;
-            margin-top: 8px;
-
-            &Item {
-                &:not(:first-child) {
-                    margin-left: 8px;
-                }
-            }
+            max-width: 720px;
         }
-    }
-
-    &__rating {
-        width: 100%;
-        margin-top: 24px;
-        display: flex;
-        align-items: center;
-        background-color: rgba(255, 255, 255, 0.08);
-        border-radius: 12px;
-        padding: 10px;
-
-        &Value {
-            display: flex;
-            width: 64px;
-            min-height: 64px;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 24px;
-            line-height: 28px;
-            font-weight: 700;
-            height: 28px;
-            color: #fff;
-            border-radius: 8px;
-            background-color: #7e798f;
-
-            &_good {
-                background-color: #73a32f;
-            }
-        }
-
-        &Text {
-            display: flex;
-            flex-direction: column;
-            margin-left: 16px;
-
-            font-size: 15px;
-            line-height: 20px;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.72);
-
-            & > span:first-child {
-                font-weight: 600;
-                color: #fff;
-            }
-
-            & > span:last-child {
-                font-size: 13px;
-                margin-top: 4px;
-                line-height: 16px;
-            }
-        }
-
-        &Estimate {
-            margin-left: auto;
-            margin-right: 0;
-            border: 1px solid rgba(255, 255, 255, 0.32);
-            height: 24px;
-            border-radius: 6px;
-            padding: 3px 7px;
-
-            font-size: 13px;
-            line-height: 16px;
-            font-weight: 500;
-            color: #fff;
+        @media (max-width: 879px) {
+            max-width: 100%;
         }
     }
 }

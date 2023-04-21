@@ -3,15 +3,16 @@ import styles from './Slider.module.scss';
 import { useWindowSize } from '@/hooks/useWindowResize/useWindowSize';
 import ArrowButton from '../UI/ArrowButton/ArrowButtonUI';
 import { useMoviesCount } from '@/hooks/useMoviesCount/useMoviesCount';
-import { IActor } from '@/components/actor/ActorList/Temp/IActor';
+import IActor from '@/models/IActor';
 import ActorList from '@/components/actor/ActorList/ActorList';
 import PostersList from '@/components/posters/PostersList/PostersList';
-import RatingPostersList, { IRatingFilm } from '@/components/posters/PostersList/RatingPostersList/RatingPostersList';
+import RatingPostersList from '@/components/posters/PostersList/PostersList';
+import IMovie from '@/models/IMovie';
 
 interface SliderProps {
     actors?: IActor[];
-    movies?: number[];
-    posters?: IRatingFilm[];
+    movies?: IMovie[];
+    posters?: IMovie[];
 }
 
 function Slider({ actors, movies, posters }: SliderProps) {
@@ -63,8 +64,16 @@ function Slider({ actors, movies, posters }: SliderProps) {
                 <div className={[styles.container__contentContainer].join(' ')}>
                     <div className={[styles.container__content, 'content'].join(' ')}>
                         {actors && <ActorList actors={actors} className={styles.container__item} />}
-                        {movies && <PostersList posters={movies} className={styles.container__item} />}
-                        {posters && <RatingPostersList films={posters} className={styles.container__item} />}
+                        {movies && (
+                            <PostersList posterType="preview" movies={movies} className={styles.container__item} />
+                        )}
+                        {posters && (
+                            <RatingPostersList
+                                posterType="rating"
+                                movies={posters}
+                                className={styles.container__item}
+                            />
+                        )}
                     </div>
                 </div>
 

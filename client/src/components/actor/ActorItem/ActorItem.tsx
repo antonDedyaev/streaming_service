@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './ActorItem.module.scss';
 import Image from 'next/image';
-import { IActor } from '../ActorList/Temp/IActor';
+import IActor from '../../../models/IActor';
 import { declensionOfWordFromNumber } from '../../../utils/functions';
 
 interface ActorItemProps {

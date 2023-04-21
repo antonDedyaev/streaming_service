@@ -1,4 +1,4 @@
-import { IActor } from '../../../actor/ActorList/Temp/IActor';
+import IActor from '../../../../models/IActor';
 
 export interface IMovie {
     id: number;

@@ -1,0 +1,81 @@
+.options {
+    margin: 32px 0px 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 16px 0px 32px;
+    font-size: 15px;
+
+    @media (max-width: 1159px) {
+        margin: 0px 0px 16px;
+        border: 0px;
+        padding: 0px 0px 24px;
+        width: 100%;
+    }
+    @media (max-width: 1159px) {
+        margin: 0px;
+    }
+    @media (max-width: 599px) {
+        padding: 0px 0px 16px;
+    }
+
+    &__block {
+        &:not(:first-child) {
+            margin-top: 16px;
+
+            @media (max-width: 1159px) {
+                border-top: 1px solid rgba(255, 255, 255, 0.16);
+                margin-top: 0px;
+                padding-top: 12px;
+            }
+        }
+
+        &:not(:last-child) {
+            @media (max-width: 1159px) {
+                padding-bottom: 12px;
+            }
+        }
+
+        &Title {
+            & > span {
+                color: rgba(255, 255, 255, 0.4);
+            }
+            &_full {
+                @media (max-width: 1159px) {
+                    display: none;
+                }
+            }
+            &_mobile {
+                display: none;
+                @media (max-width: 1159px) {
+                    display: flex;
+                }
+            }
+        }
+
+        &Value {
+            margin-top: 4px;
+            color: #fff;
+            @media (max-width: 1159px) {
+                margin-top: 0px;
+            }
+        }
+
+        @media (max-width: 1159px) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &__badge {
+        display: flex;
+        margin-top: 8px;
+        @media (max-width: 1159px) {
+            margin-top: 0px;
+        }
+
+        &Item {
+            &:not(:first-child) {
+                margin-left: 8px;
+            }
+        }
+    }
+}

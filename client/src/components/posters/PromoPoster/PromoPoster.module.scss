@@ -1,0 +1,38 @@
+.promoPoster {
+    position: relative;
+    width: 1216px;
+    height: 524px;
+    border-radius: 22px;
+    overflow: hidden;
+
+    &__link {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    &__content {
+        width: calc(40% + 25.6px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    &__synopsis {
+        margin-top: 16px;
+        font-size: 15px;
+        line-height: 20px;
+        color: #ffffff;
+    }
+
+    &__buttonContainer {
+        margin-top: 16px;
+    }
+}

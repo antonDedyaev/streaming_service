@@ -1,15 +1,17 @@
 import AgeBadge from "@/components/UI/badges/AgeBadge/AgeBadge";
 import PriceBadge from "@/components/UI/badges/PriceBadge/PriceBadge";
 import PreviewPosterContent from "../PreviewPosterContent/PreviewPosterContent";
+import IMovie from "@/models/IMovie";
 import Image from "next/image";
 import Link from "next/link";
 import style from './PreviewPoster.module.scss';
 
 interface PreviewPosterProps {
+    movie: IMovie
     className: string
 }
 
-function PreviewPoster({ className }: PreviewPosterProps) {
+const PreviewPoster = ({ movie, className }: PreviewPosterProps) => {
     return (
         <div className={[style.previewPoster, className].join(' ')}>
             <Link href="/">
@@ -20,7 +22,7 @@ function PreviewPoster({ className }: PreviewPosterProps) {
                             src="" 
                             alt="" />
                     </div>
-                    <PreviewPosterContent />
+                    <PreviewPosterContent movie={movie} />
                     <AgeBadge value="18" />
                 </div>
 
