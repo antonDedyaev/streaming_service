@@ -11,6 +11,7 @@ import ActorList from '@/components/actor/ActorList/ActorList';
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import { useState } from 'react';
 import MainContainer from '@/components/MainContainer/MainContainer';
+import MoviePlayer from '@/components/movie/MoviePlayer/MoviePlayer';
 
 function HomePage() {
     const [isShowModal, setIsShowModal] = useState<boolean>(false);
@@ -22,15 +23,8 @@ function HomePage() {
                 title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
                 page="home"
             >
-                <div
-                    style={
-                        {
-                            /*display: 'flex'*/
-                        }
-                    }
-                    className="container"
-                >
-                    <div style={{ width: '62.5%' }}></div>
+                <div style={{ display: 'flex' }} className="container">
+                    <MoviePlayer movie={movie[0]} />
                     <MovieInfo movie={movie[0]} />
                 </div>
 
