@@ -1,10 +1,5 @@
 import styles from './MovieInfo.module.scss';
 import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
-import TextLinkUI from '@/components/UI/TextLink/TextLinkUI';
-import TextBadge from '@/components/UI/badges/TextBadge/TextBadge';
-import Image from 'next/image';
-import soundIcon from '@/../public/icons/sound.png';
-import subtitlesIcon from '@/../public/icons/subtitles.png';
 import SquareCardsList from '@/components/squareCard/SquareCardsList/SquareCardsList';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import MovieParams from '../MovieParams/MovieParams';

@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOVIEPARAMS SNAPSHOTS TESTS MovieParams should not be changed 1`] = `
+<div
+  class="params"
+  role="div-params"
+>
+  <div
+    class="params__list"
+  >
+    <a
+      class="link link_bright"
+      href="/"
+    >
+      2010
+    </a>
+    <span
+      class="params__listItem"
+    >
+      2 ч. 14 мин.
+    </span>
+    <span
+      class="params__listItem"
+    >
+      6+
+    </span>
+  </div>
+  <div
+    class="params__list"
+  >
+    <a
+      class="link link_bright params__listItem_point"
+      href="/"
+    >
+      США
+    </a>
+    <a
+      class="link link_bright params__listItem_point"
+      href="/"
+    >
+      Драмы
+    </a>
+    <a
+      class="link link_bright params__listItem_point"
+      href="/"
+    >
+      Спорт
+    </a>
+    <a
+      class="link link_bright params__listItem_point"
+      href="/"
+    >
+      Семейные
+    </a>
+  </div>
+  <div
+    class="params__list"
+  >
+    <div
+      class="textBadge"
+    >
+      FullHD
+    </div>
+    <img
+      alt="soundIcon"
+      class="params__listIcon"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+    <div
+      class="params__listItem"
+    >
+      <div
+        class="params__listItem_point"
+      >
+        Рус
+      </div>
+      <div
+        class="params__listItem_point"
+      >
+        Eng
+      </div>
+    </div>
+    <img
+      alt="subtitlesIcon"
+      class="params__listIcon"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+    <div
+      class="params__listItem"
+    >
+      <div
+        class="params__listItem_point"
+      >
+        Рус
+      </div>
+    </div>
+  </div>
+</div>
+`;

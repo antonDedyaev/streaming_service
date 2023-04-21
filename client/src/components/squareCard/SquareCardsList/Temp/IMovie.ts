@@ -11,7 +11,9 @@ export interface IMovie {
     displays: string[];
     voiceActing: string[];
     subtitles: string[];
+    subtitlesFull: string[];
     description: string[];
+    language: string[];
     raiting: number;
     nameraiting: string;
     actors: IActor[];

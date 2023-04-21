@@ -1,10 +1,10 @@
 import styles from './MovieParams.module.scss';
 import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
-import TextLinkUI from '@/components/UI/TextLink/TextLinkUI';
-import TextBadge from '@/components/UI/badges/TextBadge/TextBadge';
+import TextLinkUI from '../../UI/TextLink/TextLinkUI';
+import TextBadge from '../../UI/badges/TextBadge/TextBadge';
 import Image from 'next/image';
-import soundIcon from '@/../public/icons/sound.png';
-import subtitlesIcon from '@/../public/icons/subtitles.png';
+import soundIcon from '../../../../public/icons/sound.png';
+import subtitlesIcon from '../../../../public/icons/subtitles.png';
 
 interface MovieParamsProps {
     movie: IMovie;
@@ -12,7 +12,7 @@ interface MovieParamsProps {
 
 const MovieParams = ({ movie }: MovieParamsProps) => {
     return (
-        <div className={styles.params}>
+        <div className={styles.params} role="div-params">
             <div className={styles.params__list}>
                 <TextLinkUI href="/" option="bright">
                     {movie.year}

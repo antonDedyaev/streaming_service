@@ -18,6 +18,7 @@
 
     &__item {
         min-width: calc(100% / 7 - 10px);
+        min-height: calc(100% / 7 - 10px * 3);
         margin: 0 5px;
     }
 

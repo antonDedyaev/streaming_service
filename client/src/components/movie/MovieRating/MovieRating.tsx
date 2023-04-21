@@ -7,7 +7,7 @@ interface MovieRatingProps {
 
 const MovieRating = ({ movie }: MovieRatingProps) => {
     return (
-        <div className={styles.rating}>
+        <div className={styles.rating} role="div-rating">
             <div className={[styles.rating__value, movie.raiting > 7.5 && styles[`rating__value_good`]].join(' ')}>
                 {movie.raiting}
             </div>
