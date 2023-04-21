@@ -46,7 +46,7 @@ function HomePage() {
                     <PostersList posterType="rating" movies={ratingMovies} />
                 </Slider>
 
-                <Slider itemType="rating" length={actors.length}>
+                <Slider itemType="actor" length={actors.length}>
                     <ActorList actors={actors} amt={true} effect={true} size="large" />
                 </Slider>
                 <TabBar />

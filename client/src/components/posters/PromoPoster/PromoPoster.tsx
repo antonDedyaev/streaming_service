@@ -6,12 +6,11 @@ import ButtonUI from "@/components/UI/Button/ButtonUI";
 
 interface PromoPosterProps {
     movie: IMovie
-    className: string
 }
 
-const PromoPoster = ({ movie, className }: PromoPosterProps) => {
+const PromoPoster = ({ movie }: PromoPosterProps) => {
     return (
-        <div className={[style.promoPoster, className].join(' ')}>
+        <div className={style.promoPoster}>
             <Image
                 className={style.promoPoster__image}
                 src={movie.image}

@@ -5,12 +5,11 @@ import IMovie from "@/models/IMovie";
 
 interface RatingPosterProps {
     movie: IMovie
-    className: string
 }
 
-const RatingPoster = ({ movie, className }: RatingPosterProps) => {
+const RatingPoster = ({ movie }: RatingPosterProps) => {
     return (
-        <div className={[style.ratingPoster, className].join(' ')}>
+        <div className={style.ratingPoster}>
             <Link href="/">
                 <div className={style.imageWrapper}>
                     <Image

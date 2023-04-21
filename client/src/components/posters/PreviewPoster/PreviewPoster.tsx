@@ -8,12 +8,11 @@ import style from './PreviewPoster.module.scss';
 
 interface PreviewPosterProps {
     movie: IMovie
-    className: string
 }
 
-const PreviewPoster = ({ movie, className }: PreviewPosterProps) => {
+const PreviewPoster = ({ movie }: PreviewPosterProps) => {
     return (
-        <div className={[style.previewPoster, className].join(' ')}>
+        <div className={style.previewPoster}>
             <Link href="/">
                 <div className={[style.block, style.block_image].join(' ')}>
                     <div className={style.imageWrapper}>
