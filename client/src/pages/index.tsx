@@ -30,6 +30,7 @@ function HomePage() {
                     <MoviePlayer movie={movie[0]} />
                     <MovieInfo movie={movie[0]} />
                 </div>
+
                 <Slider itemType="actor" length={actors.length}>
                     <ActorList actors={actors} />
                 </Slider>
@@ -38,17 +39,10 @@ function HomePage() {
                     <PostersList posterType="promo" movies={promoMovies} />
                 </Slider>
 
-                <Slider itemType="preview" length={ratingMovies.length}>
-                    <PostersList posterType="preview" movies={ratingMovies} />
-                </Slider>
-
                 <Slider itemType="rating" length={ratingMovies.length}>
                     <PostersList posterType="rating" movies={ratingMovies} />
                 </Slider>
 
-                <Slider itemType="rating" length={actors.length}>
-                    <ActorList actors={actors} amt={true} effect={true} size="large" />
-                </Slider>
                 <TabBar />
 
                 <Footer />

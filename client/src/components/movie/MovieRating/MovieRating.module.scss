@@ -1,6 +1,7 @@
 .rating {
     width: 100%;
     margin-top: 24px;
+    pointer-events: none;
     @media (max-width: 1159px) {
         margin-top: 52px;
         margin-bottom: 32px;
@@ -22,6 +23,7 @@
         display: flex;
         width: 64px;
         min-height: 64px;
+        margin-left: -5px; /*!!!!!*/
 
         @media (max-width: 1159px) {
             width: 48px;
@@ -53,6 +55,7 @@
         line-height: 20px;
         font-weight: 400;
         color: rgba(255, 255, 255, 0.72);
+        text-align: start;
 
         & > span:first-child {
             font-weight: 600;
@@ -71,8 +74,9 @@
 
     &__estimate {
         margin-left: auto;
-        margin-right: 0;
+        margin-right: -5px; /*!!!!! 0*/
         border: 1px solid rgba(255, 255, 255, 0.32);
+        width: 72px;
         height: 24px;
         border-radius: 6px;
         padding: 3px 7px;

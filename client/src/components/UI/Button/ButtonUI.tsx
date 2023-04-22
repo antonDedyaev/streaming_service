@@ -4,7 +4,7 @@ import styles from './ButtonUI.module.scss';
 interface ButtonUIProps {
     className: string;
     children: ReactNode;
-    background: 'lightRed' | 'gray';
+    background: 'lightRed' | 'gray' | 'transparentWhite';
     variant: 'large' | 'medium' | 'small' | 'square';
     onClick?: () => void;
 }
@@ -19,7 +19,11 @@ function ButtonUI({ className, children, background, variant, onClick }: ButtonU
             <style jsx>
                 {`
                     .button {
-                        background: ${background === 'lightRed' ? '#ea003d' : /*background === 'gray' ? */ '#1f1b2e'};
+                        background: ${background === 'lightRed'
+                            ? '#ea003d'
+                            : background === 'gray'
+                            ? '#1f1b2e'
+                            : 'rgba(255, 255, 255, 0.08)'};
 
                         padding: ${variant === 'large'
                             ? '10px 15px'
@@ -39,4 +43,6 @@ function ButtonUI({ className, children, background, variant, onClick }: ButtonU
     );
 }
 
-export default ButtonUI;
+export default ButtonUI; /*'#1f1b2e'};*/
+
+/*background: ${background === 'lightRed' ? '#ea003d' : /*background === 'gray' ? */

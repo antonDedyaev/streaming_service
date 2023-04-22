@@ -1,5 +1,6 @@
 import styles from './MovieRating.module.scss';
 import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
+import ButtonUI from '@/components/UI/Button/ButtonUI';
 
 interface MovieRatingProps {
     movie: IMovie;
@@ -7,7 +8,7 @@ interface MovieRatingProps {
 
 const MovieRating = ({ movie }: MovieRatingProps) => {
     return (
-        <div className={styles.rating} role="div-rating">
+        <ButtonUI className={styles.rating} variant="large" background="transparentWhite">
             <div className={[styles.rating__value, movie.raiting > 7.5 && styles[`rating__value_good`]].join(' ')}>
                 {movie.raiting}
             </div>
@@ -17,7 +18,7 @@ const MovieRating = ({ movie }: MovieRatingProps) => {
                 <span>118 163 оценки</span>
             </div>
             <div className={styles.rating__estimate}>Оценить</div>
-        </div>
+        </ButtonUI>
     );
 };
 
