@@ -1,10 +1,10 @@
 import styles from './MovieInfo.module.scss';
-import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
-import SquareCardsList from '@/components/squareCard/SquareCardsList/SquareCardsList';
+import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import MovieParams from '../MovieParams/MovieParams';
 import MovieRating from '../MovieRating/MovieRating';
 import MovieOptions from '../MovieOptions/MovieOptions';
+import MovieMedallionsList from '../movieMedallion/MovieMedallionsList/MovieMedallionsList';
 
 interface MovieInfoProps {
     movie: IMovie;
@@ -17,7 +17,7 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
             <div className={styles.info__params}>
                 <MovieParams movie={movie} />
             </div>
-            <SquareCardsList movie={movie} className={styles.info__cards} />
+            <MovieMedallionsList movie={movie} className={styles.info__cards} />
             <div className={styles.info__spoiler}>
                 <SpoilerUI
                     toggleButtonTexts={['Детали о фильме', 'Свернуть детали']}
