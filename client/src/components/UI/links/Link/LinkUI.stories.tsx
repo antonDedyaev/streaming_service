@@ -49,7 +49,7 @@ export const AppStoreLink: Story = {
                     width={20}
                     alt="Логотип AppStore"
                 />
-                <div className={footerStyles.iviFooter__textBlock}>
+                <div className={footerStyles.container__textBlock}>
                     <div>Загрузить в</div>
                     <div>App Store</div>
                 </div>

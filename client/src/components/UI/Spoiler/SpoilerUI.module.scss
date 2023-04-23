@@ -1,8 +1,4 @@
-// .contentCard .clause {
-//   color: rgba(255, 255, 255, 0.72);
-// }
-
-.clause {
+.container {
     padding-left: 12px;
     padding-right: 12px;
 
@@ -14,6 +10,28 @@
         line-height: 22px;
         font-weight: 400;
         font-style: normal;
+
+        &_isShown {
+            .container__textInner {
+                display: block;
+
+                & > :not(:first-child) {
+                    margin-top: 8px;
+                }
+            }
+        }
+
+        &_isHidden {
+            .container__textInner {
+                display: -webkit-box;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                & > :not(:first-child) {
+                    display: none;
+                }
+            }
+        }
     }
 
     &__spoilerButton {
@@ -38,30 +56,6 @@
 
         &_colorFaded {
             color: rgba(255, 255, 255, 0.48);
-        }
-    }
-}
-
-.text {
-    &_isShown {
-        .clause__textInner {
-            display: block;
-
-            & > :not(:first-child) {
-                margin-top: 8px;
-            }
-        }
-    }
-
-    &_isHidden {
-        .clause__textInner {
-            display: -webkit-box;
-            overflow: hidden;
-            text-overflow: ellipsis;
-
-            & > :not(:first-child) {
-                display: none;
-            }
         }
     }
 }

@@ -2,16 +2,16 @@
 
 exports[`TabBarLinkUI SNAPSHOT TEST TabBarLinkUI should not be changed 1`] = `
 <a
-  class="tabBar__item"
+  class="container__item"
   href=""
   id="tab-item"
   role="tab-link"
 >
   <div
-    class="tabBar__itemGlow"
+    class="container__itemGlow"
   />
   <div
-    class="tabBar__itemIcon"
+    class="container__itemIcon"
   >
     <img
       alt="Иконка Каталог"
@@ -26,7 +26,7 @@ exports[`TabBarLinkUI SNAPSHOT TEST TabBarLinkUI should not be changed 1`] = `
     />
   </div>
   <div
-    class="tabBar__itemCaption"
+    class="container__itemCaption"
   >
     Каталог
   </div>

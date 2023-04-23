@@ -1,4 +1,4 @@
-.tabBar {
+.container {
     &__item {
         cursor: pointer;
         display: flex;
@@ -13,11 +13,11 @@
         text-decoration: none;
 
         &_selected {
-            .tabBar__itemGlow {
+            .container__itemGlow {
                 opacity: 1;
             }
 
-            .tabBar__itemCaption {
+            .container__itemCaption {
                 color: #fff;
             }
         }
