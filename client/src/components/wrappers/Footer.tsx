@@ -124,7 +124,7 @@ const Footer: FC = () => {
                             <LinkUI
                                 href="https://www.ivi.ru/profile"
                                 shape="rectangular"
-                                className={styles.iviFooter__support_sizeWide}
+                                className={styles.iviFooter__chatButton}
                             >
                                 <div>Написать в чате</div>
                             </LinkUI>
@@ -144,7 +144,11 @@ const Footer: FC = () => {
                             <div
                                 className={[
                                     styles.iviFooter__supportPhones,
-                                    phoneIsHidden ? null : styles.iviFooter__supportPhones_shown,
+                                    phoneIsHidden
+                                        ? null
+                                        : [styles.iviFooter__supportPhones, styles.iviFooter__supportPhones_shown].join(
+                                              ' ',
+                                          ),
                                 ].join(' ')}
                             >
                                 <a className={styles.iviFooter__phoneItem} href="tel:88002344923" rel="nofollow">
@@ -157,7 +161,7 @@ const Footer: FC = () => {
                                     <TextLinkUI
                                         href="https://ask.ivi.ru/"
                                         option="bright"
-                                        className={styles.iviFooter__title_textWhite}
+                                        className={[styles.iviFooter__title, styles.iviFooter__title_askText].join(' ')}
                                     >
                                         ask.ivi.ru
                                     </TextLinkUI>

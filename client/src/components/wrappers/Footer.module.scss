@@ -18,7 +18,8 @@
         font-weight: 700;
         margin-bottom: 8px;
 
-        &_textWhite {
+        &_askText {
+            margin: 0;
             color: #fff;
         }
     }
@@ -41,10 +42,10 @@
 
     &__support {
         margin-top: 20px;
+    }
 
-        &_sizeWide {
-            width: 196px !important;
-        }
+    &__chatButton {
+        width: 196px !important;
     }
 
     &__supportButtons {
