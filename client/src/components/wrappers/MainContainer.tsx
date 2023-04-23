@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
-import Navbar from '../menu/Navbar/Navbar';
+import Header from './Header';
+import Footer from './Footer';
 
 interface MainContainerProps {
     children: ReactNode;
@@ -17,9 +18,11 @@ const MainContainer = ({ children, keywords, title, page }: MainContainerProps) 
                 <title>{title}</title>
             </Head>
 
-            <Navbar page={page} />
+            <Header page={page} />
 
             {children}
+
+            <Footer />
         </>
     );
 };

@@ -9,10 +9,10 @@ import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.dat
 import ActorList from '@/components/actor/ActorList/ActorList';
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import { useState } from 'react';
-import MainContainer from '@/components/MainContainer/MainContainer';
+import MainContainer from '@/components/wrappers/MainContainer';
 import MoviePlayer from '@/components/movie/MoviePlayer/MoviePlayer';
-import TabBar from '@/components/tabbar/TabBar';
-import Footer from '@/components/footer/Footer';
+import TabBar from '../components/tabbar/TabBar';
+import Footer from '../components/wrappers/Footer';
 
 function HomePage() {
     const [isShowModal, setIsShowModal] = useState<boolean>(false);
@@ -42,8 +42,6 @@ function HomePage() {
                 </Slider>
 
                 <TabBar />
-
-                <Footer />
 
                 <button onClick={() => setIsShowModal(true)}>Показать модалку</button>
 

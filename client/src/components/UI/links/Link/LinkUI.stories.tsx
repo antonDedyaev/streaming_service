@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Image from 'next/image';
 import LinkUI from './LinkUI';
-import styles from './LinkUI.module.scss';
-import footerStyles from '../../../footer/Footer.module.scss';
+import footerStyles from '../../../wrappers/Footer.module.scss';
 import mailIcon from '../../../../../public/icons/link/mail.svg';
 
 const meta: Meta<typeof LinkUI> = {
@@ -42,7 +41,6 @@ export const AppStoreLink: Story = {
     args: {
         shape: 'rectangular',
         href: 'https://go.onelink.me/app/devicesiOS',
-        className: footerStyles.iviFooter__storeLink,
         children: (
             <>
                 <Image
@@ -51,7 +49,7 @@ export const AppStoreLink: Story = {
                     width={20}
                     alt="Логотип AppStore"
                 />
-                <div className={footerStyles.iviFooter__storeLink_textBlock}>
+                <div className={footerStyles.iviFooter__textBlock}>
                     <div>Загрузить в</div>
                     <div>App Store</div>
                 </div>
