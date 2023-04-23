@@ -1,5 +1,5 @@
 import styles from './MovieParams.module.scss';
-import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
+import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import TextLinkUI from '../../UI/links/TextLink/TextLinkUI';
 import TextBadge from '../../UI/badges/TextBadge/TextBadge';
 import Image from 'next/image';

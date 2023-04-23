@@ -29,7 +29,7 @@ const FilmographyItem = ({ poster, year, title, rating }: FilmographyItemProps) 
                     <div className={styles.container__infoContainer}>
                         <h2 className={styles.container__year}>2023</h2>
 
-                        <h2 className={styles.filmographyItem__title} title="Стать Маугли">
+                        <h2 className={styles.container__title} title="Стать Маугли">
                             Стать Маугли
                         </h2>
 

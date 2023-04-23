@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import TabBarLinkUI from './TabBarLinkUI';
 import './TabBarLinkUI.module.scss';
-import homeIcon from '../../../../../public/icons/tabbar_icons/home.svg';
+import homeIcon from '../../../../../public/icons/tabbar/home.svg';
 
 const meta: Meta<typeof TabBarLinkUI> = {
     title: 'Links/TabBarLink',

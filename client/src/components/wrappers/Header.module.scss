@@ -1,0 +1,158 @@
+.container {
+    display: flex;
+    align-items: center;
+    height: 68px;
+    margin-top: 5px;
+    position: relative;
+    border-radius: 15px 15px 0 0;
+    border-bottom: 1px solid #343434;
+    transition: 0.4s;
+    padding: 0 10px;
+
+    &_mouseOver {
+        background-color: #1f1b2e;
+    }
+
+    &__logo {
+        margin: 0 30px 0 0;
+
+        img {
+            width: 66px;
+        }
+    }
+
+    &__dropMenu {
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s;
+
+        &_show {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &__rightSide {
+        display: flex;
+        align-items: center;
+        justify-self: right;
+    }
+
+    &__button {
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 18px;
+        margin: 0 20px 0 0;
+    }
+
+    &__search {
+        padding: 10px 0;
+        opacity: 0.5;
+        transition: 0.4s;
+        display: flex;
+        align-items: center;
+
+        .container__icon {
+            margin: 0 5px 0 0;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__icon {
+        width: 18px;
+        height: 18px;
+
+        &_user {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+    &__text {
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    &__link {
+        opacity: 0.5;
+        transition: 0.4s;
+
+        &_bell {
+            padding: 10px 20px;
+        }
+
+        &_user {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+
+            &:hover {
+                box-shadow: 0 0 15px #ffffff98;
+            }
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+@media (max-width: 1160px) {
+    .container {
+        &__logo {
+            flex: 1 1 auto;
+        }
+
+        &__search {
+            display: none;
+        }
+
+        &__button {
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        &_home {
+            width: calc(100% + 20px);
+            height: 55px;
+            justify-content: right;
+
+            .container__logo {
+                display: none;
+            }
+        }
+
+        &_other {
+            border-bottom: 1px solid #343434;
+            height: 64px;
+
+            .container__logo {
+                img {
+                    width: 55px;
+                }
+            }
+
+            .container__link {
+                &_bell {
+                    display: none;
+                }
+
+                &_user {
+                    display: none;
+                }
+            }
+        }
+    }
+}

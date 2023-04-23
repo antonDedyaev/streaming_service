@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import MovieOptions from './MovieOptions';
-import { movies } from '../../squareCard/SquareCardsList/Temp/Movie.data';
+import { movies } from '../movieMedallion/MovieMedallionsList/Temp/Movie.data';
 
 describe('MOVIEOPTIONS SNAPSHOTS TESTS', () => {
     test('MovieOptions should not be changed', () => {
