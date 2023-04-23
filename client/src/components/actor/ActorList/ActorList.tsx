@@ -7,11 +7,7 @@ interface ActorListProps {
     size: 'large' | 'medium' | 'small';
 }
 
-<<<<<<< HEAD
 const ActorList = ({ actors, size }: ActorListProps) => {
-=======
-const ActorList = ({ actors, amt = true, role, effect = true, size = 'large' }: ActorListProps) => {
->>>>>>> 4898c7372afc067b786a92aeb7206ab31906afa5
     return (
         <>
             {actors.map((actor) => (

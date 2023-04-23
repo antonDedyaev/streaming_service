@@ -9,13 +9,13 @@ interface MovieMedallionItemProps {
 const MovieMedallionItem = ({ children, text, disabled = false }: MovieMedallionItemProps) => {
     return (
         <div
-            className={[styles.medallion, disabled ? styles.medallion_inactive : ''].join(' ').trim()}
+            className={[styles.container, disabled ? styles.container_inactive : ''].join(' ').trim()}
             role="div-MedallionItem"
         >
-            <div className={styles.medallion__content}>
-                <div className={styles.medallion__contentBlock}>{children}</div>
+            <div className={styles.container__content}>
+                <div className={styles.container__contentBlock}>{children}</div>
             </div>
-            <div className={styles.medallion__caption}>{text}</div>
+            <div className={styles.container__caption}>{text}</div>
         </div>
     );
 };

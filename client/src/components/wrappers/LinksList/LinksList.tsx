@@ -1,5 +1,5 @@
-import styles from './MenuList.module.scss';
-import TextLinkUI from '../UI/links/TextLink/TextLinkUI';
+import styles from './LinksList.module.scss';
+import TextLinkUI from '../../UI/links/TextLink/TextLinkUI';
 
 interface ILink {
     href: string;
@@ -9,12 +9,12 @@ interface ILink {
     onMouseOver?: () => void;
 }
 
-interface MenuListProps {
+interface LinksListProps {
     direction: 'row' | 'column';
     links: ILink[];
 }
 
-const MenuList = ({ links, direction }: MenuListProps) => {
+const LinksList = ({ links, direction }: LinksListProps) => {
     return (
         <ul
             className={[direction === 'row' ? styles.container : styles.container__column, styles.container__menu].join(
@@ -37,4 +37,4 @@ const MenuList = ({ links, direction }: MenuListProps) => {
     );
 };
 
-export default MenuList;
+export default LinksList;

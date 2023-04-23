@@ -12,40 +12,52 @@ interface MovieParamsProps {
 
 const MovieParams = ({ movie }: MovieParamsProps) => {
     return (
-        <div className={styles.params} role="div-params">
-            <div className={styles.params__list}>
+        <div className={styles.container} role="div-params">
+            <div className={styles.container__list}>
                 <TextLinkUI href="/" option="bright">
                     {movie.year}
                 </TextLinkUI>
-                <span className={styles.params__listItem}>{movie.time}</span>
-                <span className={styles.params__listItem}>{movie.ageLimit}</span>
+                <span className={styles.container__listItem}>{movie.time}</span>
+                <span className={styles.container__listItem}>{movie.ageLimit}</span>
             </div>
-            <div className={styles.params__list}>
-                <TextLinkUI href="/" option="bright" className={styles.params__listItem_point}>
+            <div className={styles.container__list}>
+                <TextLinkUI
+                    href="/"
+                    option="bright"
+                    className={[styles.container__listItem, styles.container__listItem_point].join(' ')}
+                >
                     {movie.production}
                 </TextLinkUI>
                 {movie.genres.slice(0, 3).map((genre) => (
-                    <TextLinkUI key={genre} href="/" option="bright" className={styles.params__listItem_point}>
+                    <TextLinkUI
+                        key={genre}
+                        href="/"
+                        option="bright"
+                        className={[styles.container__listItem, styles.container__listItem_point].join(' ')}
+                    >
                         {genre}
                     </TextLinkUI>
                 ))}
             </div>
-            <div className={styles.params__list}>
+            <div className={styles.container__list}>
                 <TextBadge text={movie.displays[0]} />
-                <Image src={soundIcon} alt="soundIcon" className={styles.params__listIcon} />
-                <div className={styles.params__listItem}>
+                <Image src={soundIcon} alt="soundIcon" className={[styles.container__listIcon, styles.container__listIcon_sound].join(' ')} />
+                <div className={styles.container__listItem}>
                     {movie.voiceActing.map((voice) => (
-                        <div key={voice} className={styles.params__listItem_point}>
+                        <div key={voice} className={[styles.container__listItem, styles.container__listItem_point].join(' ')}>
                             {voice}
                         </div>
                     ))}
                 </div>
                 {movie.subtitles.length > 0 && (
                     <>
-                        <Image src={subtitlesIcon} alt="subtitlesIcon" className={styles.params__listIcon} />
-                        <div className={styles.params__listItem}>
+                        <Image src={subtitlesIcon} alt="subtitlesIcon" className={styles.container__listIcon} />
+                        <div className={styles.container__listItem}>
                             {movie.subtitles.map((sub) => (
-                                <div key={sub} className={styles.params__listItem_point}>
+                                <div
+                                    key={sub}
+                                    className={[styles.container__listItem, styles.container__listItem_point].join(' ')}
+                                >
                                     {sub}
                                 </div>
                             ))}

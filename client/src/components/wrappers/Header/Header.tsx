@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import appleIcon from '../../../public/icons/logo.svg';
-import searchIcon from '../../../public/icons/search.svg';
-import bellIcon from '../../../public/icons/bell.svg';
-import userIcon from '../../../public/icons/user.svg';
-import MenuList from './MenuList';
+import appleIcon from '../../../../public/icons/logo.svg';
+import searchIcon from '../../../../public/icons/search.svg';
+import bellIcon from '../../../../public/icons/bell.svg';
+import userIcon from '../../../../public/icons/user.svg';
+import MenuList from '../LinksList/LinksList';
 import styles from './Header.module.scss';
-import ButtonUI from '../UI/buttons/Button/ButtonUI';
-import DropMenu from './DropMenu';
+import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
+import DropMenu from '../DropMenu/DropMenu';
 import { useEffect, useState } from 'react';
 
 interface HeaderProps {

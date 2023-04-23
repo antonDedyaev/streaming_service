@@ -1,5 +1,5 @@
 import styles from './DropMenu.module.scss';
-import TextLinkUI from '../UI/links/TextLink/TextLinkUI';
+import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 
 interface IContent {
     title: string;

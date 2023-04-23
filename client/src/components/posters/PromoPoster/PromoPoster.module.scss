@@ -10,7 +10,7 @@
         overflow: hidden;
 
         &_background {
-            padding-top: 30%;
+            padding-top: 40%;
         }
 
         &_logo {
@@ -40,7 +40,7 @@
     }
 
     &__content {
-        width: calc(30% + 25.6px);
+        width: calc(35% + 25.6px);
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -66,3 +66,44 @@
         }
     }
 }
+
+@media (max-width: 767px) {
+    .container {
+
+        &__button {
+            display: none;
+        }
+
+        &__synopsis {
+            margin-top: 7px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+
+        &__imageWrapper {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+    
+            &_background {
+                padding-top: 40%;
+            }
+    
+            &_logo {
+                padding-top: 25%;
+            }
+        }
+    
+        &__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+    }
+}
+
