@@ -19,7 +19,11 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
             <style jsx>
                 {`
                     .button {
-                        background: ${background === 'lightRed' ? '#ea003d' : background === 'gray' ? '#1f1b2e' : 'transparent'};
+                        background: ${background === 'lightRed'
+                            ? '#ea003d'
+                            : background === 'gray'
+                            ? '#1f1b2e'
+                            : 'rgba(255, 255, 255, 0.08)'};
 
                         padding: ${shape === 'large'
                             ? '10px 15px'
@@ -31,7 +35,11 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
                     }
 
                     .button:hover {
-                        background: ${background === 'lightRed' ? '#e42e5f' : background === 'gray' ? '#2e2844' : 'transparent'};
+                        background: ${background === 'lightRed'
+                            ? '#e42e5f'
+                            : background === 'gray'
+                            ? '#2e2844'
+                            : 'transparent'};
                     }
                 `}
             </style>
@@ -39,4 +47,4 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
     );
 }
 
-export default ButtonUI;
+export default ButtonUI; /*'#1f1b2e'};*/

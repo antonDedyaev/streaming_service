@@ -1,4 +1,4 @@
-import IActor from '../../../../models/IActor';
+import IActor from '../../../../../models/IActor';
 
 export interface IMovie {
     id: number;

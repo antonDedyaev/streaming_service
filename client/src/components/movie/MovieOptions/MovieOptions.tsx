@@ -1,5 +1,5 @@
 import styles from './MovieOptions.module.scss';
-import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
+import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import TextBadge from '../../UI/badges/TextBadge/TextBadge';
 
 interface MovieOptionsProps {
@@ -27,8 +27,8 @@ const MovieOptions = ({ movie }: MovieOptionsProps) => {
                 </div>
                 <div className={styles.options__badge}>
                     {movie.displays.map((display) => (
-                        <div className={styles.options__badgeItem}>
-                            <TextBadge key={display} text={display} />
+                        <div key={display} className={styles.options__badgeItem}>
+                            <TextBadge text={display} />
                         </div>
                     ))}
                 </div>

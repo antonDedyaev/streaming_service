@@ -1,7 +1,7 @@
 import Slider from '@/components/Slider/Slider';
 import styles from '@/styles/pages/HomePage.module.scss';
 import { actors } from '@/components/actor/ActorList/Temp/Actors.data';
-import { movies as movie } from '../components/squareCard/SquareCardsList/Temp/Movie.data';
+import { movies as movie } from '../components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import PostersList from '@/components/posters/PostersList/PostersList';
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 import { promoMovies } from '@/components/posters/PromoPoster/promoMovies.data';
@@ -29,20 +29,16 @@ function HomePage() {
                     <MovieInfo movie={movie[0]} />
                 </div>
 
+                <Slider itemType="actor" length={actors.length}>
+                    <ActorList actors={actors} />
+                </Slider>
+
                 <Slider itemType="promo" length={promoMovies.length}>
                     <PostersList posterType="promo" movies={promoMovies} />
                 </Slider>
 
-                <Slider itemType="preview" length={ratingMovies.length}>
-                    <PostersList posterType="preview" movies={ratingMovies} />
-                </Slider>
-
                 <Slider itemType="rating" length={ratingMovies.length}>
                     <PostersList posterType="rating" movies={ratingMovies} />
-                </Slider>
-
-                <Slider itemType="actor" length={actors.length}>
-                    <ActorList actors={actors} amt={true} effect={true} size="large" />
                 </Slider>
 
                 <TabBar />

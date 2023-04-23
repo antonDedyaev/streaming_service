@@ -1,5 +1,5 @@
 import styles from './MoviePlayer.module.scss';
-import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
+import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import dynamic from 'next/dynamic';
 
 interface MoviePlayerProps {

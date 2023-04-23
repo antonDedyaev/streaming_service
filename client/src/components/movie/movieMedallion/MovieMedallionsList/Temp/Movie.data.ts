@@ -1,5 +1,5 @@
 import { IMovie } from './IMovie';
-import { actors } from '../../../actor/ActorList/Temp/Actors.data';
+import { actors } from '../../../../actor/ActorList//Temp/Actors.data';
 
 export const movies: IMovie[] = [
     {
