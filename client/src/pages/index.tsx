@@ -1,11 +1,9 @@
 import Slider from '@/components/Slider/Slider';
 import styles from '@/styles/pages/HomePage.module.scss';
 import { actors } from '@/components/actor/ActorList/Temp/Actors.data';
-import { movies as movie } from '../components/squareCard/SquareCardsList/Temp/Movie.data';
-import Navbar from '@/components/menu/Navbar/Navbar';
+import { movies as movie } from '../components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import PostersList from '@/components/posters/PostersList/PostersList';
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
-
 import { promoMovies } from '@/components/posters/PromoPoster/promoMovies.data';
 import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.data';
 import ActorList from '@/components/actor/ActorList/ActorList';

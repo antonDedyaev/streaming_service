@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import arrowLeftIcon from '../../../../public/icons/arrows/arrow_left.svg'
-import arrowRightIcon from '../../../../public/icons/arrows/arrow_right.svg'
+import arrowLeftIcon from '../../../../../public/icons/arrows/arrow_left.svg'
+import arrowRightIcon from '../../../../../public/icons/arrows/arrow_right.svg'
 import styles from './ArrowButtonUI.module.scss'
 
 interface ArrowButtonProps {

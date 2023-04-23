@@ -1,14 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MOVIERATING SNAPSHOTS TESTS MovieRating should not be changed 1`] = `
-<div
-  class="rating"
-  role="div-rating"
+<button
+  class="jsx-3045709936 button rating button"
 >
   <div
-    class="rating__value rating__value_good"
+    class="rating__value"
   >
-    9.5
+    <div
+      class="value value_medium value_high"
+      role="div-text"
+    >
+      9.5
+    </div>
   </div>
   <div
     class="rating__text"
@@ -28,5 +32,5 @@ exports[`MOVIERATING SNAPSHOTS TESTS MovieRating should not be changed 1`] = `
   >
     Оценить
   </div>
-</div>
+</button>
 `;

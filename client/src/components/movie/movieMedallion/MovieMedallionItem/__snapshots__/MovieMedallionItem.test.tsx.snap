@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOVIEMEDALLIONITEM SNAPSHOTS TESTS active MovieMedallionItem should not be changed 1`] = `
+<div
+  class="medallion"
+  role="div-MedallionItem"
+>
+  <div
+    class="medallion__content"
+  >
+    <div
+      class="medallion__contentBlock"
+    >
+      <div />
+    </div>
+  </div>
+  <div
+    class="medallion__caption"
+  >
+    Текст
+  </div>
+</div>
+`;
+
+exports[`MOVIEMEDALLIONITEM SNAPSHOTS TESTS inactive MovieMedallionItem should not be changed 1`] = `
+<div
+  class="medallion medallion_inactive"
+  role="div-MedallionItem"
+>
+  <div
+    class="medallion__content"
+  >
+    <div
+      class="medallion__contentBlock"
+    >
+      <div />
+    </div>
+  </div>
+  <div
+    class="medallion__caption"
+  >
+    Текст
+  </div>
+</div>
+`;

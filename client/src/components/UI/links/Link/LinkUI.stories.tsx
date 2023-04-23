@@ -3,7 +3,7 @@ import Image from 'next/image';
 import LinkUI from './LinkUI';
 import styles from './LinkUI.module.scss';
 import footerStyles from '../../../footer/Footer.module.scss';
-import mailIcon from '../../../../../public/icons/link_icons/mail.svg';
+import mailIcon from '../../../../../public/icons/link/mail.svg';
 
 const meta: Meta<typeof LinkUI> = {
     title: 'Links/Link',

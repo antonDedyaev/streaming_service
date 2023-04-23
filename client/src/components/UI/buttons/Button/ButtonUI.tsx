@@ -4,12 +4,12 @@ import styles from './ButtonUI.module.scss';
 interface ButtonUIProps {
     className: string;
     children: ReactNode;
-    background: 'lightRed' | 'gray' | 'transparentWhite';
-    variant: 'large' | 'medium' | 'small' | 'square';
+    background: 'lightRed' | 'gray' | 'transparent';
+    shape: 'large' | 'medium' | 'small' | 'square';
     onClick?: () => void;
 }
 
-function ButtonUI({ className, children, background, variant, onClick }: ButtonUIProps) {
+function ButtonUI({ className, children, background, shape, onClick }: ButtonUIProps) {
     return (
         <>
             <button className={[styles.button, className, 'button'].join(' ')} onClick={onClick}>
@@ -25,17 +25,21 @@ function ButtonUI({ className, children, background, variant, onClick }: ButtonU
                             ? '#1f1b2e'
                             : 'rgba(255, 255, 255, 0.08)'};
 
-                        padding: ${variant === 'large'
+                        padding: ${shape === 'large'
                             ? '10px 15px'
-                            : variant === 'medium'
+                            : shape === 'medium'
                             ? '10px 12px'
-                            : variant === 'small'
+                            : shape === 'small'
                             ? '7px 11px'
                             : /*variant === 'square' ? */ '5px'};
                     }
 
                     .button:hover {
-                        background: ${background === 'lightRed' ? '#e42e5f' : /*background === 'gray' ? */ '#2e2844'};
+                        background: ${background === 'lightRed'
+                            ? '#e42e5f'
+                            : background === 'gray'
+                            ? '#2e2844'
+                            : 'transparent'};
                     }
                 `}
             </style>
@@ -44,5 +48,3 @@ function ButtonUI({ className, children, background, variant, onClick }: ButtonU
 }
 
 export default ButtonUI; /*'#1f1b2e'};*/
-
-/*background: ${background === 'lightRed' ? '#ea003d' : /*background === 'gray' ? */

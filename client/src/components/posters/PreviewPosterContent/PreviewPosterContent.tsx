@@ -1,9 +1,9 @@
 import IMovie from "@/models/IMovie";
 import Image from "next/image";
-import bookmark from '../../../../public/icons/postersIcons/bookmark.png';
-import wand from '../../../../public/icons/postersIcons/wand.png';
-import star from '../../../../public/icons/postersIcons/star.png';
-import circle from '../../../../public/icons/postersIcons/circle.png';
+import bookmark from '../../../../public/icons/posters/bookmark.png';
+import wand from '../../../../public/icons/posters/wand.png';
+import star from '../../../../public/icons/posters/star.png';
+import circle from '../../../../public/icons/posters/circle.png';
 import style from './PreviewPosterContent.module.scss';
 
 interface PreviewPosterContentProps {
