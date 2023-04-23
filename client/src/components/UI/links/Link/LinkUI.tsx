@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import Link from 'next/link';
 import styles from './LinkUI.module.scss';
 
 interface LinkUIProps {
@@ -17,14 +18,14 @@ const LinkUI = ({ children, href, shape, className }: LinkUIProps) => {
             : styles.link__wrapper_rectangular;
 
     return (
-        <a
+        <Link
             href={href}
             className={[styles.link__wrapper, linkFormClass, className].join(' ')}
             target="blank"
             role="link-to-media"
         >
             <div className={styles.link__content}>{children}</div>
-        </a>
+        </Link>
     );
 };
 

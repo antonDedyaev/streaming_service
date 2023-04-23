@@ -12,22 +12,6 @@
         justify-content: space-between;
     }
 
-    &__column {
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        padding-left: 12px;
-        padding-right: 12px;
-
-        &_sizeNarrow {
-            width: 25%;
-        }
-
-        &_sizeWide {
-            width: 50%;
-        }
-    }
-
     &__title {
         color: #fff;
         display: block;
@@ -53,23 +37,6 @@
         span {
             display: block;
         }
-    }
-
-    &__linkList {
-        display: grid;
-        row-gap: 8px;
-    }
-
-    &__linkItem {
-        color: #a5a1b2;
-        font-weight: 400;
-    }
-
-    &__askLink,
-    &__linkItem {
-        font-size: 15px;
-        font-style: normal;
-        line-height: 20px;
     }
 
     &__support {
@@ -138,41 +105,39 @@
         display: flex;
     }
 
-    &__storeLink {
-        &_textBlock {
-            margin-left: 8px;
-            align-self: center;
-            flex-grow: 1;
-            flex-shrink: 1;
-            overflow: hidden;
-            white-space: nowrap;
+    &__textBlock {
+        margin-left: 8px;
+        align-self: center;
+        flex-grow: 1;
+        flex-shrink: 1;
+        overflow: hidden;
+        white-space: nowrap;
 
-            & > :nth-child(1) {
-                height: 12px;
+        & > :nth-child(1) {
+            height: 12px;
 
-                font-size: 10px;
-                line-height: 12px;
-                opacity: 0.7;
-            }
-            & > :nth-child(2) {
-                height: 20px;
-
-                font-size: 15px;
-                line-height: 20px;
-            }
+            font-size: 10px;
+            line-height: 12px;
+            opacity: 0.7;
         }
+        & > :nth-child(2) {
+            height: 20px;
 
-        &_textSingle {
-            margin-right: 4px;
-            margin-left: 4px;
+            font-size: 15px;
+            line-height: 20px;
+        }
+    }
 
-            font-weight: 400;
+    &__textSingle {
+        margin-right: 4px;
+        margin-left: 4px;
 
-            white-space: nowrap;
+        font-weight: 400;
 
-            & img {
-                margin-right: 6px;
-            }
+        white-space: nowrap;
+
+        & img {
+            margin-right: 6px;
         }
     }
 
@@ -192,6 +157,14 @@
         grid-auto-flow: column;
         justify-content: flex-end;
     }
+}
+
+.columnNarrow {
+    width: 25%;
+}
+
+.columnWide {
+    width: 50%;
 }
 
 .footerWidget {

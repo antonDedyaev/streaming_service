@@ -1,20 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import appleIcon from '@/../public/icons/logo.svg';
-import searchIcon from '@/../public/icons/search.svg';
-import bellIcon from '@/../public/icons/bell.svg';
-import userIcon from '@/../public/icons/user.svg';
-import MenuList from '@/components/menu/MenuList/MenuList';
-import styles from '@/components/menu/Navbar/Navbar.module.scss';
-import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
-import DropMenu from '../DropMenu/DropMenu';
+import appleIcon from '../../../public/icons/logo.svg';
+import searchIcon from '../../../public/icons/search.svg';
+import bellIcon from '../../../public/icons/bell.svg';
+import userIcon from '../../../public/icons/user.svg';
+import MenuList from './MenuList';
+import styles from './Header.module.scss';
+import ButtonUI from '../UI/buttons/Button/ButtonUI';
+import DropMenu from './DropMenu';
 import { useEffect, useState } from 'react';
 
-interface NavbarProps {
+interface HeaderProps {
     page: 'home' | 'other';
 }
 
-function Navbar({ page }: NavbarProps) {
+function Header({ page }: HeaderProps) {
     const [isShowMoviesDrop, setIsShowMoviesDrop] = useState<boolean>(false);
     const [isShowSeriesDrop, setIsShowSeriesDrop] = useState<boolean>(false);
     const [isShowCartoonDrop, setIsShowCartoonDrop] = useState<boolean>(false);
@@ -67,39 +67,45 @@ function Navbar({ page }: NavbarProps) {
                 </Link>
 
                 <MenuList
-                    className={styles.container__menu}
+                    direction="row"
                     links={[
                         {
                             href: '/',
                             text: 'Мой Иви',
+                            option: 'dim',
                             onMouseOver: clearShowHandler,
                         },
                         {
                             href: '/',
                             text: 'Что нового',
+                            option: 'dim',
                             onMouseOver: clearShowHandler,
                         },
                         {
                             href: '/',
                             text: 'Фильмы',
+                            option: 'dim',
                             onMouseOver: mouseOverMovieHandler,
                             className: [styles.container__menuLink, styles.container__menuLink_movie].join(' '),
                         },
                         {
                             href: '/',
                             text: 'Сериалы',
+                            option: 'dim',
                             onMouseOver: mouseOverSeriesHandler,
                             className: [styles.container__menuLink, styles.container__menuLink_series].join(' '),
                         },
                         {
                             href: '/',
                             text: 'Мультфильмы',
+                            option: 'dim',
                             onMouseOver: mouseOverСartoonHandler,
                             className: [styles.container__menuLink, styles.container__menuLink_cartoon].join(' '),
                         },
                         {
                             href: '/',
                             text: 'TV+',
+                            option: 'dim',
                             onMouseOver: clearShowHandler,
                         },
                     ]}
@@ -247,4 +253,4 @@ function Navbar({ page }: NavbarProps) {
     );
 }
 
-export default Navbar;
+export default Header;

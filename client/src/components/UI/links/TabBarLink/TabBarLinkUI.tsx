@@ -1,6 +1,6 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './TabBarLinkUI.module.scss';
-import { useState } from 'react';
 
 interface TabBarLinkUIProps {
     href: string;
@@ -16,13 +16,13 @@ const TabBarLinkUI = ({ href, icon, text }: TabBarLinkUIProps) => {
     };
 
     return (
-        <a id="tab-item" href={href} className={styles.tabBar__item} onClick={handleTabClicked} role="tab-link">
+        <Link id="tab-item" href={href} className={styles.tabBar__item} onClick={handleTabClicked} role="tab-link">
             <div className={styles.tabBar__itemGlow}></div>
             <div className={styles.tabBar__itemIcon}>
                 <Image src={icon} height={20} width={20} alt={`Иконка ${text}`} />
             </div>
             <div className={styles.tabBar__itemCaption}>{text}</div>
-        </a>
+        </Link>
     );
 };
 

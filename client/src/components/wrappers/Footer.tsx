@@ -9,6 +9,7 @@ import loudspeaker from '../../../public/icons/link/loudspeaker.svg';
 import tvIcon from '../../../public/icons/link/devices_tv.svg';
 import devicesIcon from '../../../public/icons/link/devices_all.svg';
 import ButtonUI from '../UI/buttons/Button/ButtonUI';
+import MenuList from './MenuList';
 
 const Footer: FC = () => {
     const [phoneIsHidden, setPhoneIsHidden] = useState(true);
@@ -16,97 +17,104 @@ const Footer: FC = () => {
         <footer className={styles.iviFooter}>
             <div className="container">
                 <div className={styles.iviFooter__content}>
-                    <div className={[styles.iviFooter__column, styles.iviFooter__column_sizeNarrow].join(' ')}>
+                    <div className={styles.columnNarrow}>
                         <span className={styles.iviFooter__title}>О нас</span>
-                        <ul className={styles.iviFooter__linkList}>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    О компании
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Вакансии
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Программа бета-тестирования
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Информация для партнёров
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Размещение рекламы
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Пользовательское соглашение
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Политика конфиденциальности
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Комплаенс
-                                </TextLinkUI>
-                            </li>
-                        </ul>
+                        <MenuList
+                            direction="column"
+                            links={[
+                                {
+                                    href: '#!',
+                                    text: 'О компании',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Вакансии',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Программа бета-тестирования',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Информация для партнёров',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Размещение рекламы',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Пользовательское соглашение',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Политика конфиденциальности',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Комплаенс',
+                                    option: 'dim',
+                                },
+                            ]}
+                        />
                     </div>
-                    <div className={[styles.iviFooter__column, styles.iviFooter__column_sizeNarrow].join(' ')}>
+                    <div className={styles.columnNarrow}>
                         <span className={styles.iviFooter__title}>Разделы</span>
-                        <ul className={styles.iviFooter__linkList}>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="/" option="dim">
-                                    Мой Иви
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Что нового
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="/movies" option="dim">
-                                    Фильмы
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Сериалы
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Мультфильмы
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    TV+
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="dim">
-                                    Что посмотреть
-                                </TextLinkUI>
-                            </li>
-                            <li className={styles.iviFooter__linkItem}>
-                                <TextLinkUI href="#!" option="gradient">
-                                    Активация сертификата
-                                </TextLinkUI>
-                            </li>
-                        </ul>
+                        <MenuList
+                            direction="column"
+                            links={[
+                                {
+                                    href: '#!',
+                                    text: 'Мой Иви',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Что нового',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '/movies',
+                                    text: 'Фильмы',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Сериалы',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Мультфильмы',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'TV+',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Что посмотреть',
+                                    option: 'dim',
+                                },
+                                {
+                                    href: '#!',
+                                    text: 'Активация сертификата',
+                                    option: 'gradient',
+                                },
+                            ]}
+                        />
                     </div>
-                    <div className={[styles.iviFooter__column, styles.iviFooter__column_sizeNarrow].join(' ')}>
+
+                    <div className={styles.columnNarrow}>
                         <span className={styles.iviFooter__title}>Служба поддержки</span>
                         <div className={styles.iviFooter__description}>
                             <span>Мы всегда готовы вам помочь.</span>
@@ -158,7 +166,8 @@ const Footer: FC = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className={[styles.iviFooter__column, styles.iviFooter__column_sizeNarrow].join(' ')}>
+
+                    <div className={styles.columnNarrow}>
                         <div className={styles.footerWidget}>
                             <div className={styles.footerWidget__iconSection}>
                                 <Image
@@ -175,49 +184,41 @@ const Footer: FC = () => {
                     </div>
                 </div>
                 <div className={styles.iviFooter__content}>
-                    <div className={[styles.iviFooter__column, styles.iviFooter__column_sizeWide].join(' ')}>
+                    <div className={styles.columnWide}>
                         <div className={styles.iviFooter__stores}>
-                            <LinkUI
-                                href="https://go.onelink.me/app/devicesiOS"
-                                shape="rectangular"
-                                className={styles.iviFooter__storeLink}
-                            >
+                            <LinkUI href="https://go.onelink.me/app/devicesiOS" shape="rectangular">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/appleLogo.svg"
                                     height={20}
                                     width={20}
                                     alt="Логотип AppStore"
                                 />
-                                <div className={styles.iviFooter__storeLink_textBlock}>
+                                <div className={styles.iviFooter__textBlock}>
                                     <div>Загрузить в</div>
                                     <div>App Store</div>
                                 </div>
                             </LinkUI>
-                            <LinkUI
-                                href="https://go.onelink.me/app/devicesAndroid"
-                                shape="rectangular"
-                                className={styles.iviFooter__storeLink}
-                            >
+                            <LinkUI href="https://go.onelink.me/app/devicesAndroid" shape="rectangular">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg"
                                     height={20}
                                     width={20}
                                     alt="Логотип Google Play"
                                 />
-                                <div className={styles.iviFooter__storeLink_textBlock}>
+                                <div className={styles.iviFooter__textBlock}>
                                     <div>Доступно в</div>
                                     <div>Google Play</div>
                                 </div>
                             </LinkUI>
-                            <LinkUI href="#!" shape="rectangular" className={styles.iviFooter__storeLink}>
+                            <LinkUI href="#!" shape="rectangular">
                                 <Image src={tvIcon} height={20} width={20} alt="Иконка телевизора" />
-                                <div className={styles.iviFooter__storeLink_textBlock}>
+                                <div className={styles.iviFooter__textBlock}>
                                     <div>Смотрите на</div>
                                     <div>Smart TV</div>
                                 </div>
                             </LinkUI>
-                            <LinkUI href="#!" shape="rectangular" className={styles.iviFooter__storeLink}>
-                                <div className={styles.iviFooter__storeLink_textSingle}>
+                            <LinkUI href="#!" shape="rectangular">
+                                <div className={styles.iviFooter__textSingle}>
                                     <Image src={devicesIcon} height={20} width={20} alt="Иконка умных устройств" />
                                     Все устройства
                                 </div>
@@ -234,7 +235,7 @@ const Footer: FC = () => {
                             </p>
                         </div>
                     </div>
-                    <div className={[styles.iviFooter__column, styles.iviFooter__column_sizeWide].join(' ')}>
+                    <div className={styles.columnWide}>
                         <div className={styles.iviFooter__community}>
                             <LinkUI href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e" shape="round">
                                 <Image
