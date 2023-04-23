@@ -2,7 +2,7 @@
 
 exports[`LinkUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
 <a
-  class="link__wrapper link__wrapper_rectangular iviFooter__storeLink"
+  class="link__wrapper link__wrapper_rectangular "
   href="#!"
   role="link-to-media"
   target="blank"
@@ -11,7 +11,7 @@ exports[`LinkUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
     class="link__content"
   >
     <div
-      class="iviFooter__storeLink_textSingle"
+      class="iviFooter__textSingle"
     >
       <img
         alt="Иконка умных устройств"

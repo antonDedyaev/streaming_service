@@ -44,11 +44,7 @@ const FilmographyItem = ({ poster, year, title, rating }: FilmographyItemProps) 
                     </div>
                     <div className={styles.filmographyItem__action}>
                         <div className={styles.filmographyItem__action__wrapper}>
-                            <ButtonUI
-                                variant="large"
-                                className={styles.filmographyItem__action__text}
-                                background="gray"
-                            >
+                            <ButtonUI shape="large" className={styles.filmographyItem__action__text} background="gray">
                                 {/*Оставляем один вариант кнопки*/}
                                 Подробнее
                             </ButtonUI>

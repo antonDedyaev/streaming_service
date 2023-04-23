@@ -6,7 +6,7 @@
     position: relative;
     border-radius: 15px 15px 0 0;
     border-bottom: 1px solid #343434;
-    transition: .4s;
+    transition: 0.4s;
     padding: 0 10px;
 
     &_mouseOver {
@@ -21,14 +21,10 @@
         }
     }
 
-    &__menu {
-        flex: 1 1 auto;
-    }
-
     &__dropMenu {
         visibility: hidden;
         opacity: 0;
-        transition: all .5s;
+        transition: all 0.5s;
 
         &_show {
             visibility: visible;
@@ -52,7 +48,7 @@
     &__search {
         padding: 10px 0;
         opacity: 0.5;
-        transition: .4s;
+        transition: 0.4s;
         display: flex;
         align-items: center;
 
@@ -84,7 +80,7 @@
 
     &__link {
         opacity: 0.5;
-        transition: .4s;
+        transition: 0.4s;
 
         &_bell {
             padding: 10px 20px;
@@ -98,7 +94,7 @@
             justify-content: center;
             align-items: center;
             border-radius: 8px;
-            
+
             &:hover {
                 box-shadow: 0 0 15px #ffffff98;
             }
@@ -112,13 +108,8 @@
 
 @media (max-width: 1160px) {
     .container {
-
         &__logo {
             flex: 1 1 auto;
-        }
-
-        &__menu {
-            display: none;
         }
 
         &__search {
@@ -133,7 +124,6 @@
 
 @media (max-width: 600px) {
     .container {
-
         &_home {
             width: calc(100% + 20px);
             height: 55px;
@@ -149,18 +139,16 @@
             height: 64px;
 
             .container__logo {
-                
                 img {
                     width: 55px;
                 }
             }
 
             .container__link {
-        
                 &_bell {
                     display: none;
                 }
-        
+
                 &_user {
                     display: none;
                 }
