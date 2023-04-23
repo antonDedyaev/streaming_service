@@ -9,10 +9,12 @@ import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.dat
 import ActorList from '@/components/actor/ActorList/ActorList';
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import { useState } from 'react';
-import MainContainer from '@/components/MainContainer/MainContainer';
+import MainContainer from '@/components/main/MainContainer/MainContainer';
 import MoviePlayer from '@/components/movie/MoviePlayer/MoviePlayer';
 import TabBar from '@/components/TabBar/TabBar';
-import Footer from '@/components/Footer/Footer';
+import FilmographyItem from '@/components/actor/ActorFilmography/FilmographyItem';
+import ActorItem from '@/components/actor/ActorItem/ActorItem';
+import PreviewPoster from '@/components/posters/PreviewPoster/PreviewPoster';
 
 function HomePage() {
     const [isShowModal, setIsShowModal] = useState<boolean>(false);
@@ -24,34 +26,26 @@ function HomePage() {
                 title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
                 page="home"
             >
-                <div style={{ display: 'flex' }} className="container">
-                    <MoviePlayer movie={movie[0]} />
-                    <MovieInfo movie={movie[0]} />
-                </div>
+                <PreviewPoster
+                    movie={ratingMovies[0]}
+                    className=''
+                />
 
-                <Slider itemType="promo" length={promoMovies.length}>
-                    <PostersList posterType="promo" movies={promoMovies} />
-                </Slider>
-
-                <Slider itemType="preview" length={ratingMovies.length}>
-                    <PostersList posterType="preview" movies={ratingMovies} />
-                </Slider>
-
-                <Slider itemType="rating" length={ratingMovies.length}>
-                    <PostersList posterType="rating" movies={ratingMovies} />
+                <Slider itemType="actor" length={actors.length}>
+                    <ActorList actors={actors} size="large" />
                 </Slider>
 
                 <Slider itemType="actor" length={actors.length}>
-                    <ActorList actors={actors} amt={true} effect={true} size="large" />
+                    <PostersList movies={ratingMovies} posterType='preview' />
                 </Slider>
 
-                <TabBar />
+                <Slider itemType="promo" length={ratingMovies.length}>
+                    <PostersList movies={ratingMovies} posterType='promo' />
+                </Slider>
 
-                <Footer />
-
-                <button onClick={() => setIsShowModal(true)}>Показать модалку</button>
-
-                {isShowModal && <ModalUI onClick={() => setIsShowModal(false)}>Hello</ModalUI>}
+                <Slider itemType="rating" length={ratingMovies.length}>
+                    <PostersList movies={ratingMovies} posterType='rating' />
+                </Slider>
             </MainContainer>
         </>
     );

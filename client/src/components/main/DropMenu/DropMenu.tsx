@@ -4,7 +4,7 @@ import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 
 interface IContent {
     title: string;
-    genres: {
+    types: {
         name: string;
         href: string;
     }[];
@@ -22,9 +22,14 @@ const DropMenu = ({ className, content }: DropMenuProps) => {
                 <div key={item.title} className={styles.container__item}>
                     <h2 className={styles.container__title}>{item.title}</h2>
                     <div className={styles.container__content}>
-                        {item.genres.map((genre) => (
-                            <TextLinkUI key={genre.name} className={styles.container__link} href={genre.href} option="dim">
-                                {genre.name}
+                        {item.types.map((type) => (
+                            <TextLinkUI
+                                key={type.name}
+                                className={styles.container__link}
+                                href={type.href}
+                                option="dim"
+                            >
+                                {type.name}
                             </TextLinkUI>
                         ))}
                     </div>

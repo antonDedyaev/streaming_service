@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from '@/components/menu/MenuList/MenuList.module.scss';
+import styles from './MenuList.module.scss';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 
 interface ILink {

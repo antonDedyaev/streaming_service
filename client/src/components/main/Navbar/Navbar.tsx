@@ -4,8 +4,8 @@ import appleIcon from '@/../public/icons/logo.svg';
 import searchIcon from '@/../public/icons/search.svg';
 import bellIcon from '@/../public/icons/bell.svg';
 import userIcon from '@/../public/icons/user.svg';
-import MenuList from '@/components/menu/MenuList/MenuList';
-import styles from '@/components/menu/Navbar/Navbar.module.scss';
+import MenuList from '@/components/main/MenuList/MenuList';
+import styles from './Navbar.module.scss';
 import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import DropMenu from '../DropMenu/DropMenu';
 import { useEffect, useState } from 'react';
@@ -14,7 +14,7 @@ interface NavbarProps {
     page: 'home' | 'other';
 }
 
-function Navbar({ page }: NavbarProps) {
+const Navbar = ({ page }: NavbarProps) => {
     const [isShowMoviesDrop, setIsShowMoviesDrop] = useState<boolean>(false);
     const [isShowSeriesDrop, setIsShowSeriesDrop] = useState<boolean>(false);
     const [isShowCartoonDrop, setIsShowCartoonDrop] = useState<boolean>(false);
@@ -137,7 +137,7 @@ function Navbar({ page }: NavbarProps) {
                             ? [
                                   {
                                       title: 'Жанры',
-                                      genres: [
+                                      types: [
                                           { name: 'фильм', href: '/' },
                                           { name: 'фильм', href: '/' },
                                           { name: 'фильм', href: '/' },
@@ -148,7 +148,7 @@ function Navbar({ page }: NavbarProps) {
                                   },
                                   {
                                       title: 'Страны',
-                                      genres: [
+                                      types: [
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
@@ -159,7 +159,7 @@ function Navbar({ page }: NavbarProps) {
                                   },
                                   {
                                       title: 'Годы',
-                                      genres: [
+                                      types: [
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },
@@ -173,7 +173,7 @@ function Navbar({ page }: NavbarProps) {
                             ? [
                                   {
                                       title: 'Жанры',
-                                      genres: [
+                                      types: [
                                           { name: 'Сериал', href: '/' },
                                           { name: 'Сериал', href: '/' },
                                           { name: 'Сериал', href: '/' },
@@ -184,7 +184,7 @@ function Navbar({ page }: NavbarProps) {
                                   },
                                   {
                                       title: 'Страны',
-                                      genres: [
+                                      types: [
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
@@ -195,7 +195,7 @@ function Navbar({ page }: NavbarProps) {
                                   },
                                   {
                                       title: 'Годы',
-                                      genres: [
+                                      types: [
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },
@@ -208,7 +208,7 @@ function Navbar({ page }: NavbarProps) {
                             : [
                                   {
                                       title: 'Жанры',
-                                      genres: [
+                                      types: [
                                           { name: 'Мультик', href: '/' },
                                           { name: 'Мультик', href: '/' },
                                           { name: 'Мультик', href: '/' },
@@ -219,7 +219,7 @@ function Navbar({ page }: NavbarProps) {
                                   },
                                   {
                                       title: 'Страны',
-                                      genres: [
+                                      types: [
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
@@ -230,7 +230,7 @@ function Navbar({ page }: NavbarProps) {
                                   },
                                   {
                                       title: 'Годы',
-                                      genres: [
+                                      types: [
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },

@@ -6,47 +6,39 @@ import { declensionOfWordFromNumber } from '../../../utils/functions';
 
 interface ActorItemProps {
     className?: string;
-    href: string;
     actor: IActor;
-    role?: boolean;
-    effect?: boolean;
-    amt?: boolean;
-    size?: 'large' | 'medium' | 'small';
+    size: 'large' | 'medium' | 'small';
 }
 
-const ActorItem = ({ className, href, actor, amt, role, effect, size }: ActorItemProps) => {
+const ActorItem = ({ className, actor, size }: ActorItemProps) => {
     return (
-        <Link href={href} className={[styles.container, className, styles[`container_${size}`]].join(' ')}>
-            <div
-                className={[
-                    styles.imageSection,
-                    styles[`imageSection_${size}`],
-                    effect && styles['imageSection_effect'],
-                ].join(' ')}
-            >
-                <div className={styles.imageActorWrapper}>
-                    <Image className={styles.image} src={actor.img} alt={`${actor.firstName} ${actor.lastName}`} fill />
+        <Link href={`actors/${actor.id}`} className={[styles.container, className].join(' ')}>
+            <div className={styles.container__imageContainer}>
+                <div className={styles.container__imageWrapper}>
+                    <Image
+                        className={styles.container__image}
+                        src={actor.img}
+                        alt={`${actor.firstName} ${actor.lastName}`}
+                        fill
+                    />
                 </div>
 
-                {effect && (
-                    <div className={styles.amountBadge}>
-                        <div className={styles.amountBadge__backBox}></div>
-                        <div className={styles.amountBadge__text}>{actor.amtMovies}</div>
-                    </div>
-                )}
+                {size === 'large' && <div className={styles.container__amountBadge}>{actor.amtMovies}</div>}
             </div>
-            <div className={styles.textSection}>
-                <div className={[styles.textSection__title, styles[`textSection__title_${size}`]].join(' ')}>
+
+            <div className={styles.container__textContainer}>
+                <h2 className={styles.container__fullName}>
                     {actor.firstName}
-                </div>
-                <div className={[styles.textSection__title, styles[`textSection__title_${size}`]].join(' ')}>
+                    <br />
                     {actor.lastName}
-                </div>
-                {role && <div className={styles.textSection__extra}>{actor.role}</div>}
-                {amt && (
-                    <div className={[styles.textSection__extra, styles[`textSection__extra_${size}`]].join(' ')}>
+                </h2>
+
+                {size === 'small' ? (
+                    <h3 className={styles.container__role}>{actor.role}</h3>
+                ) : (
+                    <p className={styles.container__amountMovies}>
                         {actor.amtMovies} {declensionOfWordFromNumber(actor.amtMovies, ['фильм', 'фильма', 'фильмов'])}
-                    </div>
+                    </p>
                 )}
             </div>
         </Link>

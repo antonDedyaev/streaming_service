@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
-import Navbar from '../menu/Navbar/Navbar';
+import Navbar from '@/components/main/Navbar/Navbar';
+import Footer from '@/components/main/Footer/Footer';
 
 interface MainContainerProps {
     children: ReactNode;
@@ -20,6 +21,8 @@ const MainContainer = ({ children, keywords, title, page }: MainContainerProps) 
             <Navbar page={page} />
 
             {children}
+
+            <Footer />
         </>
     );
 };
