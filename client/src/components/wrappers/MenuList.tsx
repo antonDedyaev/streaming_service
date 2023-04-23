@@ -14,10 +14,12 @@ interface MenuListProps {
     links: ILink[];
 }
 
-function MenuList({ links, direction }: MenuListProps) {
+const MenuList = ({ links, direction }: MenuListProps) => {
     return (
         <ul
-            className={[direction === 'row' ? styles.container : styles.containerCol, styles.container__menu].join(' ')}
+            className={[direction === 'row' ? styles.container : styles.container__column, styles.container__menu].join(
+                ' ',
+            )}
         >
             {links.map((link) => (
                 <li className={styles.container__item} key={link.text}>
@@ -33,6 +35,6 @@ function MenuList({ links, direction }: MenuListProps) {
             ))}
         </ul>
     );
-}
+};
 
 export default MenuList;

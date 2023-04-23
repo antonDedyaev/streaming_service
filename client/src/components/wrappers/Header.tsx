@@ -14,7 +14,7 @@ interface HeaderProps {
     page: 'home' | 'other';
 }
 
-function Header({ page }: HeaderProps) {
+const Header = ({ page }: HeaderProps) => {
     const [isShowMoviesDrop, setIsShowMoviesDrop] = useState<boolean>(false);
     const [isShowSeriesDrop, setIsShowSeriesDrop] = useState<boolean>(false);
     const [isShowCartoonDrop, setIsShowCartoonDrop] = useState<boolean>(false);
@@ -251,6 +251,6 @@ function Header({ page }: HeaderProps) {
             </div>
         </div>
     );
-}
+};
 
 export default Header;

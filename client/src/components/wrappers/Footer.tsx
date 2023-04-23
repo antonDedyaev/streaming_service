@@ -14,11 +14,11 @@ import MenuList from './MenuList';
 const Footer: FC = () => {
     const [phoneIsHidden, setPhoneIsHidden] = useState(true);
     return (
-        <footer className={styles.iviFooter}>
+        <footer className={styles.container}>
             <div className="container">
-                <div className={styles.iviFooter__content}>
-                    <div className={styles.columnNarrow}>
-                        <span className={styles.iviFooter__title}>О нас</span>
+                <div className={[styles.container__content, styles.container__content_columnNarrow].join(' ')}>
+                    <div>
+                        <span className={styles.container__title}>О нас</span>
                         <MenuList
                             direction="column"
                             links={[
@@ -65,8 +65,8 @@ const Footer: FC = () => {
                             ]}
                         />
                     </div>
-                    <div className={styles.columnNarrow}>
-                        <span className={styles.iviFooter__title}>Разделы</span>
+                    <div>
+                        <span className={styles.container__title}>Разделы</span>
                         <MenuList
                             direction="column"
                             links={[
@@ -114,28 +114,28 @@ const Footer: FC = () => {
                         />
                     </div>
 
-                    <div className={styles.columnNarrow}>
-                        <span className={styles.iviFooter__title}>Служба поддержки</span>
-                        <div className={styles.iviFooter__description}>
+                    <div>
+                        <span className={styles.container__title}>Служба поддержки</span>
+                        <div className={styles.container__description}>
                             <span>Мы всегда готовы вам помочь.</span>
                             <span>Наши операторы онлайн 24/7</span>
                         </div>
-                        <div className={styles.iviFooter__support}>
+                        <div className={styles.container__support}>
                             <LinkUI
                                 href="https://www.ivi.ru/profile"
                                 shape="rectangular"
-                                className={styles.iviFooter__chatButton}
+                                className={styles.container__chatButton}
                             >
                                 <div>Написать в чате</div>
                             </LinkUI>
-                            <div className={styles.iviFooter__supportButtons}>
+                            <div className={styles.container__supportButtons}>
                                 <LinkUI href="mailto:support@ivi.ru" shape="square">
                                     <Image src={mailIcon} height={16} width={16} alt="Иконка почты" />
                                 </LinkUI>
                                 <ButtonUI
                                     background="gray"
                                     shape="square"
-                                    className={styles.iviFooter__buttonSize}
+                                    className={styles.container__buttonSize}
                                     onClick={() => setPhoneIsHidden(!phoneIsHidden)}
                                 >
                                     <Image src={phoneIcon} height={16} width={16} alt="Иконка телефона" />
@@ -143,37 +143,37 @@ const Footer: FC = () => {
                             </div>
                             <div
                                 className={[
-                                    styles.iviFooter__supportPhones,
+                                    styles.container__supportPhones,
                                     phoneIsHidden
                                         ? null
-                                        : [styles.iviFooter__supportPhones, styles.iviFooter__supportPhones_shown].join(
+                                        : [styles.container__supportPhones, styles.container__supportPhones_shown].join(
                                               ' ',
                                           ),
                                 ].join(' ')}
                             >
-                                <a className={styles.iviFooter__phoneItem} href="tel:88002344923" rel="nofollow">
-                                    <div className={styles.iviFooter__phoneNumber}>8 800 234-49-23</div>
-                                    <div className={styles.iviFooter__description}>Бесплатно по России</div>
+                                <a className={styles.container__phoneItem} href="tel:88002344923" rel="nofollow">
+                                    <div className={styles.container__phoneNumber}>8 800 234-49-23</div>
+                                    <div className={styles.container__description}>Бесплатно по России</div>
                                 </a>
                             </div>
-                            <ul className={styles.iviFooter__questions}>
+                            <ul className={styles.container__questions}>
                                 <li>
                                     <TextLinkUI
                                         href="https://ask.ivi.ru/"
                                         option="bright"
-                                        className={[styles.iviFooter__title, styles.iviFooter__title_askText].join(' ')}
+                                        className={[styles.container__title, styles.container__title_askText].join(' ')}
                                     >
                                         ask.ivi.ru
                                     </TextLinkUI>
-                                    <p className={styles.iviFooter__description}>Ответы на вопросы</p>
+                                    <p className={styles.container__description}>Ответы на вопросы</p>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div className={styles.columnNarrow}>
-                        <div className={styles.footerWidget}>
-                            <div className={styles.footerWidget__iconSection}>
+                    <div>
+                        <div className={styles.container__footerWidget}>
+                            <div className={styles.container__footerWidget__iconSection}>
                                 <Image
                                     src={loudspeaker}
                                     height={76}
@@ -181,15 +181,15 @@ const Footer: FC = () => {
                                     alt="Иконка перечеркнутого громкоговорителя"
                                 />
                             </div>
-                            <p className={styles.footerWidget__text}>
+                            <p className={styles.container__footerWidget__text}>
                                 Смотрите фильмы, сериалы и мультфильмы без рекламы
                             </p>
                         </div>
                     </div>
                 </div>
-                <div className={styles.iviFooter__content}>
-                    <div className={styles.columnWide}>
-                        <div className={styles.iviFooter__stores}>
+                <div className={[styles.container__content, styles.container__content_columnWide].join(' ')}>
+                    <div>
+                        <div className={styles.container__stores}>
                             <LinkUI href="https://go.onelink.me/app/devicesiOS" shape="rectangular">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/appleLogo.svg"
@@ -197,7 +197,7 @@ const Footer: FC = () => {
                                     width={20}
                                     alt="Логотип AppStore"
                                 />
-                                <div className={styles.iviFooter__textBlock}>
+                                <div className={styles.container__textBlock}>
                                     <div>Загрузить в</div>
                                     <div>App Store</div>
                                 </div>
@@ -209,38 +209,38 @@ const Footer: FC = () => {
                                     width={20}
                                     alt="Логотип Google Play"
                                 />
-                                <div className={styles.iviFooter__textBlock}>
+                                <div className={styles.container__textBlock}>
                                     <div>Доступно в</div>
                                     <div>Google Play</div>
                                 </div>
                             </LinkUI>
                             <LinkUI href="#!" shape="rectangular">
                                 <Image src={tvIcon} height={20} width={20} alt="Иконка телевизора" />
-                                <div className={styles.iviFooter__textBlock}>
+                                <div className={styles.container__textBlock}>
                                     <div>Смотрите на</div>
                                     <div>Smart TV</div>
                                 </div>
                             </LinkUI>
                             <LinkUI href="#!" shape="rectangular">
-                                <div className={styles.iviFooter__textSingle}>
+                                <div className={styles.container__textSingle}>
                                     <Image src={devicesIcon} height={20} width={20} alt="Иконка умных устройств" />
                                     Все устройства
                                 </div>
                             </LinkUI>
                         </div>
-                        <div className={styles.iviFooter__copyrights}>
-                            <p className={styles.iviFooter__copyrightsSite}>
+                        <div className={styles.container__copyrights}>
+                            <p className={styles.container__copyrightsSite}>
                                 <span>©&nbsp;</span>
                                 <span>2023</span>
                                 <span>&nbsp;ООО «Иви.ру»</span>
                             </p>
-                            <p className={styles.iviFooter__copyrightsContent}>
+                            <p className={styles.container__copyrightsContent}>
                                 HBO ® and related service marks are the property of Home Box Office, Inc
                             </p>
                         </div>
                     </div>
-                    <div className={styles.columnWide}>
-                        <div className={styles.iviFooter__community}>
+                    <div>
+                        <div className={styles.container__community}>
                             <LinkUI href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e" shape="round">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_vkontakte.svg"

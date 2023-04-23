@@ -28,12 +28,12 @@
             color: #fff;
         }
     }
-}
 
-.containerCol {
-    display: flex;
-    flex-direction: column;
-    row-gap: 8px;
+    &__column {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+    }
 }
 
 @media (max-width: 1160px) {

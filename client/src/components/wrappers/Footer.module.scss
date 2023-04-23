@@ -1,15 +1,23 @@
-.iviFooter {
+.container {
     background-color: #100e19;
     font-family: iviSans, Arial, Helvetica, Helvetica Neue, FreeSans, sans-serif;
     position: relative;
 
     &__content {
-        display: flex;
         padding-bottom: 48px;
         padding-top: 48px;
         position: relative;
-        border-top: 2px solid hsla(0, 0%, 100%, 0.16);
-        justify-content: space-between;
+        border-top: 1px solid hsla(0, 0%, 100%, 0.16);
+
+        &_columnNarrow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        &_columnWide {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     &__title {
@@ -20,6 +28,7 @@
 
         &_askText {
             margin: 0;
+            font-weight: 400;
             color: #fff;
         }
     }
@@ -158,50 +167,42 @@
         grid-auto-flow: column;
         justify-content: flex-end;
     }
-}
 
-.columnNarrow {
-    width: 25%;
-}
-
-.columnWide {
-    width: 50%;
-}
-
-.footerWidget {
-    align-items: center;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-
-    &__iconSection {
+    &__footerWidget {
         align-items: center;
-        background: linear-gradient(180deg, var(--start-gradient-color) 0, var(--end-gradient-color) 100%);
-        border-radius: 20px;
-        box-shadow: 0 0 104px var(--shadow-color);
+        cursor: pointer;
         display: flex;
-        height: 104px;
-        justify-content: center;
-        width: 104px;
+        flex-direction: column;
 
-        --start-gradient-color: #a869f0;
-        --end-gradient-color: #834cc2;
-        --shadow-color: #a869f0;
-    }
+        &__iconSection {
+            align-items: center;
+            background: linear-gradient(180deg, var(--start-gradient-color) 0, var(--end-gradient-color) 100%);
+            border-radius: 20px;
+            box-shadow: 0 0 104px var(--shadow-color);
+            display: flex;
+            height: 104px;
+            justify-content: center;
+            width: 104px;
 
-    &__text {
-        color: #a5a1b2;
-        font-size: 15px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 20px;
-        margin-top: 24px;
-        text-align: center;
+            --start-gradient-color: #a869f0;
+            --end-gradient-color: #834cc2;
+            --shadow-color: #a869f0;
+        }
+
+        &__text {
+            color: #a5a1b2;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            margin-top: 24px;
+            text-align: center;
+        }
     }
 }
 
 @media screen and (max-width: 1159px) {
-    .iviFooter {
+    .container {
         display: none;
     }
 }
