@@ -1,5 +1,5 @@
 import styles from './MovieOptions.module.scss';
-import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
+import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import TextBadge from '../../UI/badges/TextBadge/TextBadge';
 
 interface MovieOptionsProps {
@@ -8,27 +8,27 @@ interface MovieOptionsProps {
 
 const MovieOptions = ({ movie }: MovieOptionsProps) => {
     return (
-        <div className={styles.options} role={'div-options'}>
-            <div className={styles.options__block}>
-                <div className={styles.options__blockTitle}>Языки</div>
-                <div className={styles.options__blockValue}>{movie.language.join(', ')}</div>
+        <div className={styles.container} role={'div-options'}>
+            <div className={styles.container__block}>
+                <div className={styles.container__title}>Языки</div>
+                <div className={styles.container__value}>{movie.language.join(', ')}</div>
             </div>
-            <div className={styles.options__block}>
-                <div className={styles.options__blockTitle}>Субтитры</div>
-                <div className={styles.options__blockValue}>{movie.subtitlesFull.join(', ')}</div>
+            <div className={styles.container__block}>
+                <div className={styles.container__title}>Субтитры</div>
+                <div className={styles.container__value}>{movie.subtitlesFull.join(', ')}</div>
             </div>
-            <div className={styles.options__block}>
-                <div className={[styles.options__blockTitle, styles.options__blockTitle_full].join(' ')}>
+            <div className={styles.container__block}>
+                <div className={[styles.container__title, styles.container__title_full].join(' ')}>
                     Изображение и звук.
-                    <span>Фактическое качество зависит от устройства и ограничений правообладателя.</span>
+                    <span className={styles.container__quality}>Фактическое качество зависит от устройства и ограничений правообладателя.</span>
                 </div>
-                <div className={[styles.options__blockTitle, styles.options__blockTitle_mobile].join(' ')}>
+                <div className={[styles.container__title, styles.container__title_mobile].join(' ')}>
                     Качество
                 </div>
-                <div className={styles.options__badge}>
+                <div className={styles.container__badgesContainer}>
                     {movie.displays.map((display) => (
-                        <div className={styles.options__badgeItem}>
-                            <TextBadge key={display} text={display} />
+                        <div key={display} className={styles.container__badge}>
+                            <TextBadge text={display} />
                         </div>
                     ))}
                 </div>

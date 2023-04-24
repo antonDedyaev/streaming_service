@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonUI SNAPSHOTS TESTS gray ButtonUI should not be changed 1`] = `
+<button
+  class="jsx-3227982014 button button button"
+>
+  Серая кнопка
+</button>
+`;
+
+exports[`ButtonUI SNAPSHOTS TESTS lightRed ButtonUI should not be changed 1`] = `
+<button
+  class="jsx-3063803254 button button button"
+>
+  Красная кнопка
+</button>
+`;

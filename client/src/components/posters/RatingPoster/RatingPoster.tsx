@@ -5,31 +5,31 @@ import IMovie from "@/models/IMovie";
 
 interface RatingPosterProps {
     movie: IMovie
+    className: string
 }
 
-const RatingPoster = ({ movie }: RatingPosterProps) => {
+const RatingPoster = ({ movie, className }: RatingPosterProps) => {
     return (
-        <div className={style.ratingPoster}>
+        <div className={[style.container, className].join(' ')}>
             <Link href="/">
-                <div className={style.imageWrapper}>
+                <div className={style.container__imageWrapper}>
                     <Image
-                        className={style.ratingPoster__image}
-                        width={250}
-                        height={410}
+                        className={style.container__image}
+                        fill
                         src={movie.image} 
                         alt={movie.name} />
-                    <div className={style.fadeArea}></div>
+                    <div className={style.container__fadeArea}></div>
                 </div>
-                <div className={style.contentWrapper}>
-                    <div className={style.fadeArea}></div>
+                <div className={style.container__content}>
+                    <div className={style.container__fadeArea}></div>
                     <Image
-                        className={style.logo}
+                        className={style.container__logo}
                         width={153}
                         height={40}
                         src={movie.logo}
                         alt={movie.name} />
                     <Image 
-                        className={style.placeNumber}
+                        className={style.container__placeNumber}
                         width={48}
                         height={66}
                         src={`https://solea-parent.dfs.ivi.ru/picture/bypass/number${movie.place}.svg`}
