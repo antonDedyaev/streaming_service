@@ -2,58 +2,60 @@
 
 exports[`MOVIEOPTIONS SNAPSHOTS TESTS MovieOptions should not be changed 1`] = `
 <div
-  class="options"
+  class="container"
   role="div-options"
 >
   <div
-    class="options__block"
+    class="container__block"
   >
     <div
-      class="options__blockTitle"
+      class="container__title"
     >
       Языки
     </div>
     <div
-      class="options__blockValue"
+      class="container__value"
     >
       Русский, Английский
     </div>
   </div>
   <div
-    class="options__block"
+    class="container__block"
   >
     <div
-      class="options__blockTitle"
+      class="container__title"
     >
       Субтитры
     </div>
     <div
-      class="options__blockValue"
+      class="container__value"
     >
       Русский
     </div>
   </div>
   <div
-    class="options__block"
+    class="container__block"
   >
     <div
-      class="options__blockTitle options__blockTitle_full"
+      class="container__title container__title_full"
     >
       Изображение и звук.
-      <span>
+      <span
+        class="container__quality"
+      >
         Фактическое качество зависит от устройства и ограничений правообладателя.
       </span>
     </div>
     <div
-      class="options__blockTitle options__blockTitle_mobile"
+      class="container__title container__title_mobile"
     >
       Качество
     </div>
     <div
-      class="options__badge"
+      class="container__badgesContainer"
     >
       <div
-        class="options__badgeItem"
+        class="container__badge"
       >
         <div
           class="textBadge"
@@ -62,7 +64,7 @@ exports[`MOVIEOPTIONS SNAPSHOTS TESTS MovieOptions should not be changed 1`] = `
         </div>
       </div>
       <div
-        class="options__badgeItem"
+        class="container__badge"
       >
         <div
           class="textBadge"
@@ -71,7 +73,7 @@ exports[`MOVIEOPTIONS SNAPSHOTS TESTS MovieOptions should not be changed 1`] = `
         </div>
       </div>
       <div
-        class="options__badgeItem"
+        class="container__badge"
       >
         <div
           class="textBadge"
@@ -80,7 +82,7 @@ exports[`MOVIEOPTIONS SNAPSHOTS TESTS MovieOptions should not be changed 1`] = `
         </div>
       </div>
       <div
-        class="options__badgeItem"
+        class="container__badge"
       >
         <div
           class="textBadge"

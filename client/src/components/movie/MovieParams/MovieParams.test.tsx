@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import MovieParams from './MovieParams';
-import { movies } from '../../squareCard/SquareCardsList/Temp/Movie.data';
+import { movies } from '../movieMedallion/MovieMedallionsList/Temp/Movie.data';
 
 describe('MOVIEPARAMS SNAPSHOTS TESTS', () => {
     test('MovieParams should not be changed', () => {
