@@ -1,9 +1,30 @@
-.promoPoster {
+.container {
     position: relative;
-    width: 1216px;
-    height: 524px;
+    width: 100%;
     border-radius: 22px;
     overflow: hidden;
+
+    &__imageWrapper {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+
+        &_background {
+            padding-top: 40%;
+        }
+
+        &_logo {
+            padding-top: 25%;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
 
     &__link {
         position: absolute;
@@ -19,7 +40,7 @@
     }
 
     &__content {
-        width: calc(40% + 25.6px);
+        width: calc(35% + 25.6px);
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
@@ -32,7 +53,57 @@
         color: #ffffff;
     }
 
-    &__buttonContainer {
+    &__button {
         margin-top: 16px;
+        width: 200px;
     }
 }
+
+@media (max-width: 1000px) {
+    .container {
+        &__link {
+            padding: 10px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+
+        &__button {
+            display: none;
+        }
+
+        &__synopsis {
+            margin-top: 7px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+
+        &__imageWrapper {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+    
+            &_background {
+                padding-top: 40%;
+            }
+    
+            &_logo {
+                padding-top: 25%;
+            }
+        }
+    
+        &__image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+    }
+}
+

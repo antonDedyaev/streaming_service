@@ -12,13 +12,16 @@ interface MovieInfoProps {
 
 const MovieInfo = ({ movie }: MovieInfoProps) => {
     return (
-        <div className={styles.info}>
-            <div className={styles.info__title}>{movie.title}</div>
-            <div className={styles.info__params}>
+        <div className={styles.container}>
+            <h1 className={styles.container__title}>{movie.title}</h1>
+
+            <div className={styles.container__params}>
                 <MovieParams movie={movie} />
             </div>
-            <MovieMedallionsList movie={movie} className={styles.info__cards} />
-            <div className={styles.info__spoiler}>
+
+            <MovieMedallionsList movie={movie} className={styles.container__cards} />
+
+            <div className={styles.container__spoiler}>
                 <SpoilerUI
                     toggleButtonTexts={['Детали о фильме', 'Свернуть детали']}
                     shownLines={6}
@@ -26,19 +29,22 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
                     buttonTextColor="faded"
                 >
                     <p key={movie.description[0]}>{movie.description[0]}</p>
+
                     {movie.description.slice(1).map((descrip) => (
                         <p key={descrip}>{descrip}</p>
                     ))}
-                    <div className={styles.info__spoilerOptions}>
+
+                    <div className={styles.container__spoilerOptions}>
                         <MovieOptions movie={movie} />
                     </div>
                 </SpoilerUI>
             </div>
 
-            <div className={styles.info__ratingBox}>
+            <div className={styles.container__ratingBox}>
                 <MovieRating movie={movie} />
             </div>
-            <div className={styles.info__options}>
+
+            <div className={styles.container__options}>
                 <MovieOptions movie={movie} />
             </div>
         </div>

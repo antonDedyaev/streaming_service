@@ -9,18 +9,18 @@ interface MovieRatingProps {
 
 const MovieRating = ({ movie }: MovieRatingProps) => {
     return (
-        <ButtonUI className={styles.rating} shape="large" background="transparent">
-            <div className={styles.rating__value}>
+        <ButtonUI className={styles.container} shape="large" background="transparent">
+            <div className={styles.container__value}>
                 <TextSquareUI value={movie.raiting} textSize="medium" />
             </div>
 
-            <div className={styles.rating__text}>
-                <span>Рейтинг</span>
-                <span>Интересный сюжет</span>
-                <span>118 163 оценки</span>
+            <div className={styles.container__textContainer}>
+                <h2 className={[styles.container__text, styles.container__text_rating].join(' ')}>Рейтинг</h2>
+                <p className={[styles.container__text, styles.container__text_plot].join(' ')}>Интересный сюжет</p>
+                <p className={[styles.container__text, styles.container__text_marks].join(' ')}>118 163 оценки</p>
             </div>
 
-            <div className={styles.rating__estimate}>Оценить</div>
+            <div className={styles.container__estimate}>Оценить</div>
         </ButtonUI>
     );
 };

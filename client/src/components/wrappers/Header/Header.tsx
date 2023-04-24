@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import appleIcon from '../../../public/icons/logo.svg';
-import searchIcon from '../../../public/icons/search.svg';
-import bellIcon from '../../../public/icons/bell.svg';
-import userIcon from '../../../public/icons/user.svg';
-import MenuList from './MenuList';
+import appleIcon from '../../../../public/icons/logo.svg';
+import searchIcon from '../../../../public/icons/search.svg';
+import bellIcon from '../../../../public/icons/bell.svg';
+import userIcon from '../../../../public/icons/user.svg';
+import MenuList from '../LinksList/LinksList';
 import styles from './Header.module.scss';
-import ButtonUI from '../UI/buttons/Button/ButtonUI';
-import DropMenu from './DropMenu';
+import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
+import DropMenu from '../DropMenu/DropMenu';
 import { useEffect, useState } from 'react';
 
 interface HeaderProps {
@@ -143,7 +143,7 @@ const Header = ({ page }: HeaderProps) => {
                             ? [
                                   {
                                       title: 'Жанры',
-                                      genres: [
+                                      types: [
                                           { name: 'фильм', href: '/' },
                                           { name: 'фильм', href: '/' },
                                           { name: 'фильм', href: '/' },
@@ -154,7 +154,7 @@ const Header = ({ page }: HeaderProps) => {
                                   },
                                   {
                                       title: 'Страны',
-                                      genres: [
+                                      types: [
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
@@ -165,7 +165,7 @@ const Header = ({ page }: HeaderProps) => {
                                   },
                                   {
                                       title: 'Годы',
-                                      genres: [
+                                      types: [
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },
@@ -179,7 +179,7 @@ const Header = ({ page }: HeaderProps) => {
                             ? [
                                   {
                                       title: 'Жанры',
-                                      genres: [
+                                      types: [
                                           { name: 'Сериал', href: '/' },
                                           { name: 'Сериал', href: '/' },
                                           { name: 'Сериал', href: '/' },
@@ -190,7 +190,7 @@ const Header = ({ page }: HeaderProps) => {
                                   },
                                   {
                                       title: 'Страны',
-                                      genres: [
+                                      types: [
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
@@ -201,7 +201,7 @@ const Header = ({ page }: HeaderProps) => {
                                   },
                                   {
                                       title: 'Годы',
-                                      genres: [
+                                      types: [
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },
@@ -214,7 +214,7 @@ const Header = ({ page }: HeaderProps) => {
                             : [
                                   {
                                       title: 'Жанры',
-                                      genres: [
+                                      types: [
                                           { name: 'Мультик', href: '/' },
                                           { name: 'Мультик', href: '/' },
                                           { name: 'Мультик', href: '/' },
@@ -225,7 +225,7 @@ const Header = ({ page }: HeaderProps) => {
                                   },
                                   {
                                       title: 'Страны',
-                                      genres: [
+                                      types: [
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
                                           { name: 'Страна', href: '/' },
@@ -236,7 +236,7 @@ const Header = ({ page }: HeaderProps) => {
                                   },
                                   {
                                       title: 'Годы',
-                                      genres: [
+                                      types: [
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },
                                           { name: 'Год', href: '/' },

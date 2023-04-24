@@ -1,4 +1,38 @@
-.previewPoster {
+.container {
+    display: block;
+    max-width: 200px;
+
+    &__block {
+        border-radius: 8px;
+        overflow: hidden;
+
+        &_image {
+            position: relative;
+            margin-bottom: 8px;
+            background-color: #e6e6e6;
+            transition: .3s;
+    
+            &:hover {
+                transform-origin: bottom;
+                transform: scale(103%, 103%);
+            }
+        }
+    }
+
+    &__imageWrapper {
+        width: 100%;
+        padding-top: 140%;
+        position: relative;
+        border-radius: 50%;
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
 
     &__title {
         font-size: 15px;
@@ -6,35 +40,4 @@
         line-height: 120%;
         color: #D9D7E0;
     }
-
-    &:hover {
-        cursor: pointer;
-    }
 }
-
-.block {
-    border-radius: 8px;
-    overflow: hidden;
-
-    &_image {
-        position: relative;
-        height: 260px;
-        margin-bottom: 8px;
-        background-color: rgb(230, 230, 230);
-
-        &:hover {
-            transform-origin: bottom;
-            transform: scale(103%, 103%);
-            transition-duration: .3s;
-        }
-
-        &:not(:hover) {
-            transition-duration: .3s;
-        }
-    }
-}
-
-.imageWrapper {
-    height: 260px;
-}
-

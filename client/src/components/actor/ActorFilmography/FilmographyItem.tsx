@@ -1,58 +1,49 @@
 import styles from './FilmographyItem.module.scss';
 import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import Image from 'next/image';
-import poster_1 from './test_posters/poster_1.jpeg';
+import poster_1 from './samples/poster_1.jpeg';
+import Link from 'next/link';
 
 interface FilmographyItemProps {
     poster: string;
     year: number;
     title: string;
     rating: number;
-    license?: boolean;
+
 }
 
 const FilmographyItem = ({ poster, year, title, rating }: FilmographyItemProps) => {
     return (
-        <div className={styles.filmographyItem}>
-            <a href="/watch/506413" className={styles.filmographyItem__body}>
-                <div className={styles.filmographyItem__poster}>
-                    <div>
-                        <div className={styles.poster__imageWrapper}>
-                            <Image
-                                /*poster*/
-                                src={poster_1}
-                                height={123}
-                                width={80}
-                                alt={`Постер ${title}`}
-                            />
-                        </div>
-                    </div>
+        <div className={styles.container}>
+            <Link href={`/movies/${poster}`} className={styles.container__body}>
+                <div className={styles.container__imageWrapper}>
+                    <Image
+                        src={poster_1}
+                        height={123}
+                        width={80}
+                        alt={`Постер ${title}`}
+                    />
                 </div>
-                <div className={styles.filmographyItem__main}>
-                    <div className={styles.filmographyItem__main__info}>
-                        <div className={styles.filmographyItem__main__year}>
-                            <span>{/*year*/}2023</span>
-                        </div>
-                        <div className={styles.filmographyItem__main__title} title="Стать Маугли">
-                            {/*title*/}Стать Маугли
-                        </div>
-                        {/*В зависимости от наличия рейтинга*/}
-                        <div className={styles.filmographyItem__main__rating}>
-                            <span className={styles.filmographyItem__main__ratingLabel}>Рейтинг Иви:</span>
-                            <span className={styles.filmographyItem__main__ratingValue}>{/*rating*/}7.2</span>
-                        </div>
-                    </div>
-                    <div className={styles.filmographyItem__action}>
-                        <div className={styles.filmographyItem__action__wrapper}>
-                            <ButtonUI shape="large" className={styles.filmographyItem__action__text} background="gray">
-                                {/*Оставляем один вариант кнопки*/}
-                                Подробнее
-                            </ButtonUI>
-                            <div className={styles.filmographyItem__action__text}></div>
+
+                <div className={styles.container__main}>
+                    <div className={styles.container__infoContainer}>
+                        <h2 className={styles.container__year}>2023</h2>
+
+                        <h2 className={styles.container__title} title="Стать Маугли">
+                            Стать Маугли
+                        </h2>
+
+                        <div className={styles.container__ratingContainer}>
+                            <span className={styles.container__ratingLabel}>Рейтинг Иви:</span>
+                            <span className={styles.container__ratingValue}>{/*rating*/}7.2</span>
                         </div>
                     </div>
+
+                    <ButtonUI shape="large" className={styles.container__button} background="gray">
+                        Смотреть
+                    </ButtonUI>
                 </div>
-            </a>
+            </Link>
         </div>
     );
 };

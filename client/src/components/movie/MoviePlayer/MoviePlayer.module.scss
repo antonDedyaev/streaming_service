@@ -1,14 +1,15 @@
-.player {
+.container {
     width: 62.5%;
     padding-right: 32px;
+    
     &__block {
         position: relative;
         max-width: 743px;
         width: 100%;
         padding: 0px 12px;
+    }
 
-        &ReactPlayer {
-            max-width: 743px;
-        }
+    &__player {
+        max-width: 743px;
     }
 }
