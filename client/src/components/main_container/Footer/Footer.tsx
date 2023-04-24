@@ -1,14 +1,14 @@
 import { FC, useState } from 'react';
 import styles from './Footer.module.scss';
 import Image from 'next/image';
-import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
-import LinkUI from '@/components/UI/links/Link/LinkUI';
+import TextLinkUI from '../../UI/links/TextLink/TextLinkUI';
+import LinkUI from '../../UI/links/Link/LinkUI';
 import mailIcon from '../../../../public/icons/link/mail.svg';
 import phoneIcon from '../../../../public/icons/link/phone.svg';
 import loudspeaker from '../../../../public/icons/link/loudspeaker.svg';
 import tvIcon from '../../../../public/icons/link/devices_tv.svg';
 import devicesIcon from '../../../../public/icons/link/devices_all.svg';
-import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
+import ButtonUI from '../../UI/buttons/Button/ButtonUI';
 import LinksList from '../LinksList/LinksList';
 
 const Footer: FC = () => {

@@ -27,7 +27,7 @@ describe('LinkUI SNAPSHOT TESTS', () => {
     test('Rectangular link should not be changed', () => {
         render(
             <LinkUI href="#!" shape="rectangular">
-                <div className={footerStyles.iviFooter__textSingle}>
+                <div className={footerStyles.container__textSingle}>
                     <Image src={devicesIcon} height={20} width={20} alt="Иконка умных устройств" />
                     Все устройства
                 </div>

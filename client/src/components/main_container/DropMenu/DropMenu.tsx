@@ -17,11 +17,6 @@ interface DropMenuProps {
 }
 
 const DropMenu = ({ className, content }: DropMenuProps) => {
-
-    useEffect(() => {
-        console.log(content)
-    }, [content])
-
     return (
         <div className={[styles.container, className].join(' ')}>
             {content.map((item) => (
