@@ -1,6 +1,6 @@
 .container {
     display: block;
-    max-width: 200px;
+    max-width: 100px;
 
     &__imageContainer {
         position: relative;
@@ -45,6 +45,9 @@
         font-size: 15px;
         font-weight: 700;
         line-height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        white-space: nowrap;
     }
 
     &__role,

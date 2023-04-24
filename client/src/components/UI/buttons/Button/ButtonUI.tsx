@@ -4,8 +4,8 @@ import styles from './ButtonUI.module.scss';
 interface ButtonUIProps {
     className: string;
     children: ReactNode;
-    background: 'lightRed' | 'gray' | 'transparent';
-    shape: 'large' | 'medium' | 'small' | 'square';
+    background: 'lightRed' | 'gray' | 'transparentWhite' | 'transparent';
+    shape?: 'large' | 'medium' | 'small' | 'square' | 'none';
     onClick?: () => void;
 }
 
@@ -19,27 +19,33 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
             <style jsx>
                 {`
                     .button {
-                        background: ${background === 'lightRed'
-                            ? '#ea003d'
-                            : background === 'gray'
-                            ? '#1f1b2e'
-                            : 'rgba(255, 255, 255, 0.08)'};
+                        background: ${
+                            background === 'lightRed'
+                                ? '#ea003d'
+                                : background === 'gray'
+                                ? '#1f1b2e'
+                                : background === 'transparentWhite'
+                                ? 'rgba(255, 255, 255, 0.08)'
+                                : 'transparent'
+                        };
 
-                        padding: ${shape === 'large'
-                            ? '10px 15px'
-                            : shape === 'medium'
-                            ? '10px 12px'
-                            : shape === 'small'
-                            ? '7px 11px'
-                            : /*variant === 'square' ? */ '5px'};
+                        padding: ${
+                            shape === 'large'
+                                ? '10px 15px'
+                                : shape === 'medium'
+                                ? '10px 12px'
+                                : shape === 'small'
+                                ? '7px 11px'
+                                : shape === 'square'
+                                ? '5px'
+                                : 'none'
+                        };
                     }
 
                     .button:hover {
-                        background: ${background === 'lightRed'
-                            ? '#e42e5f'
-                            : background === 'gray'
-                            ? '#2e2844'
-                            : 'transparent'};
+                        background: ${
+                            background === 'lightRed' ? '#e42e5f' : background === 'gray' ? '#2e2844' : 'transparent'
+                        };
                     }
                 `}
             </style>
@@ -47,4 +53,4 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
     );
 }
 
-export default ButtonUI; /*'#1f1b2e'};*/
+export default ButtonUI;

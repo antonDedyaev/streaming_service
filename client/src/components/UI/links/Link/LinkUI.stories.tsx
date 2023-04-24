@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Image from 'next/image';
 import LinkUI from './LinkUI';
-import footerStyles from '../../../wrappers/Footer.module.scss';
+import footerStyles from '../../../main_container/Footer/Footer.module.scss';
 import mailIcon from '../../../../../public/icons/link/mail.svg';
 
 const meta: Meta<typeof LinkUI> = {
@@ -49,7 +49,7 @@ export const AppStoreLink: Story = {
                     width={20}
                     alt="Логотип AppStore"
                 />
-                <div className={footerStyles.iviFooter__textBlock}>
+                <div className={footerStyles.container__textBlock}>
                     <div>Загрузить в</div>
                     <div>App Store</div>
                 </div>

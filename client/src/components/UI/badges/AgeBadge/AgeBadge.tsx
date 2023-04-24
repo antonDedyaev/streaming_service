@@ -6,7 +6,7 @@ interface AgeBageProps {
 
 const AgeBadge = ({value}: AgeBageProps) => {
     return (
-        <div className={styles.age_badge}>
+        <div className={styles.badge}>
             {value}+
         </div>
     )

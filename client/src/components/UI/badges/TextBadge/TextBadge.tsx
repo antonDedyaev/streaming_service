@@ -6,7 +6,7 @@ interface TextBadgeProps {
 
 const TextBadge = ({text}: TextBadgeProps) => {
     return (
-        <div className={style.textBadge}>
+        <div className={style.badge}>
             {text}
         </div>
     )

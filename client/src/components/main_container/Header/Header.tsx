@@ -46,6 +46,10 @@ const Header = ({ page }: HeaderProps) => {
     };
 
     useEffect(() => {
+        console.log(isShowMoviesDrop, isShowSeriesDrop, isShowCartoonDrop)
+    }, [isShowMoviesDrop, isShowSeriesDrop, isShowCartoonDrop])
+
+    useEffect(() => {
         if (isShowMoviesDrop || isShowSeriesDrop || isShowCartoonDrop) {
             setIsMouseOver(true);
         } else {
@@ -143,109 +147,109 @@ const Header = ({ page }: HeaderProps) => {
                             ? [
                                   {
                                       title: 'Жанры',
-                                      types: [
-                                          { name: 'фильм', href: '/' },
-                                          { name: 'фильм', href: '/' },
-                                          { name: 'фильм', href: '/' },
-                                          { name: 'фильм', href: '/' },
-                                          { name: 'фильм', href: '/' },
-                                          { name: 'фильм', href: '/' },
+                                      links: [
+                                          { text: 'фильм', href: '/' },
+                                          { text: 'фильм', href: '/' },
+                                          { text: 'фильм', href: '/' },
+                                          { text: 'фильм', href: '/' },
+                                          { text: 'фильм', href: '/' },
+                                          { text: 'фильм', href: '/' },
                                       ],
                                   },
                                   {
                                       title: 'Страны',
-                                      types: [
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
+                                      links: [
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
                                       ],
                                   },
                                   {
                                       title: 'Годы',
-                                      types: [
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
+                                      links: [
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
                                       ],
                                   },
                               ]
                             : isShowSeriesDrop
                             ? [
-                                  {
-                                      title: 'Жанры',
-                                      types: [
-                                          { name: 'Сериал', href: '/' },
-                                          { name: 'Сериал', href: '/' },
-                                          { name: 'Сериал', href: '/' },
-                                          { name: 'Сериал', href: '/' },
-                                          { name: 'Сериал', href: '/' },
-                                          { name: 'Сериал', href: '/' },
-                                      ],
-                                  },
-                                  {
-                                      title: 'Страны',
-                                      types: [
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                      ],
-                                  },
-                                  {
-                                      title: 'Годы',
-                                      types: [
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                      ],
-                                  },
-                              ]
+                                {
+                                    title: 'Жанры',
+                                    links: [
+                                        { text: 'сериал', href: '/' },
+                                        { text: 'сериал', href: '/' },
+                                        { text: 'сериал', href: '/' },
+                                        { text: 'сериал', href: '/' },
+                                        { text: 'сериал', href: '/' },
+                                        { text: 'сериал', href: '/' },
+                                    ],
+                                },
+                                {
+                                    title: 'Страны',
+                                    links: [
+                                        { text: 'Страна', href: '/' },
+                                        { text: 'Страна', href: '/' },
+                                        { text: 'Страна', href: '/' },
+                                        { text: 'Страна', href: '/' },
+                                        { text: 'Страна', href: '/' },
+                                        { text: 'Страна', href: '/' },
+                                    ],
+                                },
+                                {
+                                    title: 'Годы',
+                                    links: [
+                                        { text: 'Год', href: '/' },
+                                        { text: 'Год', href: '/' },
+                                        { text: 'Год', href: '/' },
+                                        { text: 'Год', href: '/' },
+                                        { text: 'Год', href: '/' },
+                                        { text: 'Год', href: '/' },
+                                    ],
+                                },
+                            ]
                             : [
-                                  {
-                                      title: 'Жанры',
-                                      types: [
-                                          { name: 'Мультик', href: '/' },
-                                          { name: 'Мультик', href: '/' },
-                                          { name: 'Мультик', href: '/' },
-                                          { name: 'Мультик', href: '/' },
-                                          { name: 'Мультик', href: '/' },
-                                          { name: 'Мультик', href: '/' },
-                                      ],
-                                  },
-                                  {
-                                      title: 'Страны',
-                                      types: [
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                          { name: 'Страна', href: '/' },
-                                      ],
-                                  },
-                                  {
-                                      title: 'Годы',
-                                      types: [
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                          { name: 'Год', href: '/' },
-                                      ],
-                                  },
-                              ]
+                                {
+                                    title: 'Жанры',
+                                    links: [
+                                        { text: 'мультфильм', href: '/' },
+                                        { text: 'мультфильм', href: '/' },
+                                        { text: 'мультфильм', href: '/' },
+                                        { text: 'мультфильм', href: '/' },
+                                        { text: 'мультфильм', href: '/' },
+                                        { text: 'мультфильм', href: '/' },
+                                    ],
+                                },
+                                {
+                                    title: 'Страны',
+                                    links: [
+                                        { text: 'Страна', href: '/' },
+                                        { text: 'Страна', href: '/' },
+                                        { text: 'Страна', href: '/' },
+                                        { text: 'Страна', href: '/' },
+                                        { text: 'Страна', href: '/' },
+                                        { text: 'Страна', href: '/' },
+                                    ],
+                                },
+                                {
+                                    title: 'Годы',
+                                    links: [
+                                        { text: 'Год', href: '/' },
+                                        { text: 'Год', href: '/' },
+                                        { text: 'Год', href: '/' },
+                                        { text: 'Год', href: '/' },
+                                        { text: 'Год', href: '/' },
+                                        { text: 'Год', href: '/' },
+                                    ],
+                                },
+                            ]
                     }
                 />
             </div>

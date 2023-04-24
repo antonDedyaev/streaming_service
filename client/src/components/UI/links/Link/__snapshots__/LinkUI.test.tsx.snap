@@ -2,16 +2,16 @@
 
 exports[`LinkUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
 <a
-  class="link__wrapper link__wrapper_rectangular "
+  class="container__wrapper container__wrapper_rectangular "
   href="#!"
   role="link-to-media"
   target="blank"
 >
   <div
-    class="link__content"
+    class="container__content"
   >
     <div
-      class="iviFooter__textSingle"
+      class="container__textSingle"
     >
       <img
         alt="Иконка умных устройств"
@@ -32,13 +32,13 @@ exports[`LinkUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
 
 exports[`LinkUI SNAPSHOT TESTS Round link should not be changed 1`] = `
 <a
-  class="link__wrapper link__wrapper_round "
+  class="container__wrapper container__wrapper_round "
   href="https://t.me/official_iviru"
   role="link-to-media"
   target="blank"
 >
   <div
-    class="link__content"
+    class="container__content"
   >
     <img
       alt="Логотип Telegram"

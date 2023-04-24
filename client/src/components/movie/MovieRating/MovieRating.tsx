@@ -9,7 +9,7 @@ interface MovieRatingProps {
 
 const MovieRating = ({ movie }: MovieRatingProps) => {
     return (
-        <ButtonUI className={styles.container} shape="large" background="transparent">
+        <ButtonUI className={styles.container} shape="large" background="transparentWhite">
             <div className={styles.container__value}>
                 <TextSquareUI value={movie.raiting} textSize="medium" />
             </div>

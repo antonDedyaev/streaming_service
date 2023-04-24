@@ -7,14 +7,14 @@ import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.dat
 import ActorList from '@/components/actor/ActorList/ActorList';
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import { useState } from 'react';
-import MainContainer from '@/components/wrappers/MainContainer/MainContainer';
-import TabBar from '../components/wrappers/TabBar/TabBar';
+import MainContainer from '@/components/main_container/MainContainer/MainContainer';
+import TabBar from '../components/main_container/TabBar/TabBar';
 import PreviewPoster from '@/components/posters/PreviewPoster/PreviewPoster';
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
+import ActorItem from '@/components/actor/ActorItem/ActorItem';
 
 function HomePage() {
-
     return (
         <>
             <MainContainer
@@ -22,13 +22,17 @@ function HomePage() {
                 title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
                 page="home"
             >
+                <ActorItem 
+                    className=''
+                    actor={actors[0]}
+                    size='small'
+                />
 
                 <Slider itemType="promo" length={promoMovies.length}>
                     <PostersList posterType="promo" movies={promoMovies} />
                 </Slider>
 
                 <MovieInfo movie={movies[0]} />
-
             </MainContainer>
         </>
     );

@@ -1,68 +1,67 @@
-.link {
-    &__wrapper {
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition-property: background-color;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+
+    color: #fff;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+
+    background-color: #1f1b2e;
+    border-color: #1f1b2e;
+    text-decoration: none;
+
+    &:active {
+        background-color: #0e0c14;
+        border-color: #0e0c14;
+    }
+
+    &:hover:not(:active) {
+        background-color: #2e2844;
+        border-color: #2e2844;
+        transition-duration: 80ms;
+    }
+
+    &:not(:hover):not(:active) {
+        transition-duration: 0.4s;
+    }
+
+    &_square {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+    }
+
+    &_round {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border-width: 2px;
+    }
 
-        transition-property: background-color;
-        cursor: pointer;
+    &_rectangular {
+        display: flex;
+        height: 40px;
+        width: max-content;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-radius: 8px;
         border: 0;
-        padding: 0;
 
-        color: #fff;
-        font-size: 15px;
-        line-height: 20px;
-        font-weight: 500;
-
-        background-color: #1f1b2e;
-        border-color: #1f1b2e;
-        text-decoration: none;
-
-        &:active {
-            background-color: #0e0c14;
-            border-color: #0e0c14;
-        }
-
-        &:hover:not(:active) {
-            background-color: #2e2844;
-            border-color: #2e2844;
-            transition-duration: 80ms;
-        }
-
-        &:not(:hover):not(:active) {
-            transition-duration: 0.4s;
-        }
-
-        &_square {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-        }
-
-        &_round {
-            display: flex;
-            width: 40px;
-            height: 40px;
-            border-radius: 20px;
-            border-width: 2px;
-        }
-
-        &_rectangular {
-            display: flex;
-            height: 40px;
-            width: max-content;
-            padding-left: 12px;
-            padding-right: 12px;
-            border-radius: 8px;
-            border: 0;
-
-            & img {
-                align-self: center;
-                flex-grow: 0;
-                flex-shrink: 0;
-            }
+        & img {
+            align-self: center;
+            flex-grow: 0;
+            flex-shrink: 0;
         }
     }
+    
     &__content {
         display: flex;
     }
