@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styles from './TabBar.module.scss';
-import TabBarLinkUI from '@/components/UI/links/TabBarLink/TabBarLinkUI';
+import TabBarLinkUI from '../../UI/links/TabBarLink/TabBarLinkUI';
 import homeIcon from '../../../../public/icons/tabbar/home.svg';
 import catalogueIcon from '../../../../public/icons/tabbar/catalogue.svg';
 import magnifyingGlass from '../../../../public/icons/tabbar/magnifying_glass.svg';
