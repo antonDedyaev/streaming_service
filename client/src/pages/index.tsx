@@ -12,6 +12,7 @@ import TabBar from '../components/wrappers/TabBar/TabBar';
 import PreviewPoster from '@/components/posters/PreviewPoster/PreviewPoster';
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
+import ActorItem from '@/components/actor/ActorItem/ActorItem';
 
 function HomePage() {
 
@@ -22,6 +23,11 @@ function HomePage() {
                 title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
                 page="home"
             >
+                <ActorItem 
+                    className=''
+                    actor={actors[0]}
+                    size='small'
+                />
 
                 <Slider itemType="promo" length={promoMovies.length}>
                     <PostersList posterType="promo" movies={promoMovies} />

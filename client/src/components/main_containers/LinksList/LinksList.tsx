@@ -4,7 +4,7 @@ import TextLinkUI from '../../UI/links/TextLink/TextLinkUI';
 interface ILink {
     href: string;
     text: string;
-    option: 'bright' | 'dim' | 'gradient';
+    option?: 'bright' | 'dim' | 'gradient';
     className?: string;
     onMouseOver?: () => void;
 }
@@ -25,9 +25,9 @@ const LinksList = ({ links, direction }: LinksListProps) => {
                 <li className={styles.container__item} key={link.text}>
                     <TextLinkUI
                         className={link.className}
-                        onMouseOver={link.onMouseOver}
+                        onMouseOver={() => link.onMouseOver ? link.onMouseOver() : ''}
                         href={link.href}
-                        option={link.option}
+                        option={link.option ?? 'dim'}
                     >
                         {link.text}
                     </TextLinkUI>
