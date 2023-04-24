@@ -24,7 +24,6 @@ const MainContainer = ({ children, keywords, title, page }: MainContainerProps) 
             {children}
 
             <TabBar />
-
             <Footer />
         </>
     );

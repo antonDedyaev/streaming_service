@@ -12,15 +12,15 @@ interface LinkUIProps {
 const LinkUI = ({ children, href, shape, className }: LinkUIProps) => {
     const linkFormClass =
         shape === 'round'
-            ? styles.container__wrapper_round
+            ? styles.container_round
             : shape === 'square'
-            ? styles.container__wrapper_square
-            : styles.container__wrapper_rectangular;
+            ? styles.container_square
+            : styles.container_rectangular;
 
     return (
         <Link
             href={href}
-            className={[styles.container__wrapper, linkFormClass, className].join(' ')}
+            className={[styles.container, linkFormClass, className].join(' ')}
             target="blank"
             role="link-to-media"
         >

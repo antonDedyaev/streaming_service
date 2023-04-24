@@ -1,25 +1,23 @@
 .container {
-    &__item {
-        cursor: pointer;
-        display: flex;
-        flex-basis: 100%;
-        flex-direction: column;
-        flex-grow: 1;
-        flex-shrink: 1;
-        max-width: 120px;
-        padding-bottom: 4px;
-        padding-top: 8px;
-        position: relative;
-        text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 120px;
+    padding-bottom: 4px;
+    padding-top: 8px;
+    position: relative;
+    text-decoration: none;
 
-        &_selected {
-            .container__itemGlow {
-                opacity: 1;
-            }
+    &_selected {
+        .container__itemGlow {
+            opacity: 1;
+        }
 
-            .container__itemCaption {
-                color: #fff;
-            }
+        .container__itemCaption {
+            color: #fff;
         }
     }
 

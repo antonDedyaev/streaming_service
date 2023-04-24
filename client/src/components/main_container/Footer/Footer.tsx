@@ -135,7 +135,7 @@ const Footer: FC = () => {
                                 <ButtonUI
                                     background="gray"
                                     shape="square"
-                                    className={styles.container__buttonSize}
+                                    className={[styles.container__button, styles.container__button_size].join(' ')}
                                     onClick={() => setPhoneIsHidden(!phoneIsHidden)}
                                 >
                                     <Image src={phoneIcon} height={16} width={16} alt="Иконка телефона" />
@@ -173,7 +173,7 @@ const Footer: FC = () => {
 
                     <div>
                         <div className={styles.container__footerWidget}>
-                            <div className={styles.container__footerWidget__iconSection}>
+                            <div className={styles.container__iconSection}>
                                 <Image
                                     src={loudspeaker}
                                     height={76}
@@ -181,8 +181,8 @@ const Footer: FC = () => {
                                     alt="Иконка перечеркнутого громкоговорителя"
                                 />
                             </div>
-                            <p className={styles.container__footerWidget__text}>
-                                Смотрите фильмы, сериалы и мультфильмы без рекламы
+                            <p className={styles.container__text}>
+                                Смотрите фильмы, сериалы и<br />мультфильмы без рекламы
                             </p>
                         </div>
                     </div>
@@ -222,19 +222,19 @@ const Footer: FC = () => {
                                 </div>
                             </LinkUI>
                             <LinkUI href="#!" shape="rectangular">
-                                <div className={styles.container__textSingle}>
+                                <div className={[styles.container__textBlock, styles.container__textBlock_single].join(' ')}>
                                     <Image src={devicesIcon} height={20} width={20} alt="Иконка умных устройств" />
                                     Все устройства
                                 </div>
                             </LinkUI>
                         </div>
-                        <div className={styles.container__copyrights}>
-                            <p className={styles.container__copyrightsSite}>
+                        <div className={styles.container__copyrightsContainer}>
+                            <p className={[styles.container__copyrights, styles.container__copyrights_site].join(' ')}>
                                 <span>©&nbsp;</span>
                                 <span>2023</span>
                                 <span>&nbsp;ООО «Иви.ру»</span>
                             </p>
-                            <p className={styles.container__copyrightsContent}>
+                            <p className={[styles.container__copyrights, styles.container__copyrights_content].join(' ')}>
                                 HBO ® and related service marks are the property of Home Box Office, Inc
                             </p>
                         </div>

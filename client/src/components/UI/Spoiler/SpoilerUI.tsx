@@ -1,5 +1,6 @@
 import { ReactNode, useState } from 'react';
 import styles from './SpoilerUI.module.scss';
+import ButtonUI from '../buttons/Button/ButtonUI';
 
 interface SpoilerUIProps {
     children: ReactNode;
@@ -16,31 +17,32 @@ const SpoilerUI = ({
     shownLines = 2,
     truncateFormat = 'vertical',
 }: SpoilerUIProps) => {
-    const [isCollapsed, setIsCollapsed] = useState(true);
+    const [isShowAll, setIsShowAll] = useState(false);
 
-    const spoilerButtonColor =
+    const buttonColor =
         buttonTextColor === 'bright'
-            ? styles.container__spoilerButton_colorBright
-            : styles.container__spoilerButton_colorFaded;
+            ? styles.container__button_bright
+            : styles.container__button_faded;
 
-    const textDisplayClass = isCollapsed ? styles.container__text_isHidden : styles.container__text_isShown;
+    const textDisplayClass = isShowAll ? styles.container_show : styles.container_hidden;
 
     return (
         <>
-            <div className={styles.container} role="spoiler-wrapper">
-                <div
-                    id="text-wrapper"
-                    data-testid="clipped-text"
-                    className={[styles.container__text, textDisplayClass].join(' ')}
+            <div
+                role="spoiler-wrapper"
+                id="text-wrapper"
+                data-testid="clipped-text"
+                className={[styles.container, textDisplayClass].join(' ')}
+            >
+                <div className={[styles.container__text, 'clamped'].join(' ')}>{children}</div>
+                <ButtonUI
+                    className={[styles.container__button, buttonColor].join(' ')}
+                    onClick={() => setIsShowAll(!isShowAll)}
+                    background='transparent'
+                    shape='none'
                 >
-                    <div className={[styles.container__textInner, 'clamped'].join(' ')}>{children}</div>
-                    <span
-                        className={[styles.container__spoilerButton, spoilerButtonColor].join(' ')}
-                        onClick={() => setIsCollapsed(!isCollapsed)}
-                    >
-                        {isCollapsed ? toggleButtonTexts[0] : toggleButtonTexts[1]}
-                    </span>
-                </div>
+                    {isShowAll ? toggleButtonTexts[0] : toggleButtonTexts[1]}
+                </ButtonUI>
             </div>
             <style jsx>
                 {`

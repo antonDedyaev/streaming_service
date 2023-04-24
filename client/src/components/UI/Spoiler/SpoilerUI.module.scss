@@ -4,59 +4,53 @@
 
 .container {
     color: #a5a1b2;
+    margin: 0;
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 400;
+    font-style: normal;
 
-    &__text {
-        margin: 0;
-        font-size: 15px;
-        line-height: 22px;
-        font-weight: 400;
-        font-style: normal;
+    &_show {
+        .container__text {
+            display: block;
 
-        &_isShown {
-            .container__textInner {
-                display: block;
-
-                & > :not(:first-child) {
-                    margin-top: 8px;
-                }
-            }
-        }
-
-        &_isHidden {
-            .container__textInner {
-                display: -webkit-box;
-                overflow: hidden;
-                text-overflow: ellipsis;
-
-                & > :not(:first-child) {
-                    display: none;
-                }
+            & > :not(:first-child) {
+                margin-top: 8px;
             }
         }
     }
 
-    &__spoilerButton {
+    &_hidden {
+        .container__text {
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            & > :not(:first-child) {
+                display: none;
+            }
+        }
+    }
+
+    &__button {
         display: inline-block;
         margin-top: 8px;
         cursor: pointer;
 
         font-weight: 500;
-        -webkit-transition: color 400ms, -webkit-transform 400ms;
-        -o-transition: color 400ms, -o-transform 400ms;
-        transition: transform 400ms, color 400ms;
-        transition: transform 400ms, color 400ms, -webkit-transform 400ms, -o-transform 400ms;
+        transition: .4s;
 
         &:hover {
             color: #fff;
             transition: color 80ms;
         }
 
-        &_colorBright {
-            color: rgba(255, 255, 255, 0.88);
+        &_bright {
+            color: #ffffffe0;
         }
 
-        &_colorFaded {
-            color: rgba(255, 255, 255, 0.48);
+        &_faded {
+            color: #ffffff7a;
         }
     }
 }
