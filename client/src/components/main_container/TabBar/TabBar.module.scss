@@ -1,0 +1,31 @@
+.container {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 1001;
+
+    &__tabBar {
+        box-shadow: 0 -20px 40px rgba(7, 5, 14, 0.24);
+        box-sizing: border-box;
+        display: flex;
+        height: 48px;
+        justify-content: center;
+    }
+}
+
+@supports ((-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))) {
+    .container {
+        &__tabBar {
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            background-color: rgba(31, 27, 46, 0.88);
+        }
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .container {
+        display: none;
+    }
+}

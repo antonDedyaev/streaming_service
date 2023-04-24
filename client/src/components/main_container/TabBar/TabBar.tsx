@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styles from './TabBar.module.scss';
-import TabBarLinkUI from '@/components/UI/links/TabBarLink/TabBarLinkUI';
+import TabBarLinkUI from '../../UI/links/TabBarLink/TabBarLinkUI';
 import homeIcon from '../../../../public/icons/tabbar/home.svg';
 import catalogueIcon from '../../../../public/icons/tabbar/catalogue.svg';
 import magnifyingGlass from '../../../../public/icons/tabbar/magnifying_glass.svg';
@@ -9,8 +9,8 @@ import dotsIcon from '../../../../public/icons/tabbar/dots.svg';
 
 const TabBar: FC = () => {
     return (
-        <div className={styles.tabBarPlate}>
-            <div className={styles.tabBar}>
+        <div className={styles.container}>
+            <div className={styles.container__tabBar}>
                 <TabBarLinkUI href="https://www.ivi.ru/" icon={homeIcon} text="Мой Иви" />
                 <TabBarLinkUI href="https://www.ivi.ru/movies" icon={catalogueIcon} text="Каталог" />
                 <TabBarLinkUI href="#!" icon={magnifyingGlass} text="Поиск" />

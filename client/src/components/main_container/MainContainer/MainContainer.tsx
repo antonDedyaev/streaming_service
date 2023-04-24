@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { ReactNode } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import TabBar from '../TabBar/TabBar';
 
 interface MainContainerProps {
     children: ReactNode;
@@ -21,6 +22,8 @@ const MainContainer = ({ children, keywords, title, page }: MainContainerProps) 
             <Header page={page} />
 
             {children}
+
+            <TabBar />
 
             <Footer />
         </>

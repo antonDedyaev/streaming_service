@@ -20,22 +20,22 @@ const SpoilerUI = ({
 
     const spoilerButtonColor =
         buttonTextColor === 'bright'
-            ? styles.clause__spoilerButton_colorBright
-            : styles.clause__spoilerButton_colorFaded;
+            ? styles.container__spoilerButton_colorBright
+            : styles.container__spoilerButton_colorFaded;
 
-    const textDisplayClass = isCollapsed ? styles.text_isHidden : styles.text_isShown;
+    const textDisplayClass = isCollapsed ? styles.container__text_isHidden : styles.container__text_isShown;
 
     return (
         <>
-            <div className={styles.clause} role="spoiler-wrapper">
+            <div className={styles.container} role="spoiler-wrapper">
                 <div
                     id="text-wrapper"
                     data-testid="clipped-text"
-                    className={[styles.clause__text, textDisplayClass].join(' ')}
+                    className={[styles.container__text, textDisplayClass].join(' ')}
                 >
-                    <div className={[styles.clause__textInner, 'clamped'].join(' ')}>{children}</div>
+                    <div className={[styles.container__textInner, 'clamped'].join(' ')}>{children}</div>
                     <span
-                        className={[styles.clause__spoilerButton, spoilerButtonColor].join(' ')}
+                        className={[styles.container__spoilerButton, spoilerButtonColor].join(' ')}
                         onClick={() => setIsCollapsed(!isCollapsed)}
                     >
                         {isCollapsed ? toggleButtonTexts[0] : toggleButtonTexts[1]}
