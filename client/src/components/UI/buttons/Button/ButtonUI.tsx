@@ -4,8 +4,8 @@ import styles from './ButtonUI.module.scss';
 interface ButtonUIProps {
     className: string;
     children: ReactNode;
-    background: 'lightRed' | 'gray' | 'transparent';
-    shape: 'large' | 'medium' | 'small' | 'square';
+    background: 'lightRed' | 'gray' | 'transparentWhite' | 'transparent';
+    shape?: 'large' | 'medium' | 'small' | 'square' | 'none';
     onClick?: () => void;
 }
 
@@ -23,7 +23,9 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
                             ? '#ea003d'
                             : background === 'gray'
                             ? '#1f1b2e'
-                            : 'rgba(255, 255, 255, 0.08)'};
+                            : background === 'transparentWhite'
+                            ? 'rgba(255, 255, 255, 0.08)'
+                            : 'transparent'};
 
                         padding: ${shape === 'large'
                             ? '10px 15px'
@@ -31,7 +33,9 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
                             ? '10px 12px'
                             : shape === 'small'
                             ? '7px 11px'
-                            : /*variant === 'square' ? */ '5px'};
+                            : shape === 'square'
+                            ? '5px'
+                            : 'none'};
                     }
 
                     .button:hover {

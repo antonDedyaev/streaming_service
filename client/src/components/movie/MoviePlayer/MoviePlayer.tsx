@@ -1,6 +1,7 @@
 import styles from './MoviePlayer.module.scss';
 import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import dynamic from 'next/dynamic';
+import MovieButtons from '../MovieButtons/MovieButtons';
 
 interface MoviePlayerProps {
     movie: IMovie;
@@ -19,6 +20,10 @@ const MoviePlayer = ({ movie }: MoviePlayerProps) => {
                     url="https://special-central.dfs.ivi.ru/newseason/ivi-logo.mp4"
                     controls={true}
                 />
+            </div>
+
+            <div className={styles.container__buttons}>
+                <MovieButtons />
             </div>
         </div>
     );

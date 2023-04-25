@@ -1,6 +1,6 @@
 .container {
-    position: relative;
-    width: 37.5%;
+    /*position: relative;
+    width: 37.5%;*/
     padding: 8px 12px;
 
     &__title {
@@ -15,9 +15,15 @@
         margin-bottom: 24px;
     }
 
-    &__options {
+    &__player,
+    &__buttons {
         display: none;
-        color: #a5a1b2;
+    }
+
+    &__block {
+        &Options {
+            display: none;
+        }
     }
 }
 
@@ -25,45 +31,79 @@
     .container {
         width: 100%;
 
+        &__player {
+            display: flex;
+            margin-bottom: 32px;
+        }
+
+        &__buttons {
+            display: block;
+            max-width: 336px;
+            width: 100%;
+        }
+
         &__title {
             font-size: 56px;
             text-align: start;
         }
-
-        &__ratingBox,
-        &__spoiler,
-        &__options {
-            width: 720px;
-        }
-
-        &__spolerOptions {
-            display: none;
-        }
-
-        &__options {
+        &__infoBlock {
             display: flex;
+            /*justify-content: space-between;*/
+        }
+
+        &__block {
+            margin-right: 40px;
+            &RatingBox,
+            &Spoiler,
+            &Options {
+                max-width: 720px;
+            }
+
+            &Spoiler {
+                &Options {
+                    display: none;
+                }
+            }
+
+            &Options {
+                display: flex;
+                color: #a5a1b2;
+            }
         }
     }
 }
 
 @media (max-width: 879px) {
     .container {
-
         &__title {
             text-align: center;
         }
 
-        &__ratingBox,
-        &__spoiler,
-        &__options {
-            width: 100%;
+        &__buttons {
+            display: none;
+        }
+
+        &__player {
+            margin-bottom: 24px;
+        }
+
+        &__infoBlock {
+            display: block;
+        }
+
+        &__block {
+            margin-right: 0px;
+            &RatingBox,
+            &Spoiler,
+            &Options {
+                max-width: 100%;
+            }
         }
     }
 }
 
 @media (max-width: 599px) {
     .container {
-
         &__title {
             margin: 0px 0px 16px;
             font-size: 32px;

@@ -23,7 +23,6 @@
     }
 
     &__text {
-
         &_rating {
             font-weight: 600;
             color: #fff;
@@ -43,41 +42,61 @@
         width: 72px;
         height: 24px;
         border-radius: 6px;
-        padding: 3px 7px;
         font-size: 13px;
         line-height: 16px;
         font-weight: 500;
         color: #fff;
+        padding: 3px 7px;
+        /*display: flex;
+        justify-content: center;*/
+
+        /* & span {
+            font-size: 13px;
+            line-height: 16px;
+            font-weight: 500;
+            color: #fff;
+            margin-top: -4px;
+        }*/
     }
 }
 
 @media (max-width: 1159px) {
     .container {
-        margin-top: 52px;
+        margin-top: 36px;
         margin-bottom: 32px;
 
         &__value {
-            width: 48px;
+            max-width: 48px;
             min-height: 48px;
         }
 
         &__text {
-
             &_marks {
                 display: none;
-            } 
+            }
         }
     }
 }
 
 @media (max-width: 879px) {
     .container {
-        margin-top: 24px;      
+        margin-top: 24px;
     }
 }
 
 @media (max-width: 599px) {
     .container {
         margin-top: 16px;
+        &__value {
+            min-width: 48px;
+        }
+    }
+}
+
+@media (max-width: 300px) {
+    .container {
+        &__textContainer {
+            margin-left: 8px;
+        }
     }
 }
