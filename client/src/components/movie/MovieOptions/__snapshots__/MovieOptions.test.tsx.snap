@@ -3,7 +3,7 @@
 exports[`MOVIEOPTIONS SNAPSHOTS TESTS MovieOptions should not be changed 1`] = `
 <div
   class="container"
-  role="div-options"
+  data-testid="div-options"
 >
   <div
     class="container__block"
@@ -58,7 +58,7 @@ exports[`MOVIEOPTIONS SNAPSHOTS TESTS MovieOptions should not be changed 1`] = `
         class="container__badge"
       >
         <div
-          class="textBadge"
+          class="badge"
         >
           FullHD
         </div>
@@ -67,7 +67,7 @@ exports[`MOVIEOPTIONS SNAPSHOTS TESTS MovieOptions should not be changed 1`] = `
         class="container__badge"
       >
         <div
-          class="textBadge"
+          class="badge"
         >
           HD
         </div>
@@ -76,7 +76,7 @@ exports[`MOVIEOPTIONS SNAPSHOTS TESTS MovieOptions should not be changed 1`] = `
         class="container__badge"
       >
         <div
-          class="textBadge"
+          class="badge"
         >
           1080
         </div>
@@ -85,7 +85,7 @@ exports[`MOVIEOPTIONS SNAPSHOTS TESTS MovieOptions should not be changed 1`] = `
         class="container__badge"
       >
         <div
-          class="textBadge"
+          class="badge"
         >
           720
         </div>

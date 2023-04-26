@@ -45,8 +45,9 @@
         font-size: 15px;
         font-weight: 700;
         line-height: 20px;
+        width: 85%;
         overflow: hidden;
-        text-overflow: ellipsis; 
+        text-overflow: ellipsis;
         white-space: nowrap;
     }
 
@@ -59,7 +60,6 @@
 
     &:hover {
         .container {
-
             &__imageContainer {
                 transform-origin: bottom;
                 transform: scale(103%, 103%);

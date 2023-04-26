@@ -12,7 +12,7 @@ interface MovieParamsProps {
 
 const MovieParams = ({ movie }: MovieParamsProps) => {
     return (
-        <div className={styles.container} role="div-params">
+        <div className={styles.container} data-testid="div-params">
             <div className={styles.container__list}>
                 <TextLinkUI href="/" option="bright">
                     {movie.year}
@@ -41,10 +41,17 @@ const MovieParams = ({ movie }: MovieParamsProps) => {
             </div>
             <div className={styles.container__list}>
                 <TextBadge text={movie.displays[0]} />
-                <Image src={soundIcon} alt="soundIcon" className={[styles.container__listIcon, styles.container__listIcon_sound].join(' ')} />
+                <Image
+                    src={soundIcon}
+                    alt="soundIcon"
+                    className={[styles.container__listIcon, styles.container__listIcon_sound].join(' ')}
+                />
                 <div className={styles.container__listItem}>
                     {movie.voiceActing.map((voice) => (
-                        <div key={voice} className={[styles.container__listItem, styles.container__listItem_point].join(' ')}>
+                        <div
+                            key={voice}
+                            className={[styles.container__listItem, styles.container__listItem_point].join(' ')}
+                        >
                             {voice}
                         </div>
                     ))}

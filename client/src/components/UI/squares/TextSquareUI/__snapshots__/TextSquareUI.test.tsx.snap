@@ -3,7 +3,7 @@
 exports[`TEXTSQUAREUI SNAPSHOTS TESTS high small TextSquareUI should not be changed 1`] = `
 <div
   class="value  value_high"
-  role="div-text"
+  data-testid="div-text"
 >
   9.5
 </div>
@@ -12,7 +12,7 @@ exports[`TEXTSQUAREUI SNAPSHOTS TESTS high small TextSquareUI should not be chan
 exports[`TEXTSQUAREUI SNAPSHOTS TESTS no high medium TextSquareUI should not be changed 1`] = `
 <div
   class="value"
-  role="div-text"
+  data-testid="div-text"
 >
   6.5
 </div>

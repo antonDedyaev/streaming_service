@@ -1,0 +1,35 @@
+.page {
+    &__block {
+        display: flex;
+        padding: 24px 0px;
+
+        &Player {
+            width: 62.5%;
+            padding-right: 32px;
+
+            &Sticky {
+                position: sticky;
+                top: 32px;
+            }
+        }
+
+        &Info {
+            position: relative;
+            width: 37.5%;
+        }
+    }
+}
+
+@media (max-width: 1159px) {
+    .page {
+        &__block {
+            &Player {
+                display: none;
+            }
+
+            &Info {
+                width: 100%;
+            }
+        }
+    }
+}

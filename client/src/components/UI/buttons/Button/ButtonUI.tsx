@@ -19,33 +19,31 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
             <style jsx>
                 {`
                     .button {
-                        background: ${
-                            background === 'lightRed'
-                                ? '#ea003d'
-                                : background === 'gray'
-                                ? '#1f1b2e'
-                                : background === 'transparentWhite'
-                                ? 'rgba(255, 255, 255, 0.08)'
-                                : 'transparent'
-                        };
+                        background: ${background === 'lightRed'
+                            ? '#ea003d'
+                            : background === 'gray'
+                            ? '#1f1b2e'
+                            : background === 'transparentWhite'
+                            ? 'rgba(255, 255, 255, 0.08)'
+                            : 'transparent'};
 
-                        padding: ${
-                            shape === 'large'
-                                ? '10px 15px'
-                                : shape === 'medium'
-                                ? '10px 12px'
-                                : shape === 'small'
-                                ? '7px 11px'
-                                : shape === 'square'
-                                ? '5px'
-                                : 'none'
-                        };
+                        padding: ${shape === 'large'
+                            ? '10px 15px'
+                            : shape === 'medium'
+                            ? '10px 12px'
+                            : shape === 'small'
+                            ? '7px 11px'
+                            : shape === 'square'
+                            ? '5px'
+                            : 'none'};
                     }
 
                     .button:hover {
-                        background: ${
-                            background === 'lightRed' ? '#e42e5f' : background === 'gray' ? '#2e2844' : 'transparent'
-                        };
+                        background: ${background === 'lightRed'
+                            ? '#e42e5f'
+                            : background === 'gray'
+                            ? '#2e2844'
+                            : 'transparent'};
                     }
                 `}
             </style>
