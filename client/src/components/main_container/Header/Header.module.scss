@@ -22,6 +22,10 @@
         }
     }
 
+    &__menuList {
+        flex: 1 1 auto;
+    }
+
     &__dropMenu {
         visibility: hidden;
         opacity: 0;
@@ -109,9 +113,7 @@
 
 @media (max-width: 1160px) {
     .container {
-        &__logo {
-            flex: 1 1 auto;
-        }
+        justify-content: space-between;
 
         &__search {
             display: none;
@@ -119,6 +121,10 @@
 
         &__button {
             margin: 0;
+        }
+
+        &__menuList {
+            display: none;
         }
     }
 }

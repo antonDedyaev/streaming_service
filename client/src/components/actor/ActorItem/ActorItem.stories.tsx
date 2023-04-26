@@ -37,24 +37,10 @@ const data: IData = {
     role: 'Роль',
 };
 
-export const Effect: Story = {
-    decorators: [
-        (Story) => (
-            <div style={{ width: '153px' }}>
-                <Story />
-            </div>
-        ),
-    ],
-    args: {
-        actor: data,
-        size: 'large',
-    },
-};
-
 export const Large: Story = {
     decorators: [
         (Story) => (
-            <div style={{ width: '153px' }}>
+            <div style={{ minWidth: '153px' }}>
                 <Story />
             </div>
         ),

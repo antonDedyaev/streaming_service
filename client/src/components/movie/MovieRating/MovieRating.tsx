@@ -26,3 +26,7 @@ const MovieRating = ({ movie }: MovieRatingProps) => {
 };
 
 export default MovieRating;
+
+/* <ButtonUI className={styles.container__estimate} shape="none" background="transparent">
+                <span>Оценить</span>
+            </ButtonUI>*/
