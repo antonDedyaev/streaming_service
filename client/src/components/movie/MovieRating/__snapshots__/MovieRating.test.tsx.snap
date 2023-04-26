@@ -2,10 +2,10 @@
 
 exports[`MOVIERATING SNAPSHOTS TESTS MovieRating should not be changed 1`] = `
 <button
-  class="jsx-3045709936 button rating button"
+  class="jsx-354793981 button container button"
 >
   <div
-    class="rating__value"
+    class="container__value"
   >
     <div
       class="value value_medium value_high"
@@ -15,20 +15,26 @@ exports[`MOVIERATING SNAPSHOTS TESTS MovieRating should not be changed 1`] = `
     </div>
   </div>
   <div
-    class="rating__text"
+    class="container__textContainer"
   >
-    <span>
+    <h2
+      class="container__text container__text_rating"
+    >
       Рейтинг
-    </span>
-    <span>
+    </h2>
+    <p
+      class="container__text container__text_plot"
+    >
       Интересный сюжет
-    </span>
-    <span>
+    </p>
+    <p
+      class="container__text container__text_marks"
+    >
       118 163 оценки
-    </span>
+    </p>
   </div>
   <div
-    class="rating__estimate"
+    class="container__estimate"
   >
     Оценить
   </div>

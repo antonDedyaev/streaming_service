@@ -21,5 +21,6 @@ export const TabBarItem: Story = {
         href: 'https://www.ivi.ru/',
         icon: homeIcon,
         text: 'Мой Иви',
+        selected: true
     },
 };

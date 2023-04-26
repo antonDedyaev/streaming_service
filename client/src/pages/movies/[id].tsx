@@ -1,8 +1,8 @@
 import MoviePlayer from '@/components/movie/MoviePlayer/MoviePlayer';
-import MainContainer from '@/components/wrappers/MainContainer/MainContainer';
 import styles from '@/styles/pages/CardMoviePage.module.scss';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
+import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 
 function CardMoviePage() {
     return (

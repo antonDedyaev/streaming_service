@@ -1,7 +1,5 @@
 .container {
-    /*position: relative;
-    width: 37.5%;*/
-    padding: 8px 12px;
+    padding: 8px 12px 0px;
 
     &__title {
         margin: 0 0 20px 0;
@@ -30,6 +28,7 @@
 @media (max-width: 1159px) {
     .container {
         width: 100%;
+        padding: 0;
 
         &__player {
             display: flex;
@@ -38,7 +37,7 @@
 
         &__buttons {
             display: block;
-            max-width: 336px;
+            max-width: 360px;
             width: 100%;
         }
 
@@ -48,7 +47,6 @@
         }
         &__infoBlock {
             display: flex;
-            /*justify-content: space-between;*/
         }
 
         &__block {

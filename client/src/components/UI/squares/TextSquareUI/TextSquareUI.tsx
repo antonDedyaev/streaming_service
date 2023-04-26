@@ -15,7 +15,7 @@ const TextSquareUI = ({ value, textSize = 'small' }: TextSquareUIProps) => {
             ]
                 .join(' ')
                 .trim()}
-            role="div-text"
+            data-testid="div-text"
         >
             {value}
         </div>

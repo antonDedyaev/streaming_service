@@ -3,7 +3,7 @@ import MovieParams from './MovieParams';
 import '../../../styles/nullstyle.scss';
 import '../../../styles/globals.scss';
 import './MovieParams.module.scss';
-import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
+import { IMovie } from '../../movie/movieMedallion/MovieMedallionsList/Temp/IMovie';
 
 const meta: Meta<typeof MovieParams> = {
     title: 'Information/Params',

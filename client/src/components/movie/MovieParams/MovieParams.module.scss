@@ -8,7 +8,7 @@
         color: #ffffffcc;
         margin: 0 0 4px 0;
 
-        &:last-child{
+        &:last-child {
             margin: 0;
         }
     }
@@ -18,7 +18,7 @@
         font-size: 15px;
         line-height: 20px;
         vertical-align: top;
-        margin: 0 8px 0 0;
+        margin: 0px 8px 0 8px;
 
         &:last-child {
             margin: 0;
@@ -53,14 +53,13 @@
         margin: 0 5px 0 0;
 
         &_sound {
-            margin: 0 5px;
+            margin: 0 -3px 0 5px;
         }
     }
 }
 
 @media (max-width: 1159px) {
     .container {
-
         &__list {
             justify-content: start;
         }
@@ -69,7 +68,6 @@
 
 @media (max-width: 879px) {
     .container {
-
         &__list {
             justify-content: center;
         }

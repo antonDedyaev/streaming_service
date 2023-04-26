@@ -6,22 +6,22 @@ interface TabBarLinkUIProps {
     href: string;
     icon: HTMLImageElement;
     text: string;
+    selected: boolean;
 }
 
-const TabBarLinkUI = ({ href, icon, text }: TabBarLinkUIProps) => {
-    const handleTabClicked = ({ currentTarget }: React.MouseEvent<HTMLAnchorElement>) => {
-        const allTabs = document.querySelectorAll(`.${styles.tabBar__item}`);
-        allTabs.forEach((item) => item.classList.remove(styles.tabBar__item_selected));
-        currentTarget.classList.add(styles.tabBar__item_selected);
-    };
-
+const TabBarLinkUI = ({ href, icon, text, selected }: TabBarLinkUIProps) => {
     return (
-        <Link id="tab-item" href={href} className={styles.tabBar__item} onClick={handleTabClicked} role="tab-link">
-            <div className={styles.tabBar__itemGlow}></div>
-            <div className={styles.tabBar__itemIcon}>
+        <Link
+            id="tab-item"
+            href={href}
+            className={[styles.container, selected ? styles.container_selected : ''].join(' ')}
+            role="tab-link"
+        >
+            <div className={styles.container__itemGlow}></div>
+            <div className={styles.container__itemIcon}>
                 <Image src={icon} height={20} width={20} alt={`Иконка ${text}`} />
             </div>
-            <div className={styles.tabBar__itemCaption}>{text}</div>
+            <div className={styles.container__itemCaption}>{text}</div>
         </Link>
     );
 };

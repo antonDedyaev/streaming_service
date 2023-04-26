@@ -51,4 +51,4 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
     );
 }
 
-export default ButtonUI; /*'#1f1b2e'};*/
+export default ButtonUI;

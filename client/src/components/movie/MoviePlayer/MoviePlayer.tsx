@@ -12,15 +12,13 @@ const MoviePlayer = ({ movie }: MoviePlayerProps) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.container__block}>
-                <ReactPlayer
-                    className={styles.container__player}
-                    width="100%"
-                    height="100%"
-                    url="https://special-central.dfs.ivi.ru/newseason/ivi-logo.mp4"
-                    controls={true}
-                />
-            </div>
+            <ReactPlayer
+                className={styles.container__player}
+                width="100%"
+                height="100%"
+                url="https://special-central.dfs.ivi.ru/newseason/ivi-logo.mp4"
+                controls={true}
+            />
 
             <div className={styles.container__buttons}>
                 <MovieButtons />
