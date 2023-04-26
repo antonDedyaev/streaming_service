@@ -22,11 +22,11 @@ function HomePage() {
                 title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
                 page="home"
             >
-                <ActorItem 
-                    className=''
-                    actor={actors[0]}
-                    size='small'
-                />
+                <ActorItem className="" actor={actors[0]} size="large" />
+
+                <ActorItem className="" actor={actors[0]} size="medium" />
+
+                <ActorItem className="" actor={actors[0]} size="small" />
 
                 <Slider itemType="promo" length={promoMovies.length}>
                     <PostersList posterType="promo" movies={promoMovies} />

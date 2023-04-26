@@ -7,6 +7,26 @@
     border: none;
     cursor: pointer;
 
+    &_large {
+        padding: 10px 15px;
+    }
+
+    &_medium {
+        padding: 10px 12px;
+    }
+
+    &_small {
+        padding: 7px 11px;
+    }
+
+    &_square {
+        padding: 5px;
+    }
+
+    &_none {
+        padding: 0;
+    }
+
     &:hover:not(:active) {
         transition-duration: 80ms;
     }

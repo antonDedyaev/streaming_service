@@ -46,11 +46,7 @@ export const Effect: Story = {
         ),
     ],
     args: {
-        href: '/',
         actor: data,
-        role: true,
-        effect: true,
-        amt: true,
         size: 'large',
     },
 };
@@ -64,11 +60,7 @@ export const Large: Story = {
         ),
     ],
     args: {
-        href: '/',
         actor: data,
-        role: false,
-        effect: false,
-        amt: true,
         size: 'large',
     },
 };
@@ -82,11 +74,7 @@ export const Medium: Story = {
         ),
     ],
     args: {
-        href: '/',
         actor: data,
-        role: true,
-        effect: false,
-        amt: false,
         size: 'medium',
     },
 };
@@ -100,11 +88,7 @@ export const Small: Story = {
         ),
     ],
     args: {
-        href: '/',
         actor: data,
-        role: false,
-        effect: false,
-        amt: true,
         size: 'small',
     },
 };
