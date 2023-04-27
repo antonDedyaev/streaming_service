@@ -10,7 +10,7 @@ describe('ButtonUI SNAPSHOTS TESTS', () => {
             <ButtonUI
                 className='button'
                 background='lightRed'
-                variant='large'>
+                shape='large'>
                 Красная кнопка
             </ButtonUI>
         )
@@ -26,7 +26,7 @@ describe('ButtonUI SNAPSHOTS TESTS', () => {
             <ButtonUI
                 className='button'
                 background='gray'
-                variant='small'>
+                shape='small'>
                 Серая кнопка
             </ButtonUI>
         )

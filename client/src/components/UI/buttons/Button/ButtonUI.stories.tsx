@@ -7,7 +7,7 @@ const meta: Meta<typeof ButtonUI> = {
     component: ButtonUI,
     tags: ['autodocs'],
     argTypes: {
-        variant: {
+        shape: {
             type: 'string',
             descriptrion: 'Вариант размера внутренних отступов',
             defaultValue: 'medium',
@@ -40,7 +40,7 @@ type Story = StoryObj<typeof ButtonUI>;
 export const RedButton: Story = {
     args: {
         background: 'lightRed',
-        variant: 'medium',
+        shape: 'medium',
         children: 'Button',
     },
 };
@@ -48,7 +48,7 @@ export const RedButton: Story = {
 export const GrayButton: Story = {
     args: {
         background: 'gray',
-        variant: 'medium',
+        shape: 'medium',
         children: 'Button',
     },
 };

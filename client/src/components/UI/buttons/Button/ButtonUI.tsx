@@ -9,10 +9,13 @@ interface ButtonUIProps {
     onClick?: () => void;
 }
 
-function ButtonUI({ className, children, background, shape, onClick }: ButtonUIProps) {
+const ButtonUI = ({ className, children, background, shape, onClick }: ButtonUIProps) => {
     return (
         <>
-            <button className={[styles.button, className, 'button'].join(' ')} onClick={onClick}>
+            <button
+                className={[styles.button, styles[`button_${shape}`], 'button', className].join(' ')}
+                onClick={onClick}
+            >
                 {children}
             </button>
 
@@ -26,16 +29,6 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
                             : background === 'transparentWhite'
                             ? 'rgba(255, 255, 255, 0.08)'
                             : 'transparent'};
-
-                        padding: ${shape === 'large'
-                            ? '10px 15px'
-                            : shape === 'medium'
-                            ? '10px 12px'
-                            : shape === 'small'
-                            ? '7px 11px'
-                            : shape === 'square'
-                            ? '5px'
-                            : 'none'};
                     }
 
                     .button:hover {
@@ -49,6 +42,6 @@ function ButtonUI({ className, children, background, shape, onClick }: ButtonUIP
             </style>
         </>
     );
-}
+};
 
 export default ButtonUI;

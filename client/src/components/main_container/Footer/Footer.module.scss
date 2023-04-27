@@ -1,13 +1,12 @@
 .container {
     background-color: #100e19;
-    font-family: iviSans, Arial, Helvetica, Helvetica Neue, FreeSans, sans-serif;
     position: relative;
 
     &__content {
         padding-bottom: 48px;
         padding-top: 48px;
         position: relative;
-        border-top: 1px solid hsla(0, 0%, 100%, 0.16);
+        border-top: 1px solid #ffffff29;
 
         &_columnNarrow {
             display: grid;
@@ -34,7 +33,7 @@
     }
 
     &__description {
-        color: hsla(0, 0%, 100%, 0.48);
+        color: #ffffff7a;
         font-weight: 400;
     }
 

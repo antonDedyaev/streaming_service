@@ -12,6 +12,7 @@ import TabBar from '../components/main_container/TabBar/TabBar';
 import PreviewPoster from '@/components/posters/PreviewPoster/PreviewPoster';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import ActorItem from '@/components/actor/ActorItem/ActorItem';
+import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 
 function HomePage() {
     return (
@@ -21,9 +22,11 @@ function HomePage() {
                 title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
                 page="home"
             >
-                <div>
-                    <ActorItem className="" actor={actors[0]} size="small" />
-                </div>
+                <ActorItem className="" actor={actors[0]} size="large" />
+
+                <ActorItem className="" actor={actors[0]} size="medium" />
+
+                <ActorItem className="" actor={actors[0]} size="small" />
 
                 <Slider itemType="promo" length={promoMovies.length}>
                     <PostersList posterType="promo" movies={promoMovies} />
@@ -32,6 +35,8 @@ function HomePage() {
                 <Slider itemType="actor" length={actors.length}>
                     <ActorList actors={actors} size="large" />
                 </Slider>
+
+                <MovieInfo movie={movies[0]}/>
             </MainContainer>
         </>
     );

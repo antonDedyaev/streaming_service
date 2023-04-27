@@ -1,6 +1,20 @@
 .container {
     display: block;
-    max-width: 100px;
+
+    &_large {
+        max-width: 210px;
+        min-width: 100px;
+    }
+
+    &_medium {
+        max-width: 185px;
+        min-width: 70px;
+    }
+
+    &_small {
+        max-width: 88px;
+        min-width: 72px;
+    }
 
     &__imageContainer {
         position: relative;
@@ -58,13 +72,17 @@
         line-height: 20px;
     }
 
-    &:hover {
+    &_large:hover {
         .container {
             &__imageContainer {
                 transform-origin: bottom;
-                transform: scale(103%, 103%);
+                transform: scale(103%, 103%); 
             }
+        }
+    }
 
+    &:hover {
+        .container {
             &__fullName {
                 color: white;
             }
