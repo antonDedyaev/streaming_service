@@ -3,6 +3,7 @@ import styles from '@/styles/pages/CardMoviePage.module.scss';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
+import MovieDevicesImage from '@/components/movie/MovieDevicesImage/MovieDevicesImage';
 
 function CardMoviePage() {
     return (
@@ -21,6 +22,15 @@ function CardMoviePage() {
                         </div>
                     </div>
                 </section>
+
+                <section className={[styles.container__devices, styles.devices].join(' ')}>
+                    <div className={styles.devices__appeal}>f</div>
+                    <div className={styles.devices__image}>
+                        <MovieDevicesImage movie={movies[0]} />
+                    </div>
+                </section>
+
+                <div style={{ margin: '100px' }}></div>
             </div>
         </MainContainer>
     );

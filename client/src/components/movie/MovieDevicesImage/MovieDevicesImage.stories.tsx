@@ -1,23 +1,23 @@
 import { Meta, StoryObj } from '@storybook/react';
-import MovieParams from './MovieParams';
+import MovieDevicesImage from './MovieDevicesImage';
 import '../../../styles/nullstyle.scss';
 import '../../../styles/globals.scss';
-import './MovieParams.module.scss';
+import './MovieDevicesImage.module.scss';
 import { IMovie } from '../../movie/movieMedallion/MovieMedallionsList/Temp/IMovie';
 
-const meta: Meta<typeof MovieParams> = {
-    title: 'Information/Params',
-    component: MovieParams,
+const meta: Meta<typeof MovieDevicesImage> = {
+    title: 'Cards/DevicesImage',
+    component: MovieDevicesImage,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof MovieParams>;
+type Story = StoryObj<typeof MovieDevicesImage>;
 
 const data: IMovie = {
     id: 1,
     title: 'Название',
-    poster: '/img/posterTest.jpg',
+    poster: require('../../../testAsserts/img/BG554460.jpg'),
     year: 1900,
     ageLimit: '0+',
     time: 'Длительность',
@@ -34,14 +34,7 @@ const data: IMovie = {
     actors: [],
 };
 
-export const FullScreen: Story = {
-    decorators: [
-        (Story) => (
-            <div style={{ background: '#100e19' }}>
-                <Story />
-            </div>
-        ),
-    ],
+export const DevicesImage: Story = {
     args: {
         movie: data,
     },

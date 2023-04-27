@@ -5,6 +5,7 @@ export const movies: IMovie[] = [
     {
         id: 1,
         title: 'Каратэ-пацан (Фильм 2010)',
+        poster: '/img/posterTest.jpg',
         year: 2010,
         ageLimit: '6+',
         time: '2 ч. 14 мин.',

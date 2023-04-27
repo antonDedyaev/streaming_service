@@ -20,6 +20,18 @@
     }
 }
 
+.devices {
+    display: grid;
+    grid-template-columns: 536px 1fr;
+    column-gap: 24px;
+
+    &__appeal {
+    }
+
+    &__image {
+    }
+}
+
 @media (max-width: 1159px) {
     .page {
         &__block {
