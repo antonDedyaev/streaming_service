@@ -4,12 +4,12 @@
     pointer-events: none;
     display: flex;
     align-items: center;
+    padding: 10px;
 
     &__value {
         display: flex;
         width: 64px;
         min-height: 64px;
-        margin-left: -5px;
         height: 28px;
     }
 
@@ -37,7 +37,6 @@
 
     &__estimate {
         margin-left: auto;
-        margin-right: -5px;
         border: 1px solid #ffffff52;
         width: 72px;
         height: 24px;
@@ -47,16 +46,6 @@
         font-weight: 500;
         color: #fff;
         padding: 3px 7px;
-        /*display: flex;
-        justify-content: center;*/
-
-        /* & span {
-            font-size: 13px;
-            line-height: 16px;
-            font-weight: 500;
-            color: #fff;
-            margin-top: -4px;
-        }*/
     }
 }
 
