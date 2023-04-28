@@ -13,6 +13,10 @@ import PreviewPoster from '@/components/posters/PreviewPoster/PreviewPoster';
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import ActorItem from '@/components/actor/ActorItem/ActorItem';
+import FilmographySection from '@/components/sections/FilmographySection/FilmographySection';
+import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
+import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
+import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
 
 function HomePage() {
     return (

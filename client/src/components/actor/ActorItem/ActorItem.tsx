@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styles from './ActorItem.module.scss';
 import Image from 'next/image';
 import IActor from '../../../models/IActor';
-import { declensionOfWordFromNumber } from '../../../utils/functions';
+import { declineWord } from '../../../utils/functions';
 
 interface ActorItemProps {
     className?: string;
@@ -37,7 +37,7 @@ const ActorItem = ({ className, actor, size }: ActorItemProps) => {
                     <h3 className={styles.container__role}>{actor.role}</h3>
                 ) : (
                     <p className={styles.container__amountMovies}>
-                        {actor.amtMovies} {declensionOfWordFromNumber(actor.amtMovies, ['фильм', 'фильма', 'фильмов'])}
+                        {actor.amtMovies} {declineWord(actor.amtMovies, ['фильм', 'фильма', 'фильмов'])}
                     </p>
                 )}
             </div>

@@ -1,0 +1,18 @@
+.section {
+    &__header {
+        display: inline-block;
+    }
+
+    &__link {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+    }
+}
+
+.arrow {
+    height: 16px;
+}
