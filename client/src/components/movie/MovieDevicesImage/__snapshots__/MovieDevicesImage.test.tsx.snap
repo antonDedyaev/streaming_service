@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOVIEDEVICESIMAGE SNAPSHOTS TESTS MovieDevicesImage should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="div-movieDevicesImage"
+>
+  <img
+    alt="Устройства для просмотра Иви"
+    class="container__tv"
+    data-nimg="1"
+    decoding="async"
+    height="40"
+    loading="lazy"
+    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+    style="color: transparent;"
+    width="40"
+  />
+  <img
+    alt="Устройства для просмотра Иви"
+    class="container__ipad"
+    data-nimg="1"
+    decoding="async"
+    height="40"
+    loading="lazy"
+    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+    style="color: transparent;"
+    width="40"
+  />
+  <img
+    alt="Постер Каратэ-пацан (Фильм 2010)"
+    class="container__posterTv"
+    data-nimg="1"
+    decoding="async"
+    height="192"
+    loading="lazy"
+    src="/_next/image?url=%2Fimg%2FposterTest.jpg&w=750&q=75"
+    srcset="/_next/image?url=%2Fimg%2FposterTest.jpg&w=384&q=75 1x, /_next/image?url=%2Fimg%2FposterTest.jpg&w=750&q=75 2x"
+    style="color: transparent;"
+    width="337"
+  />
+  <img
+    alt="Постер Каратэ-пацан (Фильм 2010)"
+    class="container__posterIpad"
+    data-nimg="1"
+    decoding="async"
+    height="102"
+    loading="lazy"
+    src="/_next/image?url=%2Fimg%2FposterTest.jpg&w=384&q=75"
+    srcset="/_next/image?url=%2Fimg%2FposterTest.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg%2FposterTest.jpg&w=384&q=75 2x"
+    style="color: transparent;"
+    width="188"
+  />
+</div>
+`;

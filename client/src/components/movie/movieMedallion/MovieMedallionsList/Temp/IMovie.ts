@@ -3,6 +3,7 @@ import IActor from '../../../../../models/IActor';
 export interface IMovie {
     id: number;
     title: string;
+    poster: string;
     year: number;
     ageLimit: string;
     time: string;
