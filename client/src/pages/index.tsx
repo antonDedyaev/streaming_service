@@ -41,6 +41,19 @@ function HomePage() {
                 </Slider>
 
                 <MovieInfo movie={movies[0]}/>
+                
+                
+                {/* <FilmographySection movies={ratingMovies} /> */}
+
+                <MoviesSection title='Лучшие фильмы' movies={ratingMovies} href='/' />
+
+                <MoviesSection title='С сериалом «Лесник» смотрят' movies={ratingMovies} href='' />
+
+                <TopTenSection movies={ratingMovies} />
+
+                <PersonsSection size='large' persons={actors} />
+
+                <PersonsSection size='small' persons={actors} />
             </MainContainer>
         </>
     );

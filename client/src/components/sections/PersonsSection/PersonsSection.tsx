@@ -2,6 +2,7 @@ import Slider from '@/components/Slider/Slider';
 import ActorList from '@/components/actor/ActorList/ActorList';
 import IActor from '@/models/IActor';
 import styles from './PersonsSection.module.scss';
+import UnderlinedLink from '@/components/UI/links/UnderlinedLink/UnderlinedLink';
 
 interface PersonsSectionProps {
     persons: IActor[],
@@ -9,10 +10,17 @@ interface PersonsSectionProps {
 }
 
 const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
+    const onClick = (e: any) => {
+        e.preventDefault();
+    }
+
     return (
         <div className={styles.section}>
             <div className={styles.section__header}>
-                { size === 'large' ? <h3>Персоны</h3> : <h3>Актёры и создатели</h3> }
+                {size === 'large' 
+                    ? <h3>Персоны</h3> 
+                    : <UnderlinedLink text='Актёры и создатели' onClick={onClick} /> 
+                }
             </div>
 
             <div className={styles.section__content}>
@@ -21,7 +29,9 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
                         <ActorList actors={persons} size={size} />
                     </Slider>
                 ) : (
-                    <ActorList actors={persons.slice(0,10)} size={size} />
+                    <div className={styles.section__list}>
+                        <ActorList actors={persons.slice(0,10)} size={size} />
+                    </div>
                 )}
             </div>
         </div>

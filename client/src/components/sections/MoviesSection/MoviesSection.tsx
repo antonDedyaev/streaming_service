@@ -1,10 +1,8 @@
 import Slider from '@/components/Slider/Slider';
-import styles from './MoviesSection.module.scss';
 import IMovie from '@/models/IMovie';
-import arrow from '../../../../public/icons/arrows/arrow_right.svg'
-import Link from 'next/link';
-import Image from 'next/image';
 import PostersList from '@/components/posters/PostersList/PostersList';
+import ArrowedLink from '@/components/UI/links/ArrowedLink/ArrowedLink';
+import styles from './MoviesSection.module.scss';
 
 interface MoviesSectionProps {
     title: string,
@@ -13,16 +11,19 @@ interface MoviesSectionProps {
 }
 
 const MoviesSection = ({ title, movies, href }: MoviesSectionProps) => {
+    const onClick = (e: any) => {
+        e.preventDefault();
+    }
+
     return (
         <div className={styles.section}>
             <div className={styles.section__header}>
-                <Link className={styles.section__link} href={href}>
-                    <h3>{title}</h3>
-                    <Image className={styles.arrow} src={arrow} alt='' />
-                </Link>
+                {href 
+                    ? <ArrowedLink text={title} href={href} onClick={onClick} /> 
+                    : <h3 className={styles.section__title}>{title}</h3>
+                }
             </div>
             
-
             <div className={styles.section__content}>
                 <Slider itemType='preview' length={movies.length} >
                     <PostersList posterType='preview' movies={movies} />
