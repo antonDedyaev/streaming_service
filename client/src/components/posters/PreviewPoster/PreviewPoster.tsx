@@ -11,7 +11,7 @@ interface PreviewPosterProps {
     className: string;
 }
 
-const PreviewPoster = ({ movie,className }: PreviewPosterProps) => {
+const PreviewPoster = ({ movie, className }: PreviewPosterProps) => {
     return (
         <Link className={[style.container, className].join(' ')} href="/">
             <div className={[style.container__block, style.container__block_image].join(' ')}>
@@ -19,7 +19,7 @@ const PreviewPoster = ({ movie,className }: PreviewPosterProps) => {
                     <Image className={style.container__image} src={movie.image} alt={movie.name} fill />
                 </div>
                 <PreviewPosterContent movie={movie} />
-                <AgeBadge value="18" />
+                <AgeBadge className={style.container__badge} value="18" />
             </div>
 
             <div className={[style.container__block, style.container__block_text].join(' ')}>
