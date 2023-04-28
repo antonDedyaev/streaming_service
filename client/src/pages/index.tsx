@@ -10,13 +10,13 @@ import { useState } from 'react';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 import TabBar from '../components/main_container/TabBar/TabBar';
 import PreviewPoster from '@/components/posters/PreviewPoster/PreviewPoster';
-import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import ActorItem from '@/components/actor/ActorItem/ActorItem';
 import FilmographySection from '@/components/sections/FilmographySection/FilmographySection';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
 import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
+import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 
 function HomePage() {
     return (
@@ -26,17 +26,21 @@ function HomePage() {
                 title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
                 page="home"
             >
-                <ActorItem 
-                    className=''
-                    actor={actors[0]}
-                    size='small'
-                />
+                <ActorItem className="" actor={actors[0]} size="large" />
+
+                <ActorItem className="" actor={actors[0]} size="medium" />
+
+                <ActorItem className="" actor={actors[0]} size="small" />
 
                 <Slider itemType="promo" length={promoMovies.length}>
                     <PostersList posterType="promo" movies={promoMovies} />
                 </Slider>
 
-                <MovieInfo movie={movies[0]} />
+                <Slider itemType="actor" length={actors.length}>
+                    <ActorList actors={actors} size="large" />
+                </Slider>
+
+                <MovieInfo movie={movies[0]}/>
             </MainContainer>
         </>
     );

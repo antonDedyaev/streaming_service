@@ -6,7 +6,7 @@ describe('MOVIEOPTIONS SNAPSHOTS TESTS', () => {
     test('MovieOptions should not be changed', () => {
         render(<MovieOptions movie={movies[0]} />);
 
-        const div = screen.getByRole('div-options');
+        const div = screen.getByTestId('div-options');
         expect(div).toMatchSnapshot();
     });
 });

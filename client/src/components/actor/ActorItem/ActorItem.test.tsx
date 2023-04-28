@@ -21,19 +21,19 @@ const data: IData = {
 
 describe('ACTORITEM SNAPSHOTS TESTS', () => {
     test('large ActorItem should not be changed', () => {
-        render(<ActorItem href="/" actor={data} amt={true} size="large" />);
+        render(<ActorItem actor={data} size="large" />);
         const link = screen.getByRole('link');
         expect(link).toMatchSnapshot();
     });
 
     test('medium ActorItem should not be changed', () => {
-        render(<ActorItem href="/" actor={data} amt={true} size="medium" />);
+        render(<ActorItem actor={data} size="medium" />);
         const link = screen.getByRole('link');
         expect(link).toMatchSnapshot();
     });
 
     test('small ActorItem should not be changed', () => {
-        render(<ActorItem href="/" actor={data} role={true} size="small" />);
+        render(<ActorItem actor={data} size="small" />);
         const link = screen.getByRole('link');
         expect(link).toMatchSnapshot();
     });

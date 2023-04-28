@@ -3,13 +3,13 @@
 exports[`MOVIEPARAMS SNAPSHOTS TESTS MovieParams should not be changed 1`] = `
 <div
   class="container"
-  role="div-params"
+  data-testid="div-params"
 >
   <div
     class="container__list"
   >
     <a
-      class="link link_bright"
+      class="container container_bright"
       href="/"
     >
       2010
@@ -29,25 +29,25 @@ exports[`MOVIEPARAMS SNAPSHOTS TESTS MovieParams should not be changed 1`] = `
     class="container__list"
   >
     <a
-      class="link link_bright container__listItem container__listItem_point"
+      class="container container_bright container__listItem container__listItem_point"
       href="/"
     >
       США
     </a>
     <a
-      class="link link_bright container__listItem container__listItem_point"
+      class="container container_bright container__listItem container__listItem_point"
       href="/"
     >
       Драмы
     </a>
     <a
-      class="link link_bright container__listItem container__listItem_point"
+      class="container container_bright container__listItem container__listItem_point"
       href="/"
     >
       Спорт
     </a>
     <a
-      class="link link_bright container__listItem container__listItem_point"
+      class="container container_bright container__listItem container__listItem_point"
       href="/"
     >
       Семейные
@@ -57,7 +57,7 @@ exports[`MOVIEPARAMS SNAPSHOTS TESTS MovieParams should not be changed 1`] = `
     class="container__list"
   >
     <div
-      class="textBadge"
+      class="badge"
     >
       FullHD
     </div>

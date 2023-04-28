@@ -37,38 +37,16 @@ const data: IData = {
     role: 'Роль',
 };
 
-export const Effect: Story = {
-    decorators: [
-        (Story) => (
-            <div style={{ width: '153px' }}>
-                <Story />
-            </div>
-        ),
-    ],
-    args: {
-        href: '/',
-        actor: data,
-        role: true,
-        effect: true,
-        amt: true,
-        size: 'large',
-    },
-};
-
 export const Large: Story = {
     decorators: [
         (Story) => (
-            <div style={{ width: '153px' }}>
+            <div style={{ minWidth: '153px' }}>
                 <Story />
             </div>
         ),
     ],
     args: {
-        href: '/',
         actor: data,
-        role: false,
-        effect: false,
-        amt: true,
         size: 'large',
     },
 };
@@ -82,11 +60,7 @@ export const Medium: Story = {
         ),
     ],
     args: {
-        href: '/',
         actor: data,
-        role: true,
-        effect: false,
-        amt: false,
         size: 'medium',
     },
 };
@@ -100,11 +74,7 @@ export const Small: Story = {
         ),
     ],
     args: {
-        href: '/',
         actor: data,
-        role: false,
-        effect: false,
-        amt: true,
         size: 'small',
     },
 };

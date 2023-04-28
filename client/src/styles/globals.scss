@@ -14,3 +14,9 @@ body.modal-active {
     margin: 0 auto;
     padding: 0 24px;
 }
+
+@media (max-width: 1160px) {
+    body {
+        padding-bottom: 70px;
+    }
+}

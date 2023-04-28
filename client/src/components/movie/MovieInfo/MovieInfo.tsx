@@ -5,6 +5,8 @@ import MovieParams from '../MovieParams/MovieParams';
 import MovieRating from '../MovieRating/MovieRating';
 import MovieOptions from '../MovieOptions/MovieOptions';
 import MovieMedallionsList from '../movieMedallion/MovieMedallionsList/MovieMedallionsList';
+import MoviePlayer from '../MoviePlayer/MoviePlayer';
+import MovieButtons from '../MovieButtons/MovieButtons';
 
 interface MovieInfoProps {
     movie: IMovie;
@@ -19,33 +21,43 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
                 <MovieParams movie={movie} />
             </div>
 
-            <MovieMedallionsList movie={movie} className={styles.container__cards} />
+            <div className={styles.container__player}>
+                <MoviePlayer movie={movie} />
+            </div>
 
-            <div className={styles.container__spoiler}>
-                <SpoilerUI
-                    toggleButtonTexts={['Детали о фильме', 'Свернуть детали']}
-                    shownLines={6}
-                    truncateFormat="vertical"
-                    buttonTextColor="faded"
-                >
-                    <p key={movie.description[0]}>{movie.description[0]}</p>
+            <div className={styles.container__infoBlock}>
+                <div className={styles.container__block}>
+                    <MovieMedallionsList movie={movie} className={styles.container__blockCards} />
+                    <div className={styles.container__blockSpoiler}>
+                        <SpoilerUI
+                            toggleButtonTexts={['Детали о фильме', 'Свернуть детали']}
+                            shownLines={6}
+                            truncateFormat="vertical"
+                            buttonTextColor="faded"
+                        >
+                            <p key={movie.description[0]}>{movie.description[0]}</p>
 
-                    {movie.description.slice(1).map((descrip) => (
-                        <p key={descrip}>{descrip}</p>
-                    ))}
+                            {movie.description.slice(1).map((descrip) => (
+                                <p key={descrip}>{descrip}</p>
+                            ))}
 
-                    <div className={styles.container__spoilerOptions}>
+                            <div className={styles.container__blockSpoilerOptions}>
+                                <MovieOptions movie={movie} />
+                            </div>
+                        </SpoilerUI>
+                    </div>
+
+                    <div className={styles.container__blockRatingBox}>
+                        <MovieRating movie={movie} />
+                    </div>
+
+                    <div className={styles.container__blockOptions}>
                         <MovieOptions movie={movie} />
                     </div>
-                </SpoilerUI>
-            </div>
-
-            <div className={styles.container__ratingBox}>
-                <MovieRating movie={movie} />
-            </div>
-
-            <div className={styles.container__options}>
-                <MovieOptions movie={movie} />
+                </div>
+                <div className={styles.container__buttons}>
+                    <MovieButtons />
+                </div>
             </div>
         </div>
     );

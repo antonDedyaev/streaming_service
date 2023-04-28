@@ -10,7 +10,7 @@ interface ArrowButtonProps {
     onClick?: () => void
 }
 
-function ArrowButton({ className, diarection, iconSize, onClick }: ArrowButtonProps) {
+const ArrowButton = ({ className, diarection, iconSize, onClick }: ArrowButtonProps) => {
     let arrowIcon
 
     switch(diarection) {
