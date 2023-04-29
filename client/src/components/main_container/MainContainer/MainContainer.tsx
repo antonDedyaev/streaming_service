@@ -3,6 +3,9 @@ import { ReactNode } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import TabBar from '../TabBar/TabBar';
+import { useRouter } from 'next/router';
+import SearchModal from '@/components/modals/SearchModal/SearchModal';
+import LoginModal from '@/components/modals/LoginModal/LoginModal';
 
 interface MainContainerProps {
     children: ReactNode;
@@ -12,6 +15,10 @@ interface MainContainerProps {
 }
 
 const MainContainer = ({ children, keywords, title, page }: MainContainerProps) => {
+    const { query } = useRouter()
+
+    const queryParams = Object.keys(query)
+
     return (
         <>
             <Head>
@@ -22,6 +29,10 @@ const MainContainer = ({ children, keywords, title, page }: MainContainerProps) 
             <Header page={page} />
 
             {children}
+
+            {queryParams.includes('ivi_search') && <SearchModal />}
+            {queryParams.includes('sign-in') && <LoginModal type='sign-in' />}
+            {queryParams.includes('sign-up') && <LoginModal type='sign-up' />}
 
             <TabBar />
             <Footer />

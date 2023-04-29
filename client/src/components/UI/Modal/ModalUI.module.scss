@@ -7,13 +7,16 @@
     background-color: #100e19fb;
     display: flex;
     justify-content: center;
-    align-items: center;
 
     &__button {
         position: absolute;
         top: 20px;
         right: 20px;
-        padding: 5px;
+        width: 52px;
+        height: 52px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         &:hover {
             .container__image {
@@ -29,8 +32,8 @@
     }
 
     &__image {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         opacity: 0.5;
     }
 }

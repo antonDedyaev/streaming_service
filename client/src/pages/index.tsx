@@ -6,15 +6,18 @@ import { promoMovies } from '@/components/posters/PromoPoster/promoMovies.data';
 import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.data';
 import ActorList from '@/components/actor/ActorList/ActorList';
 import ModalUI from '@/components/UI/Modal/ModalUI';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 import TabBar from '../components/main_container/TabBar/TabBar';
 import PreviewPoster from '@/components/posters/PreviewPoster/PreviewPoster';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import ActorItem from '@/components/actor/ActorItem/ActorItem';
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
+import SearchModal from '@/components/modals/SearchModal/SearchModal';
+import SignInModal from '@/components/modals/LoginModal/LoginModal';
 
 function HomePage() {
+
     return (
         <>
             <MainContainer
@@ -36,7 +39,7 @@ function HomePage() {
                     <ActorList actors={actors} size="large" />
                 </Slider>
 
-                <MovieInfo movie={movies[0]}/>
+                <MovieInfo movie={movies[0]} />
             </MainContainer>
         </>
     );

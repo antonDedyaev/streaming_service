@@ -2,13 +2,17 @@ import { ReactNode, useEffect } from 'react';
 import styles from './ModalUI.module.scss';
 import Image from 'next/image';
 import closeIcon from '../../../../public/icons/close.svg';
+import { useRouter } from 'next/router';
+import ButtonUI from '../buttons/Button/ButtonUI';
 
 interface ModalUIProps {
     children: ReactNode;
-    onClick: () => void;
 }
 
-const ModalUI = ({ children, onClick }: ModalUIProps) => {
+const ModalUI = ({ children }: ModalUIProps) => {
+    const location = useRouter()
+    const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)/, '')
+
     const body = document.querySelector('body')!;
 
     useEffect(() => {
@@ -17,16 +21,16 @@ const ModalUI = ({ children, onClick }: ModalUIProps) => {
 
     const closeHandler = () => {
         body.classList.remove('modal-active');
-        onClick();
+        location.push(backPath)
     };
 
     return (
         <div className={styles.container}>
             {children}
 
-            <button className={styles.container__button} onClick={closeHandler}>
+            <ButtonUI background='transparent' className={styles.container__button} onClick={closeHandler}>
                 <Image className={styles.container__image} src={closeIcon} alt="закрыть" />
-            </button>
+            </ButtonUI>
         </div>
     );
 };

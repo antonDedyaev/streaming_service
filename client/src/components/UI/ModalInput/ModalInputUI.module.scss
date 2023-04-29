@@ -1,0 +1,138 @@
+.container {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+    padding-top: 18px;
+
+    &_focus {
+        cursor: text;
+
+        .container__placeholder {
+            top: 3px;
+            font-size: 13px;
+            transition: .1s;
+        }
+
+        .container__input {
+            z-index: 1;
+        }
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        opacity: 0.1;
+        transition: 0.1s;
+        cursor: pointer;
+        z-index: 2;
+
+        &:hover {
+            opacity: 0.4;
+        }
+    }
+
+    &_search,
+    &_password,
+    &_repeatPassword {
+        .container {
+            &__placeholder {
+                left: 13px;
+            }
+
+            &__input {
+                padding: 18px 0 0 13px;
+            }
+
+            &__icon {
+                right: 10px;
+            }
+        }
+    }
+
+    &_email {
+        .container {
+            &__placeholder {
+                left: 30px;
+            }
+
+            &__input {
+                padding: 18px 0 0 30px;
+            }
+
+            &__icon {
+                left: 5px;
+            }
+        }
+    }
+
+    &__placeholder {
+        position: absolute;
+        color: #a5a1b2;
+        top: 13px;
+        font-weight: 700;
+        pointer-events: none;
+        transition: .3s;
+        z-index: 2;
+    }
+
+    &__input {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background-color: #d9d7e0;
+        border-radius: 8px;
+        color: #1f1b2e;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 700;
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+            border-bottom: 2px solid #a5a1b2;
+        }
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+        filter: invert(1);
+        z-index: 2;
+
+        &_eye {
+            filter: invert(0);
+            opacity: 1;
+        }
+    }
+
+    &:hover {
+        .container {
+            &__input {
+                border-bottom: 2px solid #a5a1b2;
+            }
+
+            &__icon {
+                opacity: 0.4;
+
+                &_eye {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &:not(:hover) {
+        .container {
+            &__input,
+            &__icon {
+                transition: 0.4s;
+            }
+        }
+    }
+}
