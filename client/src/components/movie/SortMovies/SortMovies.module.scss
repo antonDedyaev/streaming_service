@@ -1,0 +1,164 @@
+.container {
+    width: 1216px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &__sortingControl {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__sorting {
+        position: relative;
+        overflow: hidden;
+
+        &_active {
+            overflow: visible;
+
+            .container__sortArrow {
+                &::before {
+                    transform: rotate(180deg);
+                }
+            }
+
+            .container__dropdown {
+                pointer-events: auto;
+            }
+        }
+    }
+
+    &__sortingPanel {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__sortIcon {
+        display: flex;
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+
+        font-size: 16px;
+        line-height: 16px;
+
+        &::before {
+            color: #fff;
+
+            content: url('../../../../public/icons/sortLines.svg');
+        }
+    }
+
+    &__sortParameter {
+        height: 20px;
+
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 500;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        color: #fff;
+    }
+
+    &__sortArrow {
+        margin-left: 6px;
+
+        &::before {
+            display: inline-block;
+            content: url('../../../../public/icons/arrows/arrow_down.svg');
+        }
+    }
+
+    &__dropdown {
+        min-width: 250px;
+
+        position: absolute;
+        top: 32px;
+        z-index: 2;
+
+        display: inline-block;
+        padding-top: 8px;
+        padding-bottom: 12px;
+        background-color: #1f1b2e;
+        box-shadow: 0 20px 40px rgba(7, 5, 14, 0.4);
+        pointer-events: auto;
+    }
+
+    &__itemTitle {
+        margin-left: 4px;
+        margin-top: 4px;
+        margin-bottom: 12px;
+        padding: 0 16px;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 400;
+        color: #a5a1b2;
+    }
+
+    &__dropdownItem {
+        display: block;
+        position: relative;
+        padding-left: 20px;
+        padding-right: 16px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+
+        background-color: transparent;
+
+        white-space: nowrap;
+        cursor: pointer;
+
+        &_selected {
+            .container__itemText {
+                color: #fff;
+            }
+
+            .container__itemStripe {
+                display: flex;
+            }
+        }
+
+        &:hover {
+            background-color: #312b45;
+        }
+    }
+
+    &__itemStripe {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+
+        background-color: #ea003d;
+    }
+
+    &__itemText {
+        display: inline-block;
+        vertical-align: top;
+        max-height: 20px;
+
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.72);
+
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .container {
+        &__sortingControl {
+            margin-top: 24px;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+    }
+}

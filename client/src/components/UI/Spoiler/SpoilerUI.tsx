@@ -19,10 +19,7 @@ const SpoilerUI = ({
 }: SpoilerUIProps) => {
     const [isShowAll, setIsShowAll] = useState(false);
 
-    const buttonColor =
-        buttonTextColor === 'bright'
-            ? styles.container__button_bright
-            : styles.container__button_faded;
+    const buttonColor = buttonTextColor === 'bright' ? styles.container__button_bright : styles.container__button_faded;
 
     const textDisplayClass = isShowAll ? styles.container_show : styles.container_hidden;
 
@@ -38,8 +35,8 @@ const SpoilerUI = ({
                 <ButtonUI
                     className={[styles.container__button, buttonColor].join(' ')}
                     onClick={() => setIsShowAll(!isShowAll)}
-                    background='transparent'
-                    shape='none'
+                    background="transparent"
+                    shape="none"
                 >
                     {isShowAll ? toggleButtonTexts[1] : toggleButtonTexts[0]}
                 </ButtonUI>

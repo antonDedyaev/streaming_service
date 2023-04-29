@@ -1,0 +1,139 @@
+.container {
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    padding-right: 6px;
+    padding-left: 6px;
+    width: 16.66%;
+
+    &__plank {
+        position: relative;
+
+        &_isActive {
+            .container {
+                &__plankContent {
+                    background-color: #7e798f !important;
+                }
+                &__arrow {
+                    &::before {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                &__dropdown {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    &__plankContent {
+        display: flex;
+        position: relative;
+        height: 56px;
+        padding: 8px 16px;
+
+        border-radius: 4px;
+        box-sizing: border-box;
+        cursor: pointer;
+        user-select: none;
+
+        transition-property: background-color;
+
+        &:hover:not(:active) {
+            background-color: #312b45;
+        }
+
+        &:not(:hover):not(:active) {
+            background-color: #312b45;
+            transition-duration: 0.4s;
+        }
+    }
+
+    &__textWrapper {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        min-width: 30px;
+
+        align-self: center;
+    }
+
+    &__title {
+        height: 20px;
+        color: #fff;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 500;
+
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &__arrow {
+        padding-top: 12px;
+        &::before {
+            display: inline-block;
+            content: url('../../../public/icons/arrows/arrow_down.svg');
+        }
+    }
+
+    &__dropdown {
+        display: none;
+        position: absolute;
+        margin-top: 4px;
+        z-index: 1;
+
+        background: #312b45;
+        border-radius: 4px;
+        box-shadow: 0 16px 32px rgba(7, 5, 14, 0.4);
+
+        &_countries {
+            //left: -90%;
+            transform: translateX(-31.7%);
+        }
+
+        &_genres,
+        &_countries {
+            overflow: hidden;
+            width: 630px;
+        }
+
+        &_narrow {
+            width: 100%;
+        }
+    }
+
+    &__dropdownContent {
+        padding: 4px 16px 16px;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 879px) {
+    .container {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 743px) {
+    .container {
+        &__dropdown {
+            &_genres,
+            &_countries {
+                width: 416px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 272px) and (max-width: 599px) {
+    .container {
+        width: 100%;
+
+        &__dropdown {
+            &_genres,
+            &_countries {
+                width: 100%;
+            }
+        }
+    }
+}

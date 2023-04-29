@@ -1,0 +1,81 @@
+.container {
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 40px;
+    }
+
+    &__listItem {
+        margin-top: 12px;
+
+        &:hover {
+            .container {
+                &__checkbox {
+                    opacity: 0.32;
+                    transition: opacity 80ms;
+                }
+            }
+        }
+    }
+
+    &__itemLabel {
+        position: relative;
+    }
+
+    &__itemInput {
+        display: none;
+
+        &:checked ~ .container__checkbox {
+            opacity: 1;
+            color: #fff;
+            transition: opacity 80ms, color 80ms;
+        }
+    }
+
+    &__inputText {
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 500;
+        color: rgba(217, 215, 224, 0.8);
+        transition: color 400ms;
+        cursor: pointer;
+    }
+
+    &__checkbox {
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 14px;
+        height: 14px;
+        color: #fff;
+    }
+
+    &__checkIcon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        line-height: 16px;
+
+        &::before {
+            content: url('../../../public/icons/check.svg');
+        }
+    }
+}
+
+@media screen and (min-width: 512px) and (max-width: 743px) {
+    .container {
+        &__list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media screen and (max-width: 511px) {
+    .container {
+        &__list {
+            grid-template-columns: 1fr;
+        }
+    }
+}
