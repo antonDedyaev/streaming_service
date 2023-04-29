@@ -1,0 +1,110 @@
+.container {
+    padding-top: 12px;
+
+    &__formContent {
+        &_focused {
+            .container {
+                &__placeholder {
+                    transform: translate3d(0, -8px, 0) scale(0.86666667) perspective(1px);
+                }
+            }
+        }
+    }
+
+    &__formContent * {
+        transition-duration: 0.4s;
+    }
+
+    &__inputBody {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    &__inputField {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        height: 40px;
+        padding: 18px 40px 2px 10px;
+
+        cursor: pointer;
+        color: transparent;
+        transition-property: background-color, color;
+
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 500;
+        background-color: #1f1b2e;
+        color: #fff;
+
+        &:hover ~ .container {
+            &__fieldButton {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__placeholder {
+        height: 20px;
+        top: 10px;
+        left: 12px;
+        right: 40px;
+        color: #a5a1b2;
+
+        will-change: transform;
+        pointer-events: none;
+        position: absolute;
+        text-rendering: geometricPrecision;
+        transform-origin: 0 0;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 500;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        transition-property: transform, color;
+    }
+
+    &__fieldButton {
+        position: absolute;
+        right: 0;
+
+        height: 40px;
+        width: 40px;
+
+        opacity: 0.3;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__buttonIcon {
+        position: absolute;
+        top: 12px;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+
+        &_search {
+            pointer-events: none;
+            &::before {
+                content: url('../../../public/icons/search.svg');
+                opacity: 0.3;
+                transition: color 0.4s;
+            }
+        }
+
+        &_remove {
+            cursor: pointer;
+            pointer-events: all;
+            &::before {
+                content: url('../../../public/icons/close.svg');
+                opacity: 0.3;
+                transition: color 0.4s;
+            }
+        }
+    }
+}

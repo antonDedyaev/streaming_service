@@ -19,33 +19,30 @@ const SpoilerUI = ({
 }: SpoilerUIProps) => {
     const [isShowAll, setIsShowAll] = useState(false);
 
-    const buttonColor =
-        buttonTextColor === 'bright'
-            ? styles.container__button_bright
-            : styles.container__button_faded;
+    const buttonColor = buttonTextColor === 'bright' ? styles.container__button_bright : styles.container__button_faded;
 
     const textDisplayClass = isShowAll ? styles.container_show : styles.container_hidden;
 
     return (
         <>
-            <div
-                role="spoiler-wrapper"
-                id="text-wrapper"
-                data-testid="clipped-text"
-                className={[styles.container, textDisplayClass].join(' ')}
-            >
-                <div className={[styles.container__text, 'clamped'].join(' ')}>{children}</div>
+            <div data-testid="clipped-text" className={[styles.container, textDisplayClass].join(' ')}>
+                <div className={[styles.container__text, shownLines !== 0 ? 'clamped' : 'hidden'].join(' ')}>
+                    {children}
+                </div>
                 <ButtonUI
                     className={[styles.container__button, buttonColor].join(' ')}
                     onClick={() => setIsShowAll(!isShowAll)}
-                    background='transparent'
-                    shape='none'
+                    background="transparent"
+                    shape="none"
                 >
-                    {isShowAll ? toggleButtonTexts[0] : toggleButtonTexts[1]}
+                    {!isShowAll ? toggleButtonTexts[0] : toggleButtonTexts[1]}
                 </ButtonUI>
             </div>
             <style jsx>
                 {`
+                    .hidden {
+                        display: none;
+                    }
                     .clamped {
                         -webkit-line-clamp: ${shownLines};
                         -webkit-box-orient: ${truncateFormat};
