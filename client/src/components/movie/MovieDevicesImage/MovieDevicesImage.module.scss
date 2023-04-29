@@ -1,0 +1,65 @@
+.container {
+    position: relative;
+    height: 272px;
+    width: 536px;
+    margin: 0 auto;
+
+    &__tv {
+        position: relative;
+        height: inherit;
+        width: inherit;
+        z-index: 1;
+    }
+
+    &__ipad {
+        position: absolute;
+        right: 42px;
+        bottom: 0;
+        width: 200px;
+        height: 136px;
+        z-index: 2;
+    }
+
+    &__posterTv {
+        position: absolute;
+        left: 100px;
+        top: 3px;
+        border-radius: 2px;
+    }
+
+    &__posterIpad {
+        position: absolute;
+        right: 48px;
+        bottom: 7px;
+        border-radius: 4px;
+        z-index: 1;
+    }
+}
+
+@media (max-width: 599px) {
+    .container {
+        height: 136px;
+        width: 268px;
+
+        &__ipad {
+            width: 100px;
+            height: 67px;
+            right: 22px;
+        }
+
+        &__posterTv {
+            width: 168px;
+            height: 96px;
+            left: 50px;
+            top: 1px;
+        }
+
+        &__posterIpad {
+            width: 94px;
+            height: 51px;
+            bottom: 3px;
+            right: 25px;
+            border-radius: 2px;
+        }
+    }
+}

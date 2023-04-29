@@ -12,6 +12,10 @@ import TabBar from '../components/main_container/TabBar/TabBar';
 import PreviewPoster from '@/components/posters/PreviewPoster/PreviewPoster';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import ActorItem from '@/components/actor/ActorItem/ActorItem';
+import FilmographySection from '@/components/sections/FilmographySection/FilmographySection';
+import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
+import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
+import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 import SearchModal from '@/components/modals/SearchModal/SearchModal';
 import SignInModal from '@/components/modals/LoginModal/LoginModal';
@@ -39,7 +43,20 @@ function HomePage() {
                     <ActorList actors={actors} size="large" />
                 </Slider>
 
-                <MovieInfo movie={movies[0]} />
+                <MovieInfo movie={movies[0]}/>
+                
+                
+                {/* <FilmographySection movies={ratingMovies} /> */}
+
+                <MoviesSection title='Лучшие фильмы' movies={ratingMovies} href='/' />
+
+                <MoviesSection title='С сериалом «Лесник» смотрят' movies={ratingMovies} href='' />
+
+                <TopTenSection movies={ratingMovies} />
+
+                <PersonsSection size='large' persons={actors} />
+
+                <PersonsSection size='small' persons={actors} />
             </MainContainer>
         </>
     );

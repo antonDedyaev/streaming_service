@@ -17,6 +17,7 @@ type Story = StoryObj<typeof MovieParams>;
 const data: IMovie = {
     id: 1,
     title: 'Название',
+    poster: '/img/posterTest.jpg',
     year: 1900,
     ageLimit: '0+',
     time: 'Длительность',

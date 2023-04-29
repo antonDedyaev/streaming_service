@@ -1,8 +1,8 @@
-export const declensionOfWordFromNumber = (number: number, arrayOfOptions: string[]) => {
-  number = Math.abs(number) % 100;
-  let num = number % 10;
-  if (number > 10 && number < 20) return arrayOfOptions[2];
-  if (num > 1 && num < 5) return arrayOfOptions[1];
-  if (num == 1) return arrayOfOptions[0];
+export const declineWord = (number: number, arrayOfOptions: string[]) => {
+  let dozens = number % 100;
+  let units = number % 10;
+  if (dozens > 10 && dozens < 20) return arrayOfOptions[2];
+  if (units > 1 && units < 5) return arrayOfOptions[1];
+  if (units == 1) return arrayOfOptions[0];
   return arrayOfOptions[2];
 };

@@ -6,7 +6,6 @@ import './MovieMedallionItem.module.scss';
 const meta: Meta<typeof MovieMedallionItem> = {
     title: 'Cards/Medallion',
     component: MovieMedallionItem,
-    tags: ['autodocs'],
     argTypes: {
         disabled: {
             control: false,
