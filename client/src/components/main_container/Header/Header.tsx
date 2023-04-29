@@ -4,7 +4,7 @@ import appleIcon from '../../../../public/icons/logo.svg';
 import searchIcon from '../../../../public/icons/search.svg';
 import bellIcon from '../../../../public/icons/bell.svg';
 import userIcon from '../../../../public/icons/user.svg';
-import MenuList from '../LinksList/LinksList';
+import LinksList from '../LinksList/LinksList';
 import styles from './Header.module.scss';
 import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import DropMenu from '../DropMenu/DropMenu';
@@ -46,8 +46,8 @@ const Header = ({ page }: HeaderProps) => {
     };
 
     useEffect(() => {
-        console.log(isShowMoviesDrop, isShowSeriesDrop, isShowCartoonDrop)
-    }, [isShowMoviesDrop, isShowSeriesDrop, isShowCartoonDrop])
+        console.log(isShowMoviesDrop, isShowSeriesDrop, isShowCartoonDrop);
+    }, [isShowMoviesDrop, isShowSeriesDrop, isShowCartoonDrop]);
 
     useEffect(() => {
         if (isShowMoviesDrop || isShowSeriesDrop || isShowCartoonDrop) {
@@ -70,50 +70,52 @@ const Header = ({ page }: HeaderProps) => {
                     <Image src={appleIcon} alt="ivi"></Image>
                 </Link>
 
-                <MenuList
-                    direction="row"
-                    links={[
-                        {
-                            href: '/',
-                            text: 'Мой Иви',
-                            option: 'dim',
-                            onMouseOver: clearShowHandler,
-                        },
-                        {
-                            href: '/',
-                            text: 'Что нового',
-                            option: 'dim',
-                            onMouseOver: clearShowHandler,
-                        },
-                        {
-                            href: '/',
-                            text: 'Фильмы',
-                            option: 'dim',
-                            onMouseOver: mouseOverMovieHandler,
-                            className: [styles.container__menuLink, styles.container__menuLink_movie].join(' '),
-                        },
-                        {
-                            href: '/',
-                            text: 'Сериалы',
-                            option: 'dim',
-                            onMouseOver: mouseOverSeriesHandler,
-                            className: [styles.container__menuLink, styles.container__menuLink_series].join(' '),
-                        },
-                        {
-                            href: '/',
-                            text: 'Мультфильмы',
-                            option: 'dim',
-                            onMouseOver: mouseOverСartoonHandler,
-                            className: [styles.container__menuLink, styles.container__menuLink_cartoon].join(' '),
-                        },
-                        {
-                            href: '/',
-                            text: 'TV+',
-                            option: 'dim',
-                            onMouseOver: clearShowHandler,
-                        },
-                    ]}
-                />
+                <div className={styles.container__menuList}>
+                    <LinksList
+                        direction="row"
+                        links={[
+                            {
+                                href: '/',
+                                text: 'Мой Иви',
+                                option: 'dim',
+                                onMouseOver: clearShowHandler,
+                            },
+                            {
+                                href: '/',
+                                text: 'Что нового',
+                                option: 'dim',
+                                onMouseOver: clearShowHandler,
+                            },
+                            {
+                                href: '/',
+                                text: 'Фильмы',
+                                option: 'dim',
+                                onMouseOver: mouseOverMovieHandler,
+                                className: [styles.container__menuLink, styles.container__menuLink_movie].join(' '),
+                            },
+                            {
+                                href: '/',
+                                text: 'Сериалы',
+                                option: 'dim',
+                                onMouseOver: mouseOverSeriesHandler,
+                                className: [styles.container__menuLink, styles.container__menuLink_series].join(' '),
+                            },
+                            {
+                                href: '/',
+                                text: 'Мультфильмы',
+                                option: 'dim',
+                                onMouseOver: mouseOverСartoonHandler,
+                                className: [styles.container__menuLink, styles.container__menuLink_cartoon].join(' '),
+                            },
+                            {
+                                href: '/',
+                                text: 'TV+',
+                                option: 'dim',
+                                onMouseOver: clearShowHandler,
+                            },
+                        ]}
+                    />
+                </div>
 
                 <div className={styles.container__rightSide}>
                     <ButtonUI background="lightRed" shape="small" className={styles.container__button}>
@@ -181,75 +183,75 @@ const Header = ({ page }: HeaderProps) => {
                               ]
                             : isShowSeriesDrop
                             ? [
-                                {
-                                    title: 'Жанры',
-                                    links: [
-                                        { text: 'сериал', href: '/' },
-                                        { text: 'сериал', href: '/' },
-                                        { text: 'сериал', href: '/' },
-                                        { text: 'сериал', href: '/' },
-                                        { text: 'сериал', href: '/' },
-                                        { text: 'сериал', href: '/' },
-                                    ],
-                                },
-                                {
-                                    title: 'Страны',
-                                    links: [
-                                        { text: 'Страна', href: '/' },
-                                        { text: 'Страна', href: '/' },
-                                        { text: 'Страна', href: '/' },
-                                        { text: 'Страна', href: '/' },
-                                        { text: 'Страна', href: '/' },
-                                        { text: 'Страна', href: '/' },
-                                    ],
-                                },
-                                {
-                                    title: 'Годы',
-                                    links: [
-                                        { text: 'Год', href: '/' },
-                                        { text: 'Год', href: '/' },
-                                        { text: 'Год', href: '/' },
-                                        { text: 'Год', href: '/' },
-                                        { text: 'Год', href: '/' },
-                                        { text: 'Год', href: '/' },
-                                    ],
-                                },
-                            ]
+                                  {
+                                      title: 'Жанры',
+                                      links: [
+                                          { text: 'сериал', href: '/' },
+                                          { text: 'сериал', href: '/' },
+                                          { text: 'сериал', href: '/' },
+                                          { text: 'сериал', href: '/' },
+                                          { text: 'сериал', href: '/' },
+                                          { text: 'сериал', href: '/' },
+                                      ],
+                                  },
+                                  {
+                                      title: 'Страны',
+                                      links: [
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                      ],
+                                  },
+                                  {
+                                      title: 'Годы',
+                                      links: [
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                      ],
+                                  },
+                              ]
                             : [
-                                {
-                                    title: 'Жанры',
-                                    links: [
-                                        { text: 'мультфильм', href: '/' },
-                                        { text: 'мультфильм', href: '/' },
-                                        { text: 'мультфильм', href: '/' },
-                                        { text: 'мультфильм', href: '/' },
-                                        { text: 'мультфильм', href: '/' },
-                                        { text: 'мультфильм', href: '/' },
-                                    ],
-                                },
-                                {
-                                    title: 'Страны',
-                                    links: [
-                                        { text: 'Страна', href: '/' },
-                                        { text: 'Страна', href: '/' },
-                                        { text: 'Страна', href: '/' },
-                                        { text: 'Страна', href: '/' },
-                                        { text: 'Страна', href: '/' },
-                                        { text: 'Страна', href: '/' },
-                                    ],
-                                },
-                                {
-                                    title: 'Годы',
-                                    links: [
-                                        { text: 'Год', href: '/' },
-                                        { text: 'Год', href: '/' },
-                                        { text: 'Год', href: '/' },
-                                        { text: 'Год', href: '/' },
-                                        { text: 'Год', href: '/' },
-                                        { text: 'Год', href: '/' },
-                                    ],
-                                },
-                            ]
+                                  {
+                                      title: 'Жанры',
+                                      links: [
+                                          { text: 'мультфильм', href: '/' },
+                                          { text: 'мультфильм', href: '/' },
+                                          { text: 'мультфильм', href: '/' },
+                                          { text: 'мультфильм', href: '/' },
+                                          { text: 'мультфильм', href: '/' },
+                                          { text: 'мультфильм', href: '/' },
+                                      ],
+                                  },
+                                  {
+                                      title: 'Страны',
+                                      links: [
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                          { text: 'Страна', href: '/' },
+                                      ],
+                                  },
+                                  {
+                                      title: 'Годы',
+                                      links: [
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                          { text: 'Год', href: '/' },
+                                      ],
+                                  },
+                              ]
                     }
                 />
             </div>

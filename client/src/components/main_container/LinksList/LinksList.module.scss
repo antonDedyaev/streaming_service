@@ -35,11 +35,3 @@
         row-gap: 8px;
     }
 }
-
-@media (max-width: 1160px) {
-    .container {
-        &__menu {
-            display: none;
-        }
-    }
-}

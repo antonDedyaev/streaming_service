@@ -3,7 +3,7 @@
 exports[`MOVIEMEDALLIONITEM SNAPSHOTS TESTS active MovieMedallionItem should not be changed 1`] = `
 <div
   class="container"
-  role="div-MedallionItem"
+  data-testid="div-MedallionItem"
 >
   <div
     class="container__content"
@@ -25,7 +25,7 @@ exports[`MOVIEMEDALLIONITEM SNAPSHOTS TESTS active MovieMedallionItem should not
 exports[`MOVIEMEDALLIONITEM SNAPSHOTS TESTS inactive MovieMedallionItem should not be changed 1`] = `
 <div
   class="container container_inactive"
-  role="div-MedallionItem"
+  data-testid="div-MedallionItem"
 >
   <div
     class="container__content"

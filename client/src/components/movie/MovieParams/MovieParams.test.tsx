@@ -6,7 +6,7 @@ describe('MOVIEPARAMS SNAPSHOTS TESTS', () => {
     test('MovieParams should not be changed', () => {
         render(<MovieParams movie={movies[0]} />);
 
-        const div = screen.getByRole('div-params');
+        const div = screen.getByTestId('div-params');
         expect(div).toMatchSnapshot();
     });
 });

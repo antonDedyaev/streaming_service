@@ -12,7 +12,7 @@ interface ActorItemProps {
 
 const ActorItem = ({ className, actor, size }: ActorItemProps) => {
     return (
-        <Link href={`actors/${actor.id}`} className={[styles.container, className].join(' ')}>
+        <Link href={`actors/${actor.id}`} className={[styles.container, styles[`container_${size}`], className].join(' ')}>
             <div className={styles.container__imageContainer}>
                 <div className={styles.container__imageWrapper}>
                     <Image

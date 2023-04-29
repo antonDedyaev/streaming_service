@@ -3,7 +3,7 @@ import MovieRating from './MovieRating';
 import '../../../styles/nullstyle.scss';
 import '../../../styles/globals.scss';
 import './MovieRating.module.scss';
-import { IMovie } from '../../squareCard/SquareCardsList/Temp/IMovie';
+import { IMovie } from '../../movie/movieMedallion/MovieMedallionsList/Temp/IMovie';
 
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
@@ -44,7 +44,7 @@ const data: IMovie = {
 export const FullScreen: Story = {
     decorators: [
         (Story) => (
-            <div style={{ background: '#100e19' }}>
+            <div style={{ background: '#100e19', width: '400px' }}>
                 <div style={{ margin: '10px' }}>
                     <Story />
                 </div>
