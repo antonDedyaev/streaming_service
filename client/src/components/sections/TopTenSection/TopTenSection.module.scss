@@ -1,0 +1,16 @@
+.section {
+    &__header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 22px;
+        margin-bottom: 14px;
+        font-size: 24px;
+        font-weight: 600;
+        color: #ffffff;
+    }
+}
+
+.topIcon {
+    height: 21px;
+}

@@ -34,18 +34,21 @@ const SpoilerUI = ({
                 data-testid="clipped-text"
                 className={[styles.container, textDisplayClass].join(' ')}
             >
-                <div className={[styles.container__text, 'clamped'].join(' ')}>{children}</div>
+                <div className={[styles.container__text, shownLines !== 0 ? 'clamped' : 'hidden'].join(' ')}>{children}</div>
                 <ButtonUI
                     className={[styles.container__button, buttonColor].join(' ')}
                     onClick={() => setIsShowAll(!isShowAll)}
                     background='transparent'
                     shape='none'
                 >
-                    {isShowAll ? toggleButtonTexts[0] : toggleButtonTexts[1]}
+                    {isShowAll ? toggleButtonTexts[1] : toggleButtonTexts[0]}
                 </ButtonUI>
             </div>
             <style jsx>
                 {`
+                    .hidden {
+                        display: none;
+                    }
                     .clamped {
                         -webkit-line-clamp: ${shownLines};
                         -webkit-box-orient: ${truncateFormat};
