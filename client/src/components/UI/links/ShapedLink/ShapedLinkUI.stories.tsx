@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Image from 'next/image';
-import LinkUI from './LinkUI';
+import ShapedLinkUI from './ShapedLinkUI';
 import footerStyles from '../../../main_container/Footer/Footer.module.scss';
 import mailIcon from '../../../../../public/icons/link/mail.svg';
 
-const meta: Meta<typeof LinkUI> = {
-    title: 'Links/Link',
-    component: LinkUI,
+const meta: Meta<typeof ShapedLinkUI> = {
+    title: 'Links/ShapedLink',
+    component: ShapedLinkUI,
     tags: ['autodocs'],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof LinkUI>;
+type Story = StoryObj<typeof ShapedLinkUI>;
 
 export const VKLink: Story = {
     args: {
