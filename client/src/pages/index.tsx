@@ -1,29 +1,15 @@
 import Slider from '@/components/Slider/Slider';
 import styles from '@/styles/pages/HomePage.module.scss';
-import { actors } from '@/components/actor/ActorList/Temp/Actors.data';
 import PostersList from '@/components/posters/PostersList/PostersList';
 import { promoMovies } from '@/components/posters/PromoPoster/promoMovies.data';
 import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.data';
-import ActorList from '@/components/actor/ActorList/ActorList';
-import ModalUI from '@/components/UI/Modal/ModalUI';
-import { useEffect, useState } from 'react';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
-import TabBar from '../components/main_container/TabBar/TabBar';
-import PreviewPoster from '@/components/posters/PreviewPoster/PreviewPoster';
-import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
-import ActorItem from '@/components/actor/ActorItem/ActorItem';
-import FilmographySection from '@/components/sections/FilmographySection/FilmographySection';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
-import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
-import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
-import SearchModal from '@/components/modals/SearchModal/SearchModal';
-import SignInModal from '@/components/modals/LoginModal/LoginModal';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import { singleParagraph } from '../components/UI/Spoiler/storiesTemplates';
-import FilterPlank from '@/components/filters/FilterPlank';
-import FilterSearch from '@/components/filters/FilterSearch';
-import plankStyles from '../components/filters/FilterPlank.module.scss';
+import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
+import Image from 'next/image';
 
 function HomePage() {
     return (
@@ -33,41 +19,50 @@ function HomePage() {
                 title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
                 page="home"
             >
-                <ActorItem className="" actor={actors[0]} size="large" />
+                <div className={styles.container}>
+                    <div className="container">
+                        <div className={[styles.container__section, styles.container__section_promo].join(' ')}>
+                            <Slider itemType="promo" length={promoMovies.length}>
+                                <PostersList posterType="promo" movies={promoMovies} />
+                            </Slider>
+                        </div>
 
-                <ActorItem className="" actor={actors[0]} size="medium" />
+                        <ShapedLinkUI
+                            href="/https://www.ivi.ru/subscribe?redirect_url=%2F"
+                            className={styles.container__link}
+                            shape="rectangular"
+                        >
+                            <Image
+                                src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/lightning.svg"
+                                alt=""
+                                width={24}
+                                height={32}
+                            />
+                            30 дней подписки бесплатно
+                        </ShapedLinkUI>
 
-                <ActorItem className="" actor={actors[0]} size="small" />
+                        <div className={[styles.container__section, styles.container__section_top].join(' ')}>
+                            <TopTenSection movies={ratingMovies} />
+                        </div>
 
-                <Slider itemType="promo" length={promoMovies.length}>
-                    <PostersList posterType="promo" movies={promoMovies} />
-                </Slider>
+                        <div className={styles.container__spoiler}>
+                            <h2 className={styles.container__title}>
+                                Онлайн-кинотеатр Иви: фильмы в хорошем качестве всегда приносят настоящее удовольствие
+                            </h2>
+                            <SpoilerUI shownLines={1} toggleButtonTexts={['Показать', 'Скрыть']}>
+                                {singleParagraph}
+                            </SpoilerUI>
+                        </div>
 
-                <Slider itemType="actor" length={actors.length}>
-                    <ActorList actors={actors} size="large" />
-                </Slider>
+                        <div className={styles.container__section}>
+                            <MoviesSection title="Зарубежные фильмы" movies={ratingMovies} href="/" />
+                        </div>
 
-                <MovieInfo movie={movies[0]} />
-
-                {/* <FilmographySection movies={ratingMovies} /> */}
-
-                <MoviesSection title="Лучшие фильмы" movies={ratingMovies} href="/" />
-
-                <MoviesSection title="С сериалом «Лесник» смотрят" movies={ratingMovies} href="" />
-
-                <TopTenSection movies={ratingMovies} />
-
-                <PersonsSection size="large" persons={actors} />
-
-                <PersonsSection size="small" persons={actors} />
-
-                <SpoilerUI shownLines={1} toggleButtonTexts={['Показать', 'Скрыть']}>
-                    {singleParagraph}
-                </SpoilerUI>
-
-                <FilterPlank title="Актер" className={plankStyles.container__dropdown_narrow}>
-                    <FilterSearch searchBy="Актер" />
-                </FilterPlank>
+                        <div className={styles.container__section}>
+                            <MoviesSection title="Драмы" movies={ratingMovies} href="/" />
+                        </div>
+                    </div>
+                </div>
             </MainContainer>
         </>
     );
