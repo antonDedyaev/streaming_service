@@ -21,7 +21,6 @@ const LinkUI = ({ children, href, shape, className }: LinkUIProps) => {
         <Link
             href={href}
             className={[styles.container, linkFormClass, className].join(' ')}
-            target="blank"
             role="link-to-media"
         >
             <div className={styles.container__content}>{children}</div>
