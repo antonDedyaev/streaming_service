@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styles from './FilterPlank.module.scss';
 import { ReactNode, useState, useEffect, useRef } from 'react';
 

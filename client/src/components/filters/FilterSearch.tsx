@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react';
 import styles from './FilterSearch.module.scss';
-
+import Autosuggest from 'react-autosuggest';
+import axios from 'axios';
+import theme from './theme.module.scss';
 interface ISearch {
     searchBy: string;
 }
 
+interface IPerson {
+    title: string;
+}
+
 const FilterSearch = ({ searchBy }: ISearch) => {
     const [inputValue, setInputValue] = useState('');
-    const [isFocused, setIsFocused] = useState(false);
+    const [suggestions, setSuggestions] = useState([]);
 
     useEffect(() => {
         const input = document.getElementById(searchBy);
@@ -25,21 +31,39 @@ const FilterSearch = ({ searchBy }: ISearch) => {
 
     return (
         <form autoComplete="off" className={styles.container}>
-            <div
-                className={[
-                    styles.container__formContent,
-                    isFocused ? styles.container__formContent_focused : null,
-                ].join(' ')}
-            >
+            <div className={styles.container__formContent}>
                 <div className={styles.container__inputBody}>
-                    <input
-                        id={searchBy}
-                        className={styles.container__inputField}
-                        type="text"
-                        value={inputValue}
-                        onFocus={() => setIsFocused(true)}
-                        onBlur={() => setIsFocused(false)}
-                        onChange={(e) => setInputValue(e.target.value)}
+                    <Autosuggest
+                        theme={theme}
+                        inputProps={{
+                            placeholder: `Поиск по ${searchBy.toLowerCase()}у`,
+                            name: 'person',
+                            id: searchBy.toLowerCase(),
+                            value: inputValue,
+                            onChange: (_event, { newValue }) => {
+                                setInputValue(newValue);
+                            },
+                        }}
+                        suggestions={suggestions}
+                        onSuggestionsFetchRequested={async ({ value }) => {
+                            if (!value) {
+                                setSuggestions([]);
+                                return;
+                            }
+                            try {
+                                const result = await axios.get(
+                                    `https://imdb-api.com/en/API/SearchName/k_r2mu2l3h/${inputValue}`,
+                                );
+                                setSuggestions(result.data.results.map((actor: IPerson) => actor.title));
+                            } catch (error) {
+                                console.log(error);
+                            }
+                        }}
+                        onSuggestionsClearRequested={() => {
+                            setSuggestions([]);
+                        }}
+                        getSuggestionValue={(suggestion) => suggestion}
+                        renderSuggestion={(suggestion) => <div>{suggestion}</div>}
                     />
                     <div className={styles.container__fieldButton}>
                         <div
@@ -52,7 +76,6 @@ const FilterSearch = ({ searchBy }: ISearch) => {
                             onClick={() => setInputValue('')}
                         ></div>
                     </div>
-                    <div className={styles.container__placeholder}>{searchBy}</div>
                 </div>
             </div>
         </form>

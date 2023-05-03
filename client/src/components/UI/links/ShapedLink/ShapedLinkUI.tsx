@@ -1,15 +1,16 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
-import styles from './LinkUI.module.scss';
+import styles from './ShapedLinkUI.module.scss';
 
 interface LinkUIProps {
     children: ReactNode;
     href: string;
     shape: 'rectangular' | 'square' | 'round';
     className?: string;
+    target?: string;
 }
 
-const LinkUI = ({ children, href, shape, className }: LinkUIProps) => {
+const ShapedLinkUI = ({ children, href, shape, className, target }: LinkUIProps) => {
     const linkFormClass =
         shape === 'round'
             ? styles.container_round
@@ -22,10 +23,11 @@ const LinkUI = ({ children, href, shape, className }: LinkUIProps) => {
             href={href}
             className={[styles.container, linkFormClass, className].join(' ')}
             role="link-to-media"
+            target={target}
         >
             <div className={styles.container__content}>{children}</div>
         </Link>
     );
 };
 
-export default LinkUI;
+export default ShapedLinkUI;
