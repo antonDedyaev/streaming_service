@@ -3,10 +3,65 @@
     position: relative;
     height: 100%;
 
+    &_preview,
+    &_rating,
+    &_actor {
+        margin: 0 -12px;
+
+        .container__contentContainer {
+            padding: 15px 0 0 0;
+        }
+
+        .container__button {
+    
+            &_left {
+                left: -40px;
+            }
+    
+            &_right {
+                right: -40px;
+            }
+        }
+    }
+
+    
+    &_preview {
+        .container__button {
+    
+            &_left {
+                img {
+                    top: 46%
+                }
+            }
+    
+            &_right {
+                img {
+                    top: 46%
+                }
+            }
+        }
+    }
+
+    &_actor {
+        .container__button {
+    
+            &_left {
+                img {
+                    top: 42%
+                }
+            }
+    
+            &_right {
+                img {
+                    top: 42%
+                }
+            }
+        }
+    }
+
     &__contentContainer {
         width: 100%;
         overflow: hidden;
-        padding: 10px 0;
     }
 
     &__content {
@@ -28,7 +83,7 @@
         position: absolute;
         top: 0;
         margin: 10px 0 30px 0;
-
+        
         &_left {
             left: -50px;
         }
@@ -42,14 +97,30 @@
 @media (max-width: 1380px) {
     .container {
         &__button {
-            width: 25px;
+            width: 22px;
 
             &_left {
-                left: -23px;
+                left: -22px !important;
             }
 
             &_right {
-                right: -23px;
+                right: -22px !important;
+            }
+        }
+
+        &_preview,
+        &_rating,
+        &_actor {
+            .container__button {
+                width: 22px;
+    
+                &_left {
+                    left: -10px !important;
+                }
+    
+                &_right {
+                    right: -10px !important;
+                }
             }
         }
     }

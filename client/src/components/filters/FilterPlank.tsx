@@ -24,7 +24,7 @@ const useClickOutside = (handler: () => void) => {
 
 interface IPlank {
     title: string;
-    className: string;
+    className?: string;
     children: ReactNode;
 }
 

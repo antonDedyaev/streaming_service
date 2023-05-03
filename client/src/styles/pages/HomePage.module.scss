@@ -1,0 +1,67 @@
+.container {
+
+    &__link {
+        width: 100% !important;
+        height: 48px !important;
+        font-weight: 700;
+        background-image: url(https://solea-parent.dfs.ivi.ru/picture/bypass/teaserTilePattern_a.svg);
+
+        div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+
+    &__section {
+        padding: 24px 0;
+
+        &_promo {
+            padding-top: 0;
+        }
+    }
+
+    &__spoiler {
+        padding: 24px 0;
+        max-width: 930px;
+    }
+
+    &__title {
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 24px;
+        margin: 0 0 15px 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+
+        &__title {
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        &__section {
+
+            &_promo {
+                padding-top: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    .container {
+        &__section {
+
+            &_top {
+
+                h3 {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

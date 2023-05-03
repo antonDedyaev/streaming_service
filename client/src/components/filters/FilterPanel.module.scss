@@ -1,12 +1,6 @@
 .container {
     margin-top: 20px;
 
-    &__body {
-        width: 1216px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
     &__content {
         box-sizing: border-box;
         background-color: #1f1b2e;
@@ -53,25 +47,6 @@
         &_disabled {
             pointer-events: none;
             opacity: 0.32;
-        }
-    }
-}
-
-@media screen and (min-width: 600px) and (max-width: 1279px) {
-    .container {
-        &__body {
-            width: auto;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-    }
-}
-@media screen and (max-width: 599px) {
-    .container {
-        &__body {
-            width: auto;
-            margin-left: 16px;
-            margin-right: 16px;
         }
     }
 }

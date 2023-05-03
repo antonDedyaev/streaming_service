@@ -81,6 +81,7 @@
     &__dropdown {
         display: none;
         position: absolute;
+        width: 100%;
         margin-top: 4px;
         z-index: 1;
 
@@ -88,18 +89,14 @@
         border-radius: 4px;
         box-shadow: 0 16px 32px rgba(7, 5, 14, 0.4);
 
-        &_countries {
-            transform: translateX(-29.8%);
+        &_centerPositioned {
+            transform: translateX(-32.7%);
         }
 
-        &_genres,
-        &_countries {
+        &_leftPositioned,
+        &_centerPositioned {
             overflow: hidden;
             width: 630px;
-        }
-
-        &_narrow {
-            width: 100%;
         }
     }
 

@@ -1,0 +1,27 @@
+.container {
+
+    &__crumbs {
+        font-size: 20px;
+        margin: 20px 0;
+        color: white;
+    }
+
+    &__title {
+        color: white;
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+    }
+
+    &__spoiler {
+        max-width: 930px;
+    }
+
+    &__section {
+        padding: 24px 0;
+
+        &_promo {
+            padding-top: 0;
+        }
+    }
+}
