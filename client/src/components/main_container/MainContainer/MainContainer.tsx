@@ -24,6 +24,7 @@ const MainContainer = ({ children, keywords, title, page }: MainContainerProps) 
             <Head>
                 <meta name="keywords" content={[...['ivi', 'movies', 'series'], ...keywords].join(',')} />
                 <title>{title}</title>
+                <link rel='icon' type='image/svg' href='https://gambit-parent.dfs.ivi.ru/static/23.05.02/images/favicon/favicon.svg'></link>
             </Head>
 
             <Header page={page} />

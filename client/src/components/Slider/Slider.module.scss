@@ -4,7 +4,8 @@
     height: 100%;
 
     &_preview,
-    &_rating {
+    &_rating,
+    &_actor {
         margin: 0 -12px;
 
         .container__contentContainer {
@@ -36,6 +37,23 @@
             &_right {
                 img {
                     top: 46%
+                }
+            }
+        }
+    }
+
+    &_actor {
+        .container__button {
+    
+            &_left {
+                img {
+                    top: 42%
+                }
+            }
+    
+            &_right {
+                img {
+                    top: 42%
                 }
             }
         }
@@ -91,7 +109,8 @@
         }
 
         &_preview,
-        &_rating {
+        &_rating,
+        &_actor {
             .container__button {
                 width: 22px;
     

@@ -15,7 +15,7 @@ const TabBar: FC = () => {
         <div className={styles.container}>
             <div className={styles.container__tabBar}>
                 <TabBarLinkUI selected={asPath === '/' ? true : false} href="https://www.ivi.ru/" icon={homeIcon} text="Мой Иви" />
-                <TabBarLinkUI selected={asPath === '/movies' ? true : false} href="https://www.ivi.ru/movies" icon={catalogueIcon} text="Каталог" />
+                <TabBarLinkUI selected={asPath === '/movies' ? true : false} href="/movies" icon={catalogueIcon} text="Каталог" />
                 <TabBarLinkUI selected={'ivi_search' in query ? true : false} href={`${asPath}?ivi_search`} icon={magnifyingGlass} text="Поиск" />
                 <TabBarLinkUI selected={pathname === '/tvplus' ? true : false} href="https://www.ivi.ru/tvplus" icon={monitorIcon} text="TV+" />
                 <TabBarLinkUI selected={pathname === '/more' ? true : false} href="#!" icon={dotsIcon} text="Ещё" />

@@ -87,7 +87,7 @@ const Header = ({ page }: HeaderProps) => {
                                 onMouseOver: clearShowHandler,
                             },
                             {
-                                href: '/',
+                                href: '/movies',
                                 text: 'Фильмы',
                                 option: 'dim',
                                 onMouseOver: mouseOverMovieHandler,
