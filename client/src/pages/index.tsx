@@ -68,6 +68,9 @@ function HomePage() {
                 <FilterPlank title="Актер" className={plankStyles.container__dropdown_narrow}>
                     <FilterSearch searchBy="Актер" />
                 </FilterPlank>
+                <FilterPlank title="Режиссер" className={plankStyles.container__dropdown_narrow}>
+                    <FilterSearch searchBy="Режиссер" />
+                </FilterPlank>
             </MainContainer>
         </>
     );
