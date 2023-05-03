@@ -19,9 +19,13 @@ import PersonsSection from '@/components/sections/PersonsSection/PersonsSection'
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 import SearchModal from '@/components/modals/SearchModal/SearchModal';
 import SignInModal from '@/components/modals/LoginModal/LoginModal';
+import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
+import { singleParagraph } from '../components/UI/Spoiler/storiesTemplates';
+import FilterPlank from '@/components/filters/FilterPlank';
+import FilterSearch from '@/components/filters/FilterSearch';
+import plankStyles from '../components/filters/FilterPlank.module.scss';
 
 function HomePage() {
-
     return (
         <>
             <MainContainer
@@ -43,20 +47,27 @@ function HomePage() {
                     <ActorList actors={actors} size="large" />
                 </Slider>
 
-                <MovieInfo movie={movies[0]}/>
-                
-                
+                <MovieInfo movie={movies[0]} />
+
                 {/* <FilmographySection movies={ratingMovies} /> */}
 
-                <MoviesSection title='Лучшие фильмы' movies={ratingMovies} href='/' />
+                <MoviesSection title="Лучшие фильмы" movies={ratingMovies} href="/" />
 
-                <MoviesSection title='С сериалом «Лесник» смотрят' movies={ratingMovies} href='' />
+                <MoviesSection title="С сериалом «Лесник» смотрят" movies={ratingMovies} href="" />
 
                 <TopTenSection movies={ratingMovies} />
 
-                <PersonsSection size='large' persons={actors} />
+                <PersonsSection size="large" persons={actors} />
 
-                <PersonsSection size='small' persons={actors} />
+                <PersonsSection size="small" persons={actors} />
+
+                <SpoilerUI shownLines={1} toggleButtonTexts={['Показать', 'Скрыть']}>
+                    {singleParagraph}
+                </SpoilerUI>
+
+                <FilterPlank title="Актер" className={plankStyles.container__dropdown_narrow}>
+                    <FilterSearch searchBy="Актер" />
+                </FilterPlank>
             </MainContainer>
         </>
     );

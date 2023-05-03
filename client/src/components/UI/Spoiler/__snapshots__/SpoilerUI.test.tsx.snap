@@ -2,26 +2,22 @@
 
 exports[`SpoilerUI TESTS ellipsed SpoilerUI should not be changed 1`] = `
 <div
-  class="jsx-1044551262 container"
+  class="jsx-1603684394 container container_hidden"
+  data-testid="clipped-text"
+  id="text-wrapper"
   role="spoiler-wrapper"
 >
   <div
-    class="jsx-1044551262 container__text container__text_isHidden"
-    data-testid="clipped-text"
-    id="text-wrapper"
+    class="jsx-1603684394 container__text clamped"
   >
-    <div
-      class="jsx-1044551262 container__textInner clamped"
-    >
-      <p>
-        Каждый день миллионы людей ищут фильмы онлайн, и никто не хочет усложнять себе жизнь – и вы наверняка один из них! А раз так, то Иви – это именно тот ресурс, который вам нужен. От лучших кинолент в HD-качестве вас отделяет буквально один клик. Мы не просто освобождаем от необходимости идти в кинотеатр или изучать программу телепередач – у посетителей нашего ресурса гораздо больше возможностей.
-      </p>
-    </div>
-    <span
-      class="jsx-1044551262 container__spoilerButton container__spoilerButton_colorBright"
-    >
-      Развернуть
-    </span>
+    <p>
+      Каждый день миллионы людей ищут фильмы онлайн, и никто не хочет усложнять себе жизнь – и вы наверняка один из них! А раз так, то Иви – это именно тот ресурс, который вам нужен. От лучших кинолент в HD-качестве вас отделяет буквально один клик. Мы не просто освобождаем от необходимости идти в кинотеатр или изучать программу телепередач – у посетителей нашего ресурса гораздо больше возможностей.
+    </p>
   </div>
+  <button
+    class="jsx-3995137698 button button_none button container__button container__button_bright"
+  >
+    Развернуть
+  </button>
 </div>
 `;

@@ -2,7 +2,7 @@
 
 exports[`ButtonUI SNAPSHOTS TESTS gray ButtonUI should not be changed 1`] = `
 <button
-  class="jsx-1446086431 button button button"
+  class="jsx-209216300 button button_small button button"
 >
   Серая кнопка
 </button>
@@ -10,7 +10,7 @@ exports[`ButtonUI SNAPSHOTS TESTS gray ButtonUI should not be changed 1`] = `
 
 exports[`ButtonUI SNAPSHOTS TESTS lightRed ButtonUI should not be changed 1`] = `
 <button
-  class="jsx-2749339351 button button button"
+  class="jsx-1710444260 button button_large button button"
 >
   Красная кнопка
 </button>
