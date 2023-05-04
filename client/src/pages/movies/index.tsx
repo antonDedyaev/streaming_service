@@ -3,6 +3,7 @@ import { actors } from '@/components/actor/ActorList/Temp/Actors.data';
 import FilterList from '@/components/filters/FilterList';
 import FilterPanel from '@/components/filters/FilterPanel';
 import FilterPlank from '@/components/filters/FilterPlank';
+import plankStyles from '@/components/filters/FilterPlank.module.scss';
 import FilterRange from '@/components/filters/FilterRange';
 import { countries, genres } from '@/components/filters/temp/items';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
@@ -10,7 +11,7 @@ import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.dat
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
 import styles from '@/styles/pages/MoviesPage.module.scss';
-import icon from '@/../public/icons/rating.svg'
+import icon from '@/../public/icons/rating.svg';
 import FilterSearch from '@/components/filters/FilterSearch';
 
 function MoviesPage() {
@@ -66,28 +67,28 @@ function MoviesPage() {
                     </div>
 
                     <FilterPanel>
-                        <FilterPlank title='Жанры' className={styles.container__filterItem}>
-                            <FilterList items={genres}/>
+                        <FilterPlank title="Жанры" className={plankStyles.container__dropdown_leftPositioned}>
+                            <FilterList items={genres} />
                         </FilterPlank>
 
-                        <FilterPlank title='Страны' className={styles.container__filterItem}>
-                            <FilterList items={countries}/>
+                        <FilterPlank title="Страны" className={plankStyles.container__dropdown_centerPositioned}>
+                            <FilterList items={countries} />
                         </FilterPlank>
 
-                        <FilterPlank title='Рейтинг' className={styles.container__filterItem}>
-                            <FilterRange image={icon} limit={10} step={0.1}/>
+                        <FilterPlank title="Рейтинг" className={styles.container__filterItem}>
+                            <FilterRange image={icon} limit={10} step={0.1} />
                         </FilterPlank>
 
-                        <FilterPlank title='Оценки' className={styles.container__filterItem}>
-                            <FilterRange image={icon} limit={1000000} step={100}/>
+                        <FilterPlank title="Оценки" className={styles.container__filterItem}>
+                            <FilterRange image={icon} limit={1000000} step={100} />
                         </FilterPlank>
 
-                        <FilterPlank title='Режиссёры' className={styles.container__filterItem}>
-                            <FilterSearch searchBy=''/>
+                        <FilterPlank title="Режиссёр" className={styles.container__filterItem}>
+                            <FilterSearch searchBy="Режиссёр" />
                         </FilterPlank>
 
-                        <FilterPlank title='Актёры' className={styles.container__filterItem}>
-                            <FilterSearch searchBy=''/>
+                        <FilterPlank title="Актёр" className={styles.container__filterItem}>
+                            <FilterSearch searchBy="Актёр" />
                         </FilterPlank>
                     </FilterPanel>
 
