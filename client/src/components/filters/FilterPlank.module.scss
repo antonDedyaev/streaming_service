@@ -90,7 +90,7 @@
         box-shadow: 0 16px 32px rgba(7, 5, 14, 0.4);
 
         &_centerPositioned {
-            transform: translateX(-32.7%);
+            left: -107%;
         }
 
         &_leftPositioned,
@@ -104,17 +104,24 @@
         padding: 4px 16px 16px;
     }
 }
+
 @media screen and (min-width: 600px) and (max-width: 879px) {
     .container {
         width: 50%;
+        &__dropdown {
+            &_centerPositioned {
+                right: 0;
+                left: auto;
+            }
+        }
     }
 }
 
 @media screen and (min-width: 600px) and (max-width: 743px) {
     .container {
         &__dropdown {
-            &_genres,
-            &_countries {
+            &_leftPositioned,
+            &_centerPositioned {
                 width: 416px;
             }
         }
@@ -126,9 +133,10 @@
         width: 100%;
 
         &__dropdown {
-            &_genres,
-            &_countries {
+            &_leftPositioned,
+            &_centerPositioned {
                 width: 100%;
+                left: auto;
             }
         }
     }
