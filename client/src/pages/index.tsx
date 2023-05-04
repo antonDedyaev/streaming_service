@@ -19,9 +19,9 @@ import PersonsSection from '@/components/sections/PersonsSection/PersonsSection'
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 import SearchModal from '@/components/modals/SearchModal/SearchModal';
 import SignInModal from '@/components/modals/LoginModal/LoginModal';
+import ActorFilmographyList from '@/components/actor/ActorFilmographyList/ActorFilmographyList';
 
 function HomePage() {
-
     return (
         <>
             <MainContainer
@@ -43,20 +43,17 @@ function HomePage() {
                     <ActorList actors={actors} size="large" />
                 </Slider>
 
-                <MovieInfo movie={movies[0]}/>
-                
-                
                 {/* <FilmographySection movies={ratingMovies} /> */}
 
-                <MoviesSection title='Лучшие фильмы' movies={ratingMovies} href='/' />
+                <MoviesSection title="Лучшие фильмы" movies={ratingMovies} href="/" />
 
-                <MoviesSection title='С сериалом «Лесник» смотрят' movies={ratingMovies} href='' />
+                <MoviesSection title="С сериалом «Лесник» смотрят" movies={ratingMovies} href="" />
 
                 <TopTenSection movies={ratingMovies} />
 
-                <PersonsSection size='large' persons={actors} />
+                <PersonsSection size="large" persons={actors} />
 
-                <PersonsSection size='small' persons={actors} />
+                <PersonsSection size="small" persons={actors} />
             </MainContainer>
         </>
     );

@@ -1,3 +1,15 @@
+.container {
+    margin-bottom: 60px;
+    &__watch {
+        margin: 0px 0px 0px -30px;
+        padding: 24px 0px;
+    }
+    &__persons {
+        margin: 0px 0px 24px -30px;
+        padding: 24px 0px;
+    }
+}
+
 .page {
     &__block {
         display: flex;
@@ -61,6 +73,13 @@
 }
 
 @media (max-width: 599px) {
+    .container {
+        &__watch,
+        &__persons {
+            padding: 16px 0px;
+        }
+    }
+
     .devices {
         grid-template-columns: initial;
         margin: 16px 0px;

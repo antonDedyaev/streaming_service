@@ -15,9 +15,9 @@ interface MainContainerProps {
 }
 
 const MainContainer = ({ children, keywords, title, page }: MainContainerProps) => {
-    const { query } = useRouter()
+    const { query } = useRouter();
 
-    const queryParams = Object.keys(query)
+    const queryParams = Object.keys(query);
 
     return (
         <>
@@ -31,8 +31,8 @@ const MainContainer = ({ children, keywords, title, page }: MainContainerProps) 
             {children}
 
             {queryParams.includes('ivi_search') && <SearchModal />}
-            {queryParams.includes('sign-in') && <LoginModal type='sign-in' />}
-            {queryParams.includes('sign-up') && <LoginModal type='sign-up' />}
+            {queryParams.includes('sign-in') && <LoginModal type="sign-in" />}
+            {queryParams.includes('sign-up') && <LoginModal type="sign-up" />}
 
             <TabBar />
             <Footer />

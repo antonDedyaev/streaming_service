@@ -7,11 +7,12 @@ import ButtonUI from '../buttons/Button/ButtonUI';
 
 interface ModalUIProps {
     children: ReactNode;
+    className?: string;
 }
 
-const ModalUI = ({ children }: ModalUIProps) => {
-    const location = useRouter()
-    const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)/, '')
+const ModalUI = ({ children, className }: ModalUIProps) => {
+    const location = useRouter();
+    const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?more)/, '');
 
     const body = document.querySelector('body')!;
 
@@ -21,14 +22,14 @@ const ModalUI = ({ children }: ModalUIProps) => {
 
     const closeHandler = () => {
         body.classList.remove('modal-active');
-        location.push(backPath)
+        location.push(backPath);
     };
 
     return (
-        <div className={styles.container}>
+        <div className={[styles.container, className].join(' ')}>
             {children}
 
-            <ButtonUI background='transparent' className={styles.container__button} onClick={closeHandler}>
+            <ButtonUI background="transparent" className={styles.container__button} onClick={closeHandler}>
                 <Image className={styles.container__image} src={closeIcon} alt="закрыть" />
             </ButtonUI>
         </div>

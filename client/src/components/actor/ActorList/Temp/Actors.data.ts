@@ -129,4 +129,28 @@ export const actors: IActor[] = [
         lastName: 'Фелтон7',
         role: 'актер',
     },
+    {
+        id: 17,
+        img: '/img/actorTest2.jpg',
+        amtMovies: 10,
+        firstName: 'Том8',
+        lastName: 'Фелтон8',
+        role: 'актер',
+    },
+    {
+        id: 18,
+        img: '/img/actorTest1.jpg',
+        amtMovies: 4,
+        firstName: 'Рупер8',
+        lastName: 'Гринт8',
+        role: 'актер',
+    },
+    {
+        id: 19,
+        img: '/img/actorTest2.jpg',
+        amtMovies: 24,
+        firstName: 'Том9',
+        lastName: 'Фелтон9',
+        role: 'актер',
+    },
 ];

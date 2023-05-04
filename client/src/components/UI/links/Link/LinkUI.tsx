@@ -18,12 +18,7 @@ const LinkUI = ({ children, href, shape, className }: LinkUIProps) => {
             : styles.container_rectangular;
 
     return (
-        <Link
-            href={href}
-            className={[styles.container, linkFormClass, className].join(' ')}
-            target="blank"
-            role="link-to-media"
-        >
+        <Link href={href} className={[styles.container, linkFormClass, className].join(' ')} role="link-to-media">
             <div className={styles.container__content}>{children}</div>
         </Link>
     );

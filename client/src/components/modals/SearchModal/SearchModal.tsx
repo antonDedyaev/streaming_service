@@ -11,12 +11,12 @@ const SearchModal = () => {
     const inputWrapperRef = useRef(null);
 
     const clickHandler = (event: React.MouseEvent) => {
-        const inputWrapper: HTMLDivElement = inputWrapperRef.current!
+        const inputWrapper: HTMLDivElement = inputWrapperRef.current!;
 
         if (inputWrapper.firstElementChild === event.target) {
-            setFocus(true)
+            setFocus(true);
         } else {
-            setFocus(false)
+            setFocus(false);
         }
     };
 
@@ -29,7 +29,7 @@ const SearchModal = () => {
                     <div className={styles.container__inputWrapper} ref={inputWrapperRef}>
                         <ModalInputUI
                             focus={focus}
-                            type='search'
+                            type="search"
                             inputType="string"
                             placeholder="Фильмы"
                             value={value}
@@ -40,11 +40,7 @@ const SearchModal = () => {
                 </div>
 
                 <div className={styles.container__content}>
-                    <SearchMovieLink
-                        href='/movie/1'
-                        name='Каратэ пацан'
-                        year={2010}
-                    />
+                    <SearchMovieLink href="/movies/1" name="Каратэ пацан" year={2010} />
                 </div>
             </div>
         </ModalUI>
