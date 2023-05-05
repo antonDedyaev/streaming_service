@@ -181,10 +181,7 @@ const Footer: FC = () => {
                                     alt="Иконка перечеркнутого громкоговорителя"
                                 />
                             </div>
-                            <p className={styles.container__text}>
-                                Смотрите фильмы, сериалы и<br />
-                                мультфильмы без рекламы
-                            </p>
+                            <p className={styles.container__text}>Смотрите фильмы, сериалы и мультфильмы без рекламы</p>
                         </div>
                     </div>
                 </div>
@@ -237,7 +234,7 @@ const Footer: FC = () => {
                             <p className={[styles.container__copyrights, styles.container__copyrights_site].join(' ')}>
                                 <span>©&nbsp;</span>
                                 <span>2023</span>
-                                <span>&nbsp;ООО «Иви.ру»</span>
+                                <span> ООО «Иви.ру»</span>
                             </p>
                             <p
                                 className={[styles.container__copyrights, styles.container__copyrights_content].join(

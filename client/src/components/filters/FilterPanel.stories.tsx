@@ -27,10 +27,10 @@ export const MoviesFilters: Story = {
     args: {
         children: (
             <>
-                <FilterPlank title="Жанры" className={plankStyles.container__dropdown_genres}>
+                <FilterPlank title="Жанры" className={plankStyles.container__dropdown_leftPositioned}>
                     <FilterList items={genres} />
                 </FilterPlank>
-                <FilterPlank title="Страны" className={plankStyles.container__dropdown_countries}>
+                <FilterPlank title="Страны" className={plankStyles.container__dropdown_centerPositioned}>
                     <FilterList items={countries} />
                 </FilterPlank>
                 <FilterPlank title="Рейтинг" className={plankStyles.container__dropdown_narrow}>
