@@ -33,24 +33,6 @@
     }
 
     &__button {
-        display: inline-block;
         margin-top: 8px;
-        cursor: pointer;
-
-        font-weight: 500;
-        transition: 0.4s;
-
-        &:hover {
-            color: #fff;
-            transition: color 80ms;
-        }
-
-        &_bright {
-            color: #ffffffe0;
-        }
-
-        &_faded {
-            color: #ffffff7a;
-        }
     }
 }

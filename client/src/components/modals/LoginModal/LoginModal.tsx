@@ -2,7 +2,7 @@ import ModalUI from '@/components/UI/Modal/ModalUI';
 import styles from './LoginModal.module.scss';
 import ModalInputUI from '@/components/UI/ModalInput/ModalInputUI';
 import { useRef, useState } from 'react';
-import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
+import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up';
@@ -113,9 +113,9 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         </div>
                     )}
 
-                    <ButtonUI className={styles.container__button} background="lightRed" shape="large">
+                    <ColoredButton className={styles.container__button} color="red" size="large">
                         {type === 'sign-in' ? 'Войти' : 'Зарегистрироваться'}
-                    </ButtonUI>
+                    </ColoredButton>
                 </div>
             </div>
         </ModalUI>

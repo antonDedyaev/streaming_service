@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import ButtonUI from '../UI/buttons/Button/ButtonUI';
 import styles from './FilterPanel.module.scss';
 import closeIcon from '../../../public/icons/close.svg';
 import { ReactNode, useState } from 'react';
+import TransparentButton from '../UI/buttons/TransparentButton/TransparentButton';
 
 interface IPanel {
     children: ReactNode;
@@ -17,17 +17,17 @@ const FilterPanel = ({ children }: IPanel) => {
                 <div className={styles.container__content}>
                     <div className={styles.container__filterList}>{children}</div>
                     <div className={styles.container__buttonContainer}>
-                        <ButtonUI
+                        <TransparentButton
                             className={[
                                 styles.container__resetButton,
                                 !isFilterSelected ? styles.container__resetButton_disabled : null,
                             ].join(' ')}
-                            background="transparent"
+                            textColor='bright'
                             onClick={() => setIsFilterSelected(false)}
                         >
                             <Image src={closeIcon} height={16} width={16} alt="Иконка-крестик" />
                             Сбросить фильтры
-                        </ButtonUI>
+                        </TransparentButton>
                     </div>
                 </div>
             </div>

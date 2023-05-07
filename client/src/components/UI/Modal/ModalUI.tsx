@@ -28,7 +28,7 @@ const ModalUI = ({ children }: ModalUIProps) => {
         <div className={styles.container}>
             {children}
 
-            <TransparentButton className={styles.container__button} onClick={closeHandler}>
+            <TransparentButton textColor='bright' className={styles.container__button} onClick={closeHandler}>
                 <Image className={styles.container__image} src={closeIcon} alt="закрыть" />
             </TransparentButton>
         </div>

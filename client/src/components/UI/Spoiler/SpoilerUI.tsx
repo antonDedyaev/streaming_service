@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react';
 import styles from './SpoilerUI.module.scss';
-import ButtonUI from '../buttons/Button/ButtonUI';
+import TransparentButton from '../buttons/TransparentButton/TransparentButton';
 
 interface SpoilerUIProps {
     children: ReactNode;
@@ -19,8 +19,6 @@ const SpoilerUI = ({
 }: SpoilerUIProps) => {
     const [isShowAll, setIsShowAll] = useState(false);
 
-    const buttonColor = buttonTextColor === 'bright' ? styles.container__button_bright : styles.container__button_faded;
-
     const textDisplayClass = isShowAll ? styles.container_show : styles.container_hidden;
 
     return (
@@ -32,14 +30,13 @@ const SpoilerUI = ({
                 className={[styles.container, textDisplayClass].join(' ')}
             >
                 <div className={[styles.container__text, shownLines !== 0 ? 'clamped' : 'hidden'].join(' ')}>{children}</div>
-                <ButtonUI
-                    className={[styles.container__button, buttonColor].join(' ')}
+                <TransparentButton
+                    className={styles.container__button}
+                    textColor={buttonTextColor}
                     onClick={() => setIsShowAll(!isShowAll)}
-                    background="transparent"
-                    shape="none"
                 >
                     {isShowAll ? toggleButtonTexts[1] : toggleButtonTexts[0]}
-                </ButtonUI>
+                </TransparentButton>
             </div>
             <style jsx>
                 {`
