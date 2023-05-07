@@ -20,7 +20,7 @@ const MoviesSection = ({ title, movies, href }: MoviesSectionProps) => {
             <div className={styles.section__header}>
                 {href 
                     ? <ArrowedLink text={title} href={href} onClick={onClick} /> 
-                    : <h3 className={styles.section__title}>{title}</h3>
+                    : <h2 className={styles.section__title}>{title}</h2>
                 }
             </div>
             

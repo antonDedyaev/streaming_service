@@ -18,7 +18,7 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
         <div className={styles.section}>
             <div className={styles.section__header}>
                 {size === 'large' 
-                    ? <h3>Персоны</h3> 
+                    ? <h2 className={styles.section__title}>Персоны</h2> 
                     : <UnderlinedLink text='Актёры и создатели' onClick={onClick} /> 
                 }
             </div>

@@ -14,7 +14,7 @@ const TopTenSection = ({ movies }: TopTenSectionProps) => {
         <div className={styles.section}>
             <div className={styles.section__header}>
                 <Image className={styles.topIcon} src={topIcon} alt='топ 10' />
-                <h3>за неделю</h3>
+                <h2 className={styles.section__title}>за неделю</h2>
             </div>
 
             <div className={styles.section__content}>

@@ -1,9 +1,8 @@
 import styles from './FilmographyItem.module.scss';
-import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import Image from 'next/image';
-import poster_1 from './samples/poster_1.jpeg';
 import Link from 'next/link';
 import IMovie from '@/models/IMovie';
+import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 
 interface FilmographyItemProps {
     movie: IMovie
@@ -36,9 +35,9 @@ const FilmographyItem = ({ movie }: FilmographyItemProps) => {
                         </div>
                     </div>
 
-                    <ButtonUI shape="large" className={styles.container__button} background="gray">
+                    <ColoredButton size='large' color='gray' className={styles.container__button}>
                         Подробнее
-                    </ButtonUI>
+                    </ColoredButton>
                 </div>
             </Link>
         </div>

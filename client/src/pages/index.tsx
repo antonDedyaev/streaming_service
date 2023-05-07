@@ -19,6 +19,8 @@ import PersonsSection from '@/components/sections/PersonsSection/PersonsSection'
 import MovieInfo from '@/components/movie/MovieInfo/MovieInfo';
 import SearchModal from '@/components/modals/SearchModal/SearchModal';
 import SignInModal from '@/components/modals/LoginModal/LoginModal';
+import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
+import TransparentButton from '@/components/UI/buttons/TransparentButton/TransparentButton';
 
 function HomePage() {
 
@@ -29,7 +31,7 @@ function HomePage() {
                 title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
                 page="home"
             >
-                <ActorItem className="" actor={actors[0]} size="large" />
+                {/* <ActorItem className="" actor={actors[0]} size="large" />
 
                 <ActorItem className="" actor={actors[0]} size="medium" />
 
@@ -41,14 +43,14 @@ function HomePage() {
 
                 <Slider itemType="actor" length={actors.length}>
                     <ActorList actors={actors} size="large" />
-                </Slider>
+                </Slider> */}
 
                 <MovieInfo movie={movies[0]}/>
                 
                 
-                {/* <FilmographySection movies={ratingMovies} /> */}
+                <FilmographySection movies={ratingMovies} />
 
-                <MoviesSection title='Лучшие фильмы' movies={ratingMovies} href='/' />
+                {/* <MoviesSection title='Лучшие фильмы' movies={ratingMovies} href='/' />
 
                 <MoviesSection title='С сериалом «Лесник» смотрят' movies={ratingMovies} href='' />
 
@@ -56,7 +58,11 @@ function HomePage() {
 
                 <PersonsSection size='large' persons={actors} />
 
-                <PersonsSection size='small' persons={actors} />
+                <PersonsSection size='small' persons={actors} /> */}
+
+                {/* <CommentItem comment={comments[0]} /> */}
+
+
             </MainContainer>
         </>
     );
