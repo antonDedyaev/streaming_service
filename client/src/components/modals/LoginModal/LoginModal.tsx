@@ -35,17 +35,28 @@ const LoginModal = ({ type }: LoginModalProps) => {
         setPasswordFocus(false);
         setRepeatPasswordFocus(false);
 
-        switch (true) {
-            case emailWrapper.contains(event.currentTarget):
-                setEmailFocus(true);
-                break;
-            case passwordWrapper.contains(event.currentTarget):
-                setPasswordFocus(true);
-                break;
-
-            case repeatPasswordWrapper.contains(event.currentTarget):
-                setRepeatPasswordFocus(true);
-                break;
+        if (type === 'sign-in') {
+            switch (true) {
+                case emailWrapper.contains(event.currentTarget):
+                    setEmailFocus(true);
+                    break;
+                case passwordWrapper.contains(event.currentTarget):
+                    setPasswordFocus(true);
+                    break;
+            }
+        } else {
+            switch (true) {
+                case emailWrapper.contains(event.currentTarget):
+                    setEmailFocus(true);
+                    break;
+                case passwordWrapper.contains(event.currentTarget):
+                    setPasswordFocus(true);
+                    break;
+    
+                case repeatPasswordWrapper.contains(event.currentTarget):
+                    setRepeatPasswordFocus(true);
+                    break;
+            }
         }
     };
 

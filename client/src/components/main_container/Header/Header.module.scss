@@ -5,7 +5,6 @@
     margin-top: 5px;
     position: relative;
     border-radius: 15px 15px 0 0;
-    border-bottom: 1px solid #343434;
     transition: 0.4s;
     padding: 0 10px;
     width: 100%;
@@ -164,3 +163,20 @@
         }
     }
 }
+
+@media (max-width: 360px) {
+    .container {
+        padding: 0;
+
+        &__button {
+            line-height: 14px;
+        }
+
+        &__link {
+            &_bell {
+                padding: 10px;
+            }
+        }
+    }
+}
+

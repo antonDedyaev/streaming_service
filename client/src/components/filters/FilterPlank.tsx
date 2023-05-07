@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styles from './FilterPlank.module.scss';
 import { ReactNode, useState, useEffect, useRef } from 'react';
 
@@ -8,6 +7,9 @@ const useClickOutside = (handler: () => void) => {
     useEffect(() => {
         const checkClickedTarget = (e: MouseEvent) => {
             const target = e.target as HTMLDivElement;
+            if (target.closest(`.${styles.container__plank_isActive}`)) {
+                return;
+            }
             if (!domNode.current!.contains(target)) {
                 handler();
             }
@@ -22,7 +24,7 @@ const useClickOutside = (handler: () => void) => {
 
 interface IPlank {
     title: string;
-    className: string;
+    className?: string;
     children: ReactNode;
 }
 
@@ -32,12 +34,12 @@ const FilterPlank = ({ title, className, children }: IPlank) => {
     const domNode = useClickOutside(() => setIsDropdownShown(false));
 
     return (
-        <div className={styles.container} onClick={() => setIsDropdownShown(!isDropdownShown)}>
+        <div className={styles.container}>
             <div
                 className={[styles.container__plank, isDropdownShown ? styles.container__plank_isActive : null].join(
                     ' ',
                 )}
-                onClick={() => setIsDropdownShown(false)}
+                onClick={() => setIsDropdownShown(!isDropdownShown)}
             >
                 <div className={styles.container__plankContent}>
                     <div className={styles.container__textWrapper}>

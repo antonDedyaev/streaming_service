@@ -18,7 +18,7 @@ const FilterRange = ({ image, limit, step }: IRating) => {
                 <div
                     className={[
                         styles.container__ratingValue,
-                        ratingValue === 0 ? styles.container__ratingValue_notSelected : null,
+                        ratingValue === 0 || ratingValue === limit ? styles.container__ratingValue_notSelected : null,
                     ].join(' ')}
                 >
                     <Image src={image} height={26} width={26} alt="Рейтинг" />

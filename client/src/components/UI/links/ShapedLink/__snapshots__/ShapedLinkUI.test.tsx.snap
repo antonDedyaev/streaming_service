@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LinkUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
+exports[`ShapedLinkUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
 <a
-  class="container__wrapper container__wrapper_rectangular "
+  class="container container_rectangular "
   href="#!"
   role="link-to-media"
-  target="blank"
 >
   <div
     class="container__content"
@@ -30,12 +29,11 @@ exports[`LinkUI SNAPSHOT TESTS Rectangular link should not be changed 1`] = `
 </a>
 `;
 
-exports[`LinkUI SNAPSHOT TESTS Round link should not be changed 1`] = `
+exports[`ShapedLinkUI SNAPSHOT TESTS Round link should not be changed 1`] = `
 <a
-  class="container__wrapper container__wrapper_round "
+  class="container container_round "
   href="https://t.me/official_iviru"
   role="link-to-media"
-  target="blank"
 >
   <div
     class="container__content"

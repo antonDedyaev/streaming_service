@@ -2,8 +2,7 @@ import Image from 'next/image';
 import ButtonUI from '../UI/buttons/Button/ButtonUI';
 import styles from './FilterPanel.module.scss';
 import closeIcon from '../../../public/icons/close.svg';
-import plankStyles from './FilterPlank.module.scss';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 interface IPanel {
     children: ReactNode;

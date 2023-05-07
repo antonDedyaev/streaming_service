@@ -89,7 +89,7 @@
             overflow: hidden;
     
             &_background {
-                padding-top: 40%;
+                padding-top: 100%;
             }
     
             &_logo {
@@ -98,11 +98,16 @@
         }
     
         &__image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
+
+            &_background {
+                width: 200% !important;
+                position: absolute;
+                left: -90% !important;
+            }
+        }
+
+        &__content {
+            width: 100%;
         }
     }
 }
