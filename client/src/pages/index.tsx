@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 });
 
 function HomePage() {
-    const { t } = useTranslation('mainPage');
+    const { t } = useTranslation(['common', 'mainPage']);
     return (
         <MainContainer
             keywords={['homePage', 'iviEtoKryto']}
@@ -47,7 +47,7 @@ function HomePage() {
                             width={24}
                             height={32}
                         />
-                        {t('freeSubscriptionButton')}
+                        {t('mainPage:freeSubscriptionButton')}
                     </ShapedLinkUI>
 
                     <div className={[styles.container__section, styles.container__section_top].join(' ')}>
@@ -55,33 +55,33 @@ function HomePage() {
                     </div>
 
                     <div className={styles.container__spoiler}>
-                        <h2 className={styles.container__title}>{t('benefitsSpoiler.header')}</h2>
-                        <SpoilerUI shownLines={2} toggleButtonTexts={['Показать', 'Скрыть']}>
+                        <h2 className={styles.container__title}>{t('mainPage:benefitsSpoiler.header')}</h2>
+                        <SpoilerUI shownLines={2} toggleButtonTexts={[t('showSpoiler'), t('hideSpoiler')]}>
                             <>
-                                <p>{t('benefitsSpoiler.content.0')}</p>
-                                <p>{t('benefitsSpoiler.content.1')}</p>
-                                <p>{t('benefitsSpoiler.content.2')}</p>
+                                <p>{t('mainPage:benefitsSpoiler.content.0')}</p>
+                                <p>{t('mainPage:benefitsSpoiler.content.1')}</p>
+                                <p>{t('mainPage:benefitsSpoiler.content.2')}</p>
                                 <ol>
-                                    <li>{t('benefitsSpoiler.benefitsList.0')}</li>
-                                    <li>{t('benefitsSpoiler.benefitsList.1')}</li>
-                                    <li>{t('benefitsSpoiler.benefitsList.2')}</li>
-                                    <li>{t('benefitsSpoiler.benefitsList.3')}</li>
-                                    <li>{t('benefitsSpoiler.benefitsList.4')}</li>
-                                    <li>{t('benefitsSpoiler.benefitsList.5')}</li>
-                                    <li>{t('benefitsSpoiler.benefitsList.6')}</li>
-                                    <li>{t('benefitsSpoiler.benefitsList.7')}</li>
+                                    <li>{t('mainPage:benefitsSpoiler.benefitsList.0')}</li>
+                                    <li>{t('mainPage:benefitsSpoiler.benefitsList.1')}</li>
+                                    <li>{t('mainPage:benefitsSpoiler.benefitsList.2')}</li>
+                                    <li>{t('mainPage:benefitsSpoiler.benefitsList.3')}</li>
+                                    <li>{t('mainPage:benefitsSpoiler.benefitsList.4')}</li>
+                                    <li>{t('mainPage:benefitsSpoiler.benefitsList.5')}</li>
+                                    <li>{t('mainPage:benefitsSpoiler.benefitsList.6')}</li>
+                                    <li>{t('mainPage:benefitsSpoiler.benefitsList.7')}</li>
                                 </ol>
-                                <p>{t('benefitsSpoiler.content.3')}</p>
+                                <p>{t('mainPage:benefitsSpoiler.content.3')}</p>
                             </>
                         </SpoilerUI>
                     </div>
 
                     <div className={styles.container__section}>
-                        <MoviesSection title={t('foreignMovies')} movies={ratingMovies} href="/" />
+                        <MoviesSection title={t('mainPage:foreignMovies')} movies={ratingMovies} href="/" />
                     </div>
 
                     <div className={styles.container__section}>
-                        <MoviesSection title={t('dramas')} movies={ratingMovies} href="/" />
+                        <MoviesSection title={t('mainPage:dramas')} movies={ratingMovies} href="/" />
                     </div>
                 </div>
             </div>
