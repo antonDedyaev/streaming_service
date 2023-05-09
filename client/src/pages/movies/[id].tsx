@@ -12,7 +12,7 @@ import { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
-        ...(await serverSideTranslations(locale!, ['common', 'footer', 'header', 'modals'])),
+        ...(await serverSideTranslations(locale!, ['common', 'footer', 'header', 'modals', 'movie'])),
     },
 });
 
