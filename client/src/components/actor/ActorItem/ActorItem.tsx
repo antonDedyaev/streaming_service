@@ -3,6 +3,7 @@ import styles from './ActorItem.module.scss';
 import Image from 'next/image';
 import IActor from '../../../models/IActor';
 import { declineWord } from '../../../utils/functions';
+import { useTranslation } from 'next-i18next';
 
 interface ActorItemProps {
     className?: string;
@@ -11,8 +12,12 @@ interface ActorItemProps {
 }
 
 const ActorItem = ({ className, actor, size }: ActorItemProps) => {
+    const { t } = useTranslation('moviesPage');
     return (
-        <Link href={`actors/${actor.id}`} className={[styles.container, styles[`container_${size}`], className].join(' ')}>
+        <Link
+            href={`actors/${actor.id}`}
+            className={[styles.container, styles[`container_${size}`], className].join(' ')}
+        >
             <div className={styles.container__imageContainer}>
                 <div className={styles.container__imageWrapper}>
                     <Image
@@ -37,7 +42,12 @@ const ActorItem = ({ className, actor, size }: ActorItemProps) => {
                     <h3 className={styles.container__role}>{actor.role}</h3>
                 ) : (
                     <p className={styles.container__amountMovies}>
-                        {actor.amtMovies} {declineWord(actor.amtMovies, ['фильм', 'фильма', 'фильмов'])}
+                        {actor.amtMovies}{' '}
+                        {declineWord(actor.amtMovies, [
+                            t('filmography.singleMovie'),
+                            t('filmography.fewMovies'),
+                            t('filmography.manyMovies'),
+                        ])}
                     </p>
                 )}
             </div>

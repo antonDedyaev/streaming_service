@@ -1,0 +1,15 @@
+{
+    "myIvi": "Мой Иви",
+    "latest": "Что нового",
+    "movies": "Фильмы",
+    "tvShows": "Сериалы",
+    "cartoons": "Мультфильмы",
+    "broadcast": "TV+",
+    "dropmenu": {
+        "genres": "Жанры",
+        "countries": "Страны",
+        "years": "Годы"
+    },
+    "freePeriod": "Смотреть 30 дней бесплатно",
+    "search": "Поиск"
+}

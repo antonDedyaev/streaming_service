@@ -7,11 +7,21 @@ import MainContainer from '@/components/main_container/MainContainer/MainContain
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
-import { singleParagraph } from '../components/UI/Spoiler/storiesTemplates';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import { GetStaticProps } from 'next';
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+    props: {
+        ...(await serverSideTranslations(locale!, ['common', 'footer', 'header', 'mainPage', 'modals'])),
+    },
+});
+
 function HomePage() {
+    const { t } = useTranslation('mainPage');
     return (
         <MainContainer
             keywords={['homePage', 'iviEtoKryto']}
@@ -37,7 +47,7 @@ function HomePage() {
                             width={24}
                             height={32}
                         />
-                        30 дней подписки бесплатно
+                        {t('freeSubscriptionButton')}
                     </ShapedLinkUI>
 
                     <div className={[styles.container__section, styles.container__section_top].join(' ')}>
@@ -45,20 +55,33 @@ function HomePage() {
                     </div>
 
                     <div className={styles.container__spoiler}>
-                        <h2 className={styles.container__title}>
-                            Онлайн-кинотеатр Иви: фильмы в хорошем качестве всегда приносят настоящее удовольствие
-                        </h2>
-                        <SpoilerUI shownLines={1} toggleButtonTexts={['Показать', 'Скрыть']}>
-                            {singleParagraph}
+                        <h2 className={styles.container__title}>{t('benefitsSpoiler.header')}</h2>
+                        <SpoilerUI shownLines={2} toggleButtonTexts={['Показать', 'Скрыть']}>
+                            <>
+                                <p>{t('benefitsSpoiler.content.0')}</p>
+                                <p>{t('benefitsSpoiler.content.1')}</p>
+                                <p>{t('benefitsSpoiler.content.2')}</p>
+                                <ol>
+                                    <li>{t('benefitsSpoiler.benefitsList.0')}</li>
+                                    <li>{t('benefitsSpoiler.benefitsList.1')}</li>
+                                    <li>{t('benefitsSpoiler.benefitsList.2')}</li>
+                                    <li>{t('benefitsSpoiler.benefitsList.3')}</li>
+                                    <li>{t('benefitsSpoiler.benefitsList.4')}</li>
+                                    <li>{t('benefitsSpoiler.benefitsList.5')}</li>
+                                    <li>{t('benefitsSpoiler.benefitsList.6')}</li>
+                                    <li>{t('benefitsSpoiler.benefitsList.7')}</li>
+                                </ol>
+                                <p>{t('benefitsSpoiler.content.3')}</p>
+                            </>
                         </SpoilerUI>
                     </div>
 
                     <div className={styles.container__section}>
-                        <MoviesSection title="Зарубежные фильмы" movies={ratingMovies} href="/" />
+                        <MoviesSection title={t('foreignMovies')} movies={ratingMovies} href="/" />
                     </div>
 
                     <div className={styles.container__section}>
-                        <MoviesSection title="Драмы" movies={ratingMovies} href="/" />
+                        <MoviesSection title={t('dramas')} movies={ratingMovies} href="/" />
                     </div>
                 </div>
             </div>

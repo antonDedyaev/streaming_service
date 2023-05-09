@@ -6,6 +6,23 @@ import MainContainer from '@/components/main_container/MainContainer/MainContain
 import MovieDevicesImage from '@/components/movie/MovieDevicesImage/MovieDevicesImage';
 import MovieAppeal from '@/components/movie/MovieAppeal/MovieAppeal';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import { GetStaticProps } from 'next';
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+    props: {
+        ...(await serverSideTranslations(locale!, ['common', 'footer', 'header', 'modals'])),
+    },
+});
+
+export const getStaticPaths = async () => {
+    return {
+        paths: ['/movies/id'],
+        fallback: true,
+    };
+};
+
 function CardMoviePage() {
     return (
         <MainContainer keywords={['movie', 'ivi']} title="...смотреть онлайн в хорошем качестве" page="other">

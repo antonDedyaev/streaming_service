@@ -1,0 +1,45 @@
+{
+    "about": {
+        "title": "About us",
+        "company": "About our company",
+        "vacancies": "Vacancies",
+        "betaTests": "Beta testing",
+        "forPartners": "For partners",
+        "advertising": "Advertising",
+        "userAgreement": "User Agreement",
+        "confidentiality": "Confidentiality policy",
+        "compliance": "Compliance"
+    },
+    "categories": {
+        "title": "Categories",
+        "myIvi": "My Ivi",
+        "latest": "What's new",
+        "movies": "Movies",
+        "tvShows": "TV shows",
+        "cartoons": "Cartoons",
+        "broadcast": "TV+",
+        "recommendations": "Recommendations",
+        "certificate": "Redeem certificate"
+    },
+    "support": {
+        "title": "Support",
+        "disclaimer": {
+            "help": "We're always there to help you.",
+            "operators": "Our operators are online 24/7"
+        },
+        "chat": "Go to chat",
+        "freeCall": "Free calls within Russia",
+        "FAQ": "FAQ"
+    },
+    "noAds": "Watch movies, TV shows and cartoons with no ads",
+    "stores": {
+        "appStore": "Download on the",
+        "googlePlay": "Available on the",
+        "smartTV": "Watch on",
+        "allDevices": "All devices"
+    },
+    "copyrights": {
+        "ivi": "Ivi.ru LLC",
+        "HBO": "HBO ® and related service marks are the property of Home Box Office, Inc"
+    }
+}
