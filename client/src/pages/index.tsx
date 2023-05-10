@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 });
 
 function HomePage() {
-    const { t } = useTranslation(['common', 'mainPage']);
+    const { t } = useTranslation();
     return (
         <MainContainer
             keywords={['homePage', 'iviEtoKryto']}

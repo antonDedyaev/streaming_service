@@ -7,7 +7,6 @@ import MovieDevicesImage from '@/components/movie/MovieDevicesImage/MovieDevices
 import MovieAppeal from '@/components/movie/MovieAppeal/MovieAppeal';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
 import { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({

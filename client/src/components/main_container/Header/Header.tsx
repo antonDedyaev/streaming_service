@@ -11,7 +11,7 @@ import DropMenu from '../DropMenu/DropMenu';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
-import { UseTranslation, useTranslation } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 
 interface HeaderProps {
     page: 'home' | 'other';
@@ -24,7 +24,9 @@ const Header = ({ page }: HeaderProps) => {
     const [isShowCartoonDrop, setIsShowCartoonDrop] = useState<boolean>(false);
     const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
 
-    const { asPath } = useRouter();
+    const { asPath, locale } = useRouter();
+
+    const currentLocale = locale === 'ru' ? 'en' : 'ru';
 
     const clearShowHandler = () => {
         setIsShowMoviesDrop(false);
@@ -142,6 +144,14 @@ const Header = ({ page }: HeaderProps) => {
                             src={userIcon}
                             alt="Пользователь"
                         />
+                    </Link>
+
+                    <Link
+                        href={asPath}
+                        locale={currentLocale}
+                        className={[styles.container__link, styles.container__link_locale].join(' ')}
+                    >
+                        {currentLocale}
                     </Link>
                 </div>
 
