@@ -23,12 +23,12 @@ const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
                     className={[styles.container__icon, styles.container__icon_similar].join(' ')}
                     src={wand}
                     alt="icon"
-                />
+                />    
                 <Image
                     className={[styles.container__icon, styles.container__icon_rate].join(' ')}
                     src={star}
                     alt="icon"
-                />
+                />    
                 <Image
                     className={[styles.container__icon, styles.container__icon_dislike].join(' ')}
                     src={circle}

@@ -1,6 +1,8 @@
+import CommentsList from '@/components/comments/CommentsList/CommentsList';
+import { comments } from '@/components/comments/commentsTestData';
 import styles from './CommentsSection.module.scss';
 
-const commentsSection = () => {
+const CommentsSection = () => {
     return (
         <div className={styles.section}>
             <div className={styles.section__header}>
@@ -8,10 +10,10 @@ const commentsSection = () => {
             </div>
 
             <div className={styles.section__content}>
-                
+                <CommentsList comments={comments} />
             </div>
         </div>
     )
 }
 
-export default commentsSection;
+export default CommentsSection;

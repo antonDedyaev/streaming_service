@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 26px;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 6px;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: row;
+        font-size: 13px;
+        color: #a5a1b2;
+    }
+
+    &__username {
+        margin-right: 10px;
+        font-weight: 700;
+    }
+
+    &__text {
+        font-size: 15px;
+        color: #d9d7e0;
+    }
+
+    &__actions {
+        align-self: flex-end;
+    }
+}
