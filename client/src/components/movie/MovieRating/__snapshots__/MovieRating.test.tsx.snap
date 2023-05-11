@@ -2,14 +2,14 @@
 
 exports[`MOVIERATING SNAPSHOTS TESTS MovieRating should not be changed 1`] = `
 <button
-  class="jsx-354793981 button container button"
+  class="jsx-3203401595 button button_undefined button container"
 >
   <div
     class="container__value"
   >
     <div
       class="value value_medium value_high"
-      role="div-text"
+      data-testid="div-text"
     >
       9.5
     </div>

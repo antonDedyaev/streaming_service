@@ -1,7 +1,6 @@
 .section {
     &__header {
         display: inline-block;
-        padding-left: 30px;
         margin-bottom: 14px;
         font-size: 24px;
         font-weight: 600;
@@ -10,7 +9,7 @@
 
     &__list {
         display: flex;
-        padding-left: 30px;
+        /* padding-left: 30px;*/
         max-width: 1270px;
         width: 100%;
 

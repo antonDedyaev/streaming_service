@@ -5,7 +5,7 @@ import ActorFilmographyList from '@/components/actor/ActorFilmographyList/ActorF
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 
 interface FilmographySectionProps {
-    movies: IMovie[]
+    movies: IMovie[];
 }
 
 const FilmographySection = ({ movies }: FilmographySectionProps) => {
@@ -19,22 +19,31 @@ const FilmographySection = ({ movies }: FilmographySectionProps) => {
             </div>
 
             <div className={styles.section__content}>
-                <ActorFilmographyList movies={movies.slice(0,8)} />
+                <div className={styles.section__contentList}>
+                    <ActorFilmographyList movies={movies.slice(0, 8)} />
+                </div>
 
-                {movies.length > 8 &&
-                    <SpoilerUI 
+                {movies.length > 8 && (
+                    <SpoilerUI
                         toggleButtonTexts={[
-                            `Показать ещё ${movies.length - 8} ${declineWord(movies.length - 8, ['фильм', 'фильма', 'фильмов'])}`,
-                            ''
+                            `Ещё ${movies.length - 8} ${declineWord(movies.length - 8, [
+                                'фильм',
+                                'фильма',
+                                'фильмов',
+                            ])}`,
+                            '',
                         ]}
                         shownLines={0}
+                        buttonTextColor="faded"
                     >
-                        <ActorFilmographyList movies={movies.slice(8)} />
+                        <div className={styles.section__contentList}>
+                            <ActorFilmographyList movies={movies.slice(8)} />
+                        </div>
                     </SpoilerUI>
-                }
+                )}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default FilmographySection;

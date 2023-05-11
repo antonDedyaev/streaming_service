@@ -2,7 +2,7 @@
 
 exports[`TabBarLinkUI SNAPSHOT TEST TabBarLinkUI should not be changed 1`] = `
 <a
-  class="container__item"
+  class="container container_selected"
   href=""
   id="tab-item"
   role="tab-link"

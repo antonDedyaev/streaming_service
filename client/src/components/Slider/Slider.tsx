@@ -52,13 +52,13 @@ export const Slider = ({ itemType, children, length }: SliderProps) => {
     }, [listCount]);
 
     return (
-        <div className="container">
-            <div className={styles.container}>
+        <>
+            <div className={[styles.container, styles[`container_${itemType}`]].join(' ')}>
                 {position < minPosition && (
                     <ArrowButton
                         className={[styles.container__button, styles.container__button_left].join(' ')}
                         diarection="left"
-                        iconSize={windowWidth > 1200 ? 'large' : 'medium'}
+                        iconSize={windowWidth > 1380 ? 'large' : 'medium'}
                         onClick={leftHandler}
                     />
                 )}
@@ -71,7 +71,7 @@ export const Slider = ({ itemType, children, length }: SliderProps) => {
                     <ArrowButton
                         className={[styles.container__button, styles.container__button_right].join(' ')}
                         diarection="right"
-                        iconSize={windowWidth > 1200 ? 'large' : 'medium'}
+                        iconSize={windowWidth > 1380 ? 'large' : 'medium'}
                         onClick={rightHandler}
                     />
                 )}
@@ -84,7 +84,7 @@ export const Slider = ({ itemType, children, length }: SliderProps) => {
                     }
                 `}
             </style>
-        </div>
+        </>
     );
 };
 

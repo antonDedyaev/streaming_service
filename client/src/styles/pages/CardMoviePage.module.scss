@@ -1,11 +1,11 @@
 .container {
     margin-bottom: 60px;
     &__watch {
-        margin: 0px 0px 0px -30px;
+        /* margin: 0px 0px 0px -30px;*/
         padding: 24px 0px;
     }
     &__persons {
-        margin: 0px 0px 24px -30px;
+        margin: 0px 0px 24px 0px;
         padding: 24px 0px;
     }
 }

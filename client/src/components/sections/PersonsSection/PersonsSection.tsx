@@ -3,8 +3,8 @@ import ActorList from '@/components/actor/ActorList/ActorList';
 import IActor from '@/models/IActor';
 import styles from './PersonsSection.module.scss';
 import UnderlinedLink from '@/components/UI/links/UnderlinedLink/UnderlinedLink';
-import LinkUI from '@/components/UI/links/Link/LinkUI';
 import { useRouter } from 'next/router';
+import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 
 interface PersonsSectionProps {
     persons: IActor[];
@@ -36,9 +36,9 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
                 ) : (
                     <div className={styles.section__list}>
                         <ActorList actors={persons.slice(0, 10)} size={size} />
-                        <LinkUI className={styles.section__list_link} href={`${asPath}?more`} shape="round">
+                        <ShapedLinkUI className={styles.section__list_link} href={`${asPath}?more`} shape="round">
                             Ещё
-                        </LinkUI>
+                        </ShapedLinkUI>
                     </div>
                 )}
             </div>

@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import styles from './Footer.module.scss';
 import Image from 'next/image';
 import TextLinkUI from '../../UI/links/TextLink/TextLinkUI';
-import LinkUI from '../../UI/links/Link/LinkUI';
+import ShapedLinkUI from '../../UI/links/ShapedLink/ShapedLinkUI';
 import mailIcon from '../../../../public/icons/link/mail.svg';
 import phoneIcon from '../../../../public/icons/link/phone.svg';
 import loudspeaker from '../../../../public/icons/link/loudspeaker.svg';
@@ -121,17 +121,17 @@ const Footer: FC = () => {
                             <span>Наши операторы онлайн 24/7</span>
                         </div>
                         <div className={styles.container__support}>
-                            <LinkUI
+                            <ShapedLinkUI
                                 href="https://www.ivi.ru/profile"
                                 shape="rectangular"
                                 className={styles.container__chatButton}
                             >
                                 <div>Написать в чате</div>
-                            </LinkUI>
+                            </ShapedLinkUI>
                             <div className={styles.container__supportButtons}>
-                                <LinkUI href="mailto:support@ivi.ru" shape="square">
+                                <ShapedLinkUI href="mailto:support@ivi.ru" shape="square">
                                     <Image src={mailIcon} height={16} width={16} alt="Иконка почты" />
-                                </LinkUI>
+                                </ShapedLinkUI>
                                 <ButtonUI
                                     background="gray"
                                     shape="square"
@@ -182,7 +182,8 @@ const Footer: FC = () => {
                                 />
                             </div>
                             <p className={styles.container__text}>
-                                Смотрите фильмы, сериалы и<br />мультфильмы без рекламы
+                                Смотрите фильмы, сериалы и<br />
+                                мультфильмы без рекламы
                             </p>
                         </div>
                     </div>
@@ -190,7 +191,7 @@ const Footer: FC = () => {
                 <div className={[styles.container__content, styles.container__content_columnWide].join(' ')}>
                     <div>
                         <div className={styles.container__stores}>
-                            <LinkUI href="https://go.onelink.me/app/devicesiOS" shape="rectangular">
+                            <ShapedLinkUI href="https://go.onelink.me/app/devicesiOS" shape="rectangular">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/appleLogo.svg"
                                     height={20}
@@ -201,8 +202,8 @@ const Footer: FC = () => {
                                     <div>Загрузить в</div>
                                     <div>App Store</div>
                                 </div>
-                            </LinkUI>
-                            <LinkUI href="https://go.onelink.me/app/devicesAndroid" shape="rectangular">
+                            </ShapedLinkUI>
+                            <ShapedLinkUI href="https://go.onelink.me/app/devicesAndroid" shape="rectangular">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg"
                                     height={20}
@@ -213,20 +214,24 @@ const Footer: FC = () => {
                                     <div>Доступно в</div>
                                     <div>Google Play</div>
                                 </div>
-                            </LinkUI>
-                            <LinkUI href="#!" shape="rectangular">
+                            </ShapedLinkUI>
+                            <ShapedLinkUI href="#!" shape="rectangular">
                                 <Image src={tvIcon} height={20} width={20} alt="Иконка телевизора" />
                                 <div className={styles.container__textBlock}>
                                     <div>Смотрите на</div>
                                     <div>Smart TV</div>
                                 </div>
-                            </LinkUI>
-                            <LinkUI href="#!" shape="rectangular">
-                                <div className={[styles.container__textBlock, styles.container__textBlock_single].join(' ')}>
+                            </ShapedLinkUI>
+                            <ShapedLinkUI href="#!" shape="rectangular">
+                                <div
+                                    className={[styles.container__textBlock, styles.container__textBlock_single].join(
+                                        ' ',
+                                    )}
+                                >
                                     <Image src={devicesIcon} height={20} width={20} alt="Иконка умных устройств" />
                                     Все устройства
                                 </div>
-                            </LinkUI>
+                            </ShapedLinkUI>
                         </div>
                         <div className={styles.container__copyrightsContainer}>
                             <p className={[styles.container__copyrights, styles.container__copyrights_site].join(' ')}>
@@ -234,61 +239,68 @@ const Footer: FC = () => {
                                 <span>2023</span>
                                 <span>&nbsp;ООО «Иви.ру»</span>
                             </p>
-                            <p className={[styles.container__copyrights, styles.container__copyrights_content].join(' ')}>
+                            <p
+                                className={[styles.container__copyrights, styles.container__copyrights_content].join(
+                                    ' ',
+                                )}
+                            >
                                 HBO ® and related service marks are the property of Home Box Office, Inc
                             </p>
                         </div>
                     </div>
                     <div>
                         <div className={styles.container__community}>
-                            <LinkUI href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e" shape="round">
+                            <ShapedLinkUI
+                                href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
+                                shape="round"
+                            >
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_vkontakte.svg"
                                     height={16}
                                     width={16}
                                     alt="Логотип ВКонтакте"
                                 />
-                            </LinkUI>
-                            <LinkUI href="https://ok.ru/ivi.ru" shape="round">
+                            </ShapedLinkUI>
+                            <ShapedLinkUI href="https://ok.ru/ivi.ru" shape="round">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_odnoklassniki.svg"
                                     height={16}
                                     width={16}
                                     alt="Логотип Одноклассники"
                                 />
-                            </LinkUI>
-                            <LinkUI href="https://twitter.com/ivi_ru" shape="round">
+                            </ShapedLinkUI>
+                            <ShapedLinkUI href="https://twitter.com/ivi_ru" shape="round">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_twitter.svg"
                                     height={16}
                                     width={16}
                                     alt="Логотип Twitter"
                                 />
-                            </LinkUI>
-                            <LinkUI href="https://vb.me/a0544c" shape="round">
+                            </ShapedLinkUI>
+                            <ShapedLinkUI href="https://vb.me/a0544c" shape="round">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_viber.svg"
                                     height={16}
                                     width={16}
                                     alt="Логотип Viber"
                                 />
-                            </LinkUI>
-                            <LinkUI href="https://www.linkedin.com/company/2543415/" shape="round">
+                            </ShapedLinkUI>
+                            <ShapedLinkUI href="https://www.linkedin.com/company/2543415/" shape="round">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_linkedin.svg"
                                     height={16}
                                     width={16}
                                     alt="Логотип LinkedIn"
                                 />
-                            </LinkUI>
-                            <LinkUI href="https://t.me/official_iviru" shape="round">
+                            </ShapedLinkUI>
+                            <ShapedLinkUI href="https://t.me/official_iviru" shape="round">
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_telegram.svg"
                                     height={16}
                                     width={16}
                                     alt="Логотип Telegram"
                                 />
-                            </LinkUI>
+                            </ShapedLinkUI>
                         </div>
                     </div>
                 </div>

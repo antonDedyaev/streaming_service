@@ -6,7 +6,7 @@ import Link from 'next/link';
 import IMovie from '@/models/IMovie';
 
 interface FilmographyItemProps {
-    movie: IMovie
+    movie: IMovie;
 }
 
 const FilmographyItem = ({ movie }: FilmographyItemProps) => {
@@ -14,12 +14,7 @@ const FilmographyItem = ({ movie }: FilmographyItemProps) => {
         <div className={styles.container}>
             <Link href={`/movies/${movie.name}`} className={styles.container__body}>
                 <div className={styles.container__imageWrapper}>
-                    <Image
-                        src={movie.image}
-                        height={123}
-                        width={80}
-                        alt={`Постер ${movie.name}`}
-                    />
+                    <Image src={movie.image} height={123} width={80} alt={`Постер ${movie.name}`} />
                 </div>
 
                 <div className={styles.container__main}>

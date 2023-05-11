@@ -9,7 +9,6 @@ import styles from './Header.module.scss';
 import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import DropMenu from '../DropMenu/DropMenu';
 import { useEffect, useState } from 'react';
-import LinkUI from '@/components/UI/links/Link/LinkUI';
 import { useRouter } from 'next/router';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 
@@ -23,7 +22,7 @@ const Header = ({ page }: HeaderProps) => {
     const [isShowCartoonDrop, setIsShowCartoonDrop] = useState<boolean>(false);
     const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
 
-    const { asPath } = useRouter()
+    const { asPath } = useRouter();
 
     const clearShowHandler = () => {
         setIsShowMoviesDrop(false);
@@ -88,7 +87,7 @@ const Header = ({ page }: HeaderProps) => {
                                 onMouseOver: clearShowHandler,
                             },
                             {
-                                href: '/',
+                                href: '/movies',
                                 text: 'Фильмы',
                                 option: 'dim',
                                 onMouseOver: mouseOverMovieHandler,
@@ -123,7 +122,7 @@ const Header = ({ page }: HeaderProps) => {
                         Смотреть 30 дней бесплатно
                     </ButtonUI>
 
-                    <TextLinkUI href={`${asPath}?ivi_search`} option='bright' className={styles.container__search}>
+                    <TextLinkUI href={`${asPath}?ivi_search`} option="bright" className={styles.container__search}>
                         <Image className={styles.container__icon} src={searchIcon} alt="" />
                         <p className={styles.container__text}>Поиск</p>
                     </TextLinkUI>
@@ -132,7 +131,10 @@ const Header = ({ page }: HeaderProps) => {
                         <Image className={styles.container__icon} src={bellIcon} alt="Уведомления" />
                     </Link>
 
-                    <Link href={`${asPath}?sign-in`} className={[styles.container__link, styles.container__link_user].join(' ')}>
+                    <Link
+                        href={`${asPath}?sign-in`}
+                        className={[styles.container__link, styles.container__link_user].join(' ')}
+                    >
                         <Image
                             className={[styles.container__icon, styles.container__icon_user].join(' ')}
                             src={userIcon}
