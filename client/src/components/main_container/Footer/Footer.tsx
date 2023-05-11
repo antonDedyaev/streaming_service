@@ -10,104 +10,106 @@ import tvIcon from '../../../../public/icons/link/devices_tv.svg';
 import devicesIcon from '../../../../public/icons/link/devices_all.svg';
 import ButtonUI from '../../UI/buttons/Button/ButtonUI';
 import LinksList from '../LinksList/LinksList';
+import { useTranslation } from 'next-i18next';
 
 const Footer: FC = () => {
+    const { t } = useTranslation('footer');
     const [phoneIsHidden, setPhoneIsHidden] = useState(true);
     return (
         <footer className={styles.container}>
             <div className="container">
                 <div className={[styles.container__content, styles.container__content_columnNarrow].join(' ')}>
                     <div>
-                        <span className={styles.container__title}>О нас</span>
+                        <span className={styles.container__title}>{t('about.title')}</span>
                         <LinksList
                             direction="column"
                             links={[
                                 {
                                     href: '#!',
-                                    text: 'О компании',
+                                    text: t('about.company'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Вакансии',
+                                    text: t('about.vacancies'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Программа бета-тестирования',
+                                    text: t('about.betaTests'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Информация для партнёров',
+                                    text: t('about.forPartners'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Размещение рекламы',
+                                    text: t('about.advertising'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Пользовательское соглашение',
+                                    text: t('about.userAgreement'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Политика конфиденциальности',
+                                    text: t('about.confidentiality'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Комплаенс',
+                                    text: t('about.compliance'),
                                     option: 'dim',
                                 },
                             ]}
                         />
                     </div>
                     <div>
-                        <span className={styles.container__title}>Разделы</span>
+                        <span className={styles.container__title}>{t('categories.title')}</span>
                         <LinksList
                             direction="column"
                             links={[
                                 {
                                     href: '#!',
-                                    text: 'Мой Иви',
+                                    text: t('categories.myIvi'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Что нового',
+                                    text: t('categories.latest'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '/movies',
-                                    text: 'Фильмы',
+                                    text: t('categories.movies'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Сериалы',
+                                    text: t('categories.tvShows'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Мультфильмы',
+                                    text: t('categories.cartoons'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'TV+',
+                                    text: t('categories.broadcast'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Что посмотреть',
+                                    text: t('categories.recommendations'),
                                     option: 'dim',
                                 },
                                 {
                                     href: '#!',
-                                    text: 'Активация сертификата',
+                                    text: t('categories.certificate'),
                                     option: 'gradient',
                                 },
                             ]}
@@ -115,10 +117,10 @@ const Footer: FC = () => {
                     </div>
 
                     <div>
-                        <span className={styles.container__title}>Служба поддержки</span>
+                        <span className={styles.container__title}>{t('support.title')}</span>
                         <div className={styles.container__description}>
-                            <span>Мы всегда готовы вам помочь.</span>
-                            <span>Наши операторы онлайн 24/7</span>
+                            <span>{t('support.disclaimer.help')}</span>
+                            <span>{t('support.disclaimer.operators')}</span>
                         </div>
                         <div className={styles.container__support}>
                             <ShapedLinkUI
@@ -126,7 +128,7 @@ const Footer: FC = () => {
                                 shape="rectangular"
                                 className={styles.container__chatButton}
                             >
-                                <div>Написать в чате</div>
+                                <div>{t('support.chat')}</div>
                             </ShapedLinkUI>
                             <div className={styles.container__supportButtons}>
                                 <ShapedLinkUI href="mailto:support@ivi.ru" shape="square">
@@ -153,7 +155,7 @@ const Footer: FC = () => {
                             >
                                 <a className={styles.container__phoneItem} href="tel:88002344923" rel="nofollow">
                                     <div className={styles.container__phoneNumber}>8 800 234-49-23</div>
-                                    <div className={styles.container__description}>Бесплатно по России</div>
+                                    <div className={styles.container__description}>{t('support.freeCall')}</div>
                                 </a>
                             </div>
                             <ul className={styles.container__questions}>
@@ -165,7 +167,7 @@ const Footer: FC = () => {
                                     >
                                         ask.ivi.ru
                                     </TextLinkUI>
-                                    <p className={styles.container__description}>Ответы на вопросы</p>
+                                    <p className={styles.container__description}>{t('support.FAQ')}</p>
                                 </li>
                             </ul>
                         </div>
@@ -181,7 +183,7 @@ const Footer: FC = () => {
                                     alt="Иконка перечеркнутого громкоговорителя"
                                 />
                             </div>
-                            <p className={styles.container__text}>Смотрите фильмы, сериалы и мультфильмы без рекламы</p>
+                            <p className={styles.container__text}>{t('noAds')}</p>
                         </div>
                     </div>
                 </div>
@@ -196,7 +198,7 @@ const Footer: FC = () => {
                                     alt="Логотип AppStore"
                                 />
                                 <div className={styles.container__textBlock}>
-                                    <div>Загрузить в</div>
+                                    <div>{t('stores.appStore')}</div>
                                     <div>App Store</div>
                                 </div>
                             </ShapedLinkUI>
@@ -208,14 +210,14 @@ const Footer: FC = () => {
                                     alt="Логотип Google Play"
                                 />
                                 <div className={styles.container__textBlock}>
-                                    <div>Доступно в</div>
+                                    <div>{t('stores.googlePlay')}</div>
                                     <div>Google Play</div>
                                 </div>
                             </ShapedLinkUI>
                             <ShapedLinkUI href="#!" shape="rectangular">
                                 <Image src={tvIcon} height={20} width={20} alt="Иконка телевизора" />
                                 <div className={styles.container__textBlock}>
-                                    <div>Смотрите на</div>
+                                    <div>{t('stores.smartTV')}</div>
                                     <div>Smart TV</div>
                                 </div>
                             </ShapedLinkUI>
@@ -226,7 +228,7 @@ const Footer: FC = () => {
                                     )}
                                 >
                                     <Image src={devicesIcon} height={20} width={20} alt="Иконка умных устройств" />
-                                    Все устройства
+                                    {t('stores.allDevices')}
                                 </div>
                             </ShapedLinkUI>
                         </div>
@@ -234,7 +236,7 @@ const Footer: FC = () => {
                             <p className={[styles.container__copyrights, styles.container__copyrights_site].join(' ')}>
                                 <span>©&nbsp;</span>
                                 <span>2023</span>
-                                <span> ООО «Иви.ру»</span>
+                                <span> {t('copyrights.ivi')}</span>
                             </p>
                             <p
                                 className={[styles.container__copyrights, styles.container__copyrights_content].join(

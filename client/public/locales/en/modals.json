@@ -1,0 +1,12 @@
+{
+    "searchModal": {
+        "search": "Search",
+        "moviesSearch": "Movies"
+    },
+    "loginModal": {
+        "emailInput": "Enter your email",
+        "passwordInput": "Enter your password",
+        "signIn": "Sign in",
+        "signUp": "Sign up"
+    }
+}
