@@ -1,10 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FilterPanel from './FilterPanel';
-import plankStyles from './FilterPlank.module.scss';
+import './FilterPanel.module.scss';
 import FilterPlank from './FilterPlank';
+import plankStyles from './FilterPlank.module.scss';
 import FilterList from './FilterList';
+import './FilterList.module.scss';
 import FilterRange from './FilterRange';
+import './FilterRange.module.scss';
 import FilterSearch from './FilterSearch';
+import './FilterSearch.module.scss';
 import { genres, countries } from './temp/items';
 import rating from '../../../public/icons/rating.svg';
 import rank from '../../../public/icons/userRank.svg';
@@ -23,10 +27,10 @@ export const MoviesFilters: Story = {
     args: {
         children: (
             <>
-                <FilterPlank title="Жанры" className={plankStyles.container__dropdown_genres}>
+                <FilterPlank title="Жанры" className={plankStyles.container__dropdown_leftPositioned}>
                     <FilterList items={genres} />
                 </FilterPlank>
-                <FilterPlank title="Страны" className={plankStyles.container__dropdown_countries}>
+                <FilterPlank title="Страны" className={plankStyles.container__dropdown_centerPositioned}>
                     <FilterList items={countries} />
                 </FilterPlank>
                 <FilterPlank title="Рейтинг" className={plankStyles.container__dropdown_narrow}>
