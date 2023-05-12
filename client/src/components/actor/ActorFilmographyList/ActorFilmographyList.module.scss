@@ -1,4 +1,10 @@
 .listItem {
     margin-top: 16px;
-    width: 100%;
+    max-width: 100%;
+}
+
+@media (max-width: 599px) {
+    .listItem {
+        margin-top: 26px;
+    }
 }

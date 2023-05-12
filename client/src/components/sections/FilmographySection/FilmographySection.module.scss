@@ -1,28 +1,46 @@
 .section {
-    width: 620px;
-    padding: 0 12px;
     margin: 0 auto;
 
     &__header {
-        padding-bottom: 16px;
+        padding-bottom: 12px;
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: baseline;
         border-bottom: 1px solid rgb(255, 255, 255, 0.3);
     }
 
     &__title {
         margin-right: 8px;
+        margin-bottom: 4px;
         font-size: 24px;
         color: #ffffff;
     }
 
     &__amount {
         font-size: 15px;
+        margin-bottom: 4px;
         color: #a5a1b2;
     }
 
     &__item {
         margin-top: 16px;
+    }
+
+    &__content {
+        &List {
+            margin-bottom: 8px;
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    .section {
+        &__content {
+            &List {
+                margin-bottom: 16px;
+                max-width: 100%;
+            }
+        }
     }
 }

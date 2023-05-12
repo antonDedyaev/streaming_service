@@ -9,6 +9,7 @@ import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
@@ -37,7 +38,7 @@ function HomePage() {
                     </div>
 
                     <ShapedLinkUI
-                        href="/https://www.ivi.ru/subscribe?redirect_url=%2F"
+                        href="https://www.ivi.ru/subscribe?redirect_url=%2F"
                         className={styles.container__link}
                         shape="rectangular"
                     >

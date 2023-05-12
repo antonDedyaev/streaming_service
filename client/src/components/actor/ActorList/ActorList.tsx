@@ -13,7 +13,7 @@ const ActorList = ({ actors, size }: ActorListProps) => {
             {actors.map((actor) => (
                 <ActorItem
                     key={actor.id}
-                    className={styles.item}
+                    className={[styles.item, styles[`item_${size}`]].join(' ')}
                     actor={actor}
                     size={size}
                 />

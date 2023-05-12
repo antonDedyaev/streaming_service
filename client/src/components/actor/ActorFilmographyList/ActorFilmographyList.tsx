@@ -3,19 +3,19 @@ import styles from './ActorFilmographyList.module.scss';
 import FilmographyItem from '../ActorFilmography/FilmographyItem';
 
 interface ActorFilmographyListProps {
-    movies: IMovie[]
+    movies: IMovie[];
 }
 
 const ActorFilmographyList = ({ movies }: ActorFilmographyListProps) => {
     return (
         <>
-            {movies.map(movie => 
+            {movies.map((movie) => (
                 <div key={movie.name} className={styles.listItem}>
-                    <FilmographyItem movie={movie}/>
+                    <FilmographyItem movie={movie} />
                 </div>
-            )}
+            ))}
         </>
-    )
-}
+    );
+};
 
 export default ActorFilmographyList;

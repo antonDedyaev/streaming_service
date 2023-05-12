@@ -1,6 +1,10 @@
 .container {
     display: block;
 
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+
     &_large {
         max-width: 210px;
         min-width: 100px;
@@ -14,6 +18,9 @@
     &_small {
         max-width: 88px;
         min-width: 72px;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 16px;
     }
 
     &__imageContainer {
@@ -56,9 +63,6 @@
 
     &__fullName {
         color: #d9d7e0;
-        font-size: 15px;
-        font-weight: 700;
-        line-height: 20px;
         width: 85%;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -69,14 +73,18 @@
     &__amountMovies {
         color: #a5a1b2;
         font-size: 12px;
-        line-height: 20px;
+        line-height: 16px;
+        font-weight: 400;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     &_large:hover {
         .container {
             &__imageContainer {
                 transform-origin: bottom;
-                transform: scale(103%, 103%); 
+                transform: scale(103%, 103%);
             }
         }
     }

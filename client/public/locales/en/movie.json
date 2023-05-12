@@ -1,4 +1,5 @@
 {
+    "browserTab": "watch online in good quality",
     "trailer": "Trailer",
     "showMovieDetails": "Show details",
     "hideMovieDetails": "Hide details",
@@ -14,5 +15,10 @@
     "watch": "Watch",
     "onAllDevices": "on all devices",
     "availableForDownload": "The app is available for download on iOS, Android, SmartTV and TV-tuners",
-    "connectDevices": "Connect devices"
+    "connectDevices": "Connect devices",
+    "more": "More",
+    "titlePersons": "Actors and creators",
+    "withMovie": ["With", "watch"],
+    "showMore": "Show more",
+    "personsInvolved": ["Director", "Actors"]
 }
