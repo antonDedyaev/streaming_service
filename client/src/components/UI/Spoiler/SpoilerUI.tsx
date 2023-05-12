@@ -38,6 +38,7 @@ const SpoilerUI = ({
                     {isShowAll ? toggleButtonTexts[1] : toggleButtonTexts[0]}
                 </TransparentButton>
             </div>
+
             <style jsx>
                 {`
                     .hidden {

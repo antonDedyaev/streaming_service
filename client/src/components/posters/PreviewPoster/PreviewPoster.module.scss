@@ -10,8 +10,8 @@
             position: relative;
             margin-bottom: 8px;
             background-color: #e6e6e6;
-            transition: .3s;
-    
+            transition: 0.3s;
+
             &:hover {
                 transform-origin: bottom;
                 transform: scale(103%, 103%);
@@ -32,13 +32,14 @@
         left: 0;
         bottom: 0;
         right: 0;
+        /* object-fit: cover;*/
     }
 
     &__title {
         font-size: 15px;
         font-weight: 600;
         line-height: 120%;
-        color: #D9D7E0;
+        color: #d9d7e0;
     }
 
     &__badge {

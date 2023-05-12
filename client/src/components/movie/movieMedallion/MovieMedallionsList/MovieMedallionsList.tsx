@@ -4,6 +4,7 @@ import { IMovie } from './Temp/IMovie';
 import Link from 'next/link';
 import TextSquareUI from '@/components/UI/squares/TextSquareUI/TextSquareUI';
 import ImgSquareUI from '@/components/UI/squares/ImgSquareUI/ImgSquareUI';
+import { useTranslation } from 'react-i18next';
 
 interface MovieMedallionsListProps {
     className?: string;
@@ -11,9 +12,10 @@ interface MovieMedallionsListProps {
 }
 
 const MovieMedallionsList = ({ className, movie }: MovieMedallionsListProps) => {
+    const { t } = useTranslation('moviesPage');
     return (
         <div className={[styles.content, className].join(' ').trim()}>
-            <MovieMedallionItem text="Рейтинг" disabled={true}>
+            <MovieMedallionItem text={t('filterPanel.rating')} disabled={true}>
                 <TextSquareUI value={movie.raiting} />
             </MovieMedallionItem>
             {movie.actors.map((actor) => (

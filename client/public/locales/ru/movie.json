@@ -1,4 +1,5 @@
 {
+    "browserTab": "смотреть онлайн в хорошем качестве",
     "trailer": "Трейлер",
     "showMovieDetails": "Детали о фильме",
     "hideMovieDetails": "Свернуть детали",
@@ -14,5 +15,10 @@
     "watch": "Смотреть",
     "onAllDevices": "на всех устройствах",
     "availableForDownload": "Приложение доступно для скачивания на iOS, Android, SmartTV и приставках",
-    "connectDevices": "Подключить устройства"
+    "connectDevices": "Подключить устройства",
+    "more": "Ещё",
+    "titlePersons": "Актёры и создатели",
+    "withMovie": ["С", "смотрят"],
+    "showMore": "Показать ещё",
+    "personsInvolved": ["Режиссёр", "Актеры"]
 }

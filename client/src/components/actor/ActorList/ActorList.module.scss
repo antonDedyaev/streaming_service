@@ -1,46 +1,78 @@
 .item {
-    min-width: calc(100% / 7 - 24px);
-    margin: 0 12px;
+    &_large {
+        min-width: calc(100% / 7 - 24px);
+        margin: 0 12px;
+    }
+    &_medium {
+        padding: 0px 12px;
+    }
+    &_small {
+        padding-right: 24px;
+        max-width: 112px;
+        width: 100%;
+    }
 }
 
 @media (max-width: 1270px) {
     .item {
-        min-width: calc(100% / 6 - 24px);
+        &_large {
+            min-width: calc(100% / 5 - 24px);
+        }
     }
 }
 
 @media (max-width: 1097px) {
     .item {
-        min-width: calc(100% / 5 - 24px);
+        &_large {
+            min-width: calc(100% / 5 - 24px);
+        }
     }
 }
 
 @media (max-width: 920px) {
     .item {
-        min-width: calc(100% / 4 - 24px);
+        &_large {
+            min-width: calc(100% / 4 - 24px);
+        }
     }
 }
 
 @media (max-width: 745px) {
     .item {
-        min-width: calc(100% / 3 - 24px);
+        &_large {
+            min-width: calc(100% / 3 - 24px);
+        }
     }
 }
 
 @media (max-width: 600px) {
     .item {
-        min-width: calc(100% / 4 - 24px);
+        &_large {
+            min-width: calc(100% / 4 - 24px);
+        }
+        &_medium {
+            padding: 0px 8px;
+        }
+        &_small {
+            padding-right: 16px;
+            max-width: 88px;
+            width: 100%;
+        }
     }
 }
 
 @media (max-width: 512px) {
     .item {
-        min-width: calc(100% / 3 - 24px);
+        &_large {
+            min-width: calc(100% / 3 - 24px);
+        }
     }
 }
 
 @media (max-width: 400px) {
     .item {
-        min-width: calc(100% / 2 - 24px);
+        &_large {
+            min-width: calc(100% / 2 - 24px);
+        }
     }
 }

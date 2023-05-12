@@ -14,6 +14,7 @@ import CommentItem from '@/components/comments/CommentItem/CommentItem';
 import { comments } from '@/components/comments/commentsTestData';
 import CommentsList from '@/components/comments/CommentsList/CommentsList';
 import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
+import Link from 'next/link';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
@@ -43,7 +44,7 @@ function HomePage() {
                     </div>
 
                     <ShapedLinkUI
-                        href="/https://www.ivi.ru/subscribe?redirect_url=%2F"
+                        href="https://www.ivi.ru/subscribe?redirect_url=%2F"
                         className={styles.container__link}
                         shape="rectangular"
                     >
