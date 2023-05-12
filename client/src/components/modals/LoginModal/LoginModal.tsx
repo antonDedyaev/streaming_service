@@ -3,6 +3,7 @@ import styles from './LoginModal.module.scss';
 import ModalInputUI from '@/components/UI/ModalInput/ModalInputUI';
 import { useRef, useState } from 'react';
 import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
+import { loginAPI } from '@/store/services/LoginService';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up';
@@ -10,8 +11,8 @@ interface LoginModalProps {
 
 const LoginModal = ({ type }: LoginModalProps) => {
     const [email, setEmail] = useState<string>('');
-    const [passord, setPassord] = useState<string>('');
-    const [repeatPassord, setRepeatPassord] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [repeatPassword, setRepeatPassword] = useState<string>('');
 
     const [emailFocus, setEmailFocus] = useState<boolean>(false);
     const [passwordFocus, setPasswordFocus] = useState<boolean>(false);
@@ -23,6 +24,19 @@ const LoginModal = ({ type }: LoginModalProps) => {
 
     const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
     const [isShowRepeatPassword, setIsShowRepeatPassword] = useState<boolean>(false);
+
+    const [signIn, {}] = loginAPI.useFetchLoginMutation();
+    const [signUp, {}] = loginAPI.useFetchRegistrationMutation();
+    // const [signInWithVK, {}] = loginAPI.useFetchAuthWithVKQuery()
+    // const [signInWithGoogle, {}] = loginAPI.useFetchAuthWithGoogleQuery()
+
+    const signInHandler = async () => {
+        await signIn({ email: email, password: password });
+    };
+
+    const signUpHandler = async () => {
+        await signUp({ email: email, password: password });
+    };
 
     const clickHandler = (event: React.MouseEvent) => {
         event.stopPropagation();
@@ -52,7 +66,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                 case passwordWrapper.contains(event.currentTarget):
                     setPasswordFocus(true);
                     break;
-    
+
                 case repeatPasswordWrapper.contains(event.currentTarget):
                     setRepeatPasswordFocus(true);
                     break;
@@ -89,8 +103,8 @@ const LoginModal = ({ type }: LoginModalProps) => {
                             type="password"
                             inputType={isShowPassword ? 'text' : 'password'}
                             placeholder="Введите пароль"
-                            value={passord}
-                            onChange={(value) => setPassord(value)}
+                            value={password}
+                            onChange={(value) => setPassword(value)}
                             onClick={() => setIsShowPassword(!isShowPassword)}
                         />
                     </div>
@@ -106,14 +120,19 @@ const LoginModal = ({ type }: LoginModalProps) => {
                                 type="password"
                                 inputType={isShowRepeatPassword ? 'text' : 'password'}
                                 placeholder="Подтвердите пароль"
-                                value={repeatPassord}
-                                onChange={(value) => setRepeatPassord(value)}
+                                value={repeatPassword}
+                                onChange={(value) => setRepeatPassword(value)}
                                 onClick={() => setIsShowRepeatPassword(!isShowRepeatPassword)}
                             />
                         </div>
                     )}
 
-                    <ButtonUI className={styles.container__button} background="lightRed" shape="large">
+                    <ButtonUI
+                        onClick={type === 'sign-in' ? signInHandler : signUpHandler}
+                        className={styles.container__button}
+                        background="lightRed"
+                        shape="large"
+                    >
                         {type === 'sign-in' ? 'Войти' : 'Зарегистрироваться'}
                     </ButtonUI>
                 </div>
