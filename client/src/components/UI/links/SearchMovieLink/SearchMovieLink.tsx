@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './SearchMovieLink.module.scss';
 import Link from 'next/link';
-import movieIcon from '../../../../../public/icons/movie/movie.svg'
+import movieIcon from '../../../../../public/icons/movie/movie.svg';
 
 interface SearchMovieItemProps {
     href: string;

@@ -21,7 +21,7 @@ const MovieRating = ({ movie }: MovieRatingProps) => {
                     {t('movieRating')}
                 </h2>
                 <p className={[styles.container__text, styles.container__text_plot].join(' ')}>{t('hightlights')}</p>
-                <p className={[styles.container__text, styles.container__text_marks].join(' ')}>{t('userRank')}</p>
+                <p className={[styles.container__text, styles.container__text_marks].join(' ')}>{t('userRate')}</p>
             </div>
 
             <div className={styles.container__estimate}>{t('rate')}</div>

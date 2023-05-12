@@ -28,7 +28,13 @@
         opacity: 0.1;
         transition: 0.1s;
         cursor: pointer;
+        filter: invert(1);
         z-index: 2;
+
+        &_eye {
+            filter: invert(0);
+            opacity: 1;
+        }
 
         &:hover {
             opacity: 0.4;
@@ -36,8 +42,7 @@
     }
 
     &_search,
-    &_password,
-    &_repeatPassword {
+    &_password {
         .container {
             &__placeholder {
                 left: 13px;
@@ -96,18 +101,6 @@
 
         &:hover {
             border-bottom: 2px solid #a5a1b2;
-        }
-    }
-
-    &__icon {
-        width: 20px;
-        height: 20px;
-        filter: invert(1);
-        z-index: 2;
-
-        &_eye {
-            filter: invert(0);
-            opacity: 1;
         }
     }
 
