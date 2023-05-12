@@ -16,6 +16,8 @@ import FilterSearch from '@/components/filters/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { GetStaticProps } from 'next';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -25,6 +27,34 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 
 function MoviesPage() {
     const { t } = useTranslation();
+    const [countriesList, setCountriesList] = useState<string[]>([]);
+    const [genresList, setGenresList] = useState<string[]>([]);
+    const [filtersApplied, setFiltersApplied] = useState(false);
+
+    useEffect(() => {
+        const getCountries = async () => {
+            try {
+                const uniqieCountries = new Set<string>();
+                const requestCountries = await axios.get('http://localhost:6125/countriesOffilm');
+                requestCountries.data.forEach(({ country }: { country: string }) => uniqieCountries.add(country));
+                setCountriesList([...uniqieCountries].sort());
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        const getGenres = async () => {
+            try {
+                const requestGenres = await axios.get('http://localhost:6125/namesgenres');
+                const genres = requestGenres.data.map(({ genre }: { genre: string }) => genre);
+                setGenresList(genres.sort());
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        getCountries();
+        getGenres();
+    }, []);
+
     return (
         <MainContainer
             keywords={['homePage', 'iviEtoKryto']}
@@ -45,20 +75,19 @@ function MoviesPage() {
                             <p>{t('moviesPage:moviesSpoiler.content.4')}</p>
                         </SpoilerUI>
                     </div>
-
                     <FilterPanel>
                         <FilterPlank
                             title={t('moviesPage:filterPanel.genres')}
                             className={plankStyles.container__dropdown_leftPositioned}
                         >
-                            <FilterList items={genres} />
+                            <FilterList items={genresList} />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.countries')}
                             className={plankStyles.container__dropdown_centerPositioned}
                         >
-                            <FilterList items={countries} />
+                            <FilterList items={countriesList} />
                         </FilterPlank>
 
                         <FilterPlank
@@ -86,22 +115,23 @@ function MoviesPage() {
                             <FilterSearch searchBy="Актёр" />
                         </FilterPlank>
                     </FilterPanel>
+                    {!filtersApplied && (
+                        <>
+                            <div className={styles.container__section}>
+                                <MoviesSection title={t('moviesPage:releases')} movies={ratingMovies} href="/" />
+                            </div>
 
-                    <div className={styles.container__section}>
-                        <MoviesSection title={t('moviesPage:releases')} movies={ratingMovies} href="/" />
-                    </div>
-
-                    <div className={styles.container__section}>
-                        <MoviesSection title={t('moviesPage:topMovies')} movies={ratingMovies} href="/" />
-                    </div>
-
-                    <div className={styles.container__section}>
-                        <PersonsSection size="large" persons={actors} />
-                    </div>
-
-                    <div className={styles.container__section}>
-                        <MoviesSection title={t('moviesPage:UHDmovies')} movies={ratingMovies} href="/" />
-                    </div>
+                            <div className={styles.container__section}>
+                                <MoviesSection title={t('moviesPage:topMovies')} movies={ratingMovies} href="/" />
+                            </div>
+                            <div className={styles.container__section}>
+                                <PersonsSection size="large" persons={actors} />
+                            </div>
+                            <div className={styles.container__section}>
+                                <MoviesSection title={t('moviesPage:UHDmovies')} movies={ratingMovies} href="/" />
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
         </MainContainer>

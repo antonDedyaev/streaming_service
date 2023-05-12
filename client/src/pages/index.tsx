@@ -37,7 +37,7 @@ function HomePage() {
                     </div>
 
                     <ShapedLinkUI
-                        href="/https://www.ivi.ru/subscribe?redirect_url=%2F"
+                        href="https://www.ivi.ru/subscribe?redirect_url=%2F"
                         className={styles.container__link}
                         shape="rectangular"
                     >
