@@ -9,7 +9,6 @@ import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
-import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import { singleParagraph } from '@/components/UI/Spoiler/storiesTemplates';
 import CommentItem from '@/components/comments/CommentItem/CommentItem';
 import { comments } from '@/components/comments/commentsTestData';

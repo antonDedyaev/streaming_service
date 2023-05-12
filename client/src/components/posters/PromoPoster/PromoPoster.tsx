@@ -18,7 +18,7 @@ const PromoPoster = ({ movie, className, synopsis }: PromoPosterProps) => {
             <div className={[style.container__imageWrapper, style.container__imageWrapper_background].join(' ')}>
                 <Image
                     className={[style.container__image, style.container__image_background].join(' ')}
-                    src={movie.image}
+                    src={movie.posterUrl}
                     alt={movie.name}
                     fill
                 />
