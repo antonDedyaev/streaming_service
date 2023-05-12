@@ -3,6 +3,7 @@ import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import ActorList from '@/components/actor/ActorList/ActorList';
 import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface MoviePersonsItemProps {
     movie: IMovie;
@@ -16,6 +17,8 @@ const MoviePersonsItem = ({ movie, title }: MoviePersonsItemProps) => {
         setQuantity(movie.actors.length);
         setShowButton(false);
     };
+
+    const { t } = useTranslation('movie');
 
     return (
         <div className={styles.container}>
@@ -31,7 +34,7 @@ const MoviePersonsItem = ({ movie, title }: MoviePersonsItemProps) => {
                         background="transparent"
                         onClick={() => showMore()}
                     >
-                        Показать ещё
+                        {t('showMore')}
                     </ButtonUI>
                 )}
             </div>

@@ -4,12 +4,14 @@ import Image from 'next/image';
 import poster_1 from './samples/poster_1.jpeg';
 import Link from 'next/link';
 import IMovie from '@/models/IMovie';
+import { useTranslation } from 'react-i18next';
 
 interface FilmographyItemProps {
     movie: IMovie;
 }
 
 const FilmographyItem = ({ movie }: FilmographyItemProps) => {
+    const { t } = useTranslation('actor');
     return (
         <div className={styles.container}>
             <Link href={`/movies/${movie.name}`} className={styles.container__body}>
@@ -26,13 +28,13 @@ const FilmographyItem = ({ movie }: FilmographyItemProps) => {
                         </h2>
 
                         <div className={styles.container__ratingContainer}>
-                            <span className={styles.container__ratingLabel}>Рейтинг Иви:</span>
+                            <span className={styles.container__ratingLabel}>{t('rating')}: </span>
                             <span className={styles.container__ratingValue}>{/*movie.rating*/}7.2</span>
                         </div>
                     </div>
 
                     <ButtonUI shape="large" className={styles.container__button} background="gray">
-                        Подробнее
+                        {t('details')}
                     </ButtonUI>
                 </div>
             </Link>

@@ -11,12 +11,30 @@ import { useRouter } from 'next/router';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.data';
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticProps } from 'next';
+import { useTranslation } from 'react-i18next';
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+    props: {
+        ...(await serverSideTranslations(locale!, ['common', 'footer', 'header', 'modals', 'movie', 'moviesPage'])),
+    },
+});
+
+export const getStaticPaths = async () => {
+    return {
+        paths: ['/movies/id'],
+        fallback: true,
+    };
+};
+
 function CardMoviePage() {
     const { query } = useRouter();
-
     const queryParams = Object.keys(query);
+
+    const { t } = useTranslation('movie');
     return (
-        <MainContainer keywords={['movie', 'ivi']} title="...смотреть онлайн в хорошем качестве" page="other">
+        <MainContainer keywords={['movie', 'ivi']} title={`...${t('browserTab')}`} page="other">
             <div className={[styles.container, 'container'].join(' ')}>
                 <section className={[styles.container__page, styles.page].join(' ')}>
                     <div className={styles.page__block}>
@@ -33,7 +51,11 @@ function CardMoviePage() {
                 </section>
 
                 <section className={styles.container__watch}>
-                    <MoviesSection title={`С фильмом «${movies[0].title}» смотрят`} movies={ratingMovies} href="" />
+                    <MoviesSection
+                        title={`${t('withMovie.0')} «${movies[0].title}» ${t('withMovie.1')}`}
+                        movies={ratingMovies}
+                        href=""
+                    />
                 </section>
 
                 <section className={styles.container__persons}>

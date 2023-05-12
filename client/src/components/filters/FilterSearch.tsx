@@ -3,6 +3,7 @@ import styles from './FilterSearch.module.scss';
 import Autosuggest from 'react-autosuggest';
 import axios from 'axios';
 import theme from './theme.module.scss';
+import { useTranslation } from 'next-i18next';
 interface ISearch {
     searchBy: string;
 }
@@ -12,8 +13,11 @@ interface IPerson {
 }
 
 const FilterSearch = ({ searchBy }: ISearch) => {
+    const { t } = useTranslation('moviesPage');
     const [inputValue, setInputValue] = useState('');
     const [suggestions, setSuggestions] = useState([]);
+
+    const searchParam = searchBy === 'Режиссёр' ? t('filterPanel.searchByDirector') : t('filterPanel.searchByActor');
 
     useEffect(() => {
         const input = document.getElementById(searchBy);
@@ -36,7 +40,7 @@ const FilterSearch = ({ searchBy }: ISearch) => {
                     <Autosuggest
                         theme={theme}
                         inputProps={{
-                            placeholder: `Поиск по ${searchBy.toLowerCase()}у`,
+                            placeholder: searchParam,
                             name: 'person',
                             id: searchBy.toLowerCase(),
                             value: inputValue,

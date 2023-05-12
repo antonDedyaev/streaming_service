@@ -3,18 +3,24 @@ import styles from './FilmographySection.module.scss';
 import { declineWord } from '@/utils/functions';
 import ActorFilmographyList from '@/components/actor/ActorFilmographyList/ActorFilmographyList';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
+import { useTranslation } from 'react-i18next';
 
 interface FilmographySectionProps {
     movies: IMovie[];
 }
 
 const FilmographySection = ({ movies }: FilmographySectionProps) => {
+    const { t } = useTranslation(['actor', 'moviesPage']);
     return (
         <div className={styles.section}>
             <div className={styles.section__header}>
-                <h2 className={styles.section__title}>Полная фильмография</h2>
+                <h2 className={styles.section__title}>{t('title')}</h2>
                 <p className={styles.section__amount}>
-                    {`${movies.length} ${declineWord(movies.length, ['фильм', 'фильма', 'фильмов'])}`}
+                    {`${movies.length} ${declineWord(movies.length, [
+                        t('filmography.singleMovie', { ns: 'moviesPage' }),
+                        t('filmography.fewMovies', { ns: 'moviesPage' }),
+                        t('filmography.manyMovies', { ns: 'moviesPage' }),
+                    ])}`}
                 </p>
             </div>
 
@@ -26,10 +32,10 @@ const FilmographySection = ({ movies }: FilmographySectionProps) => {
                 {movies.length > 8 && (
                     <SpoilerUI
                         toggleButtonTexts={[
-                            `Ещё ${movies.length - 8} ${declineWord(movies.length - 8, [
-                                'фильм',
-                                'фильма',
-                                'фильмов',
+                            `${t('more')} ${movies.length - 8} ${declineWord(movies.length - 8, [
+                                t('filmography.singleMovie', { ns: 'moviesPage' }),
+                                t('filmography.fewMovies', { ns: 'moviesPage' }),
+                                t('filmography.manyMovies', { ns: 'moviesPage' }),
                             ])}`,
                             '',
                         ]}

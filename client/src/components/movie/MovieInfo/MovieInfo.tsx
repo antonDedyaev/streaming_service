@@ -7,12 +7,14 @@ import MovieOptions from '../MovieOptions/MovieOptions';
 import MovieMedallionsList from '../movieMedallion/MovieMedallionsList/MovieMedallionsList';
 import MoviePlayer from '../MoviePlayer/MoviePlayer';
 import MovieButtons from '../MovieButtons/MovieButtons';
+import { useTranslation } from 'next-i18next';
 
 interface MovieInfoProps {
     movie: IMovie;
 }
 
 const MovieInfo = ({ movie }: MovieInfoProps) => {
+    const { t } = useTranslation('movie');
     return (
         <div className={styles.container}>
             <h1 className={styles.container__title}>{movie.title}</h1>
@@ -30,7 +32,7 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
                     <MovieMedallionsList movie={movie} className={styles.container__blockCards} />
                     <div className={styles.container__blockSpoiler}>
                         <SpoilerUI
-                            toggleButtonTexts={['Детали о фильме', 'Свернуть детали']}
+                            toggleButtonTexts={[t('showMovieDetails'), t('hideMovieDetails')]}
                             shownLines={6}
                             truncateFormat="vertical"
                             buttonTextColor="faded"
