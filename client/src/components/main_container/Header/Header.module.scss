@@ -104,6 +104,24 @@
             }
         }
 
+        &_locale {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            margin-left: 20px;
+            border-radius: 8px;
+            border: 2px solid #fff;
+
+            color: #fff;
+            text-transform: uppercase;
+
+            &:hover {
+                box-shadow: 0 0 15px #ffffff98;
+            }
+        }
+
         &:hover {
             opacity: 1;
         }
@@ -131,7 +149,7 @@
 @media (max-width: 600px) {
     .container {
         margin: 0;
-        
+
         &_home {
             height: 55px;
             justify-content: right;
@@ -179,4 +197,3 @@
         }
     }
 }
-

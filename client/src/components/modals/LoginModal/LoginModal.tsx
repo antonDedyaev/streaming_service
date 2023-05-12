@@ -4,12 +4,14 @@ import ModalInputUI from '@/components/UI/ModalInput/ModalInputUI';
 import { useRef, useState } from 'react';
 import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import { loginAPI } from '@/store/services/LoginService';
+import { useTranslation } from 'next-i18next';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up';
 }
 
 const LoginModal = ({ type }: LoginModalProps) => {
+    const { t } = useTranslation('modals');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [repeatPassword, setRepeatPassword] = useState<string>('');
@@ -87,7 +89,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                             focus={emailFocus}
                             type="email"
                             inputType="text"
-                            placeholder="Введите email"
+                            placeholder={t('loginModal.emailInput')}
                             value={email}
                             onChange={(value) => setEmail(value)}
                         />
@@ -102,7 +104,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                             focus={passwordFocus}
                             type="password"
                             inputType={isShowPassword ? 'text' : 'password'}
-                            placeholder="Введите пароль"
+                            placeholder={t('loginModal.passwordInput')}
                             value={password}
                             onChange={(value) => setPassword(value)}
                             onClick={() => setIsShowPassword(!isShowPassword)}
@@ -127,13 +129,8 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         </div>
                     )}
 
-                    <ButtonUI
-                        onClick={type === 'sign-in' ? signInHandler : signUpHandler}
-                        className={styles.container__button}
-                        background="lightRed"
-                        shape="large"
-                    >
-                        {type === 'sign-in' ? 'Войти' : 'Зарегистрироваться'}
+                    <ButtonUI onClick={type === 'sign-in' ? signInHandler : signUpHandler} className={styles.container__button} background="lightRed" shape="large">
+                        {type === 'sign-in' ? t('loginModal.signIn') : t('loginModal.signUp')}
                     </ButtonUI>
                 </div>
             </div>

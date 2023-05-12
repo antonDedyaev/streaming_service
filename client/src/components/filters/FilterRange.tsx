@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from './FilterRange.module.scss';
 import { useState } from 'react';
 import greaterThan from '../../../public/icons/greater-than.svg';
+import { useTranslation } from 'next-i18next';
 
 interface IRating {
     image: string;
@@ -10,6 +11,7 @@ interface IRating {
 }
 
 const FilterRange = ({ image, limit, step }: IRating) => {
+    const { t } = useTranslation('moviesPage');
     const [ratingValue, setRatingValue] = useState(0);
 
     return (
@@ -23,7 +25,7 @@ const FilterRange = ({ image, limit, step }: IRating) => {
                 >
                     <Image src={image} height={26} width={26} alt="Рейтинг" />
                     <Image src={greaterThan} height={18} width={18} alt="Знак больше" />
-                    <span>{ratingValue === 0 ? 'не выбрано' : ratingValue.toLocaleString()}</span>
+                    <span>{ratingValue === 0 ? t('filterPanel.notSelected') : ratingValue.toLocaleString()}</span>
                 </div>
                 <div>
                     <input

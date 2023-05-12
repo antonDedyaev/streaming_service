@@ -1,0 +1,15 @@
+{
+    "myIvi": "My Ivi",
+    "latest": "What's new",
+    "movies": "Movies",
+    "tvShows": "TV shows",
+    "cartoons": "Cartoons",
+    "broadcast": "TV+",
+    "dropmenu": {
+        "genres": "Genres",
+        "countries": "Countries",
+        "years": "Years"
+    },
+    "freePeriod": "Watch 30 days for free",
+    "search": "Search"
+}

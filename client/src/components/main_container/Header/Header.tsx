@@ -11,18 +11,22 @@ import DropMenu from '../DropMenu/DropMenu';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
+import { useTranslation } from 'next-i18next';
 
 interface HeaderProps {
     page: 'home' | 'other';
 }
 
 const Header = ({ page }: HeaderProps) => {
+    const { t } = useTranslation('header');
     const [isShowMoviesDrop, setIsShowMoviesDrop] = useState<boolean>(false);
     const [isShowSeriesDrop, setIsShowSeriesDrop] = useState<boolean>(false);
     const [isShowCartoonDrop, setIsShowCartoonDrop] = useState<boolean>(false);
     const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
 
-    const { asPath } = useRouter();
+    const { asPath, locale } = useRouter();
+
+    const currentLocale = locale === 'ru' ? 'en' : 'ru';
 
     const clearShowHandler = () => {
         setIsShowMoviesDrop(false);
@@ -76,40 +80,40 @@ const Header = ({ page }: HeaderProps) => {
                         links={[
                             {
                                 href: '/',
-                                text: 'Мой Иви',
+                                text: t('myIvi'),
                                 option: 'dim',
                                 onMouseOver: clearShowHandler,
                             },
                             {
                                 href: '/',
-                                text: 'Что нового',
+                                text: t('latest'),
                                 option: 'dim',
                                 onMouseOver: clearShowHandler,
                             },
                             {
                                 href: '/movies',
-                                text: 'Фильмы',
+                                text: t('movies'),
                                 option: 'dim',
                                 onMouseOver: mouseOverMovieHandler,
                                 className: [styles.container__menuLink, styles.container__menuLink_movie].join(' '),
                             },
                             {
                                 href: '/',
-                                text: 'Сериалы',
+                                text: t('tvShows'),
                                 option: 'dim',
                                 onMouseOver: mouseOverSeriesHandler,
                                 className: [styles.container__menuLink, styles.container__menuLink_series].join(' '),
                             },
                             {
                                 href: '/',
-                                text: 'Мультфильмы',
+                                text: t('cartoons'),
                                 option: 'dim',
                                 onMouseOver: mouseOverСartoonHandler,
                                 className: [styles.container__menuLink, styles.container__menuLink_cartoon].join(' '),
                             },
                             {
                                 href: '/',
-                                text: 'TV+',
+                                text: t('broadcast'),
                                 option: 'dim',
                                 onMouseOver: clearShowHandler,
                             },
@@ -119,12 +123,12 @@ const Header = ({ page }: HeaderProps) => {
 
                 <div className={styles.container__rightSide}>
                     <ButtonUI background="lightRed" shape="small" className={styles.container__button}>
-                        Смотреть 30 дней бесплатно
+                        {t('freePeriod')}
                     </ButtonUI>
 
                     <TextLinkUI href={`${asPath}?ivi_search`} option="bright" className={styles.container__search}>
                         <Image className={styles.container__icon} src={searchIcon} alt="" />
-                        <p className={styles.container__text}>Поиск</p>
+                        <p className={styles.container__text}>{t('search')}</p>
                     </TextLinkUI>
 
                     <Link href={'/'} className={[styles.container__link, styles.container__link_bell].join(' ')}>
@@ -141,6 +145,14 @@ const Header = ({ page }: HeaderProps) => {
                             alt="Пользователь"
                         />
                     </Link>
+
+                    <Link
+                        href={asPath}
+                        locale={currentLocale}
+                        className={[styles.container__link, styles.container__link_locale].join(' ')}
+                    >
+                        {currentLocale}
+                    </Link>
                 </div>
 
                 <DropMenu
@@ -151,7 +163,7 @@ const Header = ({ page }: HeaderProps) => {
                         isShowMoviesDrop
                             ? [
                                   {
-                                      title: 'Жанры',
+                                      title: t('dropmenu.genres'),
                                       links: [
                                           { text: 'фильм', href: '/' },
                                           { text: 'фильм', href: '/' },
@@ -162,7 +174,7 @@ const Header = ({ page }: HeaderProps) => {
                                       ],
                                   },
                                   {
-                                      title: 'Страны',
+                                      title: t('dropmenu.countries'),
                                       links: [
                                           { text: 'Страна', href: '/' },
                                           { text: 'Страна', href: '/' },
@@ -173,7 +185,7 @@ const Header = ({ page }: HeaderProps) => {
                                       ],
                                   },
                                   {
-                                      title: 'Годы',
+                                      title: t('dropmenu.years'),
                                       links: [
                                           { text: 'Год', href: '/' },
                                           { text: 'Год', href: '/' },
@@ -187,7 +199,7 @@ const Header = ({ page }: HeaderProps) => {
                             : isShowSeriesDrop
                             ? [
                                   {
-                                      title: 'Жанры',
+                                      title: t('dropmenu.genres'),
                                       links: [
                                           { text: 'сериал', href: '/' },
                                           { text: 'сериал', href: '/' },
@@ -198,7 +210,7 @@ const Header = ({ page }: HeaderProps) => {
                                       ],
                                   },
                                   {
-                                      title: 'Страны',
+                                      title: t('dropmenu.countries'),
                                       links: [
                                           { text: 'Страна', href: '/' },
                                           { text: 'Страна', href: '/' },
@@ -209,7 +221,7 @@ const Header = ({ page }: HeaderProps) => {
                                       ],
                                   },
                                   {
-                                      title: 'Годы',
+                                      title: t('dropmenu.years'),
                                       links: [
                                           { text: 'Год', href: '/' },
                                           { text: 'Год', href: '/' },
@@ -222,7 +234,7 @@ const Header = ({ page }: HeaderProps) => {
                               ]
                             : [
                                   {
-                                      title: 'Жанры',
+                                      title: t('dropmenu.genres'),
                                       links: [
                                           { text: 'мультфильм', href: '/' },
                                           { text: 'мультфильм', href: '/' },
@@ -233,7 +245,7 @@ const Header = ({ page }: HeaderProps) => {
                                       ],
                                   },
                                   {
-                                      title: 'Страны',
+                                      title: t('dropmenu.countries'),
                                       links: [
                                           { text: 'Страна', href: '/' },
                                           { text: 'Страна', href: '/' },
@@ -244,7 +256,7 @@ const Header = ({ page }: HeaderProps) => {
                                       ],
                                   },
                                   {
-                                      title: 'Годы',
+                                      title: t('dropmenu.years'),
                                       links: [
                                           { text: 'Год', href: '/' },
                                           { text: 'Год', href: '/' },

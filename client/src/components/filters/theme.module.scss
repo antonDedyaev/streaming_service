@@ -56,3 +56,17 @@
     color: red;
     transition-duration: 0.1s;
 }
+
+@media screen and (min-width: 880px) and (max-width: 1099px) {
+    .input {
+        &::placeholder {
+            font-size: 8px;
+        }
+    }
+}
+
+@media screen and (max-width: 879px) {
+    .container {
+        width: 100%;
+    }
+}

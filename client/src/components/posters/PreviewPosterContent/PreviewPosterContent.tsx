@@ -5,6 +5,7 @@ import wand from '../../../../public/icons/posters/wand.png';
 import star from '../../../../public/icons/posters/star.png';
 import circle from '../../../../public/icons/posters/circle.png';
 import styles from './PreviewPosterContent.module.scss';
+import PreviewPosterContentBrief from '../PreviewPosterContentBrief/PreviewPosterContentBrief';
 
 interface PreviewPosterContentProps {
     movie: IMovie;
@@ -36,6 +37,14 @@ const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
                 />
             </div>
             <div className={styles.container__info}>
+                <PreviewPosterContentBrief movie={movie} />
+            </div>
+        </div>
+    );
+};
+
+export default PreviewPosterContent;
+/* <div className={styles.container__info}>
                 <div className={styles.container__rating}>
                     <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>9</span>
                     <span className={[styles.container__rating, styles.container__rating_fraction].join(' ')}>,1</span>
@@ -44,9 +53,4 @@ const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
                     <p>год, страна, жанр</p>
                     <p>продолжительность</p>
                 </div>
-            </div>
-        </div>
-    );
-};
-
-export default PreviewPosterContent;
+            </div> */

@@ -1,0 +1,45 @@
+{
+    "about": {
+        "title": "О нас",
+        "company": "О компании",
+        "vacancies": "Вакансии",
+        "betaTests": "Программа бета-тестирования",
+        "forPartners": "Информация для партнёров",
+        "advertising": "Размещение рекламы",
+        "userAgreement": "Пользовательское соглашение",
+        "confidentiality": "Политика конфиденциальности",
+        "compliance": "Комплаенс"
+    },
+    "categories": {
+        "title": "Разделы",
+        "myIvi": "Мой Иви",
+        "latest": "Что нового",
+        "movies": "Фильмы",
+        "tvShows": "Сериалы",
+        "cartoons": "Мультфильмы",
+        "broadcast": "TV+",
+        "recommendations": "Что посмотреть",
+        "certificate": "Активация сертификата"
+    },
+    "support": {
+        "title": "Служба поддержки",
+        "disclaimer": {
+            "help": "Мы всегда готовы вам помочь.",
+            "operators": "Наши операторы онлайн 24/7"
+        },
+        "chat": "Написать в чате",
+        "freeCall": "Бесплатно по России",
+        "FAQ": "Ответы на вопросы"
+    },
+    "noAds": "Смотрите фильмы, сериалы и мультфильмы без рекламы",
+    "stores": {
+        "appStore": "Загрузить в",
+        "googlePlay": "Доступно в",
+        "smartTV": "Смотрите на",
+        "allDevices": "Все устройства"
+    },
+    "copyrights": {
+        "ivi": "ООО «Иви.ру»",
+        "HBO": "HBO ® and related service marks are the property of Home Box Office, Inc"
+    }
+}

@@ -31,9 +31,12 @@ const SpoilerUI = ({
                 data-testid="clipped-text"
                 className={[styles.container, textDisplayClass].join(' ')}
             >
-                <div className={[styles.container__text, shownLines !== 0 ? 'clamped' : 'hidden'].join(' ')}>{children}</div>
+                <div className={[styles.container__text, shownLines !== 0 ? 'clamped' : 'hidden'].join(' ')}>
+                    {children}
+                </div>
+
                 <ButtonUI
-                    className={[styles.container__button, buttonColor].join(' ')}
+                    className={[styles.container__button, buttonColor].join(' ').trim()}
                     onClick={() => setIsShowAll(!isShowAll)}
                     background="transparent"
                     shape="none"
@@ -41,6 +44,7 @@ const SpoilerUI = ({
                     {isShowAll ? toggleButtonTexts[1] : toggleButtonTexts[0]}
                 </ButtonUI>
             </div>
+
             <style jsx>
                 {`
                     .hidden {

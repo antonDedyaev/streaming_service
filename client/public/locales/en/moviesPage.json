@@ -1,0 +1,33 @@
+{
+    "moviesSpoiler": {
+        "header": "Watch movies online",
+        "content": [
+            "You like to watch movies online and spend a lot of time browsing websites for something interesting? You should stay longer at ivi.ru – we have gathered a collection of movies that will entertain you for a long time. The collection is constantly updated with both new films and recognized masterpieces of the past years! No matter who you are – a fan of dynamic action movies or a fan of youth TV series, our rich catalog will make you forget about all other leisure activities, and you will watch your favorite movies online again and again!",
+            "The choice of movies is very wide and diverse, so everyone will find something to their taste. You prefer only foreign films? We have plenty of them: from the golden classics of Hollywood and hearty French comedies to emotional Italian dramas and loud Indian musical films. Or maybe you are a patriot and love Russian films? There are plenty of such movies in the calalogue. What do you prefer more – good old classics or new movies? It doesn't matter what your answer will be – we have everything, including films from the time, when cinema was born, as well as films of 2018 and 2017.",
+            "You will find any genres in our catalogue. There are movies about love, detectives, action movies, westerns, sci-fy, art house, hilarious comedies, movies about war, horrors, thrillers, documentaries... In addition to full-length movies we can offer short movies, as well as foreign and russian TV shows.",
+            "If you'd like to watch the most iconic movies in certain genres online, the categorization system will help you navigate and find, for example, the best dramas or the best animated movie.",
+            "Don't miss a great chance to watch movies online and without registration, choosing only what's really interesting to you and when it's convenient for you. After all, it's so simple and nice!"
+        ]
+    },
+    "filterPanel": {
+        "genres": "Genres",
+        "countries": "Countries",
+        "rating": "Rating",
+        "userRank": "Reviews",
+        "director": "Director",
+        "actor": "Actor",
+        "removeFilters": "Remove filters",
+        "notSelected": "not selected",
+        "searchByDirector": "Search by director",
+        "searchByActor": "Search by actor"
+    },
+    "releases": "Premieres",
+    "topMovies": "Top movies",
+    "celebrities": "Celebrities",
+    "UHDmovies": "4K UHD movies",
+    "filmography": {
+        "singleMovie": "movie",
+        "fewMovies": "movies",
+        "manyMovies": "movies"
+    }
+}
