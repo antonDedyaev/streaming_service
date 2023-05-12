@@ -3,12 +3,14 @@ import styles from './LoginModal.module.scss';
 import ModalInputUI from '@/components/UI/ModalInput/ModalInputUI';
 import { useRef, useState } from 'react';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
+import { useTranslation } from 'next-i18next';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up';
 }
 
 const LoginModal = ({ type }: LoginModalProps) => {
+    const { t } = useTranslation('modals');
     const [email, setEmail] = useState<string>('');
     const [passord, setPassord] = useState<string>('');
     const [repeatPassord, setRepeatPassord] = useState<string>('');
@@ -52,7 +54,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                 case passwordWrapper.contains(event.currentTarget):
                     setPasswordFocus(true);
                     break;
-    
+
                 case repeatPasswordWrapper.contains(event.currentTarget):
                     setRepeatPasswordFocus(true);
                     break;
@@ -73,7 +75,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                             focus={emailFocus}
                             type="email"
                             inputType="text"
-                            placeholder="Введите email"
+                            placeholder={t('loginModal.emailInput')}
                             value={email}
                             onChange={(value) => setEmail(value)}
                         />
@@ -88,7 +90,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                             focus={passwordFocus}
                             type="password"
                             inputType={isShowPassword ? 'text' : 'password'}
-                            placeholder="Введите пароль"
+                            placeholder={t('loginModal.passwordInput')}
                             value={passord}
                             onChange={(value) => setPassord(value)}
                             onClick={() => setIsShowPassword(!isShowPassword)}
@@ -114,7 +116,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                     )}
 
                     <ColoredButton className={styles.container__button} color="red" size="large">
-                        {type === 'sign-in' ? 'Войти' : 'Зарегистрироваться'}
+                        {type === 'sign-in' ? t('loginModal.signIn') : t('loginModal.signUp')}
                     </ColoredButton>
                 </div>
             </div>

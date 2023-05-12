@@ -1,0 +1,31 @@
+{
+    "promoMoviePosters": [
+        "A striking detective and a timid scientist must team up to solve a complicated case.",
+        "Your favourite Jason Statham and Hugh Grant save the world in a spy comedy by your favourite Guy Ritchie",
+        "A successful lawyer is trying to save his son from crossing a dangerous line. Hugh Jackman in a powerful drama from the director of The Father"
+    ],
+    "freeSubscriptionButton": "Free subscription for 30 days",
+
+    "benefitsSpoiler": {
+        "header": "Ivi streaming service: movies in good quality are always a real pleasure",
+        "content": [
+            "Every day millions of people search for movies online, but nobody wants to make this complicated – and you must be one of them! If so, than Ivi is exactly what you need. You are just one click away from the best films in HD-quality. Not only you don't have to go to a cinema or study a TV guide anymore, we are giving you much more opportunities.",
+            "The Ivi video library is a constantly growing collection on the Runet with more than 60 thousand Russian and foreign movies and shows available for online streaming. We were the first streaming platform in Russia to sign contracts with major Hollywood studios (Walt Disney, Warner Bros., Sony, 20th Century Fox, Universal, Paramount, MGM and others) and we continue collaboration with major Russian companies and TV channels.",
+            "Ivi.ru streaming service offers:",
+            "Discover an opportunity to watch movies online for free and in excellent quality with Ivi streaming service!"
+        ],
+        "benefitsList": [
+            "a unique recommendation system that takes into account your preferences and suggests watching the content that you will definitely appreciate;",
+            "one-touch streaming on any of the devices connected to your Ivi account – from smartphones to Smart TVs;",
+            "the option to download licensed content to your mobile device and watch it offline;",
+            "unique conditions and benefits for Ivi subscribers, that make watching comfortable and enjoyable;",
+            "a convenient and advanced notification system. You won't miss the release of a cool and popular blockbuster – we will notify you in a way that you prefer;",
+            "the option to add movies to \"watch later\" list and get back to watching them in your free time;",
+            "content that doesn't require you to install video players or search for codecs;",
+            "watching online content in good resolution without registration and text messages."
+        ]
+    },
+    "weekTop": "for the past week",
+    "foreignMovies": "Foreign movies",
+    "dramas": "Dramas"
+}

@@ -4,11 +4,13 @@ import closeIcon from '../../../public/icons/close.svg';
 import { ReactNode, useState } from 'react';
 import TransparentButton from '../UI/buttons/TransparentButton/TransparentButton';
 
+import { UseTranslation, useTranslation } from 'next-i18next';
 interface IPanel {
     children: ReactNode;
 }
 
 const FilterPanel = ({ children }: IPanel) => {
+    const { t } = useTranslation('moviesPage');
     const [isFilterSelected, setIsFilterSelected] = useState(false);
 
     return (
@@ -26,7 +28,7 @@ const FilterPanel = ({ children }: IPanel) => {
                             onClick={() => setIsFilterSelected(false)}
                         >
                             <Image src={closeIcon} height={16} width={16} alt="Иконка-крестик" />
-                            Сбросить фильтры
+                            {t('filterPanel.removeFilters')}
                         </TransparentButton>
                     </div>
                 </div>
