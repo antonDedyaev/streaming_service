@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import IMovie from '@/models/IMovie';
 
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');
@@ -14,28 +15,6 @@ interface IFilters {
     userRates: number;
     director: string;
     actor: string;
-}
-
-interface IMovie {
-    id: number;
-    type: string;
-    name: string;
-    enName: string;
-    posterUrl: string;
-    posterpreviewUrl: string;
-    year: number;
-    description: string;
-    shortDescription: string;
-    ageRating: number;
-    ratingkp: number;
-    votesKp: number;
-    movieLength: number;
-    genres: any[];
-    countries: any[];
-    persons: any[];
-    place?: number;
-    premiererussia: string;
-    hasImax: boolean;
 }
 
 interface IMoviesState {
@@ -69,7 +48,6 @@ const moviesSlice = createSlice({
                     return { ...item.film, genres: item.genres, countries: item.countries };
                 });
                 console.log('fullfilled');
-                console.log(complete);
                 state.movies = complete;
             });
     },

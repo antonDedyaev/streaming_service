@@ -9,6 +9,11 @@ import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
+import { singleParagraph } from '@/components/UI/Spoiler/storiesTemplates';
+import CommentItem from '@/components/comments/CommentItem/CommentItem';
+import { comments } from '@/components/comments/commentsTestData';
+import CommentsList from '@/components/comments/CommentsList/CommentsList';
+import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
 import Link from 'next/link';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -24,12 +29,13 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 function HomePage() {
     const { t } = useTranslation();
     return (
-        <MainContainer
-            keywords={['homePage', 'iviEtoKryto']}
-            title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
-            page="home"
-        >
-            <div className={styles.container}>
+        <>
+            <MainContainer
+                keywords={['homePage', 'iviEtoKryto']}
+                title="Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем качестве"
+                page="home"
+            >
+                         <div className={styles.container}>
                 <div className="container">
                     <div className={[styles.container__section, styles.container__section_promo].join(' ')}>
                         <Slider itemType="promo" length={promoMovies.length}>
@@ -86,7 +92,8 @@ function HomePage() {
                     </div>
                 </div>
             </div>
-        </MainContainer>
+            </MainContainer>
+        </>
     );
 }
 

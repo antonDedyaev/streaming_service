@@ -1,0 +1,42 @@
+.button {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+
+    &_large {
+        padding: 10px 15px;
+    }
+
+    &_medium {
+        padding: 10px 12px;
+    }
+
+    &_small {
+        padding: 7px 11px;
+    }
+
+    &_red {
+        background-color: #ea003d;
+        &:hover {background-color: #e42e5f}
+    }
+
+    &_gray {
+        background-color: #1f1b2e;
+        &:hover {background-color: #2e2844}
+    }
+
+    &_lightGray {
+        background-color: rgba(255, 255, 255, 0.08);
+        &:hover {background-color: rgba(255, 255, 255, 0.2)}
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:not(:hover) {
+        transition: 0.4s;
+    }
+}

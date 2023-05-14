@@ -5,6 +5,7 @@ export default interface IMovie {
     enName: string;
     posterUrl: string;
     posterpreviewUrl: string;
+    logo?: string;
     year: number;
     description: string;
     shortDescription: string;

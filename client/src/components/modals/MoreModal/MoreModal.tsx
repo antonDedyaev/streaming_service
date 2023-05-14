@@ -26,7 +26,7 @@ const MoreModal = ({ movie }: MoreModalProps) => {
                     <Link href="/">
                         <Image
                             className={styles.container__posterImage}
-                            src={ratingMovies[1].image}
+                            src={ratingMovies[1].posterUrl}
                             alt={ratingMovies[1].name}
                             width={128}
                             height={196}
