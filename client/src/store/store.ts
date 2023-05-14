@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { loginAPI } from './services/LoginService';
+import moviesSliceReducer from './slices/moviesSlice';
 
 const rootReducer = combineReducers({
     [loginAPI.reducerPath]: loginAPI.reducer,
+    movies: moviesSliceReducer,
 });
 
 export const setupStore = () => {

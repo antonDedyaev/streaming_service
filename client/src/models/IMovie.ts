@@ -1,9 +1,21 @@
 export default interface IMovie {
-	name: string
-    image: string
-    logo: string
-    year?: number
-    synopsis?: string
-    place?: number
-    rating?: number
+    id: number;
+    type: string;
+    name: string;
+    enName: string;
+    posterUrl: string;
+    posterpreviewUrl: string;
+    year: number;
+    description: string;
+    shortDescription: string;
+    ageRating: number;
+    ratingkp: number;
+    votesKp: number;
+    movieLength: number;
+    genres: any[];
+    countries: any[];
+    persons: any[];
+    place?: number;
+    premiererussia: string;
+    hasImax: boolean;
 }

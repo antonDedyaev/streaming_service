@@ -105,21 +105,10 @@
         }
 
         &_locale {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            margin-left: 20px;
-            border-radius: 8px;
-            border: 2px solid #fff;
+            margin-right: 20px;
 
             color: #fff;
             text-transform: uppercase;
-
-            &:hover {
-                box-shadow: 0 0 15px #ffffff98;
-            }
         }
 
         &:hover {

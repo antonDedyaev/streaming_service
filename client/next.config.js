@@ -4,10 +4,12 @@ const { i18n } = require('./next-i18next.config');
 const nextConfig = {
     reactStrictMode: true,
     images: {
+        domains: ['localhost'],
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'thumbs.dfs.ivi.ru',
+                hostname: '**',
+                //hostname: 'thumbs.dfs.ivi.ru',
             },
         ],
     },

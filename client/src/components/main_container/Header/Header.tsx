@@ -136,6 +136,14 @@ const Header = ({ page }: HeaderProps) => {
                     </Link>
 
                     <Link
+                        href={asPath}
+                        locale={currentLocale}
+                        className={[styles.container__link, styles.container__link_locale].join(' ')}
+                    >
+                        {currentLocale}
+                    </Link>
+
+                    <Link
                         href={`${asPath}?sign-in`}
                         className={[styles.container__link, styles.container__link_user].join(' ')}
                     >
@@ -144,14 +152,6 @@ const Header = ({ page }: HeaderProps) => {
                             src={userIcon}
                             alt="Пользователь"
                         />
-                    </Link>
-
-                    <Link
-                        href={asPath}
-                        locale={currentLocale}
-                        className={[styles.container__link, styles.container__link_locale].join(' ')}
-                    >
-                        {currentLocale}
                     </Link>
                 </div>
 

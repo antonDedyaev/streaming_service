@@ -5,7 +5,7 @@ import wand from '../../../../public/icons/posters/wand.png';
 import star from '../../../../public/icons/posters/star.png';
 import circle from '../../../../public/icons/posters/circle.png';
 import styles from './PreviewPosterContent.module.scss';
-import PreviewPosterContentBrief from '../PreviewPosterContentBrief/PreviewPosterContentBrief';
+import { declineWord } from '@/utils/functions';
 
 interface PreviewPosterContentProps {
     movie: IMovie;
@@ -37,20 +37,23 @@ const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
                 />
             </div>
             <div className={styles.container__info}>
-                <PreviewPosterContentBrief movie={movie} />
+                <div className={styles.container__rating}>
+                    <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>
+                        {`${movie.ratingkp}`.slice(0, 1)}
+                    </span>
+                    <span className={[styles.container__rating, styles.container__rating_fraction].join(' ')}>
+                        {`${movie.ratingkp}`.slice(1, 3)}
+                    </span>
+                </div>
+                <div className={styles.container__text}>
+                    <p>
+                        {movie.year}, {movie.countries[0].name}, {movie.genres[0].name}
+                    </p>
+                    <p>{movie.movieLength + ' ' + declineWord(movie.movieLength, ['минута', 'минуты', 'минут'])}</p>
+                </div>
             </div>
         </div>
     );
 };
 
 export default PreviewPosterContent;
-/* <div className={styles.container__info}>
-                <div className={styles.container__rating}>
-                    <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>9</span>
-                    <span className={[styles.container__rating, styles.container__rating_fraction].join(' ')}>,1</span>
-                </div>
-                <div className={styles.container__text}>
-                    <p>год, страна, жанр</p>
-                    <p>продолжительность</p>
-                </div>
-            </div> */

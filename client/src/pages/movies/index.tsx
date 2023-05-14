@@ -5,7 +5,6 @@ import FilterPanel from '@/components/filters/FilterPanel';
 import FilterPlank from '@/components/filters/FilterPlank';
 import plankStyles from '@/components/filters/FilterPlank.module.scss';
 import FilterRange from '@/components/filters/FilterRange';
-import { countries, genres } from '@/components/filters/temp/items';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.data';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
@@ -18,6 +17,8 @@ import { useTranslation } from 'next-i18next';
 import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { fetchMovies } from '@/store/slices/moviesSlice';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -27,11 +28,31 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 
 function MoviesPage() {
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
     const [countriesList, setCountriesList] = useState<string[]>([]);
     const [genresList, setGenresList] = useState<string[]>([]);
     const [filtersApplied, setFiltersApplied] = useState(false);
 
+    const movies = useAppSelector((state) => state.movies.movies);
+
+    const premieres = movies
+        .filter((movie) => movie.premiererussia)
+        .sort((a, b) => new Date(b.premiererussia).getTime() - new Date(a.premiererussia).getTime())
+        .slice(0, 10);
+
+    const bestMovies = movies
+        .filter((movie) => movie.ratingkp)
+        .sort((a, b) => b.ratingkp - a.ratingkp)
+        .slice(0, 10);
+
+    const imaxMovies = movies
+        .filter((movie) => movie.hasImax)
+        .sort((a, b) => new Date(b.premiererussia).getTime() - new Date(a.premiererussia).getTime())
+        .slice(0, 10);
+
     useEffect(() => {
+        dispatch(fetchMovies());
+
         const getCountries = async () => {
             try {
                 const uniqieCountries = new Set<string>();
@@ -118,17 +139,17 @@ function MoviesPage() {
                     {!filtersApplied && (
                         <>
                             <div className={styles.container__section}>
-                                <MoviesSection title={t('moviesPage:releases')} movies={ratingMovies} href="/" />
+                                <MoviesSection title={t('moviesPage:releases')} movies={premieres} href="/" />
                             </div>
 
                             <div className={styles.container__section}>
-                                <MoviesSection title={t('moviesPage:topMovies')} movies={ratingMovies} href="/" />
+                                <MoviesSection title={t('moviesPage:topMovies')} movies={bestMovies} href="/" />
                             </div>
                             <div className={styles.container__section}>
                                 <PersonsSection size="large" persons={actors} />
                             </div>
                             <div className={styles.container__section}>
-                                <MoviesSection title={t('moviesPage:UHDmovies')} movies={ratingMovies} href="/" />
+                                <MoviesSection title={t('moviesPage:imaxMovies')} movies={imaxMovies} href="/" />
                             </div>
                         </>
                     )}

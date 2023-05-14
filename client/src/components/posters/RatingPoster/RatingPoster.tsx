@@ -13,7 +13,7 @@ const RatingPoster = ({ movie, className }: RatingPosterProps) => {
         <div className={[style.container, className].join(' ')}>
             <Link href="/">
                 <div className={style.container__imageWrapper}>
-                    <Image className={style.container__image} fill src={movie.image} alt={movie.name} />
+                    <Image className={style.container__image} fill src={movie.posterUrl} alt={movie.name} />
                     <div className={style.container__fadeArea}></div>
                 </div>
                 <div className={style.container__content}>
