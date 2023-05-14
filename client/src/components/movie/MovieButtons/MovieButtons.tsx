@@ -1,5 +1,5 @@
 import styles from './MovieButtons.module.scss';
-import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
+import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import Image from 'next/image';
 import playIcon from '../../../../public/icons/movie/play.svg';
 import bookmarkIcon from '../../../../public/icons/movie/bookmark.png';
@@ -10,15 +10,15 @@ const MovieButtons = () => {
     const { t } = useTranslation('movie');
     return (
         <div className={styles.container} role={'div-buttons'}>
-            <ButtonUI className={styles.container__item} background="transparentWhite" shape="medium">
+            <ColoredButton className={styles.container__item} color="lightGray" size="medium">
                 <Image src={playIcon} alt="playIcon" /> <span>{t('trailer')}</span>
-            </ButtonUI>
-            <ButtonUI className={styles.container__item} background="transparentWhite" shape="medium">
+            </ColoredButton>
+            <ColoredButton className={styles.container__item} color="lightGray" size="medium">
                 <Image src={bookmarkIcon} alt="bookmarkIcon" />
-            </ButtonUI>
-            <ButtonUI className={styles.container__item} background="transparentWhite" shape="medium">
+            </ColoredButton>
+            <ColoredButton className={styles.container__item} color="lightGray" size="medium">
                 <Image src={shareIcon} alt="shareIcon" />
-            </ButtonUI>
+            </ColoredButton>
         </div>
     );
 };

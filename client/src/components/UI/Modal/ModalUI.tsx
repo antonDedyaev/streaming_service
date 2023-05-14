@@ -3,7 +3,7 @@ import styles from './ModalUI.module.scss';
 import Image from 'next/image';
 import closeIcon from '../../../../public/icons/close.svg';
 import { useRouter } from 'next/router';
-import ButtonUI from '../buttons/Button/ButtonUI';
+import TransparentButton from '../buttons/TransparentButton/TransparentButton';
 
 interface ModalUIProps {
     children: ReactNode;
@@ -29,9 +29,9 @@ const ModalUI = ({ children, className }: ModalUIProps) => {
         <div className={[styles.container, className].join(' ')}>
             {children}
 
-            <ButtonUI background="transparent" className={styles.container__button} onClick={closeHandler}>
+            <TransparentButton textColor='bright' className={styles.container__button} onClick={closeHandler}>
                 <Image className={styles.container__image} src={closeIcon} alt="закрыть" />
-            </ButtonUI>
+            </TransparentButton>
         </div>
     );
 };

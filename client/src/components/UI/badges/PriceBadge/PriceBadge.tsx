@@ -9,9 +9,11 @@ const PriceBadge = ({ priceType }: PriceBageProps) => {
     const { t } = useTranslation('common');
     return (
         <div className={[styles.badge, styles[priceType]].join(' ')}>
-            {(priceType === 'free' && t('free')) ||
+            {
+                (priceType === 'free' && t('free')) ||
                 (priceType === 'subscription' && t('subscription')) ||
-                (priceType === 'purchase' && t('purchase'))}
+                (priceType === 'purchase' && t('purchase'))
+            }
         </div>
     );
 };

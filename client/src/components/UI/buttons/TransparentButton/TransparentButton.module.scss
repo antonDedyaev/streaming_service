@@ -1,0 +1,23 @@
+.button {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+
+    &_bright {
+        color: rgba(255, 255, 255, 0.88);
+    }
+
+    &_faded {
+        color: #a5a1b2;
+    }
+
+    &:hover {
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    &:not(:hover) {
+        transition: 0.4s;
+    }
+}

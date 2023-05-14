@@ -6,11 +6,11 @@ import bellIcon from '../../../../public/icons/bell.svg';
 import userIcon from '../../../../public/icons/user.svg';
 import LinksList from '../LinksList/LinksList';
 import styles from './Header.module.scss';
-import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import DropMenu from '../DropMenu/DropMenu';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
+import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import { useTranslation } from 'next-i18next';
 
 interface HeaderProps {
@@ -122,9 +122,9 @@ const Header = ({ page }: HeaderProps) => {
                 </div>
 
                 <div className={styles.container__rightSide}>
-                    <ButtonUI background="lightRed" shape="small" className={styles.container__button}>
+                    <ColoredButton color="red" size="small" className={styles.container__button}>
                         {t('freePeriod')}
-                    </ButtonUI>
+                    </ColoredButton>
 
                     <TextLinkUI href={`${asPath}?ivi_search`} option="bright" className={styles.container__search}>
                         <Image className={styles.container__icon} src={searchIcon} alt="" />

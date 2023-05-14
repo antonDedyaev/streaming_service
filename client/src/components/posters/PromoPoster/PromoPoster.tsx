@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import style from './PromoPoster.module.scss';
 import IMovie from '@/models/IMovie';
-import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
+import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import { useTranslation } from 'next-i18next';
 
 interface PromoPosterProps {
@@ -18,7 +18,7 @@ const PromoPoster = ({ movie, className, synopsis }: PromoPosterProps) => {
             <div className={[style.container__imageWrapper, style.container__imageWrapper_background].join(' ')}>
                 <Image
                     className={[style.container__image, style.container__image_background].join(' ')}
-                    src={movie.image}
+                    src={movie.posterUrl}
                     alt={movie.name}
                     fill
                 />
@@ -35,9 +35,9 @@ const PromoPoster = ({ movie, className, synopsis }: PromoPosterProps) => {
                     </div>
                     <div className={style.container__synopsis}>{t(`mainPage:promoMoviePosters.${synopsis}`)}</div>
                 </div>
-                <ButtonUI className={style.container__button} background="lightRed" shape="large">
+                <ColoredButton size='large' color='red' className={style.container__button}>
                     {t('watchButton')}
-                </ButtonUI>
+                </ColoredButton>
             </Link>
         </div>
     );

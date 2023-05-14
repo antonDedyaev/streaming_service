@@ -1,0 +1,30 @@
+.button {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: 8px;
+
+    &_large {
+        width: 100%;
+        padding: 9px 15px;
+    }
+
+    &_medium {
+        padding: 7px 11px;
+    }
+
+    &_small {
+        padding: 3px 7px;
+    }
+
+    &:hover {
+        cursor: pointer;
+        border-color: #fff;
+    }
+
+    &:not(:hover) {
+        transition: 0.4s;
+    }
+}
