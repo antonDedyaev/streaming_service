@@ -1,10 +1,9 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
-import IMovie from '@/models/IMovie';
+import IMovies from '@/models/IMovies';
 
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');
-    console.log('successfull');
     return response.data;
 });
 
@@ -18,7 +17,7 @@ interface IFilters {
 }
 
 interface IMoviesState {
-    movies: IMovie[];
+    movies: IMovies[];
     filters: IFilters;
 }
 
@@ -43,12 +42,39 @@ const moviesSlice = createSlice({
             .addCase(fetchMovies.pending, (state) => {
                 console.log('pending');
             })
-            .addCase(fetchMovies.fulfilled, (state, action) => {
-                const complete = action.payload.map((item) => {
-                    return { ...item.film, genres: item.genres, countries: item.countries };
+            .addCase(fetchMovies.fulfilled, (state, action: PayloadAction<any[]>) => {
+                const moviesInfo = action.payload.map((item) => {
+                    const {
+                        id,
+                        name,
+                        alternativeName,
+                        posterpreviewUrl,
+                        premiererussia,
+                        hasImax,
+                        year,
+                        ageRating,
+                        ratingkp,
+                        voteskp,
+                        movieLength,
+                    } = item.film;
+                    return {
+                        id,
+                        name,
+                        enName: alternativeName,
+                        posterpreviewUrl: posterpreviewUrl,
+                        premiereRussia: premiererussia,
+                        hasImax,
+                        year,
+                        ageRating,
+                        ratingKp: ratingkp,
+                        votesKp: voteskp,
+                        movieLength,
+                        genres: item.genres,
+                        countries: item.countries,
+                    };
                 });
                 console.log('fullfilled');
-                state.movies = complete;
+                state.movies = moviesInfo;
             });
     },
 });
