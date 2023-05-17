@@ -1,9 +1,5 @@
 {
-    "promoMoviePosters": [
-        "A striking detective and a timid scientist must team up to solve a complicated case.",
-        "Your favourite Jason Statham and Hugh Grant save the world in a spy comedy by your favourite Guy Ritchie",
-        "A successful lawyer is trying to save his son from crossing a dangerous line. Hugh Jackman in a powerful drama from the director of The Father"
-    ],
+    "synopsis": "{{ description }}",
     "freeSubscriptionButton": "Free subscription for 30 days",
 
     "benefitsSpoiler": {
@@ -26,6 +22,6 @@
         ]
     },
     "weekTop": "for the past week",
-    "foreignMovies": "Foreign movies",
+    "fantasy": "Sci-fy and fantasy",
     "dramas": "Dramas"
 }
