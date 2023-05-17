@@ -6,7 +6,6 @@ import FilterPlank from '@/components/filters/FilterPlank';
 import plankStyles from '@/components/filters/FilterPlank.module.scss';
 import FilterRange from '@/components/filters/FilterRange';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
-import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.data';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
 import styles from '@/styles/pages/MoviesPage.module.scss';
@@ -14,44 +13,63 @@ import icon from '@/../public/icons/rating.svg';
 import FilterSearch from '@/components/filters/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
 import { fetchMovies } from '@/store/slices/moviesSlice';
+import IActor from '@/models/IActor';
+import { fetchActors } from '@/store/slices/actorsSlice';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
     props: {
         ...(await serverSideTranslations(locale!, ['common', 'footer', 'header', 'moviesPage', 'modals'])),
     },
 });
 
+// const swr = (url: string) => {
+//     const { data, error } = useSWR(url, async () => await axios.get(url).then((res) => res.data));
+//     return data;
+// };
+
 function MoviesPage() {
+    // const address = 'http://localhost:6125/filmswithinfo';
+    // const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
+    // const { data, error } = useSWR(address, fetcher);
+
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const { locale } = useRouter();
     const [countriesList, setCountriesList] = useState<string[]>([]);
     const [genresList, setGenresList] = useState<string[]>([]);
+
     const [filtersApplied, setFiltersApplied] = useState(false);
 
     const movies = useAppSelector((state) => state.movies.movies);
+    const celebrities = useAppSelector((state) => state.actors.actors);
+    const actors = celebrities.filter((celeb) => celeb.photo && celeb.profession === 'актеры');
 
     const premieres = movies
-        .filter((movie) => movie.premiererussia)
-        .sort((a, b) => new Date(b.premiererussia).getTime() - new Date(a.premiererussia).getTime())
-        .slice(0, 10);
+        .filter((movie) => movie.premiereRussia)
+        .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime())
+        .slice(0, 18);
 
     const bestMovies = movies
-        .filter((movie) => movie.ratingkp)
-        .sort((a, b) => b.ratingkp - a.ratingkp)
-        .slice(0, 10);
+        .filter((movie) => movie.ratingKp)
+        .sort((a, b) => b.ratingKp - a.ratingKp)
+        .slice(0, 18);
 
     const imaxMovies = movies
         .filter((movie) => movie.hasImax)
-        .sort((a, b) => new Date(b.premiererussia).getTime() - new Date(a.premiererussia).getTime())
-        .slice(0, 10);
+        .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime())
+        .slice(0, 18);
 
     useEffect(() => {
         dispatch(fetchMovies());
+        dispatch(fetchActors());
+        //dispatch(moviesAdded(data));
 
         const getCountries = async () => {
             try {
@@ -72,9 +90,10 @@ function MoviesPage() {
                 console.log(err);
             }
         };
+
         getCountries();
         getGenres();
-    }, []);
+    }, [locale]);
 
     return (
         <MainContainer
