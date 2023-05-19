@@ -1,5 +1,4 @@
 .container {
-
     &__crumbs {
         font-size: 20px;
         margin: 20px 0;
@@ -22,6 +21,10 @@
 
         &_promo {
             padding-top: 0;
+        }
+
+        &:last-child {
+            padding-bottom: 104px;
         }
     }
 }

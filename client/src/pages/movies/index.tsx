@@ -5,9 +5,7 @@ import FilterPanel from '@/components/filters/FilterPanel';
 import FilterPlank from '@/components/filters/FilterPlank';
 import plankStyles from '@/components/filters/FilterPlank.module.scss';
 import FilterRange from '@/components/filters/FilterRange';
-import { countries, genres } from '@/components/filters/temp/items';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
-import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.data';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
 import styles from '@/styles/pages/MoviesPage.module.scss';
@@ -15,16 +13,88 @@ import icon from '@/../public/icons/rating.svg';
 import FilterSearch from '@/components/filters/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { useRouter } from 'next/router';
+import useSWR from 'swr';
+import { fetchMovies } from '@/store/slices/moviesSlice';
+import IActor from '@/models/IActor';
+import { fetchActors } from '@/store/slices/actorsSlice';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
     props: {
         ...(await serverSideTranslations(locale!, ['common', 'footer', 'header', 'moviesPage', 'modals'])),
     },
 });
 
+// const swr = (url: string) => {
+//     const { data, error } = useSWR(url, async () => await axios.get(url).then((res) => res.data));
+//     return data;
+// };
+
 function MoviesPage() {
+    // const address = 'http://localhost:6125/filmswithinfo';
+    // const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
+    // const { data, error } = useSWR(address, fetcher);
+
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+    const { locale } = useRouter();
+    const [countriesList, setCountriesList] = useState<string[]>([]);
+    const [genresList, setGenresList] = useState<string[]>([]);
+
+    const [filtersApplied, setFiltersApplied] = useState(false);
+
+    const movies = useAppSelector((state) => state.movies.movies);
+    const celebrities = useAppSelector((state) => state.actors.actors);
+    const actors = celebrities.filter((celeb) => celeb.photo && celeb.profession === 'актеры');
+
+    const premieres = movies
+        .filter((movie) => movie.premiereRussia)
+        .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime())
+        .slice(0, 18);
+
+    const bestMovies = movies
+        .filter((movie) => movie.ratingKp)
+        .sort((a, b) => b.ratingKp - a.ratingKp)
+        .slice(0, 18);
+
+    const imaxMovies = movies
+        .filter((movie) => movie.hasImax)
+        .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime())
+        .slice(0, 18);
+
+    useEffect(() => {
+        dispatch(fetchMovies());
+        dispatch(fetchActors());
+        //dispatch(moviesAdded(data));
+
+        const getCountries = async () => {
+            try {
+                const uniqieCountries = new Set<string>();
+                const requestCountries = await axios.get('http://localhost:6125/countriesOffilm');
+                requestCountries.data.forEach(({ country }: { country: string }) => uniqieCountries.add(country));
+                setCountriesList([...uniqieCountries].sort());
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        const getGenres = async () => {
+            try {
+                const requestGenres = await axios.get('http://localhost:6125/namesgenres');
+                const genres = requestGenres.data.map(({ genre }: { genre: string }) => genre);
+                setGenresList(genres.sort());
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        getCountries();
+        getGenres();
+    }, [locale]);
+
     return (
         <MainContainer
             keywords={['homePage', 'iviEtoKryto']}
@@ -45,20 +115,19 @@ function MoviesPage() {
                             <p>{t('moviesPage:moviesSpoiler.content.4')}</p>
                         </SpoilerUI>
                     </div>
-
                     <FilterPanel>
                         <FilterPlank
                             title={t('moviesPage:filterPanel.genres')}
                             className={plankStyles.container__dropdown_leftPositioned}
                         >
-                            <FilterList items={genres} />
+                            <FilterList items={genresList} />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.countries')}
                             className={plankStyles.container__dropdown_centerPositioned}
                         >
-                            <FilterList items={countries} />
+                            <FilterList items={countriesList} />
                         </FilterPlank>
 
                         <FilterPlank
@@ -86,22 +155,23 @@ function MoviesPage() {
                             <FilterSearch searchBy="Актёр" />
                         </FilterPlank>
                     </FilterPanel>
+                    {!filtersApplied && (
+                        <>
+                            <div className={styles.container__section}>
+                                <MoviesSection title={t('moviesPage:releases')} movies={premieres} href="/" />
+                            </div>
 
-                    <div className={styles.container__section}>
-                        <MoviesSection title={t('moviesPage:releases')} movies={ratingMovies} href="/" />
-                    </div>
-
-                    <div className={styles.container__section}>
-                        <MoviesSection title={t('moviesPage:topMovies')} movies={ratingMovies} href="/" />
-                    </div>
-
-                    <div className={styles.container__section}>
-                        <PersonsSection size="large" persons={actors} />
-                    </div>
-
-                    <div className={styles.container__section}>
-                        <MoviesSection title={t('moviesPage:UHDmovies')} movies={ratingMovies} href="/" />
-                    </div>
+                            <div className={styles.container__section}>
+                                <MoviesSection title={t('moviesPage:topMovies')} movies={bestMovies} href="/" />
+                            </div>
+                            <div className={styles.container__section}>
+                                <PersonsSection size="large" persons={actors} />
+                            </div>
+                            <div className={styles.container__section}>
+                                <MoviesSection title={t('moviesPage:imaxMovies')} movies={imaxMovies} href="/" />
+                            </div>
+                        </>
+                    )}
                 </div>
             </div>
         </MainContainer>

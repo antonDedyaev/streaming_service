@@ -1,6 +1,7 @@
 {
     "moviesSpoiler": {
         "header": "Watch movies online",
+        "synopsis": "{{ description }}",
         "content": [
             "You like to watch movies online and spend a lot of time browsing websites for something interesting? You should stay longer at ivi.ru – we have gathered a collection of movies that will entertain you for a long time. The collection is constantly updated with both new films and recognized masterpieces of the past years! No matter who you are – a fan of dynamic action movies or a fan of youth TV series, our rich catalog will make you forget about all other leisure activities, and you will watch your favorite movies online again and again!",
             "The choice of movies is very wide and diverse, so everyone will find something to their taste. You prefer only foreign films? We have plenty of them: from the golden classics of Hollywood and hearty French comedies to emotional Italian dramas and loud Indian musical films. Or maybe you are a patriot and love Russian films? There are plenty of such movies in the calalogue. What do you prefer more – good old classics or new movies? It doesn't matter what your answer will be – we have everything, including films from the time, when cinema was born, as well as films of 2018 and 2017.",
@@ -24,7 +25,7 @@
     "releases": "Premieres",
     "topMovies": "Top movies",
     "celebrities": "Celebrities",
-    "UHDmovies": "4K UHD movies",
+    "imaxMovies": "IMAX movies",
     "filmography": {
         "singleMovie": "movie",
         "fewMovies": "movies",

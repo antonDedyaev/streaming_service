@@ -46,13 +46,16 @@
         left: 16px;
         right: 16px;
         bottom: 16px;
-        /*  font-size: 13px;
+        font-size: 13px;
         line-height: 16px;
         font-weight: 500;
-        color: #d9d7e0;*/
+        color: #d9d7e0;
+
+        text-transform: capitalize;
     }
 
-    /* &__rating {
+    &__rating {
+        color: #fff;
         &_integer {
             font-size: 24px;
         }
@@ -60,7 +63,7 @@
         &_faction {
             font-size: 20px;
         }
-    }*/
+    }
 
     &:hover {
         opacity: 1;
