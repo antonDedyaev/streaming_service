@@ -1,4 +1,4 @@
-import IMovie from '@/models/IMovie';
+import IMovies from '@/models/IMovies';
 import styles from './FilmographySection.module.scss';
 import { declineWord } from '@/utils/functions';
 import ActorFilmographyList from '@/components/actor/ActorFilmographyList/ActorFilmographyList';
@@ -6,11 +6,12 @@ import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import { useTranslation } from 'react-i18next';
 
 interface FilmographySectionProps {
-    movies: IMovie[];
+    movies: IMovies[];
 }
 
 const FilmographySection = ({ movies }: FilmographySectionProps) => {
-    const { t } = useTranslation(['actor', 'moviesPage']);
+    const { t } = useTranslation(['person', 'moviesPage']);
+
     return (
         <div className={styles.section}>
             <div className={styles.section__header}>

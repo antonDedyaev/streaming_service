@@ -1,4 +1,4 @@
-import IMovie from './IMovie';
+import IMovies from './IMovies';
 
 export default interface IPerson {
     id: number;
@@ -7,5 +7,5 @@ export default interface IPerson {
     photo: string;
     profession: string;
     enProfession: string;
-    movies: IMovie[];
+    movies: IMovies[];
 }
