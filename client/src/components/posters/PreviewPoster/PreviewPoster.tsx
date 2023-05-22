@@ -15,7 +15,7 @@ interface PreviewPosterProps {
 const PreviewPoster = ({ movie, className }: PreviewPosterProps) => {
     const { locale } = useRouter();
     return (
-        <Link className={[style.container, className].join(' ')} href="/">
+        <Link className={[style.container, className].join(' ')} href={`/movies/${movie.id}`}>
             <div className={[style.container__block, style.container__block_image].join(' ')}>
                 <div className={style.container__imageWrapper}>
                     <Image className={style.container__image} src={movie.posterpreviewUrl} alt={movie.name} fill />

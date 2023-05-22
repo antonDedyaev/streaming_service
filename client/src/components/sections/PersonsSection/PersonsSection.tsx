@@ -15,9 +15,6 @@ interface PersonsSectionProps {
 const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
     const { asPath } = useRouter();
     const { t } = useTranslation(['moviesPage', 'movie']);
-    /*const onClick = (e: any) => {
-        e.preventDefault();
-    };*/
 
     return (
         <div className={styles.section}>
@@ -32,11 +29,11 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
             <div className={styles.section__content}>
                 {size === 'large' ? (
                     <Slider itemType="actor" length={persons.length}>
-                        <ActorList actors={persons} size={size} />
+                        <ActorList persons={persons} size={size} />
                     </Slider>
                 ) : (
                     <div className={styles.section__list}>
-                        <ActorList actors={persons.slice(0, 10)} size={size} />
+                        <ActorList persons={persons.slice(0, 10)} size={size} />
                         <ShapedLinkUI className={styles.section__list_link} href={`${asPath}?more`} shape="round">
                             {t('more', { ns: 'movie' })}
                         </ShapedLinkUI>

@@ -3,18 +3,18 @@ import styles from './ActorList.module.scss';
 import IPerson from '../../../models/IPerson';
 
 interface ActorListProps {
-    actors: IPerson[];
+    persons: IPerson[];
     size: 'large' | 'medium' | 'small';
 }
 
-const ActorList = ({ actors, size }: ActorListProps) => {
+const ActorList = ({ persons, size }: ActorListProps) => {
     return (
         <>
-            {actors.map((actor) => (
+            {persons.map((person) => (
                 <ActorItem
-                    key={actor.id}
+                    key={person.id}
                     className={[styles.item, styles[`item_${size}`]].join(' ')}
-                    actor={actor}
+                    person={person}
                     size={size}
                 />
             ))}

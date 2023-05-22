@@ -1,13 +1,8 @@
 import styles from './MoviePlayer.module.scss';
-import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import dynamic from 'next/dynamic';
 import MovieButtons from '../MovieButtons/MovieButtons';
 
-interface MoviePlayerProps {
-    movie: IMovie;
-}
-
-const MoviePlayer = ({ movie }: MoviePlayerProps) => {
+const MoviePlayer = () => {
     const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
     return (

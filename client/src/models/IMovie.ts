@@ -2,6 +2,7 @@ import IGenre from './IGenre';
 import ICountry from './ICountry';
 import IPerson from './IPerson';
 import IComment from './IComment';
+import IMovies from './IMovies';
 
 export default interface IMovie {
     id: number;
@@ -26,6 +27,6 @@ export default interface IMovie {
     // subtitles: string[]				  | динамически или статически
     // voiceActing: string[]				  |
 
-    watchingWithMovie: IMovie[];
+    watchingWithMovie: IMovies[];
     comments: IComment[];
 }

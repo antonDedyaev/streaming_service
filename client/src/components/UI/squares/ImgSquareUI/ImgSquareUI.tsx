@@ -1,19 +1,20 @@
 import Image from 'next/image';
 import styles from './ImgSquareUI.module.scss';
-import IActor from '../../../../models/IActor';
+import IPerson from '@/models/IPerson';
 
 interface ImgSquareUIProps {
-    actor: IActor;
+    person: IPerson;
     border?: 'medium' | 'small';
 }
 
-const ImgSquareUI = ({ actor, border = 'small' }: ImgSquareUIProps) => {
+const ImgSquareUI = ({ person, border = 'small' }: ImgSquareUIProps) => {
     return (
         <Image
             className={[styles.image, border === 'medium' ? styles.image_medium : ''].join(' ').trim()}
-            src={actor.img}
-            alt={actor.firstName}
-            fill
+            src={person.photo}
+            alt={person.name}
+            height={300}
+            width={300}
         ></Image>
     );
 };

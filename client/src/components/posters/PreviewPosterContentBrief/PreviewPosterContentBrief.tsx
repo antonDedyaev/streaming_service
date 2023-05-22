@@ -1,6 +1,6 @@
 import IMovie from '@/models/IMovie';
 import styles from './PreviewPosterContentBrief.module.scss';
-import { declineWord } from '@/utils/functions';
+import { declineWord, firstCapitalLetter } from '@/utils/functions';
 
 interface PreviewPosterContentBriefProps {
     movie: IMovie;
@@ -12,17 +12,17 @@ const PreviewPosterContentBrief = ({ movie, className }: PreviewPosterContentBri
         <div className={styles.container}>
             <div className={styles.container__rating}>
                 <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>
-                    {`${movie.ratingkp}`.slice(0, 1)}
+                    {`${movie.ratingKp.toFixed(1)}`.slice(0, 1)}
                 </span>
                 <span className={[styles.container__rating, styles.container__rating_fraction].join(' ')}>
-                    {`${movie.ratingkp}`.slice(1, 3)}
+                    {`${movie.ratingKp.toFixed(1)}`.slice(1, 3)}
                 </span>
             </div>
             <div className={[styles.container__text, className].join(' ')}>
                 <p>
-                    {movie.year}, {movie.countries[0]}, {movie.genres[0]}
+                    {movie.year}, {movie.countries[0].name}, {firstCapitalLetter(movie.genres[0].name)}
                 </p>
-                <p>{declineWord(movie.movieLength, ['минута', 'минуты', 'минут'])}</p>
+                <p>{`${movie.movieLength} ${declineWord(movie.movieLength, ['минута', 'минуты', 'минут'])}`}</p>
             </div>
         </div>
     );

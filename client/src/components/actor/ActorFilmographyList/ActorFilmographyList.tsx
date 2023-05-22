@@ -1,9 +1,9 @@
-import IMovie from '@/models/IMovie';
+import IMovies from '@/models/IMovies';
 import styles from './ActorFilmographyList.module.scss';
 import FilmographyItem from '../ActorFilmography/FilmographyItem';
 
 interface ActorFilmographyListProps {
-    movies: IMovie[];
+    movies: IMovies[];
 }
 
 const ActorFilmographyList = ({ movies }: ActorFilmographyListProps) => {

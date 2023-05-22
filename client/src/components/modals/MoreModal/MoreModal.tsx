@@ -1,12 +1,11 @@
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import styles from './MoreModal.module.scss';
-import { IMovie } from '../../movie/movieMedallion/MovieMedallionsList/Temp/IMovie';
 import MoviePersonsItem from '@/components/movie/MoviePersonsItem/MoviePersonsItem';
 import Link from 'next/link';
 import Image from 'next/image';
 import PreviewPosterContentBrief from '@/components/posters/PreviewPosterContentBrief/PreviewPosterContentBrief';
-import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.data';
 import { useTranslation } from 'react-i18next';
+import IMovie from '@/models/IMovie';
 
 interface MoreModalProps {
     movie: IMovie;
@@ -18,22 +17,24 @@ const MoreModal = ({ movie }: MoreModalProps) => {
         <ModalUI className={styles.modal}>
             <div className={styles.container}>
                 <div className={styles.container__inner}>
-                    <h1 className={styles.container__title}>{movie.title}</h1>
+                    <h1 className={styles.container__title}>
+                        {movie.name} (Фильм {movie.year})
+                    </h1>
                     <MoviePersonsItem movie={movie} title={t('personsInvolved.0')} />
                     <MoviePersonsItem movie={movie} title={t('personsInvolved.1')} />
                 </div>
                 <div className={styles.container__poster}>
-                    <Link href="/">
+                    <Link href={`/movies/${movie.id}`}>
                         <Image
                             className={styles.container__posterImage}
-                            src={ratingMovies[1].posterUrl}
-                            alt={ratingMovies[1].name}
+                            src={movie.posterUrl}
+                            alt={movie.name}
                             width={128}
                             height={196}
                         />
                     </Link>
 
-                    <PreviewPosterContentBrief className={styles.container__posterBrief} movie={ratingMovies[0]} />
+                    <PreviewPosterContentBrief className={styles.container__posterBrief} movie={movie} />
                 </div>
             </div>
         </ModalUI>

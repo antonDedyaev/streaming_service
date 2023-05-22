@@ -1,3 +1,28 @@
+.back {
+    position: absolute;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    padding: 32px 0px 16px 0px;
+    margin-left: 5px;
+    cursor: pointer;
+
+    & img {
+        height: 20px;
+        padding-right: 12px;
+        transition-duration: 0.3s;
+    }
+
+    &:hover {
+        & img {
+            transform: scale(1.1);
+        }
+    }
+}
+
 .container {
     max-width: 596px;
     margin: 0 auto;

@@ -1,5 +1,4 @@
 import styles from './MovieInfo.module.scss';
-import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import MovieParams from '../MovieParams/MovieParams';
 import MovieRating from '../MovieRating/MovieRating';
@@ -8,6 +7,9 @@ import MovieMedallionsList from '../movieMedallion/MovieMedallionsList/MovieMeda
 import MoviePlayer from '../MoviePlayer/MoviePlayer';
 import MovieButtons from '../MovieButtons/MovieButtons';
 import { useTranslation } from 'next-i18next';
+import IMovie from '@/models/IMovie';
+import { useRouter } from 'next/router';
+import { firstCapitalLetter } from '@/utils/functions';
 
 interface MovieInfoProps {
     movie: IMovie;
@@ -15,16 +17,22 @@ interface MovieInfoProps {
 
 const MovieInfo = ({ movie }: MovieInfoProps) => {
     const { t } = useTranslation('movie');
+    const { locale } = useRouter();
+
     return (
         <div className={styles.container}>
-            <h1 className={styles.container__title}>{movie.title}</h1>
+            <h1 className={styles.container__title}>
+                {locale === 'ru'
+                    ? `${movie.name} (Фильм ${movie.year})`
+                    : `${movie.enName} (${firstCapitalLetter(movie?.type)} ${movie?.year})`}
+            </h1>
 
             <div className={styles.container__params}>
                 <MovieParams movie={movie} />
             </div>
 
             <div className={styles.container__player}>
-                <MoviePlayer movie={movie} />
+                <MoviePlayer />
             </div>
 
             <div className={styles.container__infoBlock}>
@@ -37,14 +45,19 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
                             truncateFormat="vertical"
                             buttonTextColor="faded"
                         >
-                            <p key={movie.description[0]}>{movie.description[0]}</p>
-
-                            {movie.description.slice(1).map((descrip) => (
-                                <p key={descrip}>{descrip}</p>
-                            ))}
+                            <p>{movie.shortDescription}</p>
+                            <p>{movie.description}</p>
+                            <p>
+                                Приглашаем поклонников вдохновляющих и трогательных историях про поиск себя и своей
+                                внутренней силы посмотреть онлайн фильм «{locale === 'ru' ? movie.name : movie.enName}».
+                            </p>
+                            <p>
+                                Приглашаем посмотреть фильм «{locale === 'ru' ? movie.name : movie.enName}» в нашем
+                                онлайн-кинотеатре в хорошем HD качестве. Приятного просмотра!
+                            </p>
 
                             <div className={styles.container__blockSpoilerOptions}>
-                                <MovieOptions movie={movie} />
+                                <MovieOptions />
                             </div>
                         </SpoilerUI>
                     </div>
@@ -54,7 +67,7 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
                     </div>
 
                     <div className={styles.container__blockOptions}>
-                        <MovieOptions movie={movie} />
+                        <MovieOptions />
                     </div>
                 </div>
                 <div className={styles.container__buttons}>
