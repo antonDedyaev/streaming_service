@@ -1,4 +1,4 @@
-import IMovie from '@/models/IMovie';
+import IMovies from '@/models/IMovies';
 import Image from 'next/image';
 import bookmark from '../../../../public/icons/posters/bookmark.png';
 import wand from '../../../../public/icons/posters/wand.png';
@@ -8,7 +8,7 @@ import styles from './PreviewPosterContent.module.scss';
 import { declineWord } from '@/utils/functions';
 
 interface PreviewPosterContentProps {
-    movie: IMovie;
+    movie: IMovies;
 }
 
 const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
@@ -39,10 +39,10 @@ const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
             <div className={styles.container__info}>
                 <div className={styles.container__rating}>
                     <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>
-                        {`${movie.ratingkp}`.slice(0, 1)}
+                        {`${movie.ratingKp}`.slice(0, 1)}
                     </span>
                     <span className={[styles.container__rating, styles.container__rating_fraction].join(' ')}>
-                        {`${movie.ratingkp}`.slice(1, 3)}
+                        {`${movie.ratingKp}`.slice(1, 3)}
                     </span>
                 </div>
                 <div className={styles.container__text}>

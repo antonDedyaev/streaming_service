@@ -1,7 +1,7 @@
 import styles from './MoviePersonsItem.module.scss';
-import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import ActorList from '@/components/actor/ActorList/ActorList';
 import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
+import IMovie from '@/models/IMovie';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -14,7 +14,7 @@ const MoviePersonsItem = ({ movie, title }: MoviePersonsItemProps) => {
     const [showButton, setShowButton] = useState(true);
     const [quantity, setQuantity] = useState(16);
     const showMore = () => {
-        setQuantity(movie.actors.length);
+        setQuantity(movie.persons.length);
         setShowButton(false);
     };
 
@@ -26,7 +26,7 @@ const MoviePersonsItem = ({ movie, title }: MoviePersonsItemProps) => {
 
             <div className={styles.container__spoiler}>
                 <div className={styles.container__item}>
-                    <ActorList actors={movie.actors.slice(0, quantity)} size="medium" />
+                    <ActorList persons={movie.persons.slice(0, quantity)} size="medium" />
                 </div>
                 {showButton && (
                     <ButtonUI

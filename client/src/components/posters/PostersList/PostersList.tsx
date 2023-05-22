@@ -3,10 +3,11 @@ import PreviewPoster from '../PreviewPoster/PreviewPoster';
 import RatingPoster from '../RatingPoster/RatingPoster';
 import PromoPoster from '../PromoPoster/PromoPoster';
 import styles from './PostersList.module.scss';
+import IMovies from '@/models/IMovies';
 
 interface PostersListProps {
     posterType: 'preview' | 'rating' | 'promo';
-    movies: IMovie[];
+    movies: IMovies[] | IMovie[];
 }
 
 const PostersList = ({ posterType, movies }: PostersListProps) => {
@@ -15,13 +16,13 @@ const PostersList = ({ posterType, movies }: PostersListProps) => {
             {movies.map(
                 (movie, index) =>
                     (posterType === 'preview' && (
-                        <PreviewPoster key={movie.name} className={styles.previewItem} movie={movie} />
+                        <PreviewPoster key={index} className={styles.previewItem} movie={movie as IMovies} />
                     )) ||
                     (posterType === 'rating' && (
-                        <RatingPoster key={movie.name} className={styles.ratingItem} movie={movie} />
+                        <RatingPoster key={index} className={styles.ratingItem} movie={movie as IMovie} />
                     )) ||
                     (posterType === 'promo' && (
-                        <PromoPoster key={movie.name} className={styles.promoItem} movie={movie} synopsis={index} />
+                        <PromoPoster key={index} className={styles.promoItem} movie={movie as IMovie} />
                     )),
             )}
         </>

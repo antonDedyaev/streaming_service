@@ -1,10 +1,11 @@
 import styles from './MovieMedallionsList.module.scss';
 import MovieMedallionItem from '../MovieMedallionItem/MovieMedallionItem';
-import { IMovie } from './Temp/IMovie';
 import Link from 'next/link';
 import TextSquareUI from '@/components/UI/squares/TextSquareUI/TextSquareUI';
 import ImgSquareUI from '@/components/UI/squares/ImgSquareUI/ImgSquareUI';
 import { useTranslation } from 'react-i18next';
+import IMovie from '@/models/IMovie';
+import { useRouter } from 'next/router';
 
 interface MovieMedallionsListProps {
     className?: string;
@@ -13,15 +14,16 @@ interface MovieMedallionsListProps {
 
 const MovieMedallionsList = ({ className, movie }: MovieMedallionsListProps) => {
     const { t } = useTranslation('moviesPage');
+    const { locale } = useRouter();
     return (
         <div className={[styles.content, className].join(' ').trim()}>
             <MovieMedallionItem text={t('filterPanel.rating')} disabled={true}>
-                <TextSquareUI value={movie.raiting} />
+                <TextSquareUI value={Number(movie.ratingKp.toFixed(1))} />
             </MovieMedallionItem>
-            {movie.actors.map((actor) => (
-                <Link href="/" key={actor.id}>
-                    <MovieMedallionItem text={`${actor.firstName} ${actor.lastName}`}>
-                        <ImgSquareUI actor={actor} />
+            {movie.persons.map((person) => (
+                <Link href={`/persons/${person.id}`} key={person.id}>
+                    <MovieMedallionItem text={locale == 'ru' ? person.name : person.enName}>
+                        <ImgSquareUI person={person} />
                     </MovieMedallionItem>
                 </Link>
             ))}

@@ -50,11 +50,10 @@
         line-height: 16px;
         font-weight: 500;
         color: #d9d7e0;
-
-        text-transform: capitalize;
     }
 
     &__rating {
+        margin-bottom: 12px;
         color: #fff;
         &_integer {
             font-size: 24px;
@@ -62,6 +61,18 @@
 
         &_faction {
             font-size: 20px;
+        }
+    }
+
+    &__text p {
+        margin-top: 4px;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+
+        &:first-child {
+            text-transform: capitalize;
         }
     }
 

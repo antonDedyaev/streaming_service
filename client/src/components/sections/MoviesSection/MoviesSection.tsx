@@ -1,12 +1,12 @@
 import Slider from '@/components/Slider/Slider';
-import IMovie from '@/models/IMovie';
+import IMovies from '@/models/IMovies';
 import PostersList from '@/components/posters/PostersList/PostersList';
 import ArrowedLink from '@/components/UI/links/ArrowedLink/ArrowedLink';
 import styles from './MoviesSection.module.scss';
 
 interface MoviesSectionProps {
     title: string;
-    movies: IMovie[];
+    movies: IMovies[];
     href: string;
 }
 

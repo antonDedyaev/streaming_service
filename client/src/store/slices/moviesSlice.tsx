@@ -8,75 +8,114 @@ export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
 });
 
 interface IFilters {
-    genres: string[];
+    genre: string[];
     countries: string[];
-    rating: number;
-    userRates: number;
+    ratingKp: number;
+    votesKp: number;
     director: string;
     actor: string;
 }
 
 interface IMoviesState {
     movies: IMovies[];
+    filtersApplied: boolean;
     filters: IFilters;
+    filteredMovies: IMovies[];
 }
 
 const initialState: IMoviesState = {
     movies: [],
+    filtersApplied: false,
     filters: {
-        genres: [],
+        genre: [],
         countries: [],
-        rating: 0,
-        userRates: 0,
+        ratingKp: 0,
+        votesKp: 0,
         director: '',
         actor: '',
     },
+    filteredMovies: [],
 };
 
 const moviesSlice = createSlice({
     name: 'movies',
     initialState,
-    reducers: {},
+    reducers: {
+        addFilteredMovies: (state, action: PayloadAction<any[]>) => {
+            const moviesInfo = action.payload.map(({ film, countries, genres }) => {
+                return {
+                    id: film.id,
+                    name: film.name,
+                    enName: film.alternativeName,
+                    posterpreviewUrl: film.posterpreviewUrl,
+                    premiereRussia: film.premiererussia,
+                    hasImax: film.hasImax,
+                    year: film.year,
+                    ageRating: film.ageRating,
+                    ratingKp: film.ratingkp,
+                    votesKp: film.voteskp,
+                    movieLength: film.moviesLength,
+                    genres,
+                    countries,
+                };
+            });
+            state.filteredMovies = moviesInfo;
+        },
+        genreFilterAdded: (state, action) => {
+            const indexOfItem = state.filters.genre.indexOf(action.payload);
+            indexOfItem < 0 ? state.filters.genre.push(action.payload) : state.filters.genre.splice(indexOfItem, 1);
+        },
+        countryFilterAdded: (state, action) => {
+            const indexOfItem = state.filters.countries.indexOf(action.payload);
+            indexOfItem < 0
+                ? state.filters.countries.push(action.payload)
+                : state.filters.countries.splice(indexOfItem, 1);
+        },
+        actorFilterAdded: (state, action: PayloadAction<string>) => {
+            state.filters.actor = action.payload;
+        },
+        directorFilterAdded: (state, action: PayloadAction<string>) => {
+            state.filters.director = action.payload;
+        },
+        filtersRemoved: (state, action) => {
+            state.filters = action.payload;
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchMovies.pending, (state) => {
                 console.log('pending');
             })
             .addCase(fetchMovies.fulfilled, (state, action: PayloadAction<any[]>) => {
-                const moviesInfo = action.payload.map((item) => {
-                    const {
-                        id,
-                        name,
-                        alternativeName,
-                        posterpreviewUrl,
-                        premiererussia,
-                        hasImax,
-                        year,
-                        ageRating,
-                        ratingkp,
-                        voteskp,
-                        movieLength,
-                    } = item.film;
+                const moviesInfo = action.payload.map(({ film, countries, genres }) => {
                     return {
-                        id,
-                        name,
-                        enName: alternativeName,
-                        posterpreviewUrl: posterpreviewUrl,
-                        premiereRussia: premiererussia,
-                        hasImax,
-                        year,
-                        ageRating,
-                        ratingKp: ratingkp,
-                        votesKp: voteskp,
-                        movieLength,
-                        genres: item.genres,
-                        countries: item.countries,
+                        id: film.id,
+                        name: film.name,
+                        enName: film.alternativeName,
+                        posterpreviewUrl: film.posterpreviewUrl,
+                        premiereRussia: film.premiererussia,
+                        hasImax: film.hasImax,
+                        year: film.year,
+                        ageRating: film.ageRating,
+                        ratingKp: film.ratingkp,
+                        votesKp: film.voteskp,
+                        movieLength: film.moviesLength,
+                        genres,
+                        countries,
                     };
                 });
-                console.log('fullfilled');
                 state.movies = moviesInfo;
             });
     },
 });
+
+export const {
+    addFilteredMovies,
+    genreFilterAdded,
+    countryFilterAdded,
+    actorFilterAdded,
+    directorFilterAdded,
+    filtersRemoved,
+} = moviesSlice.actions;
 
 export default moviesSlice.reducer;

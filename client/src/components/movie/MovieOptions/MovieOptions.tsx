@@ -1,24 +1,19 @@
 import styles from './MovieOptions.module.scss';
-import { IMovie } from '../movieMedallion/MovieMedallionsList/Temp/IMovie';
 import TextBadge from '../../UI/badges/TextBadge/TextBadge';
 import { useTranslation } from 'next-i18next';
 
-interface MovieOptionsProps {
-    movie: IMovie;
-}
-
-const MovieOptions = ({ movie }: MovieOptionsProps) => {
+const MovieOptions = () => {
     const { t } = useTranslation('movie');
     return (
         <div className={styles.container} data-testid={'div-options'}>
             <div className={styles.container__block}>
                 <div className={styles.container__title}>{t('languages')}</div>
-                <div className={styles.container__value}>{movie.language.join(', ')}</div>
+                <div className={styles.container__value}>{t('langVariant')}</div>
             </div>
 
             <div className={styles.container__block}>
                 <div className={styles.container__title}>{t('subtitles')}</div>
-                <div className={styles.container__value}>{movie.subtitlesFull.join(', ')}</div>
+                <div className={styles.container__value}>{t('subVariant')}</div>
             </div>
 
             <div className={styles.container__block}>
@@ -32,7 +27,7 @@ const MovieOptions = ({ movie }: MovieOptionsProps) => {
                 </div>
 
                 <div className={styles.container__badgesContainer}>
-                    {movie.displays.map((display) => (
+                    {['FullHD', 'HD', '1080', '720'].map((display) => (
                         <div key={display} className={styles.container__badge}>
                             <TextBadge text={display} />
                         </div>

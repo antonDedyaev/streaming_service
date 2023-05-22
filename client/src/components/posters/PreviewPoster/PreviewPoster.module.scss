@@ -1,6 +1,8 @@
 .container {
     display: block;
-    max-width: 200px;
+    width: 153.14px;
+
+    //max-width: 200px;
 
     &__block {
         border-radius: 8px;
@@ -11,6 +13,8 @@
             margin-bottom: 8px;
             background-color: #e6e6e6;
             transition: 0.3s;
+
+            height: 235.05px;
 
             &:hover {
                 transform-origin: bottom;
@@ -40,6 +44,9 @@
         font-weight: 600;
         line-height: 120%;
         color: #d9d7e0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     &__badge {

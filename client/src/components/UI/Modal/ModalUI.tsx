@@ -12,7 +12,7 @@ interface ModalUIProps {
 
 const ModalUI = ({ children, className }: ModalUIProps) => {
     const location = useRouter();
-    const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?more)/, '');
+    const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?trailer)|(\?more)/, '');
 
     const body = document.querySelector('body')!;
 
@@ -29,7 +29,7 @@ const ModalUI = ({ children, className }: ModalUIProps) => {
         <div className={[styles.container, className].join(' ')}>
             {children}
 
-            <TransparentButton textColor='bright' className={styles.container__button} onClick={closeHandler}>
+            <TransparentButton textColor="bright" className={styles.container__button} onClick={closeHandler}>
                 <Image className={styles.container__image} src={closeIcon} alt="закрыть" />
             </TransparentButton>
         </div>

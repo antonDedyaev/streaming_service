@@ -25,6 +25,8 @@
         left: 100px;
         top: 3px;
         border-radius: 2px;
+        object-fit: cover;
+        object-position: top;
     }
 
     &__posterIpad {
@@ -33,6 +35,8 @@
         bottom: 7px;
         border-radius: 4px;
         z-index: 1;
+        object-fit: cover;
+        object-position: top;
     }
 }
 

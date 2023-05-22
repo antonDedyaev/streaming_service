@@ -1,4 +1,4 @@
-import { declineWord, minutesToHours } from './functions';
+import { declineWord, firstCapitalLetter, minutesToHours } from './functions';
 
 describe('DECLENSION OF WORD FROM NUMBER TESTS', () => {
     const array = ['фильм', 'фильма', 'фильмов'];
@@ -20,18 +20,30 @@ describe('DECLENSION OF WORD FROM NUMBER TESTS', () => {
 });
 
 describe('MINUTES TO HOURS TESTS', () => {
-    test('minutesToHours should return h and m with value 215 ', () => {
+    test('minutesToHours should return h and m with value 215', () => {
         const result = minutesToHours(215);
         expect(result).toBe('3 ч. 35 мин.');
     });
 
-    test('minutesToHours should return h value 120 ', () => {
+    test('minutesToHours should return h value 120', () => {
         const result = minutesToHours(120);
         expect(result).toBe('2 ч.');
     });
 
-    test('minutesToHours should return m value 58 ', () => {
+    test('minutesToHours should return m value 58', () => {
         const result = minutesToHours(58);
         expect(result).toBe('58 мин.');
+    });
+});
+
+describe('FIRST CAPITAL LETTER TESTS', () => {
+    test('firstCapitalLetter should return the word capitalized', () => {
+        const result = firstCapitalLetter('слово');
+        expect(result).toBe('Слово');
+    });
+
+    test('firstCapitalLetter should return empty string', () => {
+        const result = firstCapitalLetter(undefined);
+        expect(result).toBe('');
     });
 });

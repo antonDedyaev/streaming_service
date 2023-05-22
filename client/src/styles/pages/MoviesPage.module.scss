@@ -17,7 +17,8 @@
     }
 
     &__section {
-        padding: 24px 0;
+        padding-top: 24px;
+        //padding: 24px 0 12px;
 
         &_promo {
             padding-top: 0;
@@ -27,4 +28,12 @@
             padding-bottom: 104px;
         }
     }
+}
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 24px;
+    margin-left: -12px;
+    margin-right: -12px;
+    width: 100%;
 }
