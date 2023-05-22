@@ -1,17 +1,41 @@
 import { useRouter } from 'next/router';
 import styles from './FilterList.module.scss';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { genreFilterAdded, countryFilterAdded, addFilteredMovies } from '@/store/slices/moviesSlice';
+import axios from 'axios';
 
 interface IList {
     items: string[];
+    category: string;
 }
 
-const FilterList = ({ items }: IList) => {
+const FilterList = ({ items, category }: IList) => {
     const router = useRouter();
+    const dispatch = useAppDispatch();
+
+    const { genre, countries } = useAppSelector((state) => state.movies.filters);
+
+    useEffect(() => {
+        const requestBody = category === 'Жанры' ? { genre: genre } : { countries: countries };
+        console.log(genre);
+        const sendFilters = async () => {
+            try {
+                const response = await axios.post('http://localhost:6125/movies', requestBody);
+                console.log(response.data);
+                dispatch(addFilteredMovies(response.data));
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        sendFilters();
+    }, [genre, countries]);
 
     const handleCheckboxSelected = ({ currentTarget }: React.MouseEvent<HTMLInputElement>) => {
-        console.log(currentTarget?.nextElementSibling);
-        router.push('/movies', `/movies/`, { shallow: true });
+        const filterText = currentTarget?.nextElementSibling?.textContent;
+        category === 'Жанры' ? dispatch(genreFilterAdded(filterText)) : dispatch(countryFilterAdded(filterText));
+
+        //router.push('/movies', `/movies/`, { shallow: true });
     };
 
     return (

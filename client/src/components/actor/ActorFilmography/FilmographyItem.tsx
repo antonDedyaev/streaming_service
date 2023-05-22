@@ -28,11 +28,11 @@ const FilmographyItem = ({ movie }: FilmographyItemProps) => {
 
                         <div className={styles.container__ratingContainer}>
                             <span className={styles.container__ratingLabel}>{t('rating')}: </span>
-                            <span className={styles.container__ratingValue}>{movie.ratingKp}</span>
+                            <span className={styles.container__ratingValue}>{movie.ratingkp}</span>
                         </div>
                     </div>
 
-                    <ColoredButton size='large' color='gray' className={styles.container__button}>
+                    <ColoredButton size="large" color="gray" className={styles.container__button}>
                         {t('details')}
                     </ColoredButton>
                 </div>

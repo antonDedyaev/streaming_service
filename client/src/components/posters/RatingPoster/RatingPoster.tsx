@@ -2,9 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import style from './RatingPoster.module.scss';
 import IMovie from '@/models/IMovie';
+import { IRatingMovie } from './ratingMovies.data';
 
 interface RatingPosterProps {
-    movie: IMovie;
+    movie: IRatingMovie;
     className: string;
 }
 
@@ -24,7 +25,7 @@ const RatingPoster = ({ movie, className }: RatingPosterProps) => {
                             className={style.container__logo}
                             width={153}
                             height={40}
-                            src={movie.logo}
+                            src={movie.logo!}
                             alt={movie.name}
                         />
                     </div>

@@ -27,7 +27,7 @@
         position: relative;
         margin: 0 0 10px 0;
         transition: 0.3s;
-        padding: 10px 0 0 0;
+        //padding: 10px 0 0 0;
     }
 
     &__imageWrapper {
@@ -45,6 +45,8 @@
         bottom: 0;
         right: 0;
         height: 120% !important;
+        object-fit: cover;
+        //object-position: bottom;
     }
 
     &__amountBadge {

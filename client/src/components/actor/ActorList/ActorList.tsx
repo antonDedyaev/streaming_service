@@ -1,9 +1,9 @@
 import ActorItem from '../ActorItem/ActorItem';
 import styles from './ActorList.module.scss';
-import IActor from '../../../models/IActor';
+import IPerson from '../../../models/IPerson';
 
 interface ActorListProps {
-    actors: IActor[];
+    actors: IPerson[];
     size: 'large' | 'medium' | 'small';
 }
 

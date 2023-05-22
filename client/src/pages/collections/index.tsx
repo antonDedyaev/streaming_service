@@ -30,7 +30,12 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
     },
 });
 
-function MoviesPage() {
+// const swr = (url: string) => {
+//     const { data, error } = useSWR(url, async () => await axios.get(url).then((res) => res.data));
+//     return data;
+// };
+
+function CollectionsPage() {
     // const address = 'http://localhost:6125/filmswithinfo';
     // const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
     // const { data, error } = useSWR(address, fetcher);
@@ -40,14 +45,8 @@ function MoviesPage() {
     const { locale } = useRouter();
     const [countriesList, setCountriesList] = useState<string[]>([]);
     const [genresList, setGenresList] = useState<string[]>([]);
+
     const [filtersApplied, setFiltersApplied] = useState(false);
-
-    const filteredList = useAppSelector((state) => state.movies.filteredMovies);
-    console.log(filteredList);
-
-    useEffect(() => {
-        setFiltersApplied(filteredList.length !== 0);
-    }, [filteredList]);
 
     const movies = useAppSelector((state) => state.movies.movies);
     const celebrities = useAppSelector((state) => state.actors.actors);
@@ -56,7 +55,6 @@ function MoviesPage() {
     const premieres = movies
         .filter((movie) => movie.premiereRussia)
         .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime());
-
     const bestMovies = movies
         .filter((movie) => movie.ratingKp)
         .sort((a, b) => b.ratingKp - a.ratingKp)
@@ -156,7 +154,7 @@ function MoviesPage() {
                             <FilterSearch searchBy="Актёр" />
                         </FilterPlank>
                     </FilterPanel>
-                    {!filtersApplied ? (
+                    {!filtersApplied && (
                         <>
                             <div className={styles.container__section}>
                                 <MoviesSection
@@ -176,15 +174,14 @@ function MoviesPage() {
                                 <MoviesSection title={t('moviesPage:imaxMovies')} movies={imaxMovies} href="/" />
                             </div>
                         </>
-                    ) : (
-                        <div className={styles.list}>
-                            <PostersList posterType="preview" movies={filteredList.slice(0, 21)}></PostersList>
-                        </div>
                     )}
+                    <div className={styles.list}>
+                        <PostersList posterType="preview" movies={premieres}></PostersList>
+                    </div>
                 </div>
             </div>
         </MainContainer>
     );
 }
 
-export default MoviesPage;
+export default CollectionsPage;

@@ -25,7 +25,6 @@ const actorsSlice = createSlice({
                 console.log('pending');
             })
             .addCase(fetchActors.fulfilled, (state, action: PayloadAction<any[]>) => {
-                console.log(action.payload.length);
                 const actors = action.payload.map((item) => {
                     const { id, name, enName, photo } = item.person;
                     const { profession, enProfession } = item.movies[0];
