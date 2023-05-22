@@ -1,10 +1,7 @@
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 import styles from '@/styles/pages/CardPersonPage.module.scss';
-/*import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
-import { actors } from '@/components/actor/ActorList/Temp/Actors.data';*/
 import ImgSquareUI from '@/components/UI/squares/ImgSquareUI/ImgSquareUI';
 import FilmographySection from '@/components/sections/FilmographySection/FilmographySection';
-/*import { ratingMovies } from '@/components/posters/RatingPoster/ratingMovies.data';*/
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'react-i18next';
