@@ -1,13 +1,14 @@
 .container {
     display: flex;
     align-items: center;
-    height: 68px;
+    min-height: 68px;
     margin-top: 5px;
     position: relative;
     border-radius: 15px 15px 0 0;
     transition: 0.4s;
     padding: 0 10px;
     width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1607843137);
 
     &_mouseOver {
         background-color: #1f1b2e;
@@ -166,6 +167,13 @@
                 &_user {
                     display: none;
                 }
+            }
+        }
+
+        &__link {
+            &_locale {
+                margin-left: 20px;
+                margin-right: 0px;
             }
         }
     }
