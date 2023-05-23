@@ -29,5 +29,8 @@
         "singleMovie": "фильм",
         "fewMovies": "фильма",
         "manyMovies": "фильмов"
-    }
+    },
+    "loading": "Загрузка...",
+    "pageError": "Эта страница ещё не создана",
+    "buttonBack": "Вернуться назад"
 }

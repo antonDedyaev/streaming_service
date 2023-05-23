@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0px;
+
+    & img {
+        margin-bottom: 10px;
+    }
+    & p {
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+.button {
+    margin-top: 20px;
+}

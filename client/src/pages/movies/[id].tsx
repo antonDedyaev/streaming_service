@@ -19,6 +19,8 @@ import ICountry from '@/models/ICountry';
 import IPerson from '@/models/IPerson';
 import TrailerModal from '@/components/modals/TrailerModal/TrailerModal';
 import { firstCapitalLetter } from '@/utils/functions';
+import Loading from '@/components/Loading/Loading';
+import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -34,12 +36,14 @@ export const getStaticPaths = async () => {
 };
 
 function CardMoviePage() {
+    const { t } = useTranslation(['movie', 'moviesPage']);
     const { query } = useRouter();
     const queryParams = Object.keys(query);
     const router = useRouter();
     const { id } = router.query;
     const locale = router.locale;
 
+    const [loading, setLoading] = useState(true);
     const [movie, setMovie] = useState<IMovie>();
 
     useEffect(() => {
@@ -103,23 +107,32 @@ function CardMoviePage() {
                 });
             } catch (err) {
                 console.log(err);
+            } finally {
+                setLoading(false);
             }
         };
         getPerson();
     }, [id]);
 
-    const { t } = useTranslation('movie');
     return (
         <MainContainer
             keywords={['movie', 'ivi']}
             title={
-                locale === 'ru'
-                    ? `${movie?.name} (Фильм ${movie?.year}) ${t('browserTab')}`
-                    : `${movie?.enName} (${firstCapitalLetter(movie?.type)} ${movie?.year}) ${t('browserTab')}`
+                loading
+                    ? `${t('loading', { ns: 'moviesPage' })}`
+                    : movie
+                    ? locale === 'ru'
+                        ? `${movie.name} (Фильм ${movie.year}) ${t('browserTab')}`
+                        : `${movie.enName} (${firstCapitalLetter(movie.type)} ${movie.year}) ${t('browserTab')}`
+                    : `${t('pageError', { ns: 'moviesPage' })}`
             }
             page="other"
         >
-            {movie && (
+            {loading ? (
+                <div className="container">
+                    <Loading />
+                </div>
+            ) : movie ? (
                 <div className={[styles.container, 'container'].join(' ')}>
                     <section className={[styles.container__page, styles.page].join(' ')}>
                         <div className={styles.page__block}>
@@ -155,6 +168,10 @@ function CardMoviePage() {
                             <MovieDevicesImage poster={movie.posterUrl} title={movie.name} />
                         </div>
                     </section>
+                </div>
+            ) : (
+                <div className="container">
+                    <PageNotCreated />
                 </div>
             )}
 

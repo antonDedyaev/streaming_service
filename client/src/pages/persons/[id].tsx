@@ -10,6 +10,8 @@ import IMovies from '@/models/IMovies';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
+import Loading from '@/components/Loading/Loading';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -25,11 +27,12 @@ export const getStaticPaths = async () => {
 };
 
 function CardActorPage() {
-    const { t } = useTranslation('person');
+    const { t } = useTranslation(['person', 'moviesPage']);
     const router = useRouter();
     const { id } = router.query;
     const locale = router.locale;
 
+    const [loading, setLoading] = useState(true);
     const [person, setPerson] = useState<IPerson>();
 
     useEffect(() => {
@@ -73,6 +76,8 @@ function CardActorPage() {
                 });
             } catch (err) {
                 console.log(err);
+            } finally {
+                setLoading(false);
             }
         };
         getPerson();
@@ -82,13 +87,21 @@ function CardActorPage() {
         <MainContainer
             keywords={['person']}
             title={
-                locale === 'ru'
-                    ? `${person?.name} (${person?.enName}): ${t('browserTab')}. ${person?.profession}.`
-                    : `${person?.enName} (${person?.name}): ${t('browserTab')}. ${person?.enProfession}.`
+                loading
+                    ? `${t('loading', { ns: 'moviesPage' })}`
+                    : person
+                    ? locale === 'ru'
+                        ? `${person.name} (${person.enName}): ${t('browserTab')}. ${person.profession}.`
+                        : `${person.enName} (${person.name}): ${t('browserTab')}. ${person.enProfession}.`
+                    : `${t('pageError', { ns: 'moviesPage' })}`
             }
             page="other"
         >
-            {person && (
+            {loading ? (
+                <div className="container">
+                    <Loading />
+                </div>
+            ) : person ? (
                 <div className="container">
                     <div className={styles.back} onClick={() => router.back()}>
                         <img src="/icons/arrows/arrow_left.svg" alt="arrow left" />
@@ -97,9 +110,11 @@ function CardActorPage() {
 
                     <div className={styles.container}>
                         <section className={[styles.container__info, styles.info].join(' ')}>
-                            <div className={styles.info__img}>
-                                <ImgSquareUI person={person} border="medium" />
-                            </div>
+                            {person.photo && (
+                                <div className={styles.info__img}>
+                                    <ImgSquareUI person={person} border="medium" />
+                                </div>
+                            )}
                             <h1 className={styles.info__title}>{locale === 'ru' ? person.name : person.enName}</h1>
                             <span className={styles.info__alternate}>
                                 {locale === 'ru' ? person.enName : person.name}
@@ -110,6 +125,10 @@ function CardActorPage() {
                         </section>
                         <section style={{ color: 'white' }}>Хлебные крошки</section>
                     </div>
+                </div>
+            ) : (
+                <div className="container">
+                    <PageNotCreated />
                 </div>
             )}
         </MainContainer>

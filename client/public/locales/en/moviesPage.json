@@ -30,5 +30,8 @@
         "singleMovie": "movie",
         "fewMovies": "movies",
         "manyMovies": "movies"
-    }
+    },
+    "loading": "Loading...",
+    "pageError": "This page has not been created yet",
+    "buttonBack": "Come back"
 }

@@ -1,0 +1,103 @@
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 16px;
+    margin: 60px 0px 20px;
+}
+.spinner {
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    margin-left: 40px;
+
+    .blob {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 2px solid rgba(255, 255, 255, 0.48);
+
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+
+        &.top {
+            top: 0;
+            animation: blob-top 1s infinite ease-in;
+        }
+        &.bottom {
+            top: 100%;
+            animation: blob-bottom 1s infinite ease-in;
+        }
+        &.left {
+            left: 0;
+            animation: blob-left 1s infinite ease-in;
+        }
+    }
+
+    .move {
+        background: rgba(255, 255, 255, 0.78);
+        top: 0;
+
+        animation: blob-spinner-mover 1s infinite ease-in;
+    }
+}
+
+@keyframes blob-bottom {
+    25%,
+    50%,
+    75% {
+        top: 50%;
+        left: 100%;
+    }
+    100% {
+        top: 0;
+        left: 50%;
+    }
+}
+@keyframes blob-left {
+    25% {
+        top: 50%;
+        left: 0;
+    }
+    50%,
+    100% {
+        top: 100%;
+        left: 50%;
+    }
+}
+@keyframes blob-top {
+    50% {
+        top: 0;
+        left: 50%;
+    }
+    75%,
+    100% {
+        top: 50%;
+        left: 0;
+    }
+}
+
+@keyframes blob-spinner-mover {
+    0%,
+    100% {
+        top: 0;
+        left: 50%;
+    }
+    25% {
+        top: 50%;
+        left: 100%;
+    }
+    50% {
+        top: 100%;
+        left: 50%;
+    }
+    75% {
+        top: 50%;
+        left: 0;
+    }
+}
