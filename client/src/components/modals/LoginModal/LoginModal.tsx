@@ -129,7 +129,12 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         </div>
                     )}
 
-                    <ColoredButton onClick={type === 'sign-in' ? signInHandler : signUpHandler} className={styles.container__button} color="red" size="large">
+                    <ColoredButton
+                        onClick={type === 'sign-in' ? signInHandler : signUpHandler}
+                        className={styles.container__button}
+                        color="red"
+                        size="large"
+                    >
                         {type === 'sign-in' ? t('loginModal.signIn') : t('loginModal.signUp')}
                     </ColoredButton>
                 </div>

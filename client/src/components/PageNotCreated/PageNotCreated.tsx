@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import BorderedButton from '../UI/buttons/BorderedButton/BorderedButton';
 import styles from './PageNotCreated.module.scss';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 const PageNotCreated = () => {
     const router = useRouter();

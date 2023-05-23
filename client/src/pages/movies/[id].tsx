@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import IMovie from '@/models/IMovie';
 import axios from 'axios';

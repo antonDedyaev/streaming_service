@@ -3,7 +3,7 @@ import axios from 'axios';
 import IPerson from '@/models/IPerson';
 
 export const fetchActors = createAsyncThunk('movies/fetchActors', async () => {
-    const response = await axios.get('http://localhost:6125/personswithinfo');
+    const response = await axios.get('http://localhost:3000/persons/actors');
     return response.data;
 });
 
@@ -24,18 +24,17 @@ const actorsSlice = createSlice({
             .addCase(fetchActors.pending, (state) => {
                 console.log('pending');
             })
-            .addCase(fetchActors.fulfilled, (state, action: PayloadAction<any[]>) => {
+            .addCase(fetchActors.fulfilled, (state, action: PayloadAction<IPerson[]>) => {
+                console.log(action.payload);
                 const actors = action.payload.map((item) => {
-                    const { id, name, enName, photo } = item.person;
-                    const { profession, enProfession } = item.movies[0];
+                    const { id, name, enName, photo, profession, movies } = item;
                     return {
-                        id: id,
-                        name: name,
-                        enName: enName,
-                        photo: photo,
+                        id,
+                        name,
+                        enName,
+                        photo,
                         profession,
-                        enProfession,
-                        movies: item.movies,
+                        movies,
                     };
                 });
                 state.actors = actors;

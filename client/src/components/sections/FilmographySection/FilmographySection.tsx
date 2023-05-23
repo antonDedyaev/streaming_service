@@ -3,7 +3,7 @@ import styles from './FilmographySection.module.scss';
 import { declineWord } from '@/utils/functions';
 import ActorFilmographyList from '@/components/actor/ActorFilmographyList/ActorFilmographyList';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 interface FilmographySectionProps {
     movies: IMovies[];

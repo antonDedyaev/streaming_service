@@ -13,7 +13,7 @@ import icon from '@/../public/icons/rating.svg';
 import FilterSearch from '@/components/filters/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
@@ -23,8 +23,10 @@ import { fetchMovies } from '@/store/slices/moviesSlice';
 import IActor from '@/models/IActor';
 import { fetchActors } from '@/store/slices/actorsSlice';
 import PostersList from '@/components/posters/PostersList/PostersList';
+import TransparentButton from '@/components/UI/buttons/TransparentButton/TransparentButton';
+import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
         ...(await serverSideTranslations(locale!, ['common', 'footer', 'header', 'moviesPage', 'modals'])),
     },
@@ -43,15 +45,16 @@ function MoviesPage() {
     const [filtersApplied, setFiltersApplied] = useState(false);
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
-    console.log(filteredList);
+    //console.log(filteredList);
 
     useEffect(() => {
+        console.log(filteredList.length);
         setFiltersApplied(filteredList.length !== 0);
     }, [filteredList]);
 
     const movies = useAppSelector((state) => state.movies.movies);
-    const celebrities = useAppSelector((state) => state.actors.actors);
-    const actors = celebrities.filter((celeb) => celeb.photo && celeb.profession === 'актеры');
+    const actors = useAppSelector((state) => state.actors.actors);
+    const filteredActors = actors.filter((actor) => actor.name && actor.photo);
 
     const premieres = movies
         .filter((movie) => movie.premiereRussia)
@@ -74,18 +77,17 @@ function MoviesPage() {
 
         const getCountries = async () => {
             try {
-                const uniqieCountries = new Set<string>();
-                const requestCountries = await axios.get('http://localhost:6125/countriesOffilm');
-                requestCountries.data.forEach(({ country }: { country: string }) => uniqieCountries.add(country));
-                setCountriesList([...uniqieCountries].sort());
+                const requestCountries = await axios.get('http://localhost:3000/api/countries');
+                const countries = requestCountries.data.map(({ name }: { name: string }) => name);
+                setCountriesList(countries.sort());
             } catch (err) {
                 console.log(err);
             }
         };
         const getGenres = async () => {
             try {
-                const requestGenres = await axios.get('http://localhost:6125/namesgenres');
-                const genres = requestGenres.data.map(({ genre }: { genre: string }) => genre);
+                const requestGenres = await axios.get('http://localhost:3000/api/genres');
+                const genres = requestGenres.data.map(({ name }: { name: string }) => name);
                 setGenresList(genres.sort());
             } catch (err) {
                 console.log(err);
@@ -121,14 +123,14 @@ function MoviesPage() {
                             title={t('moviesPage:filterPanel.genres')}
                             className={plankStyles.container__dropdown_leftPositioned}
                         >
-                            <FilterList items={genresList} category={t('moviesPage:filterPanel.genres')} />
+                            <FilterList items={genresList} category="genres" />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.countries')}
                             className={plankStyles.container__dropdown_centerPositioned}
                         >
-                            <FilterList items={countriesList} category={t('moviesPage:filterPanel.countries')} />
+                            <FilterList items={countriesList} category="countries" />
                         </FilterPlank>
 
                         <FilterPlank
@@ -170,7 +172,7 @@ function MoviesPage() {
                                 <MoviesSection title={t('moviesPage:topMovies')} movies={bestMovies} href="/" />
                             </div>
                             <div className={styles.container__section}>
-                                <PersonsSection size="large" persons={actors} />
+                                <PersonsSection size="large" persons={filteredActors} />
                             </div>
                             <div className={styles.container__section}>
                                 <MoviesSection title={t('moviesPage:imaxMovies')} movies={imaxMovies} href="/" />
@@ -178,7 +180,10 @@ function MoviesPage() {
                         </>
                     ) : (
                         <div className={styles.list}>
-                            <PostersList posterType="preview" movies={filteredList.slice(0, 21)}></PostersList>
+                            <PostersList posterType="preview" movies={filteredList.slice(0, 35)}></PostersList>
+                            <BorderedButton size="large" className={styles.container__paginationButton}>
+                                Показать еще
+                            </BorderedButton>
                         </div>
                     )}
                 </div>

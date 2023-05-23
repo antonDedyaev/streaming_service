@@ -5,7 +5,7 @@ export default interface IMovies {
     id: number;
     name: string;
     enName: string;
-    posterpreviewUrl: string;
+    posterPreviewURL: string;
     premiereRussia: string;
     hasImax: boolean;
     year: number;

@@ -5,8 +5,8 @@ import { ReactNode, useEffect, useState } from 'react';
 import TransparentButton from '../UI/buttons/TransparentButton/TransparentButton';
 
 import { useTranslation } from 'next-i18next';
-import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { filtersRemoved } from '@/store/slices/moviesSlice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
+import { filtersRemoved } from '../../store/slices/moviesSlice';
 interface IPanel {
     children: ReactNode;
 }

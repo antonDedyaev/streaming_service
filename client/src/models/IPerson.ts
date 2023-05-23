@@ -6,6 +6,6 @@ export default interface IPerson {
     enName: string;
     photo: string;
     profession: string;
-    enProfession: string;
+    enProfession?: string;
     movies: IMovies[];
 }
