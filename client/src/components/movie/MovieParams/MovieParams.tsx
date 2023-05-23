@@ -4,8 +4,8 @@ import TextBadge from '../../UI/badges/TextBadge/TextBadge';
 import Image from 'next/image';
 import soundIcon from '../../../../public/icons/sound.png';
 import subtitlesIcon from '../../../../public/icons/subtitles.png';
-import IMovie from '@/models/IMovie';
-import { firstCapitalLetter, minutesToHours } from '@/utils/functions';
+import IMovie from '../../../models/IMovie';
+import { firstCapitalLetter, minutesToHours } from '../../../utils/functions';
 import { useRouter } from 'next/router';
 
 interface MovieParamsProps {

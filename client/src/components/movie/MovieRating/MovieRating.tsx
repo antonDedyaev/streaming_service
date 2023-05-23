@@ -2,8 +2,8 @@ import styles from './MovieRating.module.scss';
 import ButtonUI from '../../UI/buttons/Button/ButtonUI';
 import TextSquareUI from '../../UI/squares/TextSquareUI/TextSquareUI';
 import { useTranslation } from 'next-i18next';
-import IMovie from '@/models/IMovie';
-import { declineWord } from '@/utils/functions';
+import IMovie from '../../../models/IMovie';
+import { declineWord } from '../../../utils/functions';
 
 interface MovieRatingProps {
     movie: IMovie;

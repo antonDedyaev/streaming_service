@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import styles from './FilterList.module.scss';
 import { useEffect, useRef } from 'react';
-import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { genreFilterAdded, countryFilterAdded, addFilteredMovies } from '@/store/slices/moviesSlice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
+import { genreFilterAdded, countryFilterAdded, addFilteredMovies } from '../../store/slices/moviesSlice';
 import axios from 'axios';
 
 interface IList {
