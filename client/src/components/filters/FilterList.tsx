@@ -13,7 +13,6 @@ const FilterList = ({ items, category }: IList) => {
     const dispatch = useAppDispatch();
 
     const filters = useAppSelector((state) => state.movies.filters[category]);
-    const filteredMovies = useAppSelector((state) => state.movies.filteredMovies);
 
     useEffect(() => {
         const sendFilters = async () => {

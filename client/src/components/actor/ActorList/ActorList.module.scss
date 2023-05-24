@@ -1,7 +1,7 @@
 .item {
     &_large {
         min-width: calc(100% / 7 - 24px);
-        margin: 0 12px;
+        margin: 0 12px 24px;
     }
     &_medium {
         padding: 0px 12px;

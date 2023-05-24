@@ -25,7 +25,7 @@ const LinksList = ({ links, direction }: LinksListProps) => {
                 <li className={styles.container__item} key={link.text}>
                     <TextLinkUI
                         className={link.className}
-                        onMouseOver={() => link.onMouseOver ? link.onMouseOver() : ''}
+                        onMouseOver={() => (link.onMouseOver ? link.onMouseOver() : '')}
                         href={link.href}
                         option={link.option ?? 'dim'}
                     >

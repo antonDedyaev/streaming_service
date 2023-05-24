@@ -3,6 +3,7 @@ import IMovies from '@/models/IMovies';
 import PostersList from '@/components/posters/PostersList/PostersList';
 import ArrowedLink from '@/components/UI/links/ArrowedLink/ArrowedLink';
 import styles from './MoviesSection.module.scss';
+import ShowAllLink from '@/components/UI/links/ShowAllLink/ShowAllLink';
 
 interface MoviesSectionProps {
     title: string;
@@ -11,23 +12,16 @@ interface MoviesSectionProps {
 }
 
 const MoviesSection = ({ title, movies, href }: MoviesSectionProps) => {
-    const onClick = (e: any) => {
-        e.preventDefault();
-    };
-
     return (
         <div className={styles.section}>
             <div className={styles.section__header}>
-                {href ? (
-                    <ArrowedLink text={title} href={href} onClick={onClick} />
-                ) : (
-                    <h3 className={styles.section__title}>{title}</h3>
-                )}
+                {href ? <ArrowedLink text={title} href={href} /> : <h3 className={styles.section__title}>{title}</h3>}
             </div>
 
             <div className={styles.section__content}>
-                <Slider itemType="preview" length={movies.length}>
+                <Slider itemType="preview" length={movies.length + 1}>
                     <PostersList posterType="preview" movies={movies} />
+                    <ShowAllLink href={href} />
                 </Slider>
             </div>
         </div>

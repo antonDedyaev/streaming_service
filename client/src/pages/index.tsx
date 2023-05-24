@@ -22,12 +22,11 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import { useEffect } from 'react';
 import { fetchMovies } from '@/store/slices/moviesSlice';
-import IMovies from '@/models/IMovies';
-import axios from 'axios';
+import getMoviesByGenre from '@/utils/getMoviesByGenre';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
-        ...(await serverSideTranslations(locale!, ['common', 'footer', 'header', 'mainPage', 'modals'])),
+        ...(await serverSideTranslations(locale!, ['collection', 'common', 'footer', 'header', 'mainPage', 'modals'])),
     },
 });
 
@@ -36,12 +35,6 @@ function HomePage() {
     const dispatch = useAppDispatch();
 
     const movies = useAppSelector((state) => state.movies.movies);
-
-    const getMoviesByGenre = (arrOfMovies: IMovies[], genre: string) =>
-        arrOfMovies.flatMap((movie) => {
-            const filtered = movie.genres.filter((item) => item.name === genre);
-            return filtered.length === 0 ? [] : movie;
-        });
 
     const fantasies = getMoviesByGenre(movies, 'фантастика');
     const dramas = getMoviesByGenre(movies, 'драма');
@@ -114,11 +107,19 @@ function HomePage() {
                         </div>
 
                         <div className={styles.container__section}>
-                            <MoviesSection title={t('mainPage:fantasy')} movies={fantasies} href="/" />
+                            <MoviesSection
+                                title={t('mainPage:fantasy')}
+                                movies={fantasies.slice(0, 20)}
+                                href="/collections/fantasy"
+                            />
                         </div>
 
                         <div className={styles.container__section}>
-                            <MoviesSection title={t('mainPage:dramas')} movies={dramas} href="/" />
+                            <MoviesSection
+                                title={t('mainPage:drama')}
+                                movies={dramas.slice(0, 20)}
+                                href="/collections/drama"
+                            />
                         </div>
                     </div>
                 </div>
