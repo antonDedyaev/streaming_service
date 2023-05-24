@@ -1,6 +1,7 @@
 {
     "moviesSpoiler": {
-        "header": "Watch movies online",
+        "sectionTitle": "Movies",
+        "header": "watch online",
         "synopsis": "{{ description }}",
         "content": [
             "You like to watch movies online and spend a lot of time browsing websites for something interesting? You should stay longer at ivi.ru – we have gathered a collection of movies that will entertain you for a long time. The collection is constantly updated with both new films and recognized masterpieces of the past years! No matter who you are – a fan of dynamic action movies or a fan of youth TV series, our rich catalog will make you forget about all other leisure activities, and you will watch your favorite movies online again and again!",
@@ -22,8 +23,8 @@
         "searchByDirector": "Search by director",
         "searchByActor": "Search by actor"
     },
-    "releases": "Premieres",
-    "topMovies": "Top movies",
+    "newReleases": "Premieres",
+    "bestMovies": "Top movies",
     "celebrities": "Celebrities",
     "imaxMovies": "IMAX movies",
     "filmography": {
