@@ -29,18 +29,19 @@
         }
     }
 
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 24px;
+
+        padding-bottom: 32px;
+        width: 100%;
+    }
+
     &__paginationButton {
         font-size: 15px !important;
         line-height: 20px;
         font-weight: 500;
         font-style: normal;
     }
-}
-.list {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 24px;
-
-    padding-bottom: 80px;
-    width: 100%;
 }
