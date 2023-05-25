@@ -4,7 +4,7 @@ import ImgSquareUI from '@/components/UI/squares/ImgSquareUI/ImgSquareUI';
 import FilmographySection from '@/components/sections/FilmographySection/FilmographySection';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import IPerson from '@/models/IPerson';
 import IMovies from '@/models/IMovies';
 import { useRouter } from 'next/router';
@@ -51,7 +51,7 @@ function CardActorPage() {
                         id: movie.data.film.id,
                         name: movie.data.film.name,
                         enName: movie.data.film.alternativeName,
-                        posterpreviewUrl: movie.data.film.posterpreviewUrl,
+                        posterPreviewURL: movie.data.film.posterpreviewUrl,
                         premiereRussia: movie.data.film.premiererussia,
                         hasImax: movie.data.film.hasImax,
 

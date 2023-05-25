@@ -3,7 +3,7 @@ import ActorList from '@/components/actor/ActorList/ActorList';
 import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
 import IMovie from '@/models/IMovie';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 interface MoviePersonsItemProps {
     movie: IMovie;

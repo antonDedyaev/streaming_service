@@ -4,7 +4,7 @@ import MoviePersonsItem from '@/components/movie/MoviePersonsItem/MoviePersonsIt
 import Link from 'next/link';
 import Image from 'next/image';
 import PreviewPosterContentBrief from '@/components/posters/PreviewPosterContentBrief/PreviewPosterContentBrief';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import IMovie from '@/models/IMovie';
 
 interface MoreModalProps {

@@ -1,41 +1,36 @@
-import { useRouter } from 'next/router';
 import styles from './FilterList.module.scss';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
-import { genreFilterAdded, countryFilterAdded, addFilteredMovies } from '../../store/slices/moviesSlice';
+import { genresFilterAdded, countriesFilterAdded, addFilteredMovies } from '../../store/slices/moviesSlice';
 import axios from 'axios';
 
 interface IList {
     items: string[];
-    category: string;
+    category: 'genres' | 'countries';
 }
 
 const FilterList = ({ items, category }: IList) => {
-    const router = useRouter();
     const dispatch = useAppDispatch();
 
-    const { genre, countries } = useAppSelector((state) => state.movies.filters);
+    const filters = useAppSelector((state) => state.movies.filters[category]);
+    const filteredMovies = useAppSelector((state) => state.movies.filteredMovies);
 
     useEffect(() => {
-        const requestBody = category === 'Жанры' ? { genre: genre } : { countries: countries };
-        console.log(genre);
         const sendFilters = async () => {
             try {
-                const response = await axios.post('http://localhost:6125/movies', requestBody);
-                console.log(response.data);
-                dispatch(addFilteredMovies(response.data));
+                const response = await axios.get(`http://localhost:3000/api/films?${category}=${filters.join(',')}`);
+                console.log('фильтр:', filters);
+                dispatch(addFilteredMovies(filters.length !== 0 ? response.data : []));
             } catch (err) {
                 console.log(err);
             }
         };
         sendFilters();
-    }, [genre, countries]);
+    }, [filters]);
 
-    const handleCheckboxSelected = ({ currentTarget }: React.MouseEvent<HTMLInputElement>) => {
+    const handleCheckboxSelected = async ({ currentTarget }: React.MouseEvent<HTMLInputElement>) => {
         const filterText = currentTarget?.nextElementSibling?.textContent;
-        category === 'Жанры' ? dispatch(genreFilterAdded(filterText)) : dispatch(countryFilterAdded(filterText));
-
-        //router.push('/movies', `/movies/`, { shallow: true });
+        category === 'genres' ? dispatch(genresFilterAdded(filterText)) : dispatch(countriesFilterAdded(filterText));
     };
 
     return (

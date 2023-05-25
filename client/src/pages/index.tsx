@@ -17,12 +17,13 @@ import Link from 'next/link';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import { useEffect } from 'react';
 import { fetchMovies } from '@/store/slices/moviesSlice';
 import IMovies from '@/models/IMovies';
+import axios from 'axios';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -46,6 +47,15 @@ function HomePage() {
     const dramas = getMoviesByGenre(movies, 'драма');
 
     useEffect(() => {
+        // const parseFilms = () => {
+        //     try {
+        //         const resp = axios.get('http://localhost:3000/persons/parse');
+        //         console.log(resp);
+        //     } catch (err) {
+        //         console.log(err);
+        //     }
+        // };
+        // parseFilms();
         dispatch(fetchMovies());
     }, []);
     return (

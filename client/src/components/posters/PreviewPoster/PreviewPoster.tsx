@@ -18,7 +18,7 @@ const PreviewPoster = ({ movie, className }: PreviewPosterProps) => {
         <Link className={[style.container, className].join(' ')} href={`/movies/${movie.id}`}>
             <div className={[style.container__block, style.container__block_image].join(' ')}>
                 <div className={style.container__imageWrapper}>
-                    <Image className={style.container__image} src={movie.posterpreviewUrl} alt={movie.name} fill />
+                    <Image className={style.container__image} src={movie.posterPreviewURL} alt={movie.name} fill />
                 </div>
                 <PreviewPosterContent movie={movie} />
                 <AgeBadge className={style.container__badge} value={`${movie.ageRating}`} />

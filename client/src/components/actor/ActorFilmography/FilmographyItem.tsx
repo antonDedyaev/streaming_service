@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import IMovies from '@/models/IMovies';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 
 interface FilmographyItemProps {
@@ -18,7 +18,7 @@ const FilmographyItem = ({ movie }: FilmographyItemProps) => {
             <Link href={`/movies/${movie.id}`} className={styles.container__body}>
                 <div className={styles.container__imageWrapper}>
                     <Image
-                        src={movie.posterpreviewUrl}
+                        src={movie.posterPreviewURL}
                         height={123}
                         width={80}
                         alt={`Постер ${locale === 'ru' ? movie.name : movie.enName}`}

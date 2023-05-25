@@ -3,7 +3,7 @@ import MovieMedallionItem from '../MovieMedallionItem/MovieMedallionItem';
 import Link from 'next/link';
 import TextSquareUI from '@/components/UI/squares/TextSquareUI/TextSquareUI';
 import ImgSquareUI from '@/components/UI/squares/ImgSquareUI/ImgSquareUI';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import IMovie from '@/models/IMovie';
 import { useRouter } from 'next/router';
 
