@@ -3,11 +3,11 @@ import axios from 'axios';
 import IMovies from '@/models/IMovies';
 
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
-    const response = await axios.get('http://localhost:3000/api/films');
+    const response = await axios.get('http://localhost:6125/filmswithinfo');
     return response.data;
 });
 
-interface IFilters {
+export interface IFilters {
     genres: string[];
     countries: string[];
     ratingKp: number;
@@ -42,24 +42,7 @@ const moviesSlice = createSlice({
     initialState,
     reducers: {
         addFilteredMovies: (state, action: PayloadAction<IMovies[]>) => {
-            const moviesInfo = action.payload.map((item) => {
-                return {
-                    id: item.id,
-                    name: item.name,
-                    enName: item.enName,
-                    posterPreviewURL: item.posterPreviewURL,
-                    premiereRussia: item.premiereRussia,
-                    hasImax: item.hasImax,
-                    year: item.year,
-                    ageRating: item.ageRating,
-                    ratingKp: item.ratingKp,
-                    votesKp: item.votesKp,
-                    movieLength: item.movieLength,
-                    genres: item.genres,
-                    countries: item.countries,
-                };
-            });
-            state.filteredMovies = moviesInfo;
+            state.filteredMovies = action.payload;
         },
         genresFilterAdded: (state, action) => {
             const indexOfItem = state.filters.genres.indexOf(action.payload);
@@ -78,6 +61,7 @@ const moviesSlice = createSlice({
             state.filters.director = action.payload;
         },
         filtersRemoved: (state, action) => {
+            console.log('cleared', action.payload);
             state.filters = action.payload;
         },
     },
@@ -87,21 +71,21 @@ const moviesSlice = createSlice({
                 console.log('pending');
             })
             .addCase(fetchMovies.fulfilled, (state, action: PayloadAction<IMovies[]>) => {
-                const moviesInfo = action.payload.map((item) => {
+                const moviesInfo = action.payload.map(({ film, genres, countries }) => {
                     return {
-                        id: item.id,
-                        name: item.name,
-                        enName: item.enName,
-                        posterPreviewURL: item.posterPreviewURL,
-                        premiereRussia: item.premiereRussia,
-                        hasImax: item.hasImax,
-                        year: item.year,
-                        ageRating: item.ageRating,
-                        ratingKp: item.ratingKp,
-                        votesKp: item.votesKp,
-                        movieLength: item.movieLength,
-                        genres: item.genres,
-                        countries: item.countries,
+                        id: film.id,
+                        name: film.name,
+                        enName: film.enName,
+                        posterPreviewURL: film.posterPreviewURL,
+                        premiereRussia: film.premiereRussia,
+                        hasIMAX: film.hasIMAX,
+                        year: film.year,
+                        ageRating: film.ageRating,
+                        ratingKp: film.ratingKp,
+                        votesKp: film.votesKp,
+                        movieLength: film.movieLength,
+                        genres,
+                        countries,
                     };
                 });
                 state.movies = moviesInfo;

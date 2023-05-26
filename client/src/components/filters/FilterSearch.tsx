@@ -1,23 +1,24 @@
 import { useEffect, useState } from 'react';
 import styles from './FilterSearch.module.scss';
 import Autosuggest from 'react-autosuggest';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import theme from './theme.module.scss';
 import { useTranslation } from 'next-i18next';
+import IPerson from '../../models/IPerson';
+
 interface ISearch {
     searchBy: string;
-}
-
-interface IPerson {
-    title: string;
 }
 
 const FilterSearch = ({ searchBy }: ISearch) => {
     const { t } = useTranslation('moviesPage');
     const [inputValue, setInputValue] = useState('');
-    const [suggestions, setSuggestions] = useState([]);
+    const [suggestions, setSuggestions] = useState<string[]>([]);
+    const [searchedPerson, setSearchedPerson] = useState('');
 
-    const searchParam = searchBy === 'Режиссёр' ? t('filterPanel.searchByDirector') : t('filterPanel.searchByActor');
+    const searchParam = searchBy === 'Режиссер' ? t('filterPanel.searchByDirector') : t('filterPanel.searchByActor');
+
+    useEffect(() => {}, [searchedPerson]);
 
     useEffect(() => {
         const input = document.getElementById(searchBy);
@@ -55,10 +56,12 @@ const FilterSearch = ({ searchBy }: ISearch) => {
                                 return;
                             }
                             try {
-                                const result = await axios.get(
-                                    `https://imdb-api.com/en/API/SearchName/k_r2mu2l3h/${inputValue}`,
-                                );
-                                setSuggestions(result.data.results.map((actor: IPerson) => actor.title));
+                                const query = searchBy === 'Актер' ? 'actors' : 'directors';
+                                const result = await axios.get(`http://localhost:3000/persons/${query}`);
+                                const names: string[] = result.data
+                                    .map((person: IPerson) => person.name)
+                                    .filter((person: string[]) => person && person.includes(inputValue));
+                                setSuggestions(names);
                             } catch (error) {
                                 console.log(error);
                             }

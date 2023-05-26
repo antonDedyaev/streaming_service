@@ -22,7 +22,9 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import { useEffect } from 'react';
 import { fetchMovies } from '@/store/slices/moviesSlice';
-import getMoviesByGenre from '@/utils/getMoviesByGenre';
+import { getMoviesByGenre } from '@/utils/moviesHelpers';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -33,6 +35,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 function HomePage() {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const { locale } = useRouter();
 
     const movies = useAppSelector((state) => state.movies.movies);
 
@@ -50,7 +53,7 @@ function HomePage() {
         // };
         // parseFilms();
         dispatch(fetchMovies());
-    }, []);
+    }, [locale]);
     return (
         <>
             <MainContainer

@@ -1,3 +1,4 @@
+import { useAppSelector } from '@/store/hooks/redux';
 import styles from './FilterPlank.module.scss';
 import { ReactNode, useState, useEffect, useRef } from 'react';
 
@@ -30,6 +31,32 @@ interface IPlank {
 
 const FilterPlank = ({ title, className, children }: IPlank) => {
     const [isDropdownShown, setIsDropdownShown] = useState(false);
+    const [subTitle, setSubTitle] = useState('');
+
+    const filters = useAppSelector((state) => state.movies.filters);
+
+    useEffect(() => {
+        switch (title) {
+            case 'Жанры':
+                setSubTitle(filters.genres.join(', '));
+                break;
+            case 'Страны':
+                setSubTitle(filters.countries.join(', '));
+                break;
+            case 'Рейтинг':
+                filters.ratingKp > 0 && setSubTitle(`Больше ${filters.ratingKp}`);
+                break;
+            case 'Оценки':
+                filters.votesKp > 0 && setSubTitle(`Больше ${filters.votesKp}`);
+                break;
+            case 'Режиссер':
+                setSubTitle(filters.director);
+                break;
+            case 'Актер':
+                setSubTitle(filters.actor);
+                break;
+        }
+    }, [filters]);
 
     const domNode = useClickOutside(() => setIsDropdownShown(false));
 
@@ -44,6 +71,7 @@ const FilterPlank = ({ title, className, children }: IPlank) => {
                 <div className={styles.container__plankContent}>
                     <div className={styles.container__textWrapper}>
                         <div className={styles.container__title}>{title}</div>
+                        {subTitle !== '' && <div className={styles.container__subTitle}>{subTitle}</div>}
                     </div>
                     <div className={styles.container__arrow}></div>
                 </div>

@@ -1,35 +1,20 @@
-import { FC, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './SortMovies.module.scss';
-import testData from './temp/testData.json';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { getSortedMovies } from '@/utils/moviesHelpers';
+import IMovies from '@/models/IMovies';
 
-const SortMovies: FC = () => {
+const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
+    const dispatch = useAppDispatch();
     const [isDropdownShown, setIsDropdownShown] = useState(false);
     const [sortingParameter, setSortingParameter] = useState('По количеству оценок');
-    const filteredMovies = testData.movies;
+    console.log('FilteredMovies:', filteredMovies);
 
     const sortingParamNames = ['По количеству оценок', 'Рейтингу', 'Дате выхода', 'Алфавиту'];
-    switch (sortingParameter) {
-        case 'По количеству оценок':
-            filteredMovies.sort((a, b) => b.feedback - a.feedback);
-            break;
-        case 'Рейтингу':
-            filteredMovies.sort((a, b) => b.rating - a.rating);
-            break;
-        case 'Дате выхода':
-            filteredMovies.sort((a, b) => new Date(b.release).getTime() - new Date(a.release).getTime());
-            break;
-        case 'Алфавиту':
-            filteredMovies.sort((a, b) => {
-                return a.title.toUpperCase() > b.title.toUpperCase()
-                    ? 1
-                    : b.title.toUpperCase() > a.title.toUpperCase()
-                    ? -1
-                    : 0;
-            });
-            break;
-        default:
-            break;
-    }
+
+    useEffect(() => {
+        getSortedMovies(sortingParameter, [...filteredMovies], dispatch);
+    }, [sortingParameter]);
 
     const handleSortTypeSelection = ({ currentTarget }: React.MouseEvent<HTMLDivElement>) => {
         setSortingParameter(currentTarget.textContent!);

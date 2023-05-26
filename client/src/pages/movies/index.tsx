@@ -25,6 +25,7 @@ import PostersList from '@/components/posters/PostersList/PostersList';
 import TransparentButton from '@/components/UI/buttons/TransparentButton/TransparentButton';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
+import SortMovies from '@/components/movie/SortMovies/SortMovies';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -49,13 +50,15 @@ function MoviesPage() {
     const { asPath, locale } = useRouter();
     const [countriesList, setCountriesList] = useState<string[]>([]);
     const [genresList, setGenresList] = useState<string[]>([]);
-    const [filtersApplied, setFiltersApplied] = useState(false);
+    const [isFilterApplied, setIsFilterApplied] = useState(false);
     const [shownPostersLimit, setShownPostersLimit] = useState(35);
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
+    const filters = useAppSelector((state) => state.movies.filters);
+    console.log('MoviesFilterList:', filteredList);
 
     useEffect(() => {
-        setFiltersApplied(filteredList.length !== 0);
+        setIsFilterApplied(filteredList.length !== 0);
     }, [filteredList]);
 
     const movies = useAppSelector((state) => state.movies.movies);
@@ -64,12 +67,16 @@ function MoviesPage() {
 
     const premieres = movies
         .filter((movie) => movie.premiereRussia)
-        .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime());
+        .sort(
+            (a, b) =>
+                new Date(new Date(b.premiereRussia) < new Date(String(b.year)) ? b.premiereRussia : b.year).getTime() -
+                new Date(new Date(a.premiereRussia) < new Date(String(a.year)) ? a.premiereRussia : a.year).getTime(),
+        );
 
     const bestMovies = movies.filter((movie) => movie.ratingKp).sort((a, b) => b.ratingKp - a.ratingKp);
 
     const imaxMovies = movies
-        .filter((movie) => movie.hasImax)
+        .filter((movie) => movie.hasIMAX)
         .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime());
 
     useEffect(() => {
@@ -80,16 +87,18 @@ function MoviesPage() {
 
         const getCountries = async () => {
             try {
-                const requestCountries = await axios.get('http://localhost:3000/api/countries');
-                const countries = requestCountries.data.map(({ name }: { name: string }) => name);
-                setCountriesList(countries.sort());
+                const requestCountries = await axios.get('http://localhost:6125/namesOfCountries');
+                // const countries = requestCountries.data.map(({ name }: { name: string }) => name);
+                // const unique = new Set<string>(countries);
+                // const arr = Array.from(unique);
+                setCountriesList(requestCountries.data.sort());
             } catch (err) {
                 console.log(err);
             }
         };
         const getGenres = async () => {
             try {
-                const requestGenres = await axios.get('http://localhost:3000/api/genres');
+                const requestGenres = await axios.get('http://localhost:6125/namesgenres');
                 const genres = requestGenres.data.map(({ name }: { name: string }) => name);
                 setGenresList(genres.sort());
             } catch (err) {
@@ -123,7 +132,8 @@ function MoviesPage() {
                             <p>{t('moviesPage:moviesSpoiler.content.4')}</p>
                         </SpoilerUI>
                     </div>
-                    <FilterPanel>
+                    {isFilterApplied && <SortMovies filteredMovies={filteredList} />}
+                    <FilterPanel isFilterApplied={isFilterApplied}>
                         <FilterPlank
                             title={t('moviesPage:filterPanel.genres')}
                             className={plankStyles.container__dropdown_leftPositioned}
@@ -142,28 +152,28 @@ function MoviesPage() {
                             title={t('moviesPage:filterPanel.rating')}
                             className={styles.container__filterItem}
                         >
-                            <FilterRange image={icon} limit={10} step={0.1} />
+                            <FilterRange category="ratingKp" image={icon} limit={10} step={0.1} />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.userRank')}
                             className={styles.container__filterItem}
                         >
-                            <FilterRange image={icon} limit={1000000} step={100} />
+                            <FilterRange category="votesKp" image={icon} limit={1000000} step={100} />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.director')}
                             className={styles.container__filterItem}
                         >
-                            <FilterSearch searchBy="Режиссёр" />
+                            <FilterSearch searchBy="Режиссер" />
                         </FilterPlank>
 
                         <FilterPlank title={t('moviesPage:filterPanel.actor')} className={styles.container__filterItem}>
-                            <FilterSearch searchBy="Актёр" />
+                            <FilterSearch searchBy="Актер" />
                         </FilterPlank>
                     </FilterPanel>
-                    {!filtersApplied ? (
+                    {!isFilterApplied ? (
                         <>
                             <div className={styles.container__section}>
                                 <MoviesSection
@@ -203,7 +213,7 @@ function MoviesPage() {
                                     className={styles.container__paginationButton}
                                     onClick={() => setShownPostersLimit(shownPostersLimit + 35)}
                                 >
-                                    Показать еще
+                                    {t('moviesPage:showMore')}
                                 </BorderedButton>
                             )}
                         </div>

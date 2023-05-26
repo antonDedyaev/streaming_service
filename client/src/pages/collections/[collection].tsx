@@ -1,27 +1,29 @@
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import FilterList from '@/components/filters/FilterList';
 import FilterPanel from '@/components/filters/FilterPanel';
+import panelStyles from '../../components/filters/FilterPanel.module.scss';
 import FilterPlank from '@/components/filters/FilterPlank';
 import plankStyles from '@/components/filters/FilterPlank.module.scss';
 import FilterRange from '@/components/filters/FilterRange';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 
-import styles from '@/styles/pages/MoviesPage.module.scss';
+import styles from '@/styles/pages/CollectionPage.module.scss';
 import icon from '@/../public/icons/rating.svg';
 import FilterSearch from '@/components/filters/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { GetServerSideProps } from 'next';
 import { useEffect, useState } from 'react';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
 import PostersList from '@/components/posters/PostersList/PostersList';
 import { fetchMovies } from '@/store/slices/moviesSlice';
-import getCollection from '../../utils/getCollection';
+import { getCollection } from '../../utils/moviesHelpers';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
+import SortMovies from '@/components/movie/SortMovies/SortMovies';
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
     props: {
@@ -48,23 +50,31 @@ const Collection = () => {
     const dispatch = useAppDispatch();
     const [countriesList, setCountriesList] = useState<string[]>([]);
     const [genresList, setGenresList] = useState<string[]>([]);
+    const [isFilterApplied, setIsFilterApplied] = useState(false);
+    const [showFilterPanel, setShowFilterPanel] = useState(false);
     const [shownPostersLimit, setShownPostersLimit] = useState(35);
+
+    const filteredList = useAppSelector((state) => state.movies.filteredMovies);
+
+    useEffect(() => {
+        setIsFilterApplied(filteredList.length !== 0);
+    }, [filteredList]);
 
     useEffect(() => {
         dispatch(fetchMovies());
 
         const getCountries = async () => {
             try {
-                const requestCountries = await axios.get('http://localhost:3000/api/countries');
-                const countries = requestCountries.data.map(({ name }: { name: string }) => name);
-                setCountriesList(countries.sort());
+                const requestCountries = await axios.get('http://localhost:6125/namesOfCountries');
+                //const countries = requestCountries.data.map(({ name }: { name: string }) => name);
+                setCountriesList(requestCountries.data.sort());
             } catch (err) {
                 console.log(err);
             }
         };
         const getGenres = async () => {
             try {
-                const requestGenres = await axios.get('http://localhost:3000/api/genres');
+                const requestGenres = await axios.get('http://localhost:6125/namesgenres');
                 const genres = requestGenres.data.map(({ name }: { name: string }) => name);
                 setGenresList(genres.sort());
             } catch (err) {
@@ -74,8 +84,6 @@ const Collection = () => {
         getCountries();
         getGenres();
     }, [locale]);
-
-    const [filtersApplied, setFiltersApplied] = useState(false);
 
     const path = asPath.split('/').slice(-1)[0].split('-');
     const dynamicHeader =
@@ -87,6 +95,10 @@ const Collection = () => {
 
     const collectionTitle = asPath.split('/').slice(-1)[0];
     const collection = getCollection(collectionTitle, movies);
+
+    const renderedList = filteredList.length !== 0 ? filteredList : collection;
+
+    console.log('render', renderedList);
 
     return (
         <MainContainer
@@ -109,33 +121,48 @@ const Collection = () => {
                             <p>{t('moviesPage:moviesSpoiler.content.4')}</p>
                         </SpoilerUI> */}
                     </div>
-                    <FilterPanel>
+                    <div className={styles.container__controlButtons}>
+                        <button onClick={() => setShowFilterPanel(!showFilterPanel)}>
+                            <div className={styles.container__filtersButtonText}>
+                                {!showFilterPanel ? t('collection:filters') : t('collection:collapse')}
+                            </div>
+                        </button>
+                        <SortMovies filteredMovies={collection!} />
+                    </div>
+
+                    <FilterPanel
+                        className={[
+                            panelStyles.container__panel,
+                            showFilterPanel ? panelStyles.container__panel_open : panelStyles.container__panel_hidden,
+                        ].join(' ')}
+                        isFilterApplied={isFilterApplied}
+                    >
                         <FilterPlank
                             title={t('moviesPage:filterPanel.genres')}
                             className={plankStyles.container__dropdown_leftPositioned}
                         >
-                            <FilterList items={genresList} category={t('moviesPage:filterPanel.genres')} />
+                            <FilterList items={genresList} category="genres" />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.countries')}
                             className={plankStyles.container__dropdown_centerPositioned}
                         >
-                            <FilterList items={countriesList} category={t('moviesPage:filterPanel.countries')} />
+                            <FilterList items={countriesList} category="countries" />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.rating')}
                             className={styles.container__filterItem}
                         >
-                            <FilterRange image={icon} limit={10} step={0.1} />
+                            <FilterRange category="ratingKp" image={icon} limit={10} step={0.1} />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.userRank')}
                             className={styles.container__filterItem}
                         >
-                            <FilterRange image={icon} limit={1000000} step={100} />
+                            <FilterRange category="votesKp" image={icon} limit={1000000} step={100} />
                         </FilterPlank>
 
                         <FilterPlank
@@ -149,18 +176,19 @@ const Collection = () => {
                             <FilterSearch searchBy="Актер" />
                         </FilterPlank>
                     </FilterPanel>
+
                     <div className={styles.container__list}>
                         <PostersList
                             posterType="preview"
-                            movies={collection!.slice(0, shownPostersLimit)}
+                            movies={renderedList!.slice(0, shownPostersLimit)}
                         ></PostersList>
-                        {collection!.length > shownPostersLimit && (
+                        {renderedList!.length > shownPostersLimit && (
                             <BorderedButton
                                 size="large"
                                 className={styles.container__paginationButton}
                                 onClick={() => setShownPostersLimit(shownPostersLimit + 35)}
                             >
-                                Показать еще
+                                {t('moviesPage:showMore')}
                             </BorderedButton>
                         )}
                     </div>

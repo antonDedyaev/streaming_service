@@ -53,7 +53,7 @@ function CardActorPage() {
                         enName: movie.data.film.alternativeName,
                         posterPreviewURL: movie.data.film.posterpreviewUrl,
                         premiereRussia: movie.data.film.premiererussia,
-                        hasImax: movie.data.film.hasImax,
+                        hasIMAX: movie.data.film.hasIMAX,
 
                         year: movie.data.film.year,
                         ageRating: movie.data.film.ageRating,
