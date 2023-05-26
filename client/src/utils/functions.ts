@@ -1,3 +1,5 @@
+import { IFilters } from '@/store/slices/moviesSlice';
+
 export const declineWord = (number: number, arrayOfOptions: string[]): string => {
     let dozens = number % 100;
     let units = number % 10;
@@ -18,4 +20,16 @@ export const minutesToHours = (minutes: number): string => {
 export const firstCapitalLetter = (word: string | undefined): string => {
     if (word) return word.charAt(0).toUpperCase() + word.slice(1);
     else return '';
+};
+
+export const checkFiltersStatus = (filters: IFilters) => {
+    const { genres, countries, ratingKp, votesKp, director, actor } = filters;
+    return (
+        genres.length === 0 &&
+        countries.length === 0 &&
+        ratingKp === 0 &&
+        votesKp === 0 &&
+        director === '' &&
+        actor === ''
+    );
 };
