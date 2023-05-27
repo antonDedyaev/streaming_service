@@ -147,11 +147,16 @@ function CardMoviePage() {
                         <section>
                             <Breadcrumbs
                                 path={asPath.split('/').slice(1)}
-                                genre={{ id: 3, name: movie.genres[0].name, enName: 'drama' }}
+                                genre={{
+                                    id: movie.genres[0].id,
+                                    name: movie.genres[0].name,
+                                    enName: movie.genres[0].enName,
+                                }}
                                 ponytailName={{ name: movie.name, enName: movie.enName }}
                                 type="pointShort"
                             />
                         </section>
+
                         <section className={[styles.container__page, styles.page].join(' ')}>
                             <div className={styles.page__block}>
                                 <div className={styles.page__blockPlayer}>
@@ -182,9 +187,11 @@ function CardMoviePage() {
                             />
                         </section>
 
-                        <section className={styles.container__persons}>
-                            <PersonsSection size="small" persons={movie.persons} />
-                        </section>
+                        {movie.persons.length > 0 && (
+                            <section className={styles.container__persons}>
+                                <PersonsSection size="small" persons={movie.persons} />
+                            </section>
+                        )}
 
                         <section className={[styles.container__devices, styles.devices].join(' ')}>
                             <div className={styles.devices__appeal}>
@@ -207,7 +214,11 @@ function CardMoviePage() {
                         <section>
                             <Breadcrumbs
                                 path={asPath.split('/').slice(1)}
-                                genre={{ id: 3, name: movie.genres[0].name, enName: 'drama' }}
+                                genre={{
+                                    id: movie.genres[0].id,
+                                    name: movie.genres[0].name,
+                                    enName: movie.genres[0].enName,
+                                }}
                                 ponytailName={{
                                     name: movie.name ? movie.name : movie.enName,
                                     enName: movie.enName ? movie.enName : movie.name,

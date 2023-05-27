@@ -7,6 +7,7 @@ interface ILink {
     option?: 'bright' | 'dim' | 'gradient';
     className?: string;
     onMouseOver?: () => void;
+    target?: string;
 }
 
 interface LinksListProps {
@@ -28,6 +29,7 @@ const LinksList = ({ links, direction }: LinksListProps) => {
                         onMouseOver={() => (link.onMouseOver ? link.onMouseOver() : '')}
                         href={link.href}
                         option={link.option ?? 'dim'}
+                        target={link.target}
                     >
                         {link.text}
                     </TextLinkUI>

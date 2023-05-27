@@ -7,6 +7,10 @@
         list-style: none;
         flex-wrap: wrap;
 
+        & > div {
+            display: flex;
+        }
+
         &_slash li {
             font-size: 13px;
             line-height: 16px;
@@ -21,7 +25,7 @@
         }
 
         &_point li,
-        &_pointShort li:not(:first-child) {
+        &_pointShort div > li {
             font-size: 15px;
             line-height: 20px;
 

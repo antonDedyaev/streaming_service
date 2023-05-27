@@ -1,8 +1,9 @@
+import IGenre from '@/models/IGenre';
 import IMovies from '@/models/IMovies';
 import { addFilteredMovies } from '@/store/slices/moviesSlice';
 import { AppDispatch } from '@/store/store';
 
-export const getCollection = (title: string, movies: IMovies[], genre: string[], countries: string[]) => {
+export const getCollection = (title: string, movies: IMovies[], genres: IGenre[], countries: string[]) => {
     switch (title) {
         case 'new-releases':
             return movies
@@ -27,7 +28,7 @@ export const getCollection = (title: string, movies: IMovies[], genre: string[],
         case 'drama':
             return getMoviesByGenre(movies, 'драма');
         default:
-            return getMovies(movies, title, genre, countries);
+            return getMovies(movies, title, genres, countries);
     }
 };
 
@@ -37,21 +38,26 @@ export const getMoviesByGenre = (arrOfMovies: IMovies[], genre: string) =>
         return filtered.length === 0 ? [] : movie;
     });
 
+export const getMoviesByGenreEn = (arrOfMovies: IMovies[], genre: string) =>
+    arrOfMovies.flatMap((movie) => {
+        const filtered = movie.genres.filter((item) => item.enName === genre);
+        return filtered.length === 0 ? [] : movie;
+    });
+
 export const getMoviesByCountry = (arrOfMovies: IMovies[], country: string) =>
     arrOfMovies.flatMap((movie) => {
         const filtered = movie.countries.filter((item) => item.name === country);
         return filtered.length === 0 ? [] : movie;
     });
 
-export const getMovies = (arrOfMovies: IMovies[], value: string, genre: string[], countries: string[]) => {
+export const getMovies = (arrOfMovies: IMovies[], value: string, genres: IGenre[], countries: string[]) => {
     if (Number(value)) {
         return arrOfMovies.filter((movie) => movie.year === Number(value));
     } else {
-        let value1 = 'комедия5';
-        if (genre.includes(value1)) {
-            return getMoviesByGenre(arrOfMovies, value1);
-        } else if (countries.includes(value1)) {
-            return getMoviesByCountry(arrOfMovies, value1);
+        if (genres.find((gener) => gener.enName === value)) {
+            return getMoviesByGenreEn(arrOfMovies, value);
+        } else if (countries.includes(value)) {
+            return getMoviesByCountry(arrOfMovies, value);
         } else {
             return [];
         }

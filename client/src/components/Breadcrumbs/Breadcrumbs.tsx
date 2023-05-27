@@ -56,8 +56,8 @@ const Breadcrumbs = ({ path, genre, ponytailName, type = 'slash' }: BreadcrumbsP
                     } else {
                         if (genre && ponytailName) {
                             return (
-                                <>
-                                    <li key={genre.id}>
+                                <div key={type}>
+                                    <li>
                                         <TextLinkUI
                                             option="bright"
                                             href={`/collections/${genre.enName}`}
@@ -67,9 +67,9 @@ const Breadcrumbs = ({ path, genre, ponytailName, type = 'slash' }: BreadcrumbsP
                                         </TextLinkUI>
                                     </li>
                                     {type !== 'pointShort' && (
-                                        <li key={index}>{locale === 'ru' ? ponytailName.name : ponytailName.enName}</li>
+                                        <li>{locale === 'ru' ? ponytailName.name : ponytailName.enName}</li>
                                     )}
-                                </>
+                                </div>
                             );
                         }
                         if (ponytailName) {
