@@ -5,10 +5,11 @@ import wand from '../../../../public/icons/posters/wand.png';
 import star from '../../../../public/icons/posters/star.png';
 import circle from '../../../../public/icons/posters/circle.png';
 import styles from './PreviewPosterContent.module.scss';
-import { declineWord } from '@/utils/functions';
+import PreviewPosterContentBrief from '../PreviewPosterContentBrief/PreviewPosterContentBrief';
+import IMovie from '@/models/IMovie';
 
 interface PreviewPosterContentProps {
-    movie: IMovies;
+    movie: IMovies | IMovie;
 }
 
 const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
@@ -36,7 +37,15 @@ const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
                     alt="icon"
                 />
             </div>
-            <div className={styles.container__info}>
+
+            <PreviewPosterContentBrief movie={movie as IMovie} className={styles.container__info} />
+        </div>
+    );
+};
+
+export default PreviewPosterContent;
+/*<PreviewPosterContentBrief movie={movie as IMovie} className={styles.container__info} />*/
+/*<div className={styles.container__info}>
                 <div className={styles.container__rating}>
                     <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>
                         {`${movie.ratingKp}`.slice(0, 1)}
@@ -51,9 +60,4 @@ const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
                     </p>
                     <p>{movie.movieLength + ' ' + declineWord(movie.movieLength, ['минута', 'минуты', 'минут'])}</p>
                 </div>
-            </div>
-        </div>
-    );
-};
-
-export default PreviewPosterContent;
+            </div>*/

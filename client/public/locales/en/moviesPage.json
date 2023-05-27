@@ -35,5 +35,6 @@
     "showMore": "Show more",
     "loading": "Loading...",
     "pageError": "This page has not been created yet",
-    "buttonBack": "Come back"
+    "buttonBack": "Come back",
+    "minutes": ["minute", "minutes", "minutes"]
 }

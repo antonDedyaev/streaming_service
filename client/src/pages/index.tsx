@@ -28,7 +28,15 @@ import { useRouter } from 'next/router';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
-        ...(await serverSideTranslations(locale!, ['collection', 'common', 'footer', 'header', 'mainPage', 'modals'])),
+        ...(await serverSideTranslations(locale!, [
+            'collection',
+            'common',
+            'footer',
+            'header',
+            'mainPage',
+            'modals',
+            'moviesPage',
+        ])),
     },
 });
 

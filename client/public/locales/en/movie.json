@@ -20,7 +20,29 @@
     "connectDevices": "Connect devices",
     "more": "More",
     "titlePersons": "Actors and creators",
-    "withMovie": ["With", "watch"],
+    "withMovie": ["With the movie", "are watching"],
     "showMore": "Show more",
-    "personsInvolved": ["Director", "Actors"]
+    "personsInvolved": [
+        "Directors",
+        "Actors",
+        "Producers",
+        "Operators",
+        "Designers",
+        "Writers",
+        "Composers",
+        "Editors",
+        "Voice actors"
+    ],
+    "personInvolved": [
+        "Director",
+        "Actor",
+        "Producer",
+        "Operator",
+        "Designer",
+        "Writer",
+        "Composer",
+        "Editor",
+        "Voice actor"
+    ],
+    "textTime": ["hrs.", "min."]
 }

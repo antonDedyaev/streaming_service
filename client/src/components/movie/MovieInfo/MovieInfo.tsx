@@ -23,8 +23,8 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
         <div className={styles.container}>
             <h1 className={styles.container__title}>
                 {locale === 'ru'
-                    ? `${movie.name} (Фильм ${movie.year})`
-                    : `${movie.enName} (${firstCapitalLetter(movie?.type)} ${movie?.year})`}
+                    ? `${movie.name ? movie.name : movie.enName} (Фильм ${movie.year})`
+                    : `${movie.enName ? movie.enName : movie.name} (${firstCapitalLetter(movie?.type)} ${movie?.year})`}
             </h1>
 
             <div className={styles.container__params}>

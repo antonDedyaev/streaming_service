@@ -1,7 +1,5 @@
 .container {
-    margin-bottom: 60px;
     &__watch {
-        /* margin: 0px 0px 0px -30px;*/
         padding: 24px 0px;
     }
     &__persons {
@@ -13,7 +11,6 @@
 .page {
     &__block {
         display: flex;
-        padding: 24px 0px;
 
         &Player {
             width: 62.5%;

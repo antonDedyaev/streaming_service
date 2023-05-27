@@ -7,6 +7,7 @@ import subtitlesIcon from '../../../../public/icons/subtitles.png';
 import IMovie from '@/models/IMovie';
 import { firstCapitalLetter, minutesToHours } from '../../../utils/functions';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
 
 interface MovieParamsProps {
     movie: IMovie;
@@ -14,19 +15,21 @@ interface MovieParamsProps {
 
 const MovieParams = ({ movie }: MovieParamsProps) => {
     const { locale } = useRouter();
-
+    const { t } = useTranslation('movie');
     return (
         <div className={styles.container} data-testid="div-params">
             <div className={styles.container__list}>
-                <TextLinkUI href="/" option="bright">
+                <TextLinkUI href={`/collections/${movie.year}`} option="bright">
                     {movie.year}
                 </TextLinkUI>
-                <span className={styles.container__listItem}>{minutesToHours(movie.movieLength)}</span>
+                <span className={styles.container__listItem}>
+                    {minutesToHours(movie.movieLength, [t('textTime.0'), t('textTime.1')])}
+                </span>
                 <span className={styles.container__listItem}>{movie.ageRating}+</span>
             </div>
             <div className={styles.container__list}>
                 <TextLinkUI
-                    href="/"
+                    href={`/collections/${movie.countries[0].name}`}
                     option="bright"
                     className={[styles.container__listItem, styles.container__listItem_point].join(' ')}
                 >
@@ -35,11 +38,11 @@ const MovieParams = ({ movie }: MovieParamsProps) => {
                 {movie.genres.slice(0, 3).map((genre) => (
                     <TextLinkUI
                         key={genre.id}
-                        href="/"
+                        href={`/collections/${genre.enName}`}
                         option="bright"
                         className={[styles.container__listItem, styles.container__listItem_point].join(' ')}
                     >
-                        {firstCapitalLetter(locale === 'ru' ? genre.name : genre.enName ? genre.enName : genre.name)}
+                        {firstCapitalLetter(locale === 'ru' ? genre.name : genre.enName)}
                     </TextLinkUI>
                 ))}
             </div>

@@ -15,15 +15,26 @@ interface MovieMedallionsListProps {
 const MovieMedallionsList = ({ className, movie }: MovieMedallionsListProps) => {
     const { t } = useTranslation('moviesPage');
     const { locale } = useRouter();
+    const actors = movie.persons.filter((persons) => persons.enProfession === 'actor');
     return (
         <div className={[styles.content, className].join(' ').trim()}>
             <MovieMedallionItem text={t('filterPanel.rating')} disabled={true}>
                 <TextSquareUI value={Number(movie.ratingKp.toFixed(1))} />
             </MovieMedallionItem>
-            {movie.persons.map((person) => (
-                <Link href={`/persons/${person.id}`} key={person.id}>
-                    <MovieMedallionItem text={locale == 'ru' ? person.name : person.enName}>
-                        <ImgSquareUI person={person} />
+            {actors.slice(0, 5).map((actor) => (
+                <Link href={`/persons/${actor.id}`} key={actor.id}>
+                    <MovieMedallionItem
+                        text={
+                            locale == 'ru'
+                                ? actor.name
+                                    ? actor.name
+                                    : actor.enName
+                                : actor.enName
+                                ? actor.enName
+                                : actor.name
+                        }
+                    >
+                        <ImgSquareUI person={actor} />
                     </MovieMedallionItem>
                 </Link>
             ))}
