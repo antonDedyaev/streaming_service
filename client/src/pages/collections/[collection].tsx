@@ -16,7 +16,7 @@ import { useEffect, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
+/*import useSWR from 'swr';*/
 import PostersList from '@/components/posters/PostersList/PostersList';
 import { fetchMovies } from '@/store/slices/moviesSlice';
 import getCollection from '../../utils/getCollection';
@@ -84,9 +84,8 @@ const Collection = () => {
             : t(`moviesPage:${path[0] + path[1][0].toUpperCase() + path[1].slice(1)}`);
 
     const movies = useAppSelector((state) => state.movies.movies);
-
     const collectionTitle = asPath.split('/').slice(-1)[0];
-    const collection = getCollection(collectionTitle, movies);
+    const collection = getCollection(collectionTitle, movies, genresList, countriesList);
 
     return (
         <MainContainer

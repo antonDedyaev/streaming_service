@@ -22,5 +22,27 @@
     "titlePersons": "Actors and creators",
     "withMovie": ["With", "watch"],
     "showMore": "Show more",
-    "personsInvolved": ["Director", "Actors"]
+    "personsInvolved": [
+        "Directors",
+        "Actors",
+        "Producers",
+        "Operators",
+        "Designers",
+        "Writers",
+        "Composers",
+        "Editors",
+        "Voice actors"
+    ],
+    "personInvolved": [
+        "Director",
+        "Actor",
+        "Producer",
+        "Operator",
+        "Designer",
+        "Writer",
+        "Composer",
+        "Editor",
+        "Voice actor"
+    ],
+    "textTime": ["hrs.", "min."]
 }

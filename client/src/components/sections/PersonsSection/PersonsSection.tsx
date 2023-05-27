@@ -6,6 +6,7 @@ import UnderlinedLink from '@/components/UI/links/UnderlinedLink/UnderlinedLink'
 import { useRouter } from 'next/router';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import { useTranslation } from 'next-i18next';
+import { useState } from 'react';
 
 interface PersonsSectionProps {
     persons: IPerson[];
@@ -15,6 +16,9 @@ interface PersonsSectionProps {
 const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
     const { asPath } = useRouter();
     const { t } = useTranslation(['moviesPage', 'movie']);
+
+    const directors = persons.filter((person) => person.enProfession === 'director');
+    const actors = persons.filter((person) => person.enProfession === 'actor');
 
     return (
         <div className={styles.section}>
@@ -33,7 +37,13 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
                     </Slider>
                 ) : (
                     <div className={styles.section__list}>
-                        <ActorList persons={persons.slice(0, 10)} size={size} />
+                        {directors.length > 0 && (
+                            <ActorList persons={directors.slice(0, directors.length >= 2 ? 2 : 1)} size={size} />
+                        )}
+                        <ActorList
+                            persons={actors.slice(0, directors.length > 0 ? (directors.length >= 2 ? 8 : 9) : 10)}
+                            size={size}
+                        />
                         <ShapedLinkUI className={styles.section__list_link} href={`${asPath}?more`} shape="round">
                             {t('more', { ns: 'movie' })}
                         </ShapedLinkUI>

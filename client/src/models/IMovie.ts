@@ -22,11 +22,6 @@ export default interface IMovie {
     countries: ICountry[];
     persons: IPerson[];
     trailer: string;
-
-    // permissions: string [] //Full HD, 4k, 1080 ...    |
-    // subtitles: string[]				  | динамически или статически
-    // voiceActing: string[]				  |
-
     watchingWithMovie: IMovies[];
     comments: IComment[];
 }

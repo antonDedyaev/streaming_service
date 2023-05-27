@@ -1,6 +1,8 @@
 import IMovie from '@/models/IMovie';
 import styles from './PreviewPosterContentBrief.module.scss';
 import { declineWord, firstCapitalLetter } from '@/utils/functions';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
 
 interface PreviewPosterContentBriefProps {
     movie: IMovie;
@@ -8,6 +10,8 @@ interface PreviewPosterContentBriefProps {
 }
 
 const PreviewPosterContentBrief = ({ movie, className }: PreviewPosterContentBriefProps) => {
+    const { locale } = useRouter();
+    const { t } = useTranslation('moviesPage');
     return (
         <div className={styles.container}>
             <div className={styles.container__rating}>
@@ -20,9 +24,14 @@ const PreviewPosterContentBrief = ({ movie, className }: PreviewPosterContentBri
             </div>
             <div className={[styles.container__text, className].join(' ')}>
                 <p>
-                    {movie.year}, {movie.countries[0].name}, {firstCapitalLetter(movie.genres[0].name)}
+                    {movie.year}, {locale === 'ru' ? movie.countries[0].name : movie.countries[0].enName},{' '}
+                    {firstCapitalLetter(locale === 'ru' ? movie.genres[0].name : movie.genres[0].enName)}
                 </p>
-                <p>{`${movie.movieLength} ${declineWord(movie.movieLength, ['минута', 'минуты', 'минут'])}`}</p>
+                <p>{`${movie.movieLength} ${declineWord(movie.movieLength, [
+                    t('minutes.0'),
+                    t('minutes.1'),
+                    t('minutes.2'),
+                ])}`}</p>
             </div>
         </div>
     );

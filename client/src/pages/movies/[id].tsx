@@ -21,10 +21,19 @@ import TrailerModal from '@/components/modals/TrailerModal/TrailerModal';
 import { firstCapitalLetter } from '@/utils/functions';
 import Loading from '@/components/Loading/Loading';
 import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
+import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
-        ...(await serverSideTranslations(locale!, ['common', 'footer', 'header', 'modals', 'movie', 'moviesPage'])),
+        ...(await serverSideTranslations(locale!, [
+            'common',
+            'footer',
+            'header',
+            'modals',
+            'movie',
+            'moviesPage',
+            'collection',
+        ])),
     },
 });
 
@@ -37,7 +46,7 @@ export const getStaticPaths = async () => {
 
 function CardMoviePage() {
     const { t } = useTranslation(['movie', 'moviesPage']);
-    const { query } = useRouter();
+    const { query, asPath } = useRouter();
     const queryParams = Object.keys(query);
     const router = useRouter();
     const { id } = router.query;
@@ -50,7 +59,6 @@ function CardMoviePage() {
         const getPerson = async () => {
             try {
                 const requestMovie = await axios.get(`http://localhost:6125/film/${id}`);
-                console.log(requestMovie.data);
 
                 let genres: IGenre[] = [];
                 for (let i = 0; i < requestMovie.data.genres.length; i++) {
@@ -66,16 +74,15 @@ function CardMoviePage() {
                     countries.push({
                         id: i,
                         name: requestMovie.data.countries[i].name,
+                        enName: requestMovie.data.countries[i].name,
                     });
                 }
 
                 let persons: IPerson[] = [];
-                for (let i = 0; i < 10; i++) {
+                for (let i = 0; i < requestMovie.data.persons.length - 1; i++) {
                     persons.push({
-                        id: requestMovie.data.persons[i].personid,
-                        name: requestMovie.data.persons[i].name
-                            ? requestMovie.data.persons[i].name
-                            : requestMovie.data.persons[i].enName,
+                        id: requestMovie.data.persons[i].id,
+                        name: requestMovie.data.persons[i].name,
                         enName: requestMovie.data.persons[i].enName,
                         photo: requestMovie.data.persons[i].photo,
                         profession: requestMovie.data.persons[i].profession,
@@ -88,20 +95,20 @@ function CardMoviePage() {
                     id: requestMovie.data.film.id,
                     type: requestMovie.data.film.type,
                     name: requestMovie.data.film.name,
-                    enName: requestMovie.data.film.alternativeName,
-                    posterUrl: requestMovie.data.film.posterurl,
-                    posterPreviewUrl: requestMovie.data.film.posterpreviewUrl,
+                    enName: requestMovie.data.film.enName,
+                    posterUrl: requestMovie.data.film.posterUrl,
+                    posterPreviewUrl: requestMovie.data.film.posterPreviewUrl,
                     year: requestMovie.data.film.year,
                     description: requestMovie.data.film.description,
                     shortDescription: requestMovie.data.film.shortDescription,
                     ageRating: requestMovie.data.film.ageRating,
-                    ratingKp: requestMovie.data.film.ratingkp,
-                    votesKp: requestMovie.data.film.voteskp,
+                    ratingKp: requestMovie.data.film.ratingKp,
+                    votesKp: requestMovie.data.film.votesKp,
                     movieLength: requestMovie.data.film.movieLength,
                     genres: genres,
                     countries: countries,
                     persons: persons,
-                    trailer: requestMovie.data.videos[1].url,
+                    trailer: requestMovie.data.trailer[1].url,
                     watchingWithMovie: [],
                     comments: [],
                 });
@@ -133,41 +140,59 @@ function CardMoviePage() {
                     <Loading />
                 </div>
             ) : movie ? (
-                <div className={[styles.container, 'container'].join(' ')}>
-                    <section className={[styles.container__page, styles.page].join(' ')}>
-                        <div className={styles.page__block}>
-                            <div className={styles.page__blockPlayer}>
-                                <div className={styles.page__blockPlayerSticky}>
-                                    <MoviePlayer />
+                <div className="container">
+                    <div className={styles.container}>
+                        <section>
+                            <Breadcrumbs
+                                path={asPath.split('/').slice(1)}
+                                genre={{ id: 3, name: movie.genres[0].name, enName: 'drama' }}
+                                ponytailName={{ name: movie.name, enName: movie.enName }}
+                                type="pointShort"
+                            />
+                        </section>
+                        <section className={[styles.container__page, styles.page].join(' ')}>
+                            <div className={styles.page__block}>
+                                <div className={styles.page__blockPlayer}>
+                                    <div className={styles.page__blockPlayerSticky}>
+                                        <MoviePlayer />
+                                    </div>
+                                </div>
+
+                                <div className={styles.page__blockInfo}>
+                                    <MovieInfo movie={movie} />
                                 </div>
                             </div>
+                        </section>
 
-                            <div className={styles.page__blockInfo}>
-                                <MovieInfo movie={movie} />
+                        <section className={styles.container__watch}>
+                            <MoviesSection
+                                title={`${t('withMovie.0')} «${movie.name}» ${t('withMovie.1')}`}
+                                movies={movie.watchingWithMovie}
+                                href=""
+                            />
+                        </section>
+
+                        <section className={styles.container__persons}>
+                            <PersonsSection size="small" persons={movie.persons} />
+                        </section>
+
+                        <section className={[styles.container__devices, styles.devices].join(' ')}>
+                            <div className={styles.devices__appeal}>
+                                <MovieAppeal title={locale === 'ru' ? movie.name : movie.enName} />
                             </div>
-                        </div>
-                    </section>
-
-                    <section className={styles.container__watch}>
-                        <MoviesSection
-                            title={`${t('withMovie.0')} «${movie.name}» ${t('withMovie.1')}`}
-                            movies={movie.watchingWithMovie}
-                            href=""
-                        />
-                    </section>
-
-                    <section className={styles.container__persons}>
-                        <PersonsSection size="small" persons={movie.persons} />
-                    </section>
-
-                    <section className={[styles.container__devices, styles.devices].join(' ')}>
-                        <div className={styles.devices__appeal}>
-                            <MovieAppeal title={locale === 'ru' ? movie.name : movie.enName} />
-                        </div>
-                        <div className={styles.devices__image}>
-                            <MovieDevicesImage poster={movie.posterUrl} title={movie.name} />
-                        </div>
-                    </section>
+                            <div className={styles.devices__image}>
+                                <MovieDevicesImage poster={movie.posterUrl} title={movie.name} />
+                            </div>
+                        </section>
+                        <section>
+                            <Breadcrumbs
+                                path={asPath.split('/').slice(1)}
+                                genre={{ id: 3, name: movie.genres[0].name, enName: 'drama' }}
+                                ponytailName={{ name: movie.name, enName: movie.enName }}
+                                type="point"
+                            />
+                        </section>
+                    </div>
                 </div>
             ) : (
                 <div className="container">
