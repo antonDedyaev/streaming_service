@@ -70,6 +70,22 @@
         text-overflow: ellipsis;
     }
 
+    &__subTitle {
+        height: 16px;
+        margin-top: 4px;
+
+        color: #a5a1b2;
+        font-size: 13px;
+        line-height: 16px;
+        font-weight: 500;
+
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        text-transform: capitalize;
+    }
+
     &__arrow {
         padding-top: 12px;
         &::before {

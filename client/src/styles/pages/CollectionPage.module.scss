@@ -1,0 +1,78 @@
+.container {
+    &__crumbs {
+        font-size: 20px;
+        margin: 20px 0;
+        color: white;
+    }
+
+    &__title {
+        color: white;
+        font-size: 40px;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+    }
+
+    &__spoiler {
+        max-width: 930px;
+    }
+
+    &__section {
+        padding-top: 24px;
+        //padding: 24px 0 12px;
+
+        &_promo {
+            padding-top: 0;
+        }
+
+        &:last-child {
+            padding-bottom: 104px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 24px;
+
+        padding-bottom: 32px;
+        width: 100%;
+    }
+
+    &__paginationButton {
+        font-size: 15px !important;
+        line-height: 20px;
+        font-weight: 500;
+        font-style: normal;
+    }
+
+    &__controlButtons {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &__filtersButtonText {
+        position: relative;
+        margin-right: 20px;
+        padding-left: 20px;
+        padding-bottom: 1px;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 500;
+        font-style: normal;
+
+        color: #fff;
+        transition: color 400ms;
+
+        &:hover {
+            color: #ea003d;
+        }
+
+        &::before {
+            position: absolute;
+            content: url('../../../public/icons/filters.svg');
+            top: 2px;
+            left: 0px;
+            padding-right: 6px;
+        }
+    }
+}

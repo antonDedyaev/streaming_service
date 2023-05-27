@@ -42,7 +42,7 @@ const MovieParams = ({ movie }: MovieParamsProps) => {
                         option="bright"
                         className={[styles.container__listItem, styles.container__listItem_point].join(' ')}
                     >
-                        {firstCapitalLetter(locale === 'ru' ? genre.name : genre.enName ? genre.enName : genre.name)}
+                        {firstCapitalLetter(locale === 'ru' ? genre.name : genre.enName)}
                     </TextLinkUI>
                 ))}
             </div>

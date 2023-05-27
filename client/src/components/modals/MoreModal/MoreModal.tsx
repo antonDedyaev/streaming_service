@@ -95,7 +95,7 @@ const MoreModal = ({ movie }: MoreModalProps) => {
                         <Image
                             className={styles.container__posterImage}
                             src={movie.posterUrl}
-                            alt={locale === 'ru' ? movie.name : movie.enName}
+                            alt={`${movie.name} ${movie.enName}`}
                             width={128}
                             height={196}
                         />

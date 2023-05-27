@@ -1,6 +1,21 @@
 .container {
     margin-top: 20px;
 
+    &__panel {
+        &_open {
+            max-height: 450px;
+            opacity: 1;
+            transition: max-height 400ms ease, opacity 200ms ease, padding-top 400ms ease;
+        }
+
+        &_hidden {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 400ms ease, opacity 200ms ease, padding-top 400ms ease;
+        }
+    }
+
     &__content {
         box-sizing: border-box;
         background-color: #1f1b2e;

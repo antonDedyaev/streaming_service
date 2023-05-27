@@ -7,5 +7,5 @@ export default interface IPerson {
     photo: string;
     profession: string;
     enProfession: string;
-    movies?: IMovies[];
+    movies: IMovies[];
 }

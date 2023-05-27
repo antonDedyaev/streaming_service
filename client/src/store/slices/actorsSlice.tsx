@@ -3,7 +3,7 @@ import axios from 'axios';
 import IPerson from '@/models/IPerson';
 
 export const fetchActors = createAsyncThunk('movies/fetchActors', async () => {
-    const response = await axios.get('http://localhost:3000/persons/actors');
+    const response = await axios.get('http://localhost:6125/personswithinfo');
     return response.data;
 });
 

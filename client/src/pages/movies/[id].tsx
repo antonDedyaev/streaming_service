@@ -129,8 +129,10 @@ function CardMoviePage() {
                     ? `${t('loading', { ns: 'moviesPage' })}`
                     : movie
                     ? locale === 'ru'
-                        ? `${movie.name} (Фильм ${movie.year}) ${t('browserTab')}`
-                        : `${movie.enName} (${firstCapitalLetter(movie.type)} ${movie.year}) ${t('browserTab')}`
+                        ? `${movie.name ? movie.name : movie.enName} (Фильм ${movie.year}) ${t('browserTab')}`
+                        : `${movie.enName ? movie.enName : movie.name} (${firstCapitalLetter(movie.type)} ${
+                              movie.year
+                          }) ${t('browserTab')}`
                     : `${t('pageError', { ns: 'moviesPage' })}`
             }
             page="other"
@@ -166,7 +168,15 @@ function CardMoviePage() {
 
                         <section className={styles.container__watch}>
                             <MoviesSection
-                                title={`${t('withMovie.0')} «${movie.name}» ${t('withMovie.1')}`}
+                                title={`${t('withMovie.0')} «${
+                                    locale === 'ru'
+                                        ? movie.name
+                                            ? movie.name
+                                            : movie.enName
+                                        : movie.enName
+                                        ? movie.enName
+                                        : movie.name
+                                }» ${t('withMovie.1')}`}
                                 movies={movie.watchingWithMovie}
                                 href=""
                             />
@@ -178,7 +188,17 @@ function CardMoviePage() {
 
                         <section className={[styles.container__devices, styles.devices].join(' ')}>
                             <div className={styles.devices__appeal}>
-                                <MovieAppeal title={locale === 'ru' ? movie.name : movie.enName} />
+                                <MovieAppeal
+                                    title={
+                                        locale === 'ru'
+                                            ? movie.name
+                                                ? movie.name
+                                                : movie.enName
+                                            : movie.enName
+                                            ? movie.enName
+                                            : movie.name
+                                    }
+                                />
                             </div>
                             <div className={styles.devices__image}>
                                 <MovieDevicesImage poster={movie.posterUrl} title={movie.name} />
@@ -188,7 +208,10 @@ function CardMoviePage() {
                             <Breadcrumbs
                                 path={asPath.split('/').slice(1)}
                                 genre={{ id: 3, name: movie.genres[0].name, enName: 'drama' }}
-                                ponytailName={{ name: movie.name, enName: movie.enName }}
+                                ponytailName={{
+                                    name: movie.name ? movie.name : movie.enName,
+                                    enName: movie.enName ? movie.enName : movie.name,
+                                }}
                                 type="point"
                             />
                         </section>

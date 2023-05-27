@@ -8,26 +8,21 @@ import { useTranslation } from 'next-i18next';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
 import { filtersRemoved } from '../../store/slices/moviesSlice';
 interface IPanel {
+    className?: string;
+    isFilterApplied: boolean;
     children: ReactNode;
 }
 
-const FilterPanel = ({ children }: IPanel) => {
+const FilterPanel = ({ className, children, isFilterApplied }: IPanel) => {
     const { t } = useTranslation('moviesPage');
     const dispatch = useAppDispatch();
-    const [isFilterSelected, setIsFilterSelected] = useState(false);
-    const filtersStatus = useAppSelector((state) => state.movies.filtersApplied);
-
-    useEffect(() => {
-        setIsFilterSelected(!isFilterSelected);
-    }, [filtersStatus]);
 
     const HandleRemoveFilters = () => {
-        setIsFilterSelected(false);
-        dispatch(filtersRemoved({ genre: [], countries: [], ratingKp: 0, votesKp: 0, director: '', actor: '' }));
+        dispatch(filtersRemoved({ genres: [], countries: [], ratingKp: 0, votesKp: 0, director: '', actor: '' }));
     };
 
     return (
-        <section className={styles.container}>
+        <section className={[styles.container, className].join(' ')}>
             <div className={styles.container__body}>
                 <div className={styles.container__content}>
                     <div className={styles.container__filterList}>{children}</div>
@@ -35,7 +30,7 @@ const FilterPanel = ({ children }: IPanel) => {
                         <TransparentButton
                             className={[
                                 styles.container__resetButton,
-                                !isFilterSelected ? styles.container__resetButton_disabled : null,
+                                !isFilterApplied ? styles.container__resetButton_disabled : null,
                             ].join(' ')}
                             textColor="bright"
                             onClick={HandleRemoveFilters}

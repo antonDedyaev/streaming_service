@@ -60,10 +60,8 @@ const Breadcrumbs = ({ path, genre, ponytailName, type = 'slash' }: BreadcrumbsP
                                     <li key={genre.id}>
                                         <TextLinkUI
                                             option="bright"
-                                            href={`/${genre.enName}`}
-                                            className={
-                                                type === 'slash' ? styles.container__crumb : styles.container__crumb2
-                                            }
+                                            href={`/collections/${genre.enName}`}
+                                            className={type === 'slash' ? styles.container__crumb : ''}
                                         >
                                             {firstCapitalLetter(locale === 'ru' ? genre.name : genre.enName)}
                                         </TextLinkUI>

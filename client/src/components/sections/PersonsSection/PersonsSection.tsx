@@ -6,7 +6,6 @@ import UnderlinedLink from '@/components/UI/links/UnderlinedLink/UnderlinedLink'
 import { useRouter } from 'next/router';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
 
 interface PersonsSectionProps {
     persons: IPerson[];
@@ -33,7 +32,7 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
             <div className={styles.section__content}>
                 {size === 'large' ? (
                     <Slider itemType="actor" length={persons.length}>
-                        <ActorList persons={persons} size={size} />
+                        <ActorList persons={actors} size={size} />
                     </Slider>
                 ) : (
                     <div className={styles.section__list}>

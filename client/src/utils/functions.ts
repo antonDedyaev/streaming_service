@@ -1,3 +1,5 @@
+import { IFilters } from '@/store/slices/moviesSlice';
+
 export const declineWord = (number: number, arrayOfOptions: string[]): string => {
     let dozens = number % 100;
     let units = number % 10;
@@ -43,4 +45,16 @@ export const professionInTheSingular = (word: string): string => {
         default:
             return '';
     }
+};
+
+export const checkFiltersStatus = (filters: IFilters) => {
+    const { genres, countries, ratingKp, votesKp, director, actor } = filters;
+    return (
+        genres.length === 0 &&
+        countries.length === 0 &&
+        ratingKp === 0 &&
+        votesKp === 0 &&
+        director === '' &&
+        actor === ''
+    );
 };
