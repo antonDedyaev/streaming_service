@@ -23,6 +23,13 @@
         "searchByDirector": "Search by director",
         "searchByActor": "Search by actor"
     },
+    "sorting": {
+        "by": "By",
+        "userRates": "By user rates",
+        "rating": "Rating",
+        "releaseDate": "Release date",
+        "name": "Name"
+    },
     "newReleases": "Premieres",
     "bestMovies": "Top movies",
     "celebrities": "Celebrities",

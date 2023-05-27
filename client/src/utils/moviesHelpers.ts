@@ -1,4 +1,5 @@
 import IMovies from '@/models/IMovies';
+import { ISortParams } from '@/components/movie/SortMovies/SortMovies';
 import { addFilteredMovies } from '@/store/slices/moviesSlice';
 import { AppDispatch } from '@/store/store';
 
@@ -35,17 +36,23 @@ export const getMoviesByGenre = (arrOfMovies: IMovies[], genre: string) =>
         return filtered.length === 0 ? [] : movie;
     });
 
-export const getSortedMovies = (sortingParameter: string, moviesToSort: IMovies[], dispatch: AppDispatch) => {
+export const getSortedMovies = (
+    sortParams: ISortParams,
+    sortingParameter: string,
+    moviesToSort: IMovies[],
+    locale: string,
+    dispatch: AppDispatch,
+) => {
     switch (sortingParameter) {
-        case 'По количеству оценок':
+        case sortParams.userRates:
             moviesToSort.sort((a, b) => b.votesKp - a.votesKp);
             dispatch(addFilteredMovies(moviesToSort));
             break;
-        case 'Рейтингу':
+        case sortParams.rating:
             moviesToSort.sort((a, b) => b.ratingKp - a.ratingKp);
             dispatch(addFilteredMovies(moviesToSort));
             break;
-        case 'Дате выхода':
+        case sortParams.releaseDate:
             moviesToSort.sort(
                 (a, b) =>
                     new Date(
@@ -57,11 +64,13 @@ export const getSortedMovies = (sortingParameter: string, moviesToSort: IMovies[
             );
             dispatch(addFilteredMovies(moviesToSort));
             break;
-        case 'Алфавиту':
+        case sortParams.movieName:
             moviesToSort.sort((a, b) => {
-                return a.name.toUpperCase() > b.name.toUpperCase()
+                const firstArgName = a.enName && locale === 'en' ? a.enName : a.name;
+                const secondArgName = b.enName && locale === 'en' ? b.enName : b.name;
+                return firstArgName.toUpperCase() > secondArgName.toUpperCase()
                     ? 1
-                    : b.name.toUpperCase() > a.name.toUpperCase()
+                    : secondArgName.toUpperCase() > firstArgName.toUpperCase()
                     ? -1
                     : 0;
             });

@@ -3,17 +3,40 @@ import styles from './SortMovies.module.scss';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { getSortedMovies } from '@/utils/moviesHelpers';
 import IMovies from '@/models/IMovies';
+import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/router';
+
+export interface ISortParams {
+    userRates: string;
+    rating: string;
+    releaseDate: string;
+    movieName: string;
+}
 
 const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
+    const { t } = useTranslation('moviesPage');
+    const { locale } = useRouter();
     const dispatch = useAppDispatch();
     const [isDropdownShown, setIsDropdownShown] = useState(false);
-    const [sortingParameter, setSortingParameter] = useState('По количеству оценок');
-    console.log('FilteredMovies:', filteredMovies);
 
-    const sortingParamNames = ['По количеству оценок', 'Рейтингу', 'Дате выхода', 'Алфавиту'];
+    const sortParams: ISortParams = {
+        userRates: t('sorting.userRates'),
+        rating: t('sorting.rating'),
+        releaseDate: t('sorting.releaseDate'),
+        movieName: t('sorting.name'),
+    };
+    const [sortingParameter, setSortingParameter] = useState(sortParams.userRates);
+
+    //const sortingParamNames = ['По количеству оценок', 'Рейтингу', 'Дате выхода', 'Алфавиту'];
+    const sortingParamNames = [
+        t('sorting.userRates'),
+        t('sorting.rating'),
+        t('sorting.releaseDate'),
+        t('sorting.name'),
+    ];
 
     useEffect(() => {
-        getSortedMovies(sortingParameter, [...filteredMovies], dispatch);
+        getSortedMovies(sortParams, sortingParameter, [...filteredMovies], locale!, dispatch);
     }, [sortingParameter]);
 
     const handleSortTypeSelection = ({ currentTarget }: React.MouseEvent<HTMLDivElement>) => {
@@ -34,9 +57,9 @@ const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
     };
 
     const selectedParam =
-        sortingParameter === sortingParamNames[0]
+        sortingParameter === sortParams.userRates
             ? sortingParameter
-            : `По ${sortingParameter.slice(0, 1).toLowerCase()}${sortingParameter.slice(1)}`;
+            : `${t('sorting.by')} ${sortingParameter.slice(0, 1).toLowerCase()}${sortingParameter.slice(1)}`;
 
     return (
         <section>
@@ -56,7 +79,7 @@ const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
                         </div>
                         <div className={styles.container__dropdown}>
                             <div className={styles.container__itemTitle}>Сортировать</div>
-                            {sortingParamNames.map((param) => renderMenuItem(param))}
+                            {Object.values(sortParams).map((param) => renderMenuItem(param))}
                         </div>
                     </div>
                 </div>
