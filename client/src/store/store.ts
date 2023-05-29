@@ -2,13 +2,13 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { loginAPI } from './services/LoginService';
 import moviesSliceReducer from './slices/moviesSlice';
 import actorsSliceReducer from './slices/actorsSlice';
-import immutableObjReducer from './slices/immutableObjSlice';
+import staticDataSliceReducer from './slices/staticDataSlice';
 
 const rootReducer = combineReducers({
     [loginAPI.reducerPath]: loginAPI.reducer,
     movies: moviesSliceReducer,
     actors: actorsSliceReducer,
-    immutableObj: immutableObjReducer,
+    staticData: staticDataSliceReducer,
 });
 
 export const setupStore = () => {

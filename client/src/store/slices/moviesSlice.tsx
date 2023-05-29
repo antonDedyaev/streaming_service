@@ -9,15 +9,15 @@ export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
     return response.data;
 });
 
-export const fetchCountries = createAsyncThunk('movies/fetchCountries', async () => {
-    const response = await axios.get('http://localhost:6125/namesOfCountries');
-    return response.data;
-});
+// export const fetchCountries = createAsyncThunk('movies/fetchCountries', async () => {
+//     const response = await axios.get('http://localhost:6125/namesOfCountries');
+//     return response.data;
+// });
 
-export const fetchGenres = createAsyncThunk('movies/fetchGenres', async () => {
-    const response = await axios.get('http://localhost:6125/namesgenres');
-    return response.data;
-});
+// export const fetchGenres = createAsyncThunk('movies/fetchGenres', async () => {
+//     const response = await axios.get('http://localhost:6125/namesgenres');
+//     return response.data;
+// });
 
 export interface IFilters {
     genres: string[];
@@ -30,8 +30,6 @@ export interface IFilters {
 
 interface IMoviesState {
     movies: IMovies[];
-    genres: IGenre[];
-    countries: ICountry[];
     filtersApplied: boolean;
     filters: IFilters;
     filteredMovies: IMovies[];
@@ -39,8 +37,6 @@ interface IMoviesState {
 
 const initialState: IMoviesState = {
     movies: [],
-    genres: [],
-    countries: [],
     filtersApplied: false,
     filters: {
         genres: [],
@@ -93,12 +89,6 @@ const moviesSlice = createSlice({
             // })
             .addCase(fetchMovies.fulfilled, (state, action: PayloadAction<IMovies[]>) => {
                 state.movies = action.payload;
-            })
-            .addCase(fetchCountries.fulfilled, (state, action: PayloadAction<ICountry[]>) => {
-                state.countries = action.payload;
-            })
-            .addCase(fetchGenres.fulfilled, (state, action: PayloadAction<IGenre[]>) => {
-                state.genres = action.payload;
             });
     },
 });

@@ -3,26 +3,26 @@ import IGenre from '@/models/IGenre';
 import IPerson from '@/models/IPerson';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-interface immutableObjState {
-    geners: IGenre[];
+interface staticDataState {
+    genres: IGenre[];
     countries: ICountry[];
     actors: IPerson[];
     directors: IPerson[];
 }
 
-const initialState: immutableObjState = {
-    geners: [],
+const initialState: staticDataState = {
+    genres: [],
     countries: [],
     actors: [],
     directors: [],
 };
 
-export const immutableObjSlice = createSlice({
-    name: 'immutableObj',
+export const staticDataSlice = createSlice({
+    name: 'staticData',
     initialState,
     reducers: {
-        setGeners(state, action: PayloadAction<IGenre[]>) {
-            state.geners = action.payload;
+        setGenres(state, action: PayloadAction<IGenre[]>) {
+            state.genres = action.payload;
         },
         setCountries(state, action: PayloadAction<ICountry[]>) {
             state.countries = action.payload;
@@ -36,4 +36,4 @@ export const immutableObjSlice = createSlice({
     },
 });
 
-export default immutableObjSlice.reducer;
+export default staticDataSlice.reducer;
