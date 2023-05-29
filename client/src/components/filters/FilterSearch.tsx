@@ -5,87 +5,108 @@ import axios, { AxiosResponse } from 'axios';
 import theme from './theme.module.scss';
 import { useTranslation } from 'next-i18next';
 import IPerson from '../../models/IPerson';
+import { useRouter } from 'next/router';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { addFilteredMovies } from '@/store/slices/moviesSlice';
 
 interface ISearch {
-    searchBy: string;
+    category: 'director' | 'actor';
+    //searchBy: string;
 }
 
-const FilterSearch = ({ searchBy }: ISearch) => {
+const FilterSearch = ({ category }: ISearch) => {
     const { t } = useTranslation('moviesPage');
+    const dispatch = useAppDispatch();
     const [inputValue, setInputValue] = useState('');
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [searchedPerson, setSearchedPerson] = useState('');
 
-    const searchParam = searchBy === 'Режиссер' ? t('filterPanel.searchByDirector') : t('filterPanel.searchByActor');
+    const searchParam = category === 'director' ? t('filterPanel.searchByDirector') : t('filterPanel.searchByActor');
 
-    useEffect(() => {}, [searchedPerson]);
+    const actors = useAppSelector((state) => state.actors.actors);
+
+    const handleEnterPressed = ({ target, key }: KeyboardEvent): void => {
+        const searchInput = target as HTMLInputElement;
+        if (key === 'Enter') {
+            setSearchedPerson(searchInput!.value);
+        }
+    };
 
     useEffect(() => {
-        const input = document.getElementById(searchBy);
-
-        const handleSubmit = (e: KeyboardEvent) => {
-            if (inputValue !== '' && e.key === 'Enter') {
-                e.preventDefault();
-                setInputValue('');
+        const fetchActorMovies = async () => {
+            try {
+                const response = await axios.get(`http://localhost:6125/movies?actor=${searchedPerson}`);
+                console.log('actorMovies:', response.data.docs[0].page);
+                //     const names: string[] = result.data
+                //         .map((person: IPerson) => person.name)
+                //         .filter((person: string[]) => person && person.includes(inputValue));
+                dispatch(addFilteredMovies(response.data.docs[0].page));
+            } catch (err) {
+                console.log(err);
             }
         };
-        input?.addEventListener('keypress', handleSubmit);
-
-        return () => input?.removeEventListener('keypress', handleSubmit);
-    });
+        fetchActorMovies();
+    }, [searchedPerson]);
 
     return (
-        <form autoComplete="off" className={styles.container}>
-            <div className={styles.container__formContent}>
-                <div className={styles.container__inputBody}>
-                    <Autosuggest
-                        theme={theme}
-                        inputProps={{
-                            placeholder: searchParam,
-                            name: 'person',
-                            id: searchBy.toLowerCase(),
-                            value: inputValue,
-                            onChange: (_event, { newValue }) => {
-                                setInputValue(newValue);
-                            },
-                        }}
-                        suggestions={suggestions}
-                        onSuggestionsFetchRequested={async ({ value }) => {
-                            if (!value) {
-                                setSuggestions([]);
-                                return;
-                            }
-                            try {
-                                const query = searchBy === 'Актер' ? 'actors' : 'directors';
-                                const result = await axios.get(`http://localhost:3000/persons/${query}`);
-                                const names: string[] = result.data
-                                    .map((person: IPerson) => person.name)
-                                    .filter((person: string[]) => person && person.includes(inputValue));
-                                setSuggestions(names);
-                            } catch (error) {
-                                console.log(error);
-                            }
-                        }}
-                        onSuggestionsClearRequested={() => {
+        <div className={styles.container__formContent}>
+            <div className={styles.container__inputBody} onKeyDown={handleEnterPressed as VoidFunction}>
+                <Autosuggest
+                    theme={theme}
+                    inputProps={{
+                        placeholder: searchParam,
+                        name: 'person',
+                        value: inputValue,
+                        onChange: (_event, { newValue }) => {
+                            setInputValue(newValue);
+                        },
+                    }}
+                    suggestions={suggestions}
+                    onSuggestionsFetchRequested={({ value }) => {
+                        if (!value) {
                             setSuggestions([]);
-                        }}
-                        getSuggestionValue={(suggestion) => suggestion}
-                        renderSuggestion={(suggestion) => <div>{suggestion}</div>}
-                    />
-                    <div className={styles.container__fieldButton}>
-                        <div
-                            className={[
-                                styles.container__buttonIcon,
-                                inputValue === ''
-                                    ? styles.container__buttonIcon_search
-                                    : styles.container__buttonIcon_remove,
-                            ].join(' ')}
-                            onClick={() => setInputValue('')}
-                        ></div>
-                    </div>
+                            return;
+                        }
+                        const names: string[] = actors
+                            .map((person: IPerson) => person.name)
+                            .filter((person: string) => person && person.includes(inputValue));
+                        setSuggestions(names);
+                        // try {
+                        //     const query = searchBy === 'Актер' ? 'getAllActors' : 'getAllDirectors';
+                        //     const result = await axios.get(`http://localhost:6125/${query}`);
+                        //     const names: string[] = result.data
+                        //         .map((person: IPerson) => person.name)
+                        //         .filter((person: string[]) => person && person.includes(inputValue));
+                        //     setSuggestions(names);
+                        // } catch (error) {
+                        //     console.log(error);
+                        // }
+                    }}
+                    onSuggestionsClearRequested={() => {
+                        setSuggestions([]);
+                    }}
+                    onSuggestionSelected={(event, { suggestion, method }) => {
+                        const target = event.target as HTMLInputElement;
+                        if (method === 'enter') {
+                            setSearchedPerson(target.value);
+                        }
+                    }}
+                    getSuggestionValue={(suggestion) => suggestion}
+                    renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                />
+                <div className={styles.container__fieldButton}>
+                    <div
+                        className={[
+                            styles.container__buttonIcon,
+                            inputValue === ''
+                                ? styles.container__buttonIcon_search
+                                : styles.container__buttonIcon_remove,
+                        ].join(' ')}
+                        onClick={() => setInputValue('')}
+                    ></div>
                 </div>
             </div>
-        </form>
+        </div>
     );
 };
 

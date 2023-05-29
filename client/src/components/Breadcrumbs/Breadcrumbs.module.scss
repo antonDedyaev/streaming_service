@@ -5,15 +5,15 @@
     &__crumbsList {
         display: flex;
         list-style: none;
+        flex-wrap: wrap;
 
-        li {
-            padding-bottom: 3px;
+        & > div {
+            display: flex;
+        }
 
+        &_slash li {
             font-size: 13px;
             line-height: 16px;
-            font-weight: 500;
-
-            color: rgba(255, 255, 255, 0.56);
 
             &::before {
                 content: '/';
@@ -22,6 +22,28 @@
                 color: #fff;
                 border: none;
             }
+        }
+
+        &_point li,
+        &_pointShort div > li {
+            font-size: 15px;
+            line-height: 20px;
+
+            &::before {
+                content: '';
+                width: 2px;
+                height: 2px;
+                background-color: rgba(255, 255, 255, 0.7215686275);
+                margin: 5px;
+            }
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            // padding-bottom: 3px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.56);
 
             &:not(:last-child) {
                 cursor: pointer;

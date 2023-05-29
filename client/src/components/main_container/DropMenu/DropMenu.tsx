@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import styles from './DropMenu.module.scss';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 import LinksList from '../LinksList/LinksList';
+import IGenre from '@/models/IGenre';
+import ICountry from '@/models/ICountry';
+import { firstCapitalLetter } from '@/utils/functions';
 
 interface IContent {
     title: string;
@@ -24,13 +27,8 @@ const DropMenu = ({ className, content }: DropMenuProps) => {
                     <h2 className={styles.container__title}>{item.title}</h2>
                     <div className={styles.container__content}>
                         {item.links.map((link, index) => (
-                            <TextLinkUI
-                                key={index}
-                                className={styles.container__link}
-                                href={link.href}
-                                option="dim"
-                            >
-                                {link.text}
+                            <TextLinkUI key={index} className={styles.container__link} href={link.href} option="dim">
+                                {firstCapitalLetter(link.text)}
                             </TextLinkUI>
                         ))}
                     </div>

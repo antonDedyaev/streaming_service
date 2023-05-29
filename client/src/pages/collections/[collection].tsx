@@ -17,13 +17,14 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
+/*import useSWR from 'swr';*/
 import PostersList from '@/components/posters/PostersList/PostersList';
-import { fetchMovies } from '@/store/slices/moviesSlice';
+import { fetchCountries, fetchGenres, fetchMovies } from '@/store/slices/moviesSlice';
 import { getCollection } from '../../utils/moviesHelpers';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
+import IGenre from '@/models/IGenre';
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
     props: {
@@ -48,13 +49,18 @@ const Collection = () => {
     const { t } = useTranslation();
     const { asPath, locale } = useRouter();
     const dispatch = useAppDispatch();
-    const [countriesList, setCountriesList] = useState<string[]>([]);
-    const [genresList, setGenresList] = useState<string[]>([]);
+
     const [isFilterApplied, setIsFilterApplied] = useState(false);
     const [showFilterPanel, setShowFilterPanel] = useState(false);
     const [shownPostersLimit, setShownPostersLimit] = useState(35);
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
+
+    const allCountries = useAppSelector((state) => state.movies.countries);
+    const countryNames = allCountries.map(({ name }: { name: string }) => name);
+    const countriesList = Array.from(new Set<string>(countryNames)).sort();
+
+    const genres = useAppSelector((state) => state.movies.genres);
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
@@ -62,28 +68,9 @@ const Collection = () => {
 
     useEffect(() => {
         dispatch(fetchMovies());
-
-        const getCountries = async () => {
-            try {
-                const requestCountries = await axios.get('http://localhost:6125/namesOfCountries');
-                //const countries = requestCountries.data.map(({ name }: { name: string }) => name);
-                setCountriesList(requestCountries.data.sort());
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        const getGenres = async () => {
-            try {
-                const requestGenres = await axios.get('http://localhost:6125/namesgenres');
-                const genres = requestGenres.data.map(({ name }: { name: string }) => name);
-                setGenresList(genres.sort());
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        getCountries();
-        getGenres();
-    }, [locale]);
+        dispatch(fetchCountries());
+        dispatch(fetchGenres());
+    }, [locale, asPath]);
 
     const path = asPath.split('/').slice(-1)[0].split('-');
     const dynamicHeader =
@@ -92,13 +79,10 @@ const Collection = () => {
             : t(`moviesPage:${path[0] + path[1][0].toUpperCase() + path[1].slice(1)}`);
 
     const movies = useAppSelector((state) => state.movies.movies);
-
     const collectionTitle = asPath.split('/').slice(-1)[0];
-    const collection = getCollection(collectionTitle, movies);
+    const collection = getCollection(collectionTitle, movies, genres, countriesList);
 
     const renderedList = filteredList.length !== 0 ? filteredList : collection;
-
-    console.log('render', renderedList);
 
     return (
         <MainContainer
@@ -141,7 +125,14 @@ const Collection = () => {
                             title={t('moviesPage:filterPanel.genres')}
                             className={plankStyles.container__dropdown_leftPositioned}
                         >
-                            <FilterList items={genresList} category="genres" />
+                            <FilterList
+                                items={
+                                    locale === 'ru'
+                                        ? genres.map((genre) => genre.name).sort()
+                                        : genres.map((genre) => genre.enName).sort()
+                                }
+                                category="genres"
+                            />
                         </FilterPlank>
 
                         <FilterPlank

@@ -25,19 +25,18 @@ const FilterList = ({ items, category }: IList) => {
     const genres = allFilters.genres.map((genre) => `genres=${genre}`);
     const countries = allFilters.countries.map((country) => `countries=${country}`);
     const joinedQuery = [...genres, ...countries].join('&');
-    console.log(joinedQuery);
 
     const listFilter = useAppSelector((state) => state.movies.filters[category]);
 
     useEffect(() => {
         const sendFilters = async () => {
             try {
-                //const response = await axios.get(`http://localhost:3000/api/films?${category}=${listFilter.join(',')}`);
-                const response = await axios.get(`http://localhost:6125/movies?${joinedQuery}`);
-                const prepared = response.data.docs[0].page.map(({ film, genres, countries }: IFiltered) => {
-                    return { ...film, genres, countries };
-                });
-                dispatch(addFilteredMovies(prepared));
+                const response = await axios.get(`http://localhost:6125/movies?${joinedQuery}&limit=500`);
+                console.log('listFilters:', response.data.docs[0].page);
+                // const prepared = response.data.docs[0].page.map((movie: IMovies[]) => {
+                //     return { ...film, genres, countries };
+                // });
+                dispatch(addFilteredMovies(joinedQuery !== '' ? response.data.docs[0].page : []));
             } catch (err) {
                 console.log(err);
             }
@@ -59,8 +58,8 @@ const FilterList = ({ items, category }: IList) => {
     return (
         <div className={styles.container}>
             <ul className={styles.container__list}>
-                {items.map((item) => (
-                    <li className={styles.container__listItem} key={item}>
+                {items.map((item, index) => (
+                    <li className={styles.container__listItem} key={index}>
                         <label className={styles.container__itemLabel}>
                             <input
                                 className={styles.container__itemInput}

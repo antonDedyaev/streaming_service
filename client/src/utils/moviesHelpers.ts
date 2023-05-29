@@ -1,9 +1,10 @@
+import IGenre from '@/models/IGenre';
 import IMovies from '@/models/IMovies';
 import { ISortParams } from '@/components/movie/SortMovies/SortMovies';
 import { addFilteredMovies } from '@/store/slices/moviesSlice';
 import { AppDispatch } from '@/store/store';
 
-export const getCollection = (title: string, movies: IMovies[]) => {
+export const getCollection = (title: string, movies: IMovies[], genres: IGenre[], countries: string[]) => {
     switch (title) {
         case 'new-releases':
             return movies
@@ -27,6 +28,8 @@ export const getCollection = (title: string, movies: IMovies[]) => {
             return getMoviesByGenre(movies, 'фантастика');
         case 'drama':
             return getMoviesByGenre(movies, 'драма');
+        default:
+            return getMovies(movies, title, genres, countries);
     }
 };
 
@@ -35,6 +38,32 @@ export const getMoviesByGenre = (arrOfMovies: IMovies[], genre: string) =>
         const filtered = movie.genres.filter((item) => item.name === genre);
         return filtered.length === 0 ? [] : movie;
     });
+
+export const getMoviesByGenreEn = (arrOfMovies: IMovies[], genre: string) =>
+    arrOfMovies.flatMap((movie) => {
+        const filtered = movie.genres.filter((item) => item.enName === genre);
+        return filtered.length === 0 ? [] : movie;
+    });
+
+export const getMoviesByCountry = (arrOfMovies: IMovies[], country: string) =>
+    arrOfMovies.flatMap((movie) => {
+        const filtered = movie.countries.filter((item) => item.name === country);
+        return filtered.length === 0 ? [] : movie;
+    });
+
+export const getMovies = (arrOfMovies: IMovies[], value: string, genres: IGenre[], countries: string[]) => {
+    if (Number(value)) {
+        return arrOfMovies.filter((movie) => movie.year === Number(value));
+    } else {
+        if (genres.find((genre) => genre.enName === value)) {
+            return getMoviesByGenreEn(arrOfMovies, value);
+        } else if (countries.includes(value)) {
+            return getMoviesByCountry(arrOfMovies, value);
+        } else {
+            return [];
+        }
+    }
+};
 
 export const getSortedMovies = (
     sortParams: ISortParams,

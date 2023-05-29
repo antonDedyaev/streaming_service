@@ -1,9 +1,21 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import IMovies from '@/models/IMovies';
+import IGenre from '@/models/IGenre';
+import ICountry from '@/models/ICountry';
 
 export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');
+    return response.data;
+});
+
+export const fetchCountries = createAsyncThunk('movies/fetchCountries', async () => {
+    const response = await axios.get('http://localhost:6125/namesOfCountries');
+    return response.data;
+});
+
+export const fetchGenres = createAsyncThunk('movies/fetchGenres', async () => {
+    const response = await axios.get('http://localhost:6125/namesgenres');
     return response.data;
 });
 
@@ -18,6 +30,8 @@ export interface IFilters {
 
 interface IMoviesState {
     movies: IMovies[];
+    genres: IGenre[];
+    countries: ICountry[];
     filtersApplied: boolean;
     filters: IFilters;
     filteredMovies: IMovies[];
@@ -25,6 +39,8 @@ interface IMoviesState {
 
 const initialState: IMoviesState = {
     movies: [],
+    genres: [],
+    countries: [],
     filtersApplied: false,
     filters: {
         genres: [],
@@ -54,6 +70,12 @@ const moviesSlice = createSlice({
                 ? state.filters.countries.push(action.payload)
                 : state.filters.countries.splice(indexOfItem, 1);
         },
+        votesFilterAdded: (state, action: PayloadAction<number>) => {
+            state.filters.votesKp = action.payload;
+        },
+        ratingFilterAdded: (state, action: PayloadAction<number>) => {
+            state.filters.ratingKp = action.payload;
+        },
         actorFilterAdded: (state, action: PayloadAction<string>) => {
             state.filters.actor = action.payload;
         },
@@ -61,34 +83,22 @@ const moviesSlice = createSlice({
             state.filters.director = action.payload;
         },
         filtersRemoved: (state, action) => {
-            console.log('cleared', action.payload);
             state.filters = action.payload;
         },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchMovies.pending, (state) => {
-                console.log('pending');
-            })
+            // .addCase(fetchMovies.pending, (state) => {
+            //     console.log('pending');
+            // })
             .addCase(fetchMovies.fulfilled, (state, action: PayloadAction<IMovies[]>) => {
-                const moviesInfo = action.payload.map(({ film, genres, countries }) => {
-                    return {
-                        id: film.id,
-                        name: film.name,
-                        enName: film.enName,
-                        posterPreviewURL: film.posterPreviewURL,
-                        premiereRussia: film.premiereRussia,
-                        hasIMAX: film.hasIMAX,
-                        year: film.year,
-                        ageRating: film.ageRating,
-                        ratingKp: film.ratingKp,
-                        votesKp: film.votesKp,
-                        movieLength: film.movieLength,
-                        genres,
-                        countries,
-                    };
-                });
-                state.movies = moviesInfo;
+                state.movies = action.payload;
+            })
+            .addCase(fetchCountries.fulfilled, (state, action: PayloadAction<ICountry[]>) => {
+                state.countries = action.payload;
+            })
+            .addCase(fetchGenres.fulfilled, (state, action: PayloadAction<IGenre[]>) => {
+                state.genres = action.payload;
             });
     },
 });
@@ -97,6 +107,8 @@ export const {
     addFilteredMovies,
     genresFilterAdded,
     countriesFilterAdded,
+    ratingFilterAdded,
+    votesFilterAdded,
     actorFilterAdded,
     directorFilterAdded,
     filtersRemoved,

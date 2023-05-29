@@ -12,6 +12,8 @@ import { useRouter } from 'next/router';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import { useTranslation } from 'next-i18next';
+import axios from 'axios';
+import IGenre from '@/models/IGenre';
 
 interface HeaderProps {
     page: 'home' | 'other';
@@ -61,6 +63,32 @@ const Header = ({ page }: HeaderProps) => {
         }
     }, [isShowMoviesDrop, isShowSeriesDrop, isShowCartoonDrop]);
 
+    const [genresList, setGenresList] = useState<IGenre[]>([]);
+
+    const genersLinks = () => {
+        const array: {
+            text: string;
+            href: string;
+        }[] = [];
+        genresList.forEach((genre) => {
+            array.push({ text: locale == 'ru' ? genre.name : genre.enName, href: `/collections/${genre.enName}` });
+        });
+        return array;
+    };
+
+    useEffect(() => {
+        const getGenres = async () => {
+            try {
+                const requestGenres = await axios.get('http://localhost:6125/namesgenres');
+                setGenresList(requestGenres.data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        getGenres();
+    }, []);
+
     return (
         <div onMouseLeave={clearMouseHandlers} className="container">
             <div
@@ -85,10 +113,11 @@ const Header = ({ page }: HeaderProps) => {
                                 onMouseOver: clearShowHandler,
                             },
                             {
-                                href: '/',
+                                href: 'https://www.ivi.ru/new',
                                 text: t('latest'),
                                 option: 'dim',
                                 onMouseOver: clearShowHandler,
+                                target: '_blank',
                             },
                             {
                                 href: '/movies',
@@ -98,24 +127,29 @@ const Header = ({ page }: HeaderProps) => {
                                 className: [styles.container__menuLink, styles.container__menuLink_movie].join(' '),
                             },
                             {
-                                href: '/',
+                                href: 'https://www.ivi.ru/series',
                                 text: t('tvShows'),
                                 option: 'dim',
-                                onMouseOver: mouseOverSeriesHandler,
-                                className: [styles.container__menuLink, styles.container__menuLink_series].join(' '),
+                                /*onMouseOver: mouseOverSeriesHandler,
+                                className: [styles.container__menuLink, styles.container__menuLink_series].join(' '),*/
+                                onMouseOver: clearShowHandler,
+                                target: '_blank',
                             },
                             {
-                                href: '/',
+                                href: 'https://www.ivi.ru/animation',
                                 text: t('cartoons'),
                                 option: 'dim',
-                                onMouseOver: mouseOverСartoonHandler,
-                                className: [styles.container__menuLink, styles.container__menuLink_cartoon].join(' '),
+                                /*onMouseOver: mouseOverСartoonHandler,
+                                className: [styles.container__menuLink, styles.container__menuLink_cartoon].join(' '),*/
+                                onMouseOver: clearShowHandler,
+                                target: '_blank',
                             },
                             {
-                                href: '/',
+                                href: 'https://www.ivi.ru/tvplus',
                                 text: t('broadcast'),
                                 option: 'dim',
                                 onMouseOver: clearShowHandler,
+                                target: '_blank',
                             },
                         ]}
                     />
@@ -164,14 +198,16 @@ const Header = ({ page }: HeaderProps) => {
                             ? [
                                   {
                                       title: t('dropmenu.genres'),
-                                      links: [
+                                      links: genersLinks(),
+
+                                      /*[
                                           { text: 'фильм', href: '/' },
                                           { text: 'фильм', href: '/' },
                                           { text: 'фильм', href: '/' },
                                           { text: 'фильм', href: '/' },
                                           { text: 'фильм', href: '/' },
                                           { text: 'фильм', href: '/' },
-                                      ],
+                                      ]*/
                                   },
                                   {
                                       title: t('dropmenu.countries'),
@@ -187,16 +223,16 @@ const Header = ({ page }: HeaderProps) => {
                                   {
                                       title: t('dropmenu.years'),
                                       links: [
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
+                                          { text: 'Фильмы 2023 года', href: '/collections/2023' },
+                                          { text: 'Фильмы 2022 года', href: '/collections/2022' },
+                                          { text: 'Фильмы 2021 года', href: '/collections/2021' },
+                                          { text: 'Фильмы 2020 года', href: '/collections/2020' },
+                                          { text: 'Фильмы 2019 года', href: '/collections/2019' },
+                                          { text: 'Фильмы 2018 года', href: '/collections/2018' },
                                       ],
                                   },
                               ]
-                            : isShowSeriesDrop
+                            : [] /*isShowSeriesDrop
                             ? [
                                   {
                                       title: t('dropmenu.genres'),
@@ -266,7 +302,7 @@ const Header = ({ page }: HeaderProps) => {
                                           { text: 'Год', href: '/' },
                                       ],
                                   },
-                              ]
+                              ]*/
                     }
                 />
             </div>

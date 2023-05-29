@@ -44,10 +44,10 @@ const FilterPlank = ({ title, className, children }: IPlank) => {
                 setSubTitle(filters.countries.join(', '));
                 break;
             case 'Рейтинг':
-                filters.ratingKp > 0 && setSubTitle(`Больше ${filters.ratingKp}`);
+                filters.ratingKp > 0 ? setSubTitle(`Больше ${filters.ratingKp}`) : setSubTitle('');
                 break;
             case 'Оценки':
-                filters.votesKp > 0 && setSubTitle(`Больше ${filters.votesKp}`);
+                filters.votesKp > 0 ? setSubTitle(`Больше ${filters.votesKp}`) : setSubTitle('');
                 break;
             case 'Режиссер':
                 setSubTitle(filters.director);

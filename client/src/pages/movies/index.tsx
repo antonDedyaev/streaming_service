@@ -18,7 +18,7 @@ import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import { fetchMovies } from '@/store/slices/moviesSlice';
+import { fetchCountries, fetchGenres, fetchMovies } from '@/store/slices/moviesSlice';
 import IActor from '@/models/IActor';
 import { fetchActors } from '@/store/slices/actorsSlice';
 import PostersList from '@/components/posters/PostersList/PostersList';
@@ -26,6 +26,7 @@ import TransparentButton from '@/components/UI/buttons/TransparentButton/Transpa
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
+import { getMoviesByGenre } from '@/utils/moviesHelpers';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -48,14 +49,18 @@ function MoviesPage() {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const { asPath, locale } = useRouter();
-    const [countriesList, setCountriesList] = useState<string[]>([]);
-    const [genresList, setGenresList] = useState<string[]>([]);
+
+    const allCountries = useAppSelector((state) => state.movies.countries);
+    const countryNames = allCountries.map(({ name }: { name: string }) => name);
+    const countriesList = Array.from(new Set<string>(countryNames)).sort();
+
+    const genres = useAppSelector((state) => state.movies.genres);
+    const genresList = genres.map(({ name }: { name: string }) => name).sort();
+
     const [isFilterApplied, setIsFilterApplied] = useState(false);
     const [shownPostersLimit, setShownPostersLimit] = useState(35);
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
-    const filters = useAppSelector((state) => state.movies.filters);
-    console.log('MoviesFilterList:', filteredList);
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
@@ -82,33 +87,11 @@ function MoviesPage() {
     useEffect(() => {
         dispatch(fetchMovies());
         dispatch(fetchActors());
+        dispatch(fetchCountries());
+        dispatch(fetchGenres());
 
         //dispatch(moviesAdded(data));
-
-        const getCountries = async () => {
-            try {
-                const requestCountries = await axios.get('http://localhost:6125/namesOfCountries');
-                // const countries = requestCountries.data.map(({ name }: { name: string }) => name);
-                // const unique = new Set<string>(countries);
-                // const arr = Array.from(unique);
-                setCountriesList(requestCountries.data.sort());
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        const getGenres = async () => {
-            try {
-                const requestGenres = await axios.get('http://localhost:6125/namesgenres');
-                const genres = requestGenres.data.map(({ name }: { name: string }) => name);
-                setGenresList(genres.sort());
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        getCountries();
-        getGenres();
-    }, [locale]);
+    }, [locale, asPath]);
 
     return (
         <MainContainer
@@ -166,11 +149,11 @@ function MoviesPage() {
                             title={t('moviesPage:filterPanel.director')}
                             className={styles.container__filterItem}
                         >
-                            <FilterSearch searchBy="Режиссер" />
+                            <FilterSearch category="director" />
                         </FilterPlank>
 
                         <FilterPlank title={t('moviesPage:filterPanel.actor')} className={styles.container__filterItem}>
-                            <FilterSearch searchBy="Актер" />
+                            <FilterSearch category="actor" />
                         </FilterPlank>
                     </FilterPanel>
                     {!isFilterApplied ? (
@@ -191,7 +174,7 @@ function MoviesPage() {
                                 />
                             </div>
                             <div className={styles.container__section}>
-                                <PersonsSection size="large" persons={filteredActors} />
+                                <PersonsSection size="large" persons={filteredActors.slice(0, 50)} />
                             </div>
                             <div className={styles.container__section}>
                                 <MoviesSection

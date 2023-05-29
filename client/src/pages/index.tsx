@@ -21,21 +21,29 @@ import { GetServerSideProps, GetStaticProps } from 'next';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import { useEffect } from 'react';
-import { fetchMovies } from '@/store/slices/moviesSlice';
+import { fetchCountries, fetchGenres, fetchMovies } from '@/store/slices/moviesSlice';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
-        ...(await serverSideTranslations(locale!, ['collection', 'common', 'footer', 'header', 'mainPage', 'modals'])),
+        ...(await serverSideTranslations(locale!, [
+            'collection',
+            'common',
+            'footer',
+            'header',
+            'mainPage',
+            'modals',
+            'moviesPage',
+        ])),
     },
 });
 
 function HomePage() {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const { locale } = useRouter();
+    const { locale, asPath } = useRouter();
 
     const movies = useAppSelector((state) => state.movies.movies);
 
@@ -43,17 +51,10 @@ function HomePage() {
     const dramas = getMoviesByGenre(movies, 'драма');
 
     useEffect(() => {
-        // const parseFilms = () => {
-        //     try {
-        //         const resp = axios.get('http://localhost:3000/persons/parse');
-        //         console.log(resp);
-        //     } catch (err) {
-        //         console.log(err);
-        //     }
-        // };
-        // parseFilms();
         dispatch(fetchMovies());
-    }, [locale]);
+        dispatch(fetchCountries());
+        dispatch(fetchGenres());
+    }, [locale, asPath]);
     return (
         <>
             <MainContainer
