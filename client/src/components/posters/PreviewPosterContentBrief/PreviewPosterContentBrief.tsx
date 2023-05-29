@@ -14,14 +14,16 @@ const PreviewPosterContentBrief = ({ movie, className }: PreviewPosterContentBri
     const { t } = useTranslation('moviesPage');
     return (
         <div className={[styles.container, className].join(' ')}>
-            <div className={styles.container__rating}>
-                <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>
-                    {`${movie.ratingKp.toFixed(1)}`.slice(0, 1)}
-                </span>
-                <span className={[styles.container__rating, styles.container__rating_fraction].join(' ')}>
-                    {`${movie.ratingKp.toFixed(1)}`.slice(1, 3)}
-                </span>
-            </div>
+            {movie.ratingKp && (
+                <div className={styles.container__rating}>
+                    <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>
+                        {`${movie.ratingKp.toFixed(1)}`.slice(0, 1)}
+                    </span>
+                    <span className={[styles.container__rating, styles.container__rating_fraction].join(' ')}>
+                        {`${movie.ratingKp.toFixed(1)}`.slice(1, 3)}
+                    </span>
+                </div>
+            )}
             <div className={styles.container__text}>
                 <p>
                     {movie.year}, {locale === 'ru' ? movie.countries[0].name : movie.countries[0].enName},{' '}

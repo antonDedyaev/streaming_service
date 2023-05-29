@@ -1,9 +1,10 @@
+import ICountry from '@/models/ICountry';
 import IGenre from '@/models/IGenre';
 import IMovies from '@/models/IMovies';
 import { addFilteredMovies } from '@/store/slices/moviesSlice';
 import { AppDispatch } from '@/store/store';
 
-export const getCollection = (title: string, movies: IMovies[], genres: IGenre[], countries: string[]) => {
+export const getCollection = (title: string, movies: IMovies[], genres: IGenre[], countries: ICountry[]) => {
     switch (title) {
         case 'new-releases':
             return movies
@@ -50,13 +51,13 @@ export const getMoviesByCountry = (arrOfMovies: IMovies[], country: string) =>
         return filtered.length === 0 ? [] : movie;
     });
 
-export const getMovies = (arrOfMovies: IMovies[], value: string, genres: IGenre[], countries: string[]) => {
+export const getMovies = (arrOfMovies: IMovies[], value: string, genres: IGenre[], countries: ICountry[]) => {
     if (Number(value)) {
         return arrOfMovies.filter((movie) => movie.year === Number(value));
     } else {
         if (genres.find((gener) => gener.enName === value)) {
             return getMoviesByGenreEn(arrOfMovies, value);
-        } else if (countries.includes(value)) {
+        } else if (countries.find((gener) => gener.enName === value)) {
             return getMoviesByCountry(arrOfMovies, value);
         } else {
             return [];
