@@ -17,8 +17,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
-import { fetchCountries, fetchGenres, fetchMovies } from '@/store/slices/moviesSlice';
+/*import useSWR from 'swr';*/
+import { fetchMovies } from '@/store/slices/moviesSlice';
 import IActor from '@/models/IActor';
 import { fetchActors } from '@/store/slices/actorsSlice';
 import PostersList from '@/components/posters/PostersList/PostersList';
@@ -27,6 +27,7 @@ import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButto
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
+import { getAllStaticData } from '@/store/ActionCreators';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -41,7 +42,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     },
 });
 
-function MoviesPage() {
+const MoviesPage = () => {
     // const address = 'http://localhost:6125/filmswithinfo';
     // const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
     // const { data, error } = useSWR(address, fetcher);
@@ -69,6 +70,9 @@ function MoviesPage() {
     const movies = useAppSelector((state) => state.movies.movies);
     const actors = useAppSelector((state) => state.actors.actors);
     const filteredActors = actors.filter((actor) => actor.name && actor.photo);
+    console.log(`filteredActors`);
+    console.log(filteredActors);
+    console.log(`filteredActors`);
 
     const premieres = movies
         .filter((movie) => movie.premiereRussia)
@@ -87,11 +91,21 @@ function MoviesPage() {
     useEffect(() => {
         dispatch(fetchMovies());
         dispatch(fetchActors());
-        dispatch(fetchCountries());
-        dispatch(fetchGenres());
+
+        // dispatch(fetchCountries());
+        // dispatch(fetchGenres());
 
         //dispatch(moviesAdded(data));
     }, [locale, asPath]);
+
+    useEffect(() => {
+        dispatch(getAllStaticData());
+    });
+
+    const { geners } = useAppSelector((state) => state.immutableObj);
+    console.log(`generTest`);
+    console.log(geners);
+    console.log(`generTest`);
 
     return (
         <MainContainer
@@ -205,6 +219,6 @@ function MoviesPage() {
             </div>
         </MainContainer>
     );
-}
+};
 
 export default MoviesPage;

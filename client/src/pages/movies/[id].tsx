@@ -22,6 +22,8 @@ import { firstCapitalLetter } from '@/utils/functions';
 import Loading from '@/components/Loading/Loading';
 import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { getGenresAndCountries } from '@/store/ActionCreators';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -44,8 +46,9 @@ export const getStaticPaths = async () => {
     };
 };
 
-function CardMoviePage() {
+const CardMoviePage = () => {
     const { t } = useTranslation(['movie', 'moviesPage']);
+    const dispatch = useAppDispatch();
     const { query, asPath } = useRouter();
     const queryParams = Object.keys(query);
     const router = useRouter();
@@ -56,62 +59,14 @@ function CardMoviePage() {
     const [movie, setMovie] = useState<IMovie>();
 
     useEffect(() => {
+        dispatch(getGenresAndCountries());
+    }, []);
+
+    useEffect(() => {
         const getPerson = async () => {
             try {
                 const requestMovie = await axios.get(`http://localhost:6125/film/${id}`);
-
-                let genres: IGenre[] = [];
-                for (let i = 0; i < requestMovie.data.genres.length; i++) {
-                    genres.push({
-                        id: i,
-                        name: requestMovie.data.genres[i].name,
-                        enName: requestMovie.data.genres[i].enName,
-                    });
-                }
-
-                let countries: ICountry[] = [];
-                for (let i = 0; i < requestMovie.data.countries.length; i++) {
-                    countries.push({
-                        id: i,
-                        name: requestMovie.data.countries[i].name,
-                        enName: requestMovie.data.countries[i].name,
-                    });
-                }
-
-                let persons: IPerson[] = [];
-                for (let i = 0; i < requestMovie.data.persons.length - 1; i++) {
-                    persons.push({
-                        id: requestMovie.data.persons[i].id,
-                        name: requestMovie.data.persons[i].name,
-                        enName: requestMovie.data.persons[i].enName,
-                        photo: requestMovie.data.persons[i].photo,
-                        profession: requestMovie.data.persons[i].profession,
-                        enProfession: requestMovie.data.persons[i].enProfession,
-                        movies: [],
-                    });
-                }
-
-                setMovie({
-                    id: requestMovie.data.film.id,
-                    type: requestMovie.data.film.type,
-                    name: requestMovie.data.film.name,
-                    enName: requestMovie.data.film.enName,
-                    posterUrl: requestMovie.data.film.posterUrl,
-                    posterPreviewUrl: requestMovie.data.film.posterPreviewUrl,
-                    year: requestMovie.data.film.year,
-                    description: requestMovie.data.film.description,
-                    shortDescription: requestMovie.data.film.shortDescription,
-                    ageRating: requestMovie.data.film.ageRating,
-                    ratingKp: requestMovie.data.film.ratingKp,
-                    votesKp: requestMovie.data.film.votesKp,
-                    movieLength: requestMovie.data.film.movieLength,
-                    genres: genres,
-                    countries: countries,
-                    persons: persons,
-                    trailer: requestMovie.data.trailer[1].url,
-                    watchingWithMovie: [],
-                    comments: [],
-                });
+                setMovie(requestMovie.data);
             } catch (err) {
                 console.log(err);
             } finally {
@@ -173,6 +128,7 @@ function CardMoviePage() {
 
                         <section className={styles.container__watch}>
                             <MoviesSection
+                                showAllLink={false}
                                 title={`${t('withMovie.0')} «${
                                     locale === 'ru'
                                         ? movie.name
@@ -238,6 +194,6 @@ function CardMoviePage() {
             {movie && queryParams.includes('trailer') && <TrailerModal trailer={movie.trailer} />}
         </MainContainer>
     );
-}
+};
 
 export default CardMoviePage;

@@ -25,6 +25,7 @@ import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
 import IGenre from '@/models/IGenre';
+import { getAllStaticData } from '@/store/ActionCreators';
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
     props: {
@@ -66,11 +67,43 @@ const Collection = () => {
         setIsFilterApplied(filteredList.length !== 0);
     }, [filteredList]);
 
+    // useEffect(() => {
+    //     /* dispatch(fetchMovies());*/
+
+    //     const getCountries = async () => {
+    //         try {
+    //             const requestCountries = await axios.get('http://localhost:6125/namesOfCountries');
+    //             //const countries = requestCountries.data.map(({ name }: { name: string }) => name);
+    //             setCountriesList(requestCountries.data.sort());
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     };
+    //     const getGenres = async () => {
+    //         try {
+    //             const requestGenres = await axios.get('http://localhost:6125/namesgenres');
+    //             setGenresList(requestGenres.data);
+    //             /*const genres = requestGenres.data.map(({ name }: { name: string }) => name);*/
+    //             /*setGenresList(genres.sort());*/
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     };
+    //     getCountries();
+    //     getGenres();
+    // }, [locale]);
+
     useEffect(() => {
         dispatch(fetchMovies());
-        dispatch(fetchCountries());
-        dispatch(fetchGenres());
-    }, [locale, asPath]);
+    }, [asPath, locale]);
+
+    useEffect(() => {
+        dispatch(getAllStaticData());
+        /*dispatch(getGenresAndCountries());
+        dispatch(getActorsAndDirectors());*/
+    }, []);
+
+    const { geners, countries, actors, directors } = useAppSelector((state) => state.immutableObj);
 
     const path = asPath.split('/').slice(-1)[0].split('-');
     const dynamicHeader =
@@ -80,7 +113,7 @@ const Collection = () => {
 
     const movies = useAppSelector((state) => state.movies.movies);
     const collectionTitle = asPath.split('/').slice(-1)[0];
-    const collection = getCollection(collectionTitle, movies, genres, countriesList);
+    const collection = getCollection(collectionTitle, movies, geners, countries);
 
     const renderedList = filteredList.length !== 0 ? filteredList : collection;
 
@@ -160,11 +193,11 @@ const Collection = () => {
                             title={t('moviesPage:filterPanel.director')}
                             className={styles.container__filterItem}
                         >
-                            <FilterSearch searchBy="Режиссер" />
+                            <FilterSearch category="director" />
                         </FilterPlank>
 
                         <FilterPlank title={t('moviesPage:filterPanel.actor')} className={styles.container__filterItem}>
-                            <FilterSearch searchBy="Актер" />
+                            <FilterSearch category="actor" />
                         </FilterPlank>
                     </FilterPanel>
 
