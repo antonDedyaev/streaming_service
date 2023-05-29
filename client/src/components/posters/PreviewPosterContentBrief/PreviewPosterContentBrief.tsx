@@ -2,7 +2,7 @@ import IMovie from '@/models/IMovie';
 import styles from './PreviewPosterContentBrief.module.scss';
 import { declineWord, firstCapitalLetter } from '@/utils/functions';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 interface PreviewPosterContentBriefProps {
     movie: IMovie;
@@ -14,18 +14,20 @@ const PreviewPosterContentBrief = ({ movie, className }: PreviewPosterContentBri
     const { t } = useTranslation('moviesPage');
     return (
         <div className={[styles.container, className].join(' ')}>
-            <div className={styles.container__rating}>
-                <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>
-                    {`${movie.ratingKp.toFixed(1)}`.slice(0, 1)}
-                </span>
-                <span className={[styles.container__rating, styles.container__rating_fraction].join(' ')}>
-                    {`${movie.ratingKp.toFixed(1)}`.slice(1, 3)}
-                </span>
-            </div>
+            {movie.ratingKp && (
+                <div className={styles.container__rating}>
+                    <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>
+                        {`${movie.ratingKp.toFixed(1)}`.slice(0, 1)}
+                    </span>
+                    <span className={[styles.container__rating, styles.container__rating_fraction].join(' ')}>
+                        {`${movie.ratingKp.toFixed(1)}`.slice(1, 3)}
+                    </span>
+                </div>
+            )}
             <div className={styles.container__text}>
                 <p>
-                    {movie.year}, {locale === 'ru' ? movie.countries[0].name : movie.countries[0].enName},{' '}
-                    {firstCapitalLetter(locale === 'ru' ? movie.genres[0].name : movie.genres[0].enName)}
+                    {/* {movie.year}, {locale === 'ru' ? movie.countries[0].name : movie.countries[0].enName},{' '} */}
+                    {/* {firstCapitalLetter(locale === 'ru' ? movie.genres[0].name : movie.genres[0].enName)} */}
                 </p>
                 <p>{`${movie.movieLength} ${declineWord(movie.movieLength, [
                     t('minutes.0'),

@@ -18,6 +18,7 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
 
     const directors = persons.filter((person) => person.enProfession === 'director');
     const actors = persons.filter((person) => person.enProfession === 'actor');
+    //console.log(persons);
 
     return (
         <div className={styles.section}>

@@ -6,8 +6,10 @@ import { useTranslation } from 'next-i18next';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { checkFiltersStatus } from '@/utils/functions';
 import axios from 'axios';
-import { addFilteredMovies } from '@/store/slices/moviesSlice';
-
+import { addFilteredMovies, ratingFilterAdded, votesFilterAdded } from '@/store/slices/moviesSlice';
+import IMovies from '@/models/IMovies';
+import IGenre from '@/models/IGenre';
+import ICountry from '@/models/ICountry';
 interface IRating {
     category: 'ratingKp' | 'votesKp';
     image: string;
@@ -15,18 +17,32 @@ interface IRating {
     step: number;
 }
 
+interface IFiltered {
+    film: IMovies;
+    genres: IGenre[];
+    countries: ICountry[];
+}
+
 const FilterRange = ({ category, image, limit, step }: IRating) => {
     const { t } = useTranslation('moviesPage');
     const dispatch = useAppDispatch();
     const [ratingValue, setRatingValue] = useState(0);
+    const allFilters = useAppSelector((state) => state.movies.filters);
+    const joinedQuery = `votesKp=${allFilters.votesKp}&ratingKp=${allFilters.ratingKp}`;
 
-    const filters = useAppSelector((state) => state.movies.filters);
+    useEffect(() => {
+        category === 'ratingKp' ? dispatch(ratingFilterAdded(ratingValue)) : dispatch(votesFilterAdded(ratingValue));
+    }, [ratingValue]);
 
     useEffect(() => {
         const fetchRating = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/films?${category}=${ratingValue}`);
-                dispatch(addFilteredMovies(response.data));
+                const response = await axios.get(`http://localhost:6125/movies?${joinedQuery}&limit=1000`);
+                console.log('rangeFilters:', response.data.docs[0].page);
+                // const prepared = response.data.docs[0].page.map(({ film, genres, countries }: IFiltered) => {
+                //     return { ...film, genres, countries };
+                // });
+                dispatch(addFilteredMovies(response.data.docs[0].page));
             } catch (err) {
                 console.log(err);
             }
@@ -35,10 +51,10 @@ const FilterRange = ({ category, image, limit, step }: IRating) => {
     }, [ratingValue]);
 
     useEffect(() => {
-        if (checkFiltersStatus(filters)) {
+        if (checkFiltersStatus(allFilters)) {
             setRatingValue(0);
         }
-    }, [filters]);
+    }, [allFilters]);
     return (
         <div className={styles.container}>
             <div className={styles.container__ratingContent}>

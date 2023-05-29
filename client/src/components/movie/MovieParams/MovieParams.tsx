@@ -7,7 +7,7 @@ import subtitlesIcon from '../../../../public/icons/subtitles.png';
 import IMovie from '@/models/IMovie';
 import { firstCapitalLetter, minutesToHours } from '../../../utils/functions';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 interface MovieParamsProps {
     movie: IMovie;

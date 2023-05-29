@@ -23,8 +23,9 @@ import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Te
 import { useEffect } from 'react';
 import { fetchMovies } from '@/store/slices/moviesSlice';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
-import axios from 'axios';
 import { useRouter } from 'next/router';
+import { staticDataSlice } from '@/store/slices/staticDataSlice';
+import { fetchGenres, getActorsAndDirectors, getAllStaticData, getGenresAndCountries } from '@/store/ActionCreators';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -43,7 +44,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 function HomePage() {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const { locale } = useRouter();
+    const { locale, asPath } = useRouter();
 
     const movies = useAppSelector((state) => state.movies.movies);
 
@@ -51,17 +52,17 @@ function HomePage() {
     const dramas = getMoviesByGenre(movies, 'драма');
 
     useEffect(() => {
-        // const parseFilms = () => {
-        //     try {
-        //         const resp = axios.get('http://localhost:3000/persons/parse');
-        //         console.log(resp);
-        //     } catch (err) {
-        //         console.log(err);
-        //     }
-        // };
-        // parseFilms();
         dispatch(fetchMovies());
     }, [locale]);
+
+    useEffect(() => {
+        dispatch(getAllStaticData());
+        /*dispatch(getGenresAndCountries());
+        dispatch(getActorsAndDirectors());*/
+    }, []);
+
+    const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
+
     return (
         <>
             <MainContainer

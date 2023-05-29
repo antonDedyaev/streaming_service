@@ -14,6 +14,8 @@ import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import { useTranslation } from 'next-i18next';
 import axios from 'axios';
 import IGenre from '@/models/IGenre';
+import { getGenresAndCountries } from '@/store/ActionCreators';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 
 interface HeaderProps {
     page: 'home' | 'other';
@@ -63,31 +65,18 @@ const Header = ({ page }: HeaderProps) => {
         }
     }, [isShowMoviesDrop, isShowSeriesDrop, isShowCartoonDrop]);
 
-    const [genresList, setGenresList] = useState<IGenre[]>([]);
+    const { genres, countries } = useAppSelector((state) => state.staticData);
 
     const genersLinks = () => {
         const array: {
             text: string;
             href: string;
         }[] = [];
-        genresList.forEach((genre) => {
-            array.push({ text: locale == 'ru' ? genre.name : genre.enName, href: `/collections/${genre.enName}` });
+        genres.forEach((genre) => {
+            array.push({ text: locale == 'ru' ? genre.name : genre.enName, href: `/collections/1${genre.enName}` });
         });
         return array;
     };
-
-    useEffect(() => {
-        const getGenres = async () => {
-            try {
-                const requestGenres = await axios.get('http://localhost:6125/namesgenres');
-                setGenresList(requestGenres.data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-
-        getGenres();
-    }, []);
 
     return (
         <div onMouseLeave={clearMouseHandlers} className="container">

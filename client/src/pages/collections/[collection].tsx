@@ -25,6 +25,7 @@ import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
 import IGenre from '@/models/IGenre';
+import { getAllStaticData } from '@/store/ActionCreators';
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
     props: {
@@ -40,23 +41,20 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
     },
 });
 
-// const swr = (url: string) => {
-//     const { data, error } = useSWR(url, async () => await axios.get(url).then((res) => res.data));
-//     return data;
-// };
-
 const Collection = () => {
     const { t } = useTranslation();
     const { asPath, locale } = useRouter();
     const dispatch = useAppDispatch();
-    const [countriesList, setCountriesList] = useState<string[]>([]);
-    /*const [genresList, setGenresList] = useState<string[]>([]);*/
-    const [genresList, setGenresList] = useState<IGenre[]>([]);
+
     const [isFilterApplied, setIsFilterApplied] = useState(false);
     const [showFilterPanel, setShowFilterPanel] = useState(false);
     const [shownPostersLimit, setShownPostersLimit] = useState(35);
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
+
+    //const allCountries = useAppSelector((state) => state.movies.countries);
+    // const countryNames = allCountries.map(({ name }: { name: string }) => name);
+    // const countriesList = Array.from(new Set<string>(countryNames)).sort();
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
@@ -64,29 +62,16 @@ const Collection = () => {
 
     useEffect(() => {
         dispatch(fetchMovies());
+    }, [asPath, locale]);
 
-        const getCountries = async () => {
-            try {
-                const requestCountries = await axios.get('http://localhost:6125/namesOfCountries');
-                //const countries = requestCountries.data.map(({ name }: { name: string }) => name);
-                setCountriesList(requestCountries.data.sort());
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        const getGenres = async () => {
-            try {
-                const requestGenres = await axios.get('http://localhost:6125/namesgenres');
-                setGenresList(requestGenres.data);
-                /*const genres = requestGenres.data.map(({ name }: { name: string }) => name);*/
-                /*setGenresList(genres.sort());*/
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        getCountries();
-        getGenres();
-    }, [locale]);
+    useEffect(() => {
+        dispatch(getAllStaticData());
+    }, []);
+
+    const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
+
+    const countryNames = countries.map(({ name }: { name: string }) => name);
+    const countriesList = Array.from(new Set<string>(countryNames)).sort();
 
     const path = asPath.split('/').slice(-1)[0].split('-');
     const dynamicHeader =
@@ -96,11 +81,9 @@ const Collection = () => {
 
     const movies = useAppSelector((state) => state.movies.movies);
     const collectionTitle = asPath.split('/').slice(-1)[0];
-    const collection = getCollection(collectionTitle, movies, genresList, countriesList);
+    const collection = getCollection(collectionTitle, movies, genres, countries);
 
     const renderedList = filteredList.length !== 0 ? filteredList : collection;
-
-    console.log('render', renderedList);
 
     return (
         <MainContainer
@@ -146,8 +129,8 @@ const Collection = () => {
                             <FilterList
                                 items={
                                     locale === 'ru'
-                                        ? genresList.map((genre) => genre.name).sort()
-                                        : genresList.map((genre) => genre.enName).sort()
+                                        ? genres.map((genre) => genre.name).sort()
+                                        : genres.map((genre) => genre.enName).sort()
                                 }
                                 category="genres"
                             />
@@ -178,11 +161,11 @@ const Collection = () => {
                             title={t('moviesPage:filterPanel.director')}
                             className={styles.container__filterItem}
                         >
-                            <FilterSearch searchBy="Режиссер" />
+                            <FilterSearch category="director" />
                         </FilterPlank>
 
                         <FilterPlank title={t('moviesPage:filterPanel.actor')} className={styles.container__filterItem}>
-                            <FilterSearch searchBy="Актер" />
+                            <FilterSearch category="actor" />
                         </FilterPlank>
                     </FilterPanel>
 

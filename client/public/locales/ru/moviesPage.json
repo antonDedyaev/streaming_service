@@ -22,6 +22,14 @@
         "searchByDirector": "Поиск по режиссеру",
         "searchByActor": "Поиск по актеру"
     },
+    "sorting": {
+        "sort": "Сортировать",
+        "by": "По",
+        "userRates": "По количеству оценок",
+        "rating": "Рейтингу",
+        "releaseDate": "Дате выхода",
+        "name": "Алфавиту"
+    },
     "newReleases": "Премьеры фильмов",
     "bestMovies": "Лучшие фильмы",
     "celebrities": "Персоны",
