@@ -19,7 +19,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
 /*import useSWR from 'swr';*/
 import PostersList from '@/components/posters/PostersList/PostersList';
-import { fetchCountries, fetchGenres, fetchMovies } from '@/store/slices/moviesSlice';
+import { fetchMovies } from '@/store/slices/moviesSlice';
 import { getCollection } from '../../utils/moviesHelpers';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
@@ -41,11 +41,6 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
     },
 });
 
-// const swr = (url: string) => {
-//     const { data, error } = useSWR(url, async () => await axios.get(url).then((res) => res.data));
-//     return data;
-// };
-
 const Collection = () => {
     const { t } = useTranslation();
     const { asPath, locale } = useRouter();
@@ -57,41 +52,13 @@ const Collection = () => {
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
 
-    const allCountries = useAppSelector((state) => state.movies.countries);
-    const countryNames = allCountries.map(({ name }: { name: string }) => name);
-    const countriesList = Array.from(new Set<string>(countryNames)).sort();
-
-    const genres = useAppSelector((state) => state.movies.genres);
+    //const allCountries = useAppSelector((state) => state.movies.countries);
+    // const countryNames = allCountries.map(({ name }: { name: string }) => name);
+    // const countriesList = Array.from(new Set<string>(countryNames)).sort();
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
     }, [filteredList]);
-
-    // useEffect(() => {
-    //     /* dispatch(fetchMovies());*/
-
-    //     const getCountries = async () => {
-    //         try {
-    //             const requestCountries = await axios.get('http://localhost:6125/namesOfCountries');
-    //             //const countries = requestCountries.data.map(({ name }: { name: string }) => name);
-    //             setCountriesList(requestCountries.data.sort());
-    //         } catch (err) {
-    //             console.log(err);
-    //         }
-    //     };
-    //     const getGenres = async () => {
-    //         try {
-    //             const requestGenres = await axios.get('http://localhost:6125/namesgenres');
-    //             setGenresList(requestGenres.data);
-    //             /*const genres = requestGenres.data.map(({ name }: { name: string }) => name);*/
-    //             /*setGenresList(genres.sort());*/
-    //         } catch (err) {
-    //             console.log(err);
-    //         }
-    //     };
-    //     getCountries();
-    //     getGenres();
-    // }, [locale]);
 
     useEffect(() => {
         dispatch(fetchMovies());
@@ -99,11 +66,12 @@ const Collection = () => {
 
     useEffect(() => {
         dispatch(getAllStaticData());
-        /*dispatch(getGenresAndCountries());
-        dispatch(getActorsAndDirectors());*/
     }, []);
 
-    const { geners, countries, actors, directors } = useAppSelector((state) => state.immutableObj);
+    const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
+
+    const countryNames = countries.map(({ name }: { name: string }) => name);
+    const countriesList = Array.from(new Set<string>(countryNames)).sort();
 
     const path = asPath.split('/').slice(-1)[0].split('-');
     const dynamicHeader =
@@ -113,7 +81,7 @@ const Collection = () => {
 
     const movies = useAppSelector((state) => state.movies.movies);
     const collectionTitle = asPath.split('/').slice(-1)[0];
-    const collection = getCollection(collectionTitle, movies, geners, countries);
+    const collection = getCollection(collectionTitle, movies, genres, countries);
 
     const renderedList = filteredList.length !== 0 ? filteredList : collection;
 

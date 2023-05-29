@@ -32,7 +32,7 @@ const FilterList = ({ items, category }: IList) => {
         const sendFilters = async () => {
             try {
                 const response = await axios.get(`http://localhost:6125/movies?${joinedQuery}&limit=500`);
-                console.log('listFilters:', response.data.docs[0].page);
+                //console.log('listFilters:', response.data.docs[0].page);
                 // const prepared = response.data.docs[0].page.map((movie: IMovies[]) => {
                 //     return { ...film, genres, countries };
                 // });

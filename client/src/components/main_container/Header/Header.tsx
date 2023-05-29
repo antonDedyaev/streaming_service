@@ -65,14 +65,14 @@ const Header = ({ page }: HeaderProps) => {
         }
     }, [isShowMoviesDrop, isShowSeriesDrop, isShowCartoonDrop]);
 
-    const { geners, countries } = useAppSelector((state) => state.immutableObj);
+    const { genres, countries } = useAppSelector((state) => state.staticData);
 
     const genersLinks = () => {
         const array: {
             text: string;
             href: string;
         }[] = [];
-        geners.forEach((genre) => {
+        genres.forEach((genre) => {
             array.push({ text: locale == 'ru' ? genre.name : genre.enName, href: `/collections/1${genre.enName}` });
         });
         return array;

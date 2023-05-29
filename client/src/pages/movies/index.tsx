@@ -51,12 +51,15 @@ const MoviesPage = () => {
     const dispatch = useAppDispatch();
     const { asPath, locale } = useRouter();
 
-    const allCountries = useAppSelector((state) => state.movies.countries);
-    const countryNames = allCountries.map(({ name }: { name: string }) => name);
-    const countriesList = Array.from(new Set<string>(countryNames)).sort();
+    const { genres, countries, actors } = useAppSelector((state) => state.staticData);
 
-    const genres = useAppSelector((state) => state.movies.genres);
-    const genresList = genres.map(({ name }: { name: string }) => name).sort();
+    const countryNames =
+        locale === 'ru'
+            ? countries.map(({ name }: { name: string }) => name)
+            : countries.map(({ enName }: { enName: string }) => enName);
+    const countriesList = Array.from(new Set<string>(countryNames));
+
+    const filteredActors = actors.filter((actor) => actor.name && actor.photo);
 
     const [isFilterApplied, setIsFilterApplied] = useState(false);
     const [shownPostersLimit, setShownPostersLimit] = useState(35);
@@ -68,11 +71,6 @@ const MoviesPage = () => {
     }, [filteredList]);
 
     const movies = useAppSelector((state) => state.movies.movies);
-    const actors = useAppSelector((state) => state.actors.actors);
-    const filteredActors = actors.filter((actor) => actor.name && actor.photo);
-    console.log(`filteredActors`);
-    console.log(filteredActors);
-    console.log(`filteredActors`);
 
     const premieres = movies
         .filter((movie) => movie.premiereRussia)
@@ -91,21 +89,11 @@ const MoviesPage = () => {
     useEffect(() => {
         dispatch(fetchMovies());
         dispatch(fetchActors());
-
-        // dispatch(fetchCountries());
-        // dispatch(fetchGenres());
-
-        //dispatch(moviesAdded(data));
     }, [locale, asPath]);
 
     useEffect(() => {
         dispatch(getAllStaticData());
     });
-
-    const { geners } = useAppSelector((state) => state.immutableObj);
-    console.log(`generTest`);
-    console.log(geners);
-    console.log(`generTest`);
 
     return (
         <MainContainer
@@ -135,14 +123,21 @@ const MoviesPage = () => {
                             title={t('moviesPage:filterPanel.genres')}
                             className={plankStyles.container__dropdown_leftPositioned}
                         >
-                            <FilterList items={genresList} category="genres" />
+                            <FilterList
+                                items={
+                                    locale === 'ru'
+                                        ? genres.map((genre) => genre.name).sort()
+                                        : genres.map((genre) => genre.enName).sort()
+                                }
+                                category="genres"
+                            />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.countries')}
                             className={plankStyles.container__dropdown_centerPositioned}
                         >
-                            <FilterList items={countriesList} category="countries" />
+                            <FilterList items={countriesList.sort()} category="countries" />
                         </FilterPlank>
 
                         <FilterPlank
