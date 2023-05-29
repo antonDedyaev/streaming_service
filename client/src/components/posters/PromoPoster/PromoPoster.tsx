@@ -24,7 +24,7 @@ const PromoPoster = ({ movie, className }: PromoPosterProps) => {
                     fill
                 />
             </div>
-            <Link className={style.container__link} href="/">
+            <Link className={style.container__link} href={`/movies/${movie.id}`}>
                 <div className={style.container__content}>
                     <div className={[style.container__imageWrapper, style.container__imageWrapper_logo].join(' ')}>
                         <Image

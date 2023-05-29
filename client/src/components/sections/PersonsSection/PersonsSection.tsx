@@ -32,7 +32,7 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
             <div className={styles.section__content}>
                 {size === 'large' ? (
                     <Slider itemType="actor" length={persons.length}>
-                        <ActorList persons={actors} size={size} />
+                        <ActorList persons={persons} size={size} />
                     </Slider>
                 ) : (
                     <div className={styles.section__list}>
