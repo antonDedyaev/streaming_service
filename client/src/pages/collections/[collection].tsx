@@ -25,6 +25,7 @@ import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
 import IGenre from '@/models/IGenre';
+import { getAllStaticData } from '@/store/ActionCreators';
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
     props: {
@@ -63,7 +64,7 @@ const Collection = () => {
     }, [filteredList]);
 
     useEffect(() => {
-        dispatch(fetchMovies());
+        /* dispatch(fetchMovies());*/
 
         const getCountries = async () => {
             try {
@@ -88,6 +89,18 @@ const Collection = () => {
         getGenres();
     }, [locale]);
 
+    useEffect(() => {
+        dispatch(fetchMovies());
+    }, [asPath, locale]);
+
+    useEffect(() => {
+        dispatch(getAllStaticData());
+        /*dispatch(getGenresAndCountries());
+        dispatch(getActorsAndDirectors());*/
+    }, []);
+
+    const { geners, countries, actors, directors } = useAppSelector((state) => state.immutableObj);
+
     const path = asPath.split('/').slice(-1)[0].split('-');
     const dynamicHeader =
         path.length === 1
@@ -96,11 +109,9 @@ const Collection = () => {
 
     const movies = useAppSelector((state) => state.movies.movies);
     const collectionTitle = asPath.split('/').slice(-1)[0];
-    const collection = getCollection(collectionTitle, movies, genresList, countriesList);
+    const collection = getCollection(collectionTitle, movies, geners, countries);
 
     const renderedList = filteredList.length !== 0 ? filteredList : collection;
-
-    console.log('render', renderedList);
 
     return (
         <MainContainer

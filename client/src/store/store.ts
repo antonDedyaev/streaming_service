@@ -2,11 +2,13 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { loginAPI } from './services/LoginService';
 import moviesSliceReducer from './slices/moviesSlice';
 import actorsSliceReducer from './slices/actorsSlice';
+import immutableObjReducer from './slices/immutableObjSlice';
 
 const rootReducer = combineReducers({
     [loginAPI.reducerPath]: loginAPI.reducer,
     movies: moviesSliceReducer,
     actors: actorsSliceReducer,
+    immutableObj: immutableObjReducer,
 });
 
 export const setupStore = () => {

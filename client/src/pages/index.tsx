@@ -25,6 +25,8 @@ import { fetchMovies } from '@/store/slices/moviesSlice';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import { immutableObjSlice } from '@/store/slices/immutableObjSlice';
+import { fetchGenres, getActorsAndDirectors, getAllStaticData, getGenresAndCountries } from '@/store/ActionCreators';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -62,6 +64,15 @@ function HomePage() {
         // parseFilms();
         dispatch(fetchMovies());
     }, [locale]);
+
+    useEffect(() => {
+        dispatch(getAllStaticData());
+        /*dispatch(getGenresAndCountries());
+        dispatch(getActorsAndDirectors());*/
+    }, []);
+
+    const { geners, countries, actors, directors } = useAppSelector((state) => state.immutableObj);
+
     return (
         <>
             <MainContainer

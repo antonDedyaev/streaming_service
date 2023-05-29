@@ -6,7 +6,6 @@ import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import IPerson from '@/models/IPerson';
-import IMovies from '@/models/IMovies';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -14,6 +13,8 @@ import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 import Loading from '@/components/Loading/Loading';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import { firstCapitalLetter, professionInTheSingular } from '@/utils/functions';
+import { getGenresAndCountries } from '@/store/ActionCreators';
+import { useAppDispatch } from '@/store/hooks/redux';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -36,8 +37,9 @@ export const getStaticPaths = async () => {
     };
 };
 
-function CardActorPage() {
+const CardActorPage = () => {
     const { t } = useTranslation(['person', 'moviesPage']);
+    const dispatch = useAppDispatch();
     const router = useRouter();
     const { id } = router.query;
     const locale = router.locale;
@@ -47,41 +49,14 @@ function CardActorPage() {
     const [person, setPerson] = useState<IPerson>();
 
     useEffect(() => {
+        dispatch(getGenresAndCountries());
+    }, []);
+
+    useEffect(() => {
         const getPerson = async () => {
             try {
                 const requestPerson = await axios.get(`http://localhost:6125/personswithinfo/${id}`);
-
-                const movies: IMovies[] = [];
-                for (let i = 0; i < requestPerson.data[0].movies.length; i++) {
-                    const movie = await axios.get(`http://localhost:6125/film/${requestPerson.data[0].movies[i]}`);
-
-                    movies.push({
-                        id: movie.data.film.id,
-                        name: movie.data.film.name,
-                        enName: movie.data.film.enName,
-                        posterPreviewURL: movie.data.film.posterPreviewURL,
-                        premiereRussia: movie.data.film.premiereRussia,
-                        hasIMAX: movie.data.film.hasIMAX,
-
-                        year: movie.data.film.year,
-                        ageRating: movie.data.film.ageRating,
-                        ratingKp: movie.data.film.ratingKp,
-                        votesKp: movie.data.film.votesKp,
-                        movieLength: movie.data.film.movieLength,
-                        genres: [],
-                        countries: [],
-                    });
-                }
-
-                setPerson({
-                    id: requestPerson.data[0].id,
-                    name: requestPerson.data[0].name,
-                    enName: requestPerson.data[0].enName,
-                    photo: requestPerson.data[0].photo,
-                    profession: requestPerson.data[0].profession,
-                    enProfession: requestPerson.data[0].enProfession,
-                    movies: movies,
-                });
+                setPerson(requestPerson.data);
             } catch (err) {
                 console.log(err);
             } finally {
@@ -171,6 +146,6 @@ function CardActorPage() {
             )}
         </MainContainer>
     );
-}
+};
 
 export default CardActorPage;

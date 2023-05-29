@@ -18,6 +18,7 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
 
     const directors = persons.filter((person) => person.enProfession === 'director');
     const actors = persons.filter((person) => person.enProfession === 'actor');
+    console.log(persons);
 
     return (
         <div className={styles.section}>
@@ -32,7 +33,7 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
             <div className={styles.section__content}>
                 {size === 'large' ? (
                     <Slider itemType="actor" length={persons.length}>
-                        <ActorList persons={actors} size={size} />
+                        <ActorList persons={persons} size={size} />
                     </Slider>
                 ) : (
                     <div className={styles.section__list}>
