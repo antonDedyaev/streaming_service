@@ -1,9 +1,9 @@
 import styles from './MovieRating.module.scss';
-import ButtonUI from '../../UI/buttons/Button/ButtonUI';
 import TextSquareUI from '../../UI/squares/TextSquareUI/TextSquareUI';
 import { useTranslation } from 'next-i18next';
 import IMovie from '@/models/IMovie';
 import { declineWord } from '../../../utils/functions';
+import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 
 interface MovieRatingProps {
     movie: IMovie;
@@ -12,7 +12,7 @@ interface MovieRatingProps {
 const MovieRating = ({ movie }: MovieRatingProps) => {
     const { t } = useTranslation('movie');
     return (
-        <ButtonUI className={styles.container} background="transparentWhite">
+        <div className={styles.container}>
             <div className={styles.container__value}>
                 <TextSquareUI value={Number(movie.ratingKp.toFixed(1))} textSize="medium" />
             </div>
@@ -31,8 +31,8 @@ const MovieRating = ({ movie }: MovieRatingProps) => {
                 </p>
             </div>
 
-            <div className={styles.container__estimate}>{t('rate')}</div>
-        </ButtonUI>
+            <BorderedButton className={styles.container__estimate} size='small'>{t('rate')}</BorderedButton>
+        </div>
     );
 };
 
