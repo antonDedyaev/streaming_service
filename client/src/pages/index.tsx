@@ -59,7 +59,7 @@ function HomePage() {
         dispatch(getAllStaticData());
         /*dispatch(getGenresAndCountries());
         dispatch(getActorsAndDirectors());*/
-    }, []);
+    }, [locale]);
 
     const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
 

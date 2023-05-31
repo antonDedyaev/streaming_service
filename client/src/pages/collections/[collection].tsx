@@ -58,7 +58,7 @@ const Collection = () => {
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
-    }, [filteredList]);
+    }, [filteredList, locale]);
 
     useEffect(() => {
         dispatch(fetchMovies());
@@ -66,7 +66,7 @@ const Collection = () => {
 
     useEffect(() => {
         dispatch(getAllStaticData());
-    }, []);
+    }, [locale]);
 
     const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
 

@@ -68,7 +68,7 @@ const MoviesPage = () => {
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
-    }, [filteredList]);
+    }, [locale, filteredList]);
 
     const movies = useAppSelector((state) => state.movies.movies);
 
@@ -93,7 +93,7 @@ const MoviesPage = () => {
 
     useEffect(() => {
         dispatch(getAllStaticData());
-    });
+    }, [locale]);
 
     return (
         <MainContainer
