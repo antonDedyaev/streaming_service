@@ -3,7 +3,7 @@ import IMovies from '@/models/IMovies';
 import PostersList from '@/components/posters/PostersList/PostersList';
 import ArrowedLink from '@/components/UI/links/ArrowedLink/ArrowedLink';
 import styles from './MoviesSection.module.scss';
-import ShowAllLink from '@/components/UI/links/ShowAllLink/ShowAllLink';
+import CardLink from '@/components/UI/links/CardLink/CardLink';
 
 interface MoviesSectionProps {
     title: string;
@@ -22,7 +22,7 @@ const MoviesSection = ({ title, movies, href, showAllLink = true }: MoviesSectio
             <div className={styles.section__content}>
                 <Slider itemType="preview" length={movies.length + 1}>
                     <PostersList posterType="preview" movies={movies} />
-                    {showAllLink && <ShowAllLink href={href} />}
+                    {showAllLink && <CardLink href={href}>Посмотреть все</CardLink>}
                 </Slider>
             </div>
         </div>

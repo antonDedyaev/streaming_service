@@ -7,23 +7,36 @@ import { useTranslation } from 'next-i18next';
 import IPerson from '../../models/IPerson';
 import { useRouter } from 'next/router';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { addFilteredMovies } from '@/store/slices/moviesSlice';
+import { actorFilterAdded, addFilteredMovies, directorFilterAdded } from '@/store/slices/moviesSlice';
+import { checkFiltersStatus } from '@/utils/functions';
 
 interface ISearch {
+    suggestionsList: IPerson[];
     category: 'director' | 'actor';
-    //searchBy: string;
 }
 
-const FilterSearch = ({ category }: ISearch) => {
+const FilterSearch = ({ suggestionsList, category }: ISearch) => {
     const { t } = useTranslation('moviesPage');
+    const { locale } = useRouter();
     const dispatch = useAppDispatch();
     const [inputValue, setInputValue] = useState('');
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [searchedPerson, setSearchedPerson] = useState('');
 
-    const searchParam = category === 'director' ? t('filterPanel.searchByDirector') : t('filterPanel.searchByActor');
+    const personNames: string[] = [];
+    suggestionsList.forEach((item) => {
+        personNames.push(item.name);
+        personNames.push(item.enName);
+    });
 
-    const actors = useAppSelector((state) => state.actors.actors);
+    const allFilters = useAppSelector((state) => state.movies.filters);
+    const joinedQuery = `actor=${allFilters.actor}&director=${allFilters.director}`;
+
+    useEffect(() => {
+        category === 'actor' ? dispatch(actorFilterAdded(inputValue)) : dispatch(directorFilterAdded(inputValue));
+    }, [inputValue]);
+
+    const searchParam = category === 'director' ? t('filterPanel.searchByDirector') : t('filterPanel.searchByActor');
 
     const handleEnterPressed = ({ target, key }: KeyboardEvent): void => {
         const searchInput = target as HTMLInputElement;
@@ -34,19 +47,24 @@ const FilterSearch = ({ category }: ISearch) => {
 
     useEffect(() => {
         const fetchActorMovies = async () => {
+            if (searchedPerson.length === 0) {
+                return;
+            }
             try {
-                const response = await axios.get(`http://localhost:6125/movies?actor=${searchedPerson}`);
-                console.log('actorMovies:', response.data.docs[0].page);
-                //     const names: string[] = result.data
-                //         .map((person: IPerson) => person.name)
-                //         .filter((person: string[]) => person && person.includes(inputValue));
+                const response = await axios.get(`http://localhost:6125/movies?${joinedQuery}`);
                 dispatch(addFilteredMovies(response.data.docs[0].page));
-            } catch (err) {
-                console.log(err);
+            } catch (e: any) {
+                console.log(e.response?.data?.message);
             }
         };
         fetchActorMovies();
     }, [searchedPerson]);
+
+    useEffect(() => {
+        if (checkFiltersStatus(allFilters)) {
+            setSearchedPerson('');
+        }
+    }, [allFilters]);
 
     return (
         <div className={styles.container__formContent}>
@@ -67,20 +85,10 @@ const FilterSearch = ({ category }: ISearch) => {
                             setSuggestions([]);
                             return;
                         }
-                        const names: string[] = actors
-                            .map((person: IPerson) => person.name)
-                            .filter((person: string) => person && person.includes(inputValue));
+                        const names: string[] = personNames.filter(
+                            (person: string) => person && person.toLowerCase().includes(inputValue.toLowerCase()),
+                        );
                         setSuggestions(names);
-                        // try {
-                        //     const query = searchBy === 'Актер' ? 'getAllActors' : 'getAllDirectors';
-                        //     const result = await axios.get(`http://localhost:6125/${query}`);
-                        //     const names: string[] = result.data
-                        //         .map((person: IPerson) => person.name)
-                        //         .filter((person: string[]) => person && person.includes(inputValue));
-                        //     setSuggestions(names);
-                        // } catch (error) {
-                        //     console.log(error);
-                        // }
                     }}
                     onSuggestionsClearRequested={() => {
                         setSuggestions([]);

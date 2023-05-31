@@ -57,8 +57,8 @@ const CardActorPage = () => {
             try {
                 const requestPerson = await axios.get(`http://localhost:6125/personswithinfo/${id}`);
                 setPerson(requestPerson.data);
-            } catch (err) {
-                console.log(err);
+            } catch (e: any) {
+                console.log(e.response?.data?.message);
             } finally {
                 setLoading(false);
             }

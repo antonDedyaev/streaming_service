@@ -12,36 +12,50 @@ import icon from '@/../public/icons/rating.svg';
 import FilterSearch from '@/components/filters/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetServerSideProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
 /*import useSWR from 'swr';*/
 import PostersList from '@/components/posters/PostersList/PostersList';
-import { fetchMovies } from '@/store/slices/moviesSlice';
 import { getCollection } from '../../utils/moviesHelpers';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
-import IGenre from '@/models/IGenre';
 import { getAllStaticData } from '@/store/ActionCreators';
+import axios from 'axios';
+import IMovies from '@/models/IMovies';
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => ({
-    props: {
-        ...(await serverSideTranslations(locale!, [
-            'collection',
-            'common',
-            'footer',
-            'header',
-            'moviesPage',
-            'mainPage',
-            'modals',
-        ])),
-    },
-});
+export const getStaticPaths: GetStaticPaths = async () => {
+    return {
+        paths: ['/collections/collection'],
+        fallback: true,
+    };
+};
 
-const Collection = () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    const response = await axios.get('http://localhost:6125/filmswithinfo');
+    const movies = response.data;
+
+    return {
+        props: {
+            movies,
+            ...(await serverSideTranslations(locale!, [
+                'collection',
+                'common',
+                'footer',
+                'header',
+                'mainPage',
+                'modals',
+                'moviesPage',
+                'movie',
+            ])),
+        },
+    };
+};
+
+const Collection = ({ movies }: { movies: IMovies[] }) => {
     const { t } = useTranslation();
     const { asPath, locale } = useRouter();
     const dispatch = useAppDispatch();
@@ -52,26 +66,21 @@ const Collection = () => {
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
 
-    //const allCountries = useAppSelector((state) => state.movies.countries);
-    // const countryNames = allCountries.map(({ name }: { name: string }) => name);
-    // const countriesList = Array.from(new Set<string>(countryNames)).sort();
-
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
     }, [filteredList]);
 
     useEffect(() => {
-        dispatch(fetchMovies());
-    }, [asPath, locale]);
-
-    useEffect(() => {
         dispatch(getAllStaticData());
-    }, []);
+    }, [locale]);
 
     const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
 
-    const countryNames = countries.map(({ name }: { name: string }) => name);
-    const countriesList = Array.from(new Set<string>(countryNames)).sort();
+    const countryNames =
+        locale === 'ru'
+            ? countries.map(({ name }: { name: string }) => name)
+            : countries.map(({ enName }: { enName: string }) => enName);
+    const countriesList = Array.from(new Set<string>(countryNames));
 
     const path = asPath.split('/').slice(-1)[0].split('-');
     const dynamicHeader =
@@ -79,7 +88,6 @@ const Collection = () => {
             ? t(`mainPage:${path[0]}`)
             : t(`moviesPage:${path[0] + path[1][0].toUpperCase() + path[1].slice(1)}`);
 
-    const movies = useAppSelector((state) => state.movies.movies);
     const collectionTitle = asPath.split('/').slice(-1)[0];
     const collection = getCollection(collectionTitle, movies, genres, countries);
 
@@ -161,11 +169,11 @@ const Collection = () => {
                             title={t('moviesPage:filterPanel.director')}
                             className={styles.container__filterItem}
                         >
-                            <FilterSearch category="director" />
+                            <FilterSearch suggestionsList={directors} category="director" />
                         </FilterPlank>
 
                         <FilterPlank title={t('moviesPage:filterPanel.actor')} className={styles.container__filterItem}>
-                            <FilterSearch category="actor" />
+                            <FilterSearch suggestionsList={actors} category="actor" />
                         </FilterPlank>
                     </FilterPanel>
 

@@ -15,6 +15,7 @@ interface ActorItemProps {
 const ActorItem = ({ className, person, size }: ActorItemProps) => {
     const { t } = useTranslation('moviesPage');
     const { locale } = useRouter();
+    console.log('persona', person);
 
     const nameRu = person.name ? [person.name.split(' ', 1).toString(), person.name.split(' ').slice(1).join(' ')] : '';
     const nameEn = person.enName
@@ -38,7 +39,7 @@ const ActorItem = ({ className, person, size }: ActorItemProps) => {
                     )}
                 </div>
 
-                {size === 'large' && <div className={styles.container__amountBadge}>{person.movies?.length}</div>}
+                {size === 'large' && <div className={styles.container__amountBadge}>{person.countMovies}</div>}
             </div>
 
             <div className={styles.container__textContainer}>
@@ -58,8 +59,8 @@ const ActorItem = ({ className, person, size }: ActorItemProps) => {
                     </h3>
                 ) : (
                     <p className={styles.container__amountMovies}>
-                        {person.movies?.length}{' '}
-                        {declineWord(person.movies!.length, [
+                        {person.countMovies}{' '}
+                        {declineWord(person.countMovies!, [
                             t('filmography.singleMovie'),
                             t('filmography.fewMovies'),
                             t('filmography.manyMovies'),
