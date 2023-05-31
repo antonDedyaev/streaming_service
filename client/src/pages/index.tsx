@@ -9,11 +9,6 @@ import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
-import CommentItem from '@/components/comments/CommentItem/CommentItem';
-import { comments } from '@/components/comments/commentsTestData';
-import CommentsList from '@/components/comments/CommentsList/CommentsList';
-import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
-import Link from 'next/link';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';

@@ -15,7 +15,6 @@ interface ActorItemProps {
 const ActorItem = ({ className, person, size }: ActorItemProps) => {
     const { t } = useTranslation('moviesPage');
     const { locale } = useRouter();
-    console.log('persona', person);
 
     const nameRu = person.name ? [person.name.split(' ', 1).toString(), person.name.split(' ').slice(1).join(' ')] : '';
     const nameEn = person.enName

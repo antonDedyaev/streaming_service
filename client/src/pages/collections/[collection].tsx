@@ -8,11 +8,12 @@ import FilterRange from '@/components/filters/FilterRange';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 
 import styles from '@/styles/pages/CollectionPage.module.scss';
-import icon from '@/../public/icons/rating.svg';
+import ratingIcon from '@/../public/icons/rating.svg';
+import votesIcon from '../../../public/icons/userRank.svg';
 import FilterSearch from '@/components/filters/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
@@ -27,14 +28,7 @@ import { getAllStaticData } from '@/store/ActionCreators';
 import axios from 'axios';
 import IMovies from '@/models/IMovies';
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    return {
-        paths: ['/collections/collection'],
-        fallback: true,
-    };
-};
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');
     const movies = response.data;
 
@@ -155,14 +149,14 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
                             title={t('moviesPage:filterPanel.rating')}
                             className={styles.container__filterItem}
                         >
-                            <FilterRange category="ratingKp" image={icon} limit={10} step={0.1} />
+                            <FilterRange category="ratingKp" image={ratingIcon} limit={10} step={0.1} />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.userRank')}
                             className={styles.container__filterItem}
                         >
-                            <FilterRange category="votesKp" image={icon} limit={1000000} step={100} />
+                            <FilterRange category="votesKp" image={votesIcon} limit={1000000} step={100} />
                         </FilterPlank>
 
                         <FilterPlank

@@ -6,9 +6,9 @@ import theme from './theme.module.scss';
 import { useTranslation } from 'next-i18next';
 import IPerson from '../../models/IPerson';
 import { useRouter } from 'next/router';
-import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { actorFilterAdded, addFilteredMovies, directorFilterAdded } from '@/store/slices/moviesSlice';
-import { checkFiltersStatus } from '@/utils/functions';
+import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
+import { actorFilterAdded, addFilteredMovies, directorFilterAdded } from '../../store/slices/moviesSlice';
+import { checkFiltersStatus } from '../../utils/functions';
 
 interface ISearch {
     suggestionsList: IPerson[];
@@ -17,7 +17,6 @@ interface ISearch {
 
 const FilterSearch = ({ suggestionsList, category }: ISearch) => {
     const { t } = useTranslation('moviesPage');
-    const { locale } = useRouter();
     const dispatch = useAppDispatch();
     const [inputValue, setInputValue] = useState('');
     const [suggestions, setSuggestions] = useState<string[]>([]);

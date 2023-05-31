@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
 import { genresFilterAdded, countriesFilterAdded, addFilteredMovies } from '../../store/slices/moviesSlice';
 import axios from 'axios';
-import { checkFiltersStatus } from '@/utils/functions';
+import { checkFiltersStatus } from '../../utils/functions';
 import IMovies from '@/models/IMovies';
 import IGenre from '@/models/IGenre';
 import ICountry from '@/models/ICountry';

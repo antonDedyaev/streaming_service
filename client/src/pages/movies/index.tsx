@@ -8,7 +8,8 @@ import MainContainer from '@/components/main_container/MainContainer/MainContain
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
 import styles from '@/styles/pages/MoviesPage.module.scss';
-import icon from '@/../public/icons/rating.svg';
+import ratingIcon from '@/../public/icons/rating.svg';
+import votesIcon from '../../../public/icons/userRank.svg';
 import FilterSearch from '@/components/filters/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
@@ -18,7 +19,7 @@ import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
 /*import useSWR from 'swr';*/
-import IActor from '@/models/IActor';
+
 import PostersList from '@/components/posters/PostersList/PostersList';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
@@ -137,14 +138,14 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
                             title={t('moviesPage:filterPanel.rating')}
                             className={styles.container__filterItem}
                         >
-                            <FilterRange category="ratingKp" image={icon} limit={10} step={0.1} />
+                            <FilterRange category="ratingKp" image={ratingIcon} limit={10} step={0.1} />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.userRank')}
                             className={styles.container__filterItem}
                         >
-                            <FilterRange category="votesKp" image={icon} limit={1000000} step={100} />
+                            <FilterRange category="votesKp" image={votesIcon} limit={1000000} step={100} />
                         </FilterPlank>
 
                         <FilterPlank
