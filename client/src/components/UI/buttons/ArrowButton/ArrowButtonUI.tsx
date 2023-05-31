@@ -1,58 +1,52 @@
-import Image from 'next/image'
-import arrowLeftIcon from '../../../../../public/icons/arrows/arrow_left.svg'
-import arrowRightIcon from '../../../../../public/icons/arrows/arrow_right.svg'
-import styles from './ArrowButtonUI.module.scss'
+import Image from 'next/image';
+import arrowLeftIcon from '../../../../../public/icons/arrows/arrow_left.svg';
+import arrowRightIcon from '../../../../../public/icons/arrows/arrow_right.svg';
+import styles from './ArrowButtonUI.module.scss';
 
 interface ArrowButtonProps {
-    className: string
-    diarection: 'top' | 'right' | 'bottom' | 'left'
-    iconSize: 'large' | 'medium' | 'small'
-    onClick?: () => void
+    className: string;
+    direction: 'top' | 'right' | 'bottom' | 'left';
+    iconSize: 'large' | 'medium' | 'small';
+    onClick?: () => void;
 }
 
-const ArrowButton = ({ className, diarection, iconSize, onClick }: ArrowButtonProps) => {
-    let arrowIcon
+const ArrowButton = ({ className, direction, iconSize, onClick }: ArrowButtonProps) => {
+    let arrowIcon;
 
-    switch(diarection) {
-        case 'right': 
-            arrowIcon = arrowRightIcon
-            break
+    switch (direction) {
+        case 'right':
+            arrowIcon = arrowRightIcon;
+            break;
         case 'left':
-            arrowIcon = arrowLeftIcon
-            break
+            arrowIcon = arrowLeftIcon;
+            break;
     }
 
-    switch(iconSize) {
+    switch (iconSize) {
         case 'large':
-            arrowIcon.width = 30
-            break
+            arrowIcon.width = 30;
+            break;
 
         case 'medium':
-            arrowIcon.width = 20
-            break
+            arrowIcon.width = 20;
+            break;
 
         case 'small':
-            arrowIcon.width = 10
-            break
+            arrowIcon.width = 10;
+            break;
     }
 
     const clickHandler = () => {
-        if (!onClick) return
+        if (!onClick) return;
 
-        onClick()
-    }
+        onClick();
+    };
 
     return (
-        <button 
-            className={[styles.button, className].join(' ')}
-            onClick={clickHandler}>
-            <Image 
-                className={[styles.icon, 'icon'].join(' ')}
-                src={arrowIcon} 
-                alt=""
-            />
+        <button className={[styles.button, className].join(' ')} onClick={clickHandler}>
+            <Image className={[styles.icon, 'icon'].join(' ')} src={arrowIcon} alt="" />
         </button>
-    )
-}
+    );
+};
 
-export default ArrowButton
+export default ArrowButton;

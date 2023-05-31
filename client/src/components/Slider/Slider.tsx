@@ -57,7 +57,7 @@ export const Slider = ({ itemType, children, length }: SliderProps) => {
                 {position < minPosition && (
                     <ArrowButton
                         className={[styles.container__button, styles.container__button_left].join(' ')}
-                        diarection="left"
+                        direction="left"
                         iconSize={windowWidth > 1380 ? 'large' : 'medium'}
                         onClick={leftHandler}
                     />
@@ -70,7 +70,7 @@ export const Slider = ({ itemType, children, length }: SliderProps) => {
                 {position > maxPosition && (
                     <ArrowButton
                         className={[styles.container__button, styles.container__button_right].join(' ')}
-                        diarection="right"
+                        direction="right"
                         iconSize={windowWidth > 1380 ? 'large' : 'medium'}
                         onClick={rightHandler}
                     />

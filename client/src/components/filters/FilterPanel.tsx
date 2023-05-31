@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './FilterPanel.module.scss';
 import closeIcon from '../../../public/icons/close.svg';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 import TransparentButton from '../UI/buttons/TransparentButton/TransparentButton';
 
 import { useTranslation } from 'next-i18next';

@@ -27,14 +27,6 @@ const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
     };
     const [sortingParameter, setSortingParameter] = useState(sortParams.userRates);
 
-    //const sortingParamNames = ['По количеству оценок', 'Рейтингу', 'Дате выхода', 'Алфавиту'];
-    const sortingParamNames = [
-        t('sorting.userRates'),
-        t('sorting.rating'),
-        t('sorting.releaseDate'),
-        t('sorting.name'),
-    ];
-
     useEffect(() => {
         getSortedMovies(sortParams, sortingParameter, [...filteredMovies], locale!, dispatch);
     }, [sortingParameter]);

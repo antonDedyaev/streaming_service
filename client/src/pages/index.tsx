@@ -9,59 +9,49 @@ import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
-import CommentItem from '@/components/comments/CommentItem/CommentItem';
-import { comments } from '@/components/comments/commentsTestData';
-import CommentsList from '@/components/comments/CommentsList/CommentsList';
-import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
-import Link from 'next/link';
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetServerSideProps, GetStaticProps } from 'next';
+import { GetStaticProps } from 'next';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import { useEffect } from 'react';
-import { fetchMovies } from '@/store/slices/moviesSlice';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import { useRouter } from 'next/router';
-import { staticDataSlice } from '@/store/slices/staticDataSlice';
-import { fetchGenres, getActorsAndDirectors, getAllStaticData, getGenresAndCountries } from '@/store/ActionCreators';
+import { fetchGenres } from '@/store/ActionCreators';
+import axios from 'axios';
+import IMovies from '@/models/IMovies';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-    props: {
-        ...(await serverSideTranslations(locale!, [
-            'collection',
-            'common',
-            'footer',
-            'header',
-            'mainPage',
-            'modals',
-            'moviesPage',
-        ])),
-    },
-});
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    const response = await axios.get('http://localhost:6125/filmswithinfo');
+    const movies = response.data;
 
-function HomePage() {
+    return {
+        props: {
+            movies,
+            ...(await serverSideTranslations(locale!, [
+                'collection',
+                'common',
+                'footer',
+                'header',
+                'mainPage',
+                'modals',
+                'moviesPage',
+            ])),
+        },
+    };
+};
+
+function HomePage({ movies }: { movies: IMovies[] }) {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const { locale, asPath } = useRouter();
-
-    const movies = useAppSelector((state) => state.movies.movies);
+    const { locale } = useRouter();
 
     const fantasies = getMoviesByGenre(movies, 'фантастика');
     const dramas = getMoviesByGenre(movies, 'драма');
 
     useEffect(() => {
-        dispatch(fetchMovies());
+        dispatch(fetchGenres());
     }, [locale]);
-
-    useEffect(() => {
-        dispatch(getAllStaticData());
-        /*dispatch(getGenresAndCountries());
-        dispatch(getActorsAndDirectors());*/
-    }, [locale]);
-
-    const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
 
     return (
         <>

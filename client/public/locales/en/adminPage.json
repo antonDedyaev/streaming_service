@@ -1,0 +1,17 @@
+{
+    "adminMode": "Admin mode",
+    "movies": "Movies",
+    "genres": "Genres",
+    "editing": {
+        "backButton": "Back",
+        "editMovies": "Edit movies",
+        "editGenres": "Edit genres",
+        "search": "Find",
+        "reset": "Reset",
+        "inputName": "Enter movie name...",
+        "saveButton": "Save",
+        "showMore": "Show more",
+        "ruName": "Name RU",
+        "enName": "Name EN"
+    }
+}

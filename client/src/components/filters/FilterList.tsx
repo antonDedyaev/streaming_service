@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
 import { genresFilterAdded, countriesFilterAdded, addFilteredMovies } from '../../store/slices/moviesSlice';
 import axios from 'axios';
-import { checkFiltersStatus } from '@/utils/functions';
+import { checkFiltersStatus } from '../../utils/functions';
 import IMovies from '@/models/IMovies';
 import IGenre from '@/models/IGenre';
 import ICountry from '@/models/ICountry';
@@ -31,14 +31,10 @@ const FilterList = ({ items, category }: IList) => {
     useEffect(() => {
         const sendFilters = async () => {
             try {
-                const response = await axios.get(`http://localhost:6125/movies?${joinedQuery}&limit=500`);
-                //console.log('listFilters:', response.data.docs[0].page);
-                // const prepared = response.data.docs[0].page.map((movie: IMovies[]) => {
-                //     return { ...film, genres, countries };
-                // });
+                const response = await axios.get(`http://localhost:6125/movies?${joinedQuery}&limit=1000`);
                 dispatch(addFilteredMovies(joinedQuery !== '' ? response.data.docs[0].page : []));
-            } catch (err) {
-                console.log(err);
+            } catch (e: any) {
+                console.log(e.response?.data?.message);
             }
         };
         sendFilters();

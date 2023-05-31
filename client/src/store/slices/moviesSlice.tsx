@@ -1,23 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
 import IMovies from '@/models/IMovies';
-import IGenre from '@/models/IGenre';
-import ICountry from '@/models/ICountry';
-
-export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
-    const response = await axios.get('http://localhost:6125/filmswithinfo');
-    return response.data;
-});
-
-// export const fetchCountries = createAsyncThunk('movies/fetchCountries', async () => {
-//     const response = await axios.get('http://localhost:6125/namesOfCountries');
-//     return response.data;
-// });
-
-// export const fetchGenres = createAsyncThunk('movies/fetchGenres', async () => {
-//     const response = await axios.get('http://localhost:6125/namesgenres');
-//     return response.data;
-// });
 
 export interface IFilters {
     genres: string[];
@@ -81,15 +63,6 @@ const moviesSlice = createSlice({
         filtersRemoved: (state, action) => {
             state.filters = action.payload;
         },
-    },
-    extraReducers: (builder) => {
-        builder
-            // .addCase(fetchMovies.pending, (state) => {
-            //     console.log('pending');
-            // })
-            .addCase(fetchMovies.fulfilled, (state, action: PayloadAction<IMovies[]>) => {
-                state.movies = action.payload;
-            });
     },
 });
 
