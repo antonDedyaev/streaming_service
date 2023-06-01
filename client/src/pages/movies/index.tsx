@@ -8,54 +8,59 @@ import MainContainer from '@/components/main_container/MainContainer/MainContain
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
 import styles from '@/styles/pages/MoviesPage.module.scss';
-import icon from '@/../public/icons/rating.svg';
+import ratingIcon from '@/../public/icons/rating.svg';
+import votesIcon from '../../../public/icons/userRank.svg';
 import FilterSearch from '@/components/filters/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetServerSideProps, GetStaticProps } from 'next';
+import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
 /*import useSWR from 'swr';*/
-import { fetchMovies } from '@/store/slices/moviesSlice';
-import IActor from '@/models/IActor';
-import { fetchActors } from '@/store/slices/actorsSlice';
+
 import PostersList from '@/components/posters/PostersList/PostersList';
-import TransparentButton from '@/components/UI/buttons/TransparentButton/TransparentButton';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
-import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import { getAllStaticData } from '@/store/ActionCreators';
+import IMovies from '@/models/IMovies';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-    props: {
-        ...(await serverSideTranslations(locale!, [
-            'collection',
-            'common',
-            'footer',
-            'header',
-            'moviesPage',
-            'modals',
-        ])),
-    },
-});
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    const response = await axios.get('http://localhost:6125/filmswithinfo');
+    const movies = response.data;
 
-const MoviesPage = () => {
-    // const address = 'http://localhost:6125/filmswithinfo';
-    // const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
-    // const { data, error } = useSWR(address, fetcher);
+    return {
+        props: {
+            movies,
+            ...(await serverSideTranslations(locale!, [
+                'collection',
+                'common',
+                'footer',
+                'header',
+                'mainPage',
+                'modals',
+                'moviesPage',
+            ])),
+        },
+    };
+};
 
+const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const { asPath, locale } = useRouter();
 
+    const filteredList = useAppSelector((state) => state.movies.filteredMovies);
+
     useEffect(() => {
-        dispatch(fetchMovies());
-        /*dispatch(fetchActors());*/
         dispatch(getAllStaticData());
     }, [locale, asPath]);
+
+    useEffect(() => {
+        setIsFilterApplied(filteredList.length !== 0);
+    }, [filteredList]);
 
     const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
 
@@ -69,14 +74,6 @@ const MoviesPage = () => {
 
     const [isFilterApplied, setIsFilterApplied] = useState(false);
     const [shownPostersLimit, setShownPostersLimit] = useState(35);
-
-    const filteredList = useAppSelector((state) => state.movies.filteredMovies);
-
-    useEffect(() => {
-        setIsFilterApplied(filteredList.length !== 0);
-    }, [filteredList]);
-
-    const movies = useAppSelector((state) => state.movies.movies);
 
     const premieres = movies
         .filter((movie) => movie.premiereRussia)
@@ -141,25 +138,25 @@ const MoviesPage = () => {
                             title={t('moviesPage:filterPanel.rating')}
                             className={styles.container__filterItem}
                         >
-                            <FilterRange category="ratingKp" image={icon} limit={10} step={0.1} />
+                            <FilterRange category="ratingKp" image={ratingIcon} limit={10} step={0.1} />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.userRank')}
                             className={styles.container__filterItem}
                         >
-                            <FilterRange category="votesKp" image={icon} limit={1000000} step={100} />
+                            <FilterRange category="votesKp" image={votesIcon} limit={1000000} step={100} />
                         </FilterPlank>
 
                         <FilterPlank
                             title={t('moviesPage:filterPanel.director')}
                             className={styles.container__filterItem}
                         >
-                            <FilterSearch category="director" />
+                            <FilterSearch suggestionsList={directors} category="director" />
                         </FilterPlank>
 
                         <FilterPlank title={t('moviesPage:filterPanel.actor')} className={styles.container__filterItem}>
-                            <FilterSearch category="actor" />
+                            <FilterSearch suggestionsList={actors} category="actor" />
                         </FilterPlank>
                     </FilterPanel>
                     {!isFilterApplied ? (
@@ -180,7 +177,7 @@ const MoviesPage = () => {
                                 />
                             </div>
                             <div className={styles.container__section}>
-                                <PersonsSection size="large" persons={filteredActors.slice(0, 50)} />
+                                <PersonsSection size="large" persons={filteredActors} />
                             </div>
                             <div className={styles.container__section}>
                                 <MoviesSection

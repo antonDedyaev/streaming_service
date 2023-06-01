@@ -1,0 +1,17 @@
+{
+    "adminMode": "Администрирование",
+    "movies": "Фильмы",
+    "genres": "Жанры",
+    "editing": {
+        "backButton": "Назад",
+        "editMovies": "Редактировать фильмы",
+        "editGenres": "Редактировать жанры",
+        "search": "Найти",
+        "reset": "Сбросить",
+        "inputName": "Введите название фильма...",
+        "saveButton": "Сохранить",
+        "showMore": "Показать еще",
+        "ruName": "Название RU",
+        "enName": "Название EN"
+    }
+}

@@ -1,4 +1,4 @@
-import { useAppSelector } from '@/store/hooks/redux';
+import { useAppSelector } from '../../store/hooks/redux';
 import styles from './FilterPlank.module.scss';
 import { ReactNode, useState, useEffect, useRef } from 'react';
 

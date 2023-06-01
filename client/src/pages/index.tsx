@@ -14,38 +14,42 @@ import { useTranslation } from 'next-i18next';
 import { GetStaticProps } from 'next';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useEffect } from 'react';
-import { fetchMovies } from '@/store/slices/moviesSlice';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import { useRouter } from 'next/router';
-import { getGenresAndCountries } from '@/store/ActionCreators';
+import { fetchGenres } from '@/store/ActionCreators';
+import axios from 'axios';
+import IMovies from '@/models/IMovies';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-    props: {
-        ...(await serverSideTranslations(locale!, [
-            'collection',
-            'common',
-            'footer',
-            'header',
-            'mainPage',
-            'modals',
-            'moviesPage',
-        ])),
-    },
-});
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    const response = await axios.get('http://localhost:6125/filmswithinfo');
+    const movies = response.data;
 
-function HomePage() {
+    return {
+        props: {
+            movies,
+            ...(await serverSideTranslations(locale!, [
+                'collection',
+                'common',
+                'footer',
+                'header',
+                'mainPage',
+                'modals',
+                'moviesPage',
+            ])),
+        },
+    };
+};
+
+function HomePage({ movies }: { movies: IMovies[] }) {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const { locale } = useRouter();
-
-    const movies = useAppSelector((state) => state.movies.movies);
 
     const fantasies = getMoviesByGenre(movies, 'фантастика');
     const dramas = getMoviesByGenre(movies, 'драма');
 
     useEffect(() => {
-        dispatch(fetchMovies());
-        dispatch(getGenresAndCountries());
+        dispatch(fetchGenres());
     }, [locale]);
 
     return (

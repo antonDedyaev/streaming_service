@@ -3,10 +3,10 @@ import styles from './FilterRange.module.scss';
 import { useEffect, useState } from 'react';
 import greaterThan from '../../../public/icons/greater-than.svg';
 import { useTranslation } from 'next-i18next';
-import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { checkFiltersStatus } from '@/utils/functions';
+import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
+import { checkFiltersStatus } from '../../utils/functions';
 import axios from 'axios';
-import { addFilteredMovies, ratingFilterAdded, votesFilterAdded } from '@/store/slices/moviesSlice';
+import { addFilteredMovies, ratingFilterAdded, votesFilterAdded } from '../../store/slices/moviesSlice';
 import IMovies from '@/models/IMovies';
 import IGenre from '@/models/IGenre';
 import ICountry from '@/models/ICountry';
@@ -38,10 +38,6 @@ const FilterRange = ({ category, image, limit, step }: IRating) => {
         const fetchRating = async () => {
             try {
                 const response = await axios.get(`http://localhost:6125/movies?${joinedQuery}&limit=1000`);
-                console.log('rangeFilters:', response.data.docs[0].page);
-                // const prepared = response.data.docs[0].page.map(({ film, genres, countries }: IFiltered) => {
-                //     return { ...film, genres, countries };
-                // });
                 dispatch(addFilteredMovies(response.data.docs[0].page));
             } catch (err) {
                 console.log(err);

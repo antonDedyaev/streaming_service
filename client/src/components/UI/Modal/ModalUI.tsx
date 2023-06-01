@@ -27,7 +27,7 @@ const ModalUI = ({ children, className, close }: ModalUIProps) => {
     };
 
     useEffect(() => {
-        close && closeHandler();
+        close && body.classList.remove('modal-active');
     }, [close]);
 
     return (

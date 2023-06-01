@@ -1,13 +1,13 @@
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import styles from './SearchModal.module.scss';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import ModalInputUI from '@/components/UI/ModalInput/ModalInputUI';
 import SearchMovieLink from '@/components/UI/links/SearchMovieLink/SearchMovieLink';
 import { useTranslation } from 'next-i18next';
-import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import IMovies from '@/models/IMovies';
-import { fetchMovies } from '@/store/slices/moviesSlice';
 import { useRouter } from 'next/router';
+import { GetStaticProps } from 'next';
+import axios from 'axios';
 
 const SearchModal = () => {
     const { t } = useTranslation('modals');
@@ -16,13 +16,19 @@ const SearchModal = () => {
     const [focus, setFocus] = useState<boolean>(false);
     const [searchMovies, setSearchMovies] = useState<IMovies[]>();
     const [isClose, setIsClose] = useState(false);
+    const [movies, setMovies] = useState<IMovies[]>();
 
-    const dispatch = useAppDispatch();
-    useEffect(() => {
-        dispatch(fetchMovies());
+    useMemo(() => {
+        const getMovies = async () => {
+            try {
+                const requestPerson = await axios.get(`http://localhost:6125/filmswithinfo`);
+                setMovies(requestPerson.data);
+            } catch (e: any) {
+                console.log(e.response?.data?.message);
+            }
+        };
+        getMovies();
     }, []);
-
-    const { movies } = useAppSelector((state) => state.movies);
 
     const inputWrapperRef = useRef(null);
 
@@ -37,14 +43,16 @@ const SearchModal = () => {
     };
 
     useEffect(() => {
-        if (locale === 'ru') {
-            setSearchMovies(
-                movies.filter((movie) => movie.name?.toLowerCase().includes(value.toLowerCase())).slice(0, 10),
-            );
-        } else {
-            setSearchMovies(
-                movies.filter((movie) => movie.enName?.toLowerCase().includes(value.toLowerCase())).slice(0, 10),
-            );
+        if (movies) {
+            if (locale === 'ru') {
+                setSearchMovies(
+                    movies.filter((movie) => movie.name?.toLowerCase().includes(value.toLowerCase())).slice(0, 10),
+                );
+            } else {
+                setSearchMovies(
+                    movies.filter((movie) => movie.enName?.toLowerCase().includes(value.toLowerCase())).slice(0, 10),
+                );
+            }
         }
     }, [value]);
 
@@ -70,6 +78,7 @@ const SearchModal = () => {
                 <div className={styles.container__content}>
                     {searchMovies?.map((movie) => (
                         <SearchMovieLink
+                            key={movie.id}
                             href={`/movies/${movie.id}`}
                             name={locale === 'ru' ? movie.name : movie.enName}
                             year={movie.year}

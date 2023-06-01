@@ -40,7 +40,7 @@ const ActorItem = ({ className, person, size, closeModal }: ActorItemProps) => {
                     )}
                 </div>
 
-                {size === 'large' && <div className={styles.container__amountBadge}>{person.movies?.length}</div>}
+                {size === 'large' && <div className={styles.container__amountBadge}>{person.countMovies}</div>}
             </div>
 
             <div className={styles.container__textContainer}>

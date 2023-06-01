@@ -9,7 +9,7 @@ import FilterRange from './FilterRange';
 import './FilterRange.module.scss';
 import FilterSearch from './FilterSearch';
 import './FilterSearch.module.scss';
-import { genres, countries } from './temp/items';
+import { genres, countries, actorSuggestions, directorSuggestions } from './temp/items';
 import rating from '../../../public/icons/rating.svg';
 import rank from '../../../public/icons/userRank.svg';
 
@@ -25,25 +25,26 @@ type Story = StoryObj<typeof FilterPanel>;
 
 export const MoviesFilters: Story = {
     args: {
+        isFilterApplied: true,
         children: (
             <>
                 <FilterPlank title="Жанры" className={plankStyles.container__dropdown_leftPositioned}>
-                    <FilterList items={genres} />
+                    <FilterList category="genres" items={genres} />
                 </FilterPlank>
                 <FilterPlank title="Страны" className={plankStyles.container__dropdown_centerPositioned}>
-                    <FilterList items={countries} />
+                    <FilterList category="countries" items={countries} />
                 </FilterPlank>
                 <FilterPlank title="Рейтинг" className={plankStyles.container__dropdown_narrow}>
-                    <FilterRange image={rating} limit={10} step={0.1} />
+                    <FilterRange category="ratingKp" image={rating} limit={10} step={0.1} />
                 </FilterPlank>
                 <FilterPlank title="Оценки" className={plankStyles.container__dropdown_narrow}>
-                    <FilterRange image={rank} limit={1000000} step={1000} />
+                    <FilterRange category="votesKp" image={rank} limit={1000000} step={1000} />
                 </FilterPlank>
                 <FilterPlank title="Режиссер" className={plankStyles.container__dropdown_narrow}>
-                    <FilterSearch searchBy="Режиссер" />
+                    <FilterSearch category="director" suggestionsList={directorSuggestions} />
                 </FilterPlank>
                 <FilterPlank title="Актер" className={plankStyles.container__dropdown_narrow}>
-                    <FilterSearch searchBy="Актер" />
+                    <FilterSearch category="actor" suggestionsList={actorSuggestions} />
                 </FilterPlank>
             </>
         ),

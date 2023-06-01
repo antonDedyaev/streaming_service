@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ArrowButtonUI from './ArrowButtonUI'
-import './ArrowButtonUI.module.scss'
+import ArrowButtonUI from './ArrowButtonUI';
+import './ArrowButtonUI.module.scss';
 
 const meta: Meta<typeof ArrowButtonUI> = {
     title: 'Button/ArrowButton',
     component: ArrowButtonUI,
     tags: ['autodocs'],
     argTypes: {
-        diarection: {
+        direction: {
             type: 'string',
             descriptrion: 'Направление стрелочки',
             defaultValue: 'right',
             options: ['top', 'right', 'bottom', 'left'],
             control: {
-                type: 'radio'
-            }
+                type: 'radio',
+            },
         },
         iconSize: {
             type: 'string',
@@ -22,26 +22,26 @@ const meta: Meta<typeof ArrowButtonUI> = {
             defaultValue: 'medium',
             options: ['large', 'medium', 'small'],
             control: {
-                type: 'radio'
-            }
-        }
-    }
-}
+                type: 'radio',
+            },
+        },
+    },
+};
 
-export default meta
+export default meta;
 
-type Story = StoryObj<typeof ArrowButtonUI>
+type Story = StoryObj<typeof ArrowButtonUI>;
 
 export const RightButton: Story = {
     args: {
-        diarection: 'right',
-        iconSize: 'medium'
+        direction: 'right',
+        iconSize: 'medium',
     },
-}
+};
 
 export const LeftButton: Story = {
     args: {
-        diarection: 'left',
-        iconSize: 'medium'
+        direction: 'left',
+        iconSize: 'medium',
     },
-}
+};

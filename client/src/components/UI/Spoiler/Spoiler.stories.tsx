@@ -21,7 +21,7 @@ export const EllipsedSpoiler: Story = {
         children: singleParagraph,
         toggleButtonTexts: ['Развернуть', 'Свернуть'],
         buttonTextColor: 'bright',
-        shownLines: 2,
+        shownLines: 1,
         truncateFormat: 'vertical',
     },
 };

@@ -1,0 +1,36 @@
+.container {
+    color: #fff;
+
+    &__content {
+        margin-top: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        font-size: 30px;
+        line-height: 1.5em;
+        font-weight: 500;
+    }
+
+    &__locale {
+        margin-top: 5px;
+        padding: 2px 5px;
+
+        font-size: 18px;
+        line-height: 1.5em;
+        color: #fff;
+        text-transform: uppercase;
+
+        border: 1px solid #fff;
+        border-radius: 4px;
+    }
+
+    &__links {
+        display: flex;
+        margin-top: 50px;
+
+        & > div > a > div {
+            font-size: 24px;
+        }
+    }
+}

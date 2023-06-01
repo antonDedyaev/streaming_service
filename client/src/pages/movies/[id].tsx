@@ -9,7 +9,7 @@ import MoreModal from '@/components/modals/MoreModal/MoreModal';
 import { useRouter } from 'next/router';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import IMovie from '@/models/IMovie';
@@ -22,58 +22,42 @@ import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import { useAppDispatch } from '@/store/hooks/redux';
 import { getGenresAndCountries } from '@/store/ActionCreators';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-    props: {
-        ...(await serverSideTranslations(locale!, [
-            'common',
-            'footer',
-            'header',
-            'modals',
-            'movie',
-            'moviesPage',
-            'collection',
-        ])),
-    },
-});
+export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
+    const response = await axios.get(`http://localhost:6125/film/${params!.id}`);
+    const movie = response.data;
 
-export const getStaticPaths = async () => {
     return {
-        paths: ['/movies/id'],
-        fallback: true,
+        props: {
+            movie,
+            ...(await serverSideTranslations(locale!, [
+                'collection',
+                'common',
+                'footer',
+                'header',
+                'mainPage',
+                'modals',
+                'moviesPage',
+                'movie',
+            ])),
+        },
     };
 };
 
-const CardMoviePage = () => {
+const CardMoviePage = ({ movie }: { movie: IMovie }) => {
     const { t } = useTranslation(['movie', 'moviesPage']);
     const dispatch = useAppDispatch();
-    const { query, asPath } = useRouter();
+    const { query, asPath, isReady, locale } = useRouter();
     const queryParams = Object.keys(query);
-    const router = useRouter();
-    const { id } = router.query;
-    const locale = router.locale;
 
     const [loading, setLoading] = useState(true);
-    const [movie, setMovie] = useState<IMovie>();
+
+    useEffect(() => {
+        isReady && setLoading(false);
+    }, []);
 
     useEffect(() => {
         dispatch(getGenresAndCountries());
     }, [locale]);
-
-    useEffect(() => {
-        const getMovie = async () => {
-            try {
-                const requestMovie = await axios.get(`http://localhost:6125/film/${id}`);
-                setMovie(requestMovie.data);
-            } catch (err) {
-                console.log(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-        {
-            id && getMovie();
-        }
-    }, [id]);
 
     return (
         <MainContainer

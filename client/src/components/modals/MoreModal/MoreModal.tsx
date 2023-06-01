@@ -14,10 +14,16 @@ interface MoreModalProps {
 
 const MoreModal = ({ movie }: MoreModalProps) => {
     const { t } = useTranslation('movie');
+    const router = useRouter();
     const { locale } = useRouter();
     const [isClose, setIsClose] = useState(false);
     const closeModal = (value: boolean) => {
         setIsClose(value);
+    };
+
+    const back = () => {
+        setIsClose(true);
+        router.back();
     };
 
     const directors = movie.persons.filter((persons) => persons.enProfession.includes('director'));
@@ -110,9 +116,8 @@ const MoreModal = ({ movie }: MoreModalProps) => {
                         alt={`${movie.name} ${movie.enName}`}
                         width={128}
                         height={196}
-                        onClick={() => setIsClose(true)}
+                        onClick={() => back()}
                     />
-
                     <PreviewPosterContentBrief className={styles.container__posterBrief} movie={movie} />
                 </div>
             </div>
