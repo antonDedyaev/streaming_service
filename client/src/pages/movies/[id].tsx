@@ -14,15 +14,12 @@ import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import IMovie from '@/models/IMovie';
 import axios from 'axios';
-import IGenre from '@/models/IGenre';
-import ICountry from '@/models/ICountry';
-import IPerson from '@/models/IPerson';
 import TrailerModal from '@/components/modals/TrailerModal/TrailerModal';
 import { firstCapitalLetter } from '@/utils/functions';
 import Loading from '@/components/Loading/Loading';
 import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
-import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { useAppDispatch } from '@/store/hooks/redux';
 import { getGenresAndCountries } from '@/store/ActionCreators';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
@@ -60,10 +57,10 @@ const CardMoviePage = () => {
 
     useEffect(() => {
         dispatch(getGenresAndCountries());
-    }, []);
+    }, [locale]);
 
     useEffect(() => {
-        const getPerson = async () => {
+        const getMovie = async () => {
             try {
                 const requestMovie = await axios.get(`http://localhost:6125/film/${id}`);
                 setMovie(requestMovie.data);
@@ -73,7 +70,9 @@ const CardMoviePage = () => {
                 setLoading(false);
             }
         };
-        getPerson();
+        {
+            id && getMovie();
+        }
     }, [id]);
 
     return (
@@ -107,7 +106,7 @@ const CardMoviePage = () => {
                                     name: movie.genres[0].name,
                                     enName: movie.genres[0].enName,
                                 }}
-                                ponytailName={{ name: movie.name, enName: movie.enName }}
+                                tailName={{ name: movie.name, enName: movie.enName }}
                                 type="pointShort"
                             />
                         </section>
@@ -126,22 +125,24 @@ const CardMoviePage = () => {
                             </div>
                         </section>
 
-                        <section className={styles.container__watch}>
-                            <MoviesSection
-                                showAllLink={false}
-                                title={`${t('withMovie.0')} «${
-                                    locale === 'ru'
-                                        ? movie.name
+                        {movie.watchingWithMovie.length > 0 && (
+                            <section className={styles.container__watch}>
+                                <MoviesSection
+                                    showAllLink={false}
+                                    title={`${t('withMovie.0')} «${
+                                        locale === 'ru'
                                             ? movie.name
+                                                ? movie.name
+                                                : movie.enName
                                             : movie.enName
-                                        : movie.enName
-                                        ? movie.enName
-                                        : movie.name
-                                }» ${t('withMovie.1')}`}
-                                movies={movie.watchingWithMovie}
-                                href=""
-                            />
-                        </section>
+                                            ? movie.enName
+                                            : movie.name
+                                    }» ${t('withMovie.1')}`}
+                                    movies={movie.watchingWithMovie}
+                                    href=""
+                                />
+                            </section>
+                        )}
 
                         {movie.persons.length > 0 && (
                             <section className={styles.container__persons}>
@@ -175,7 +176,7 @@ const CardMoviePage = () => {
                                     name: movie.genres[0].name,
                                     enName: movie.genres[0].enName,
                                 }}
-                                ponytailName={{
+                                tailName={{
                                     name: movie.name ? movie.name : movie.enName,
                                     enName: movie.enName ? movie.enName : movie.name,
                                 }}

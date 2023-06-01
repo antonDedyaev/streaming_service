@@ -10,9 +10,10 @@ interface ActorItemProps {
     className?: string;
     person: IPerson;
     size: 'large' | 'medium' | 'small';
+    closeModal?: (close: boolean) => void;
 }
 
-const ActorItem = ({ className, person, size }: ActorItemProps) => {
+const ActorItem = ({ className, person, size, closeModal }: ActorItemProps) => {
     const { t } = useTranslation('moviesPage');
     const { locale } = useRouter();
 
@@ -23,6 +24,7 @@ const ActorItem = ({ className, person, size }: ActorItemProps) => {
     return (
         <Link
             href={`/persons/${person.id}`}
+            onClick={() => closeModal?.(true)}
             className={[styles.container, styles[`container_${size}`], className].join(' ')}
         >
             <div className={styles.container__imageContainer}>
@@ -51,20 +53,22 @@ const ActorItem = ({ className, person, size }: ActorItemProps) => {
                 {size === 'small' ? (
                     <h3 className={styles.container__role}>
                         {locale === 'ru'
-                            ? professionInTheSingular(person.profession)
-                            : person.enProfession === 'voice_actor'
+                            ? professionInTheSingular(person.profession[0])
+                            : person.enProfession[0] === 'voice_actor'
                             ? 'Voice actor'
-                            : firstCapitalLetter(person.enProfession)}
+                            : firstCapitalLetter(person.enProfession[0])}
                     </h3>
                 ) : (
-                    <p className={styles.container__amountMovies}>
-                        {person.movies?.length}{' '}
-                        {declineWord(person.movies!.length, [
-                            t('filmography.singleMovie'),
-                            t('filmography.fewMovies'),
-                            t('filmography.manyMovies'),
-                        ])}
-                    </p>
+                    person.countMovies && (
+                        <p className={styles.container__amountMovies}>
+                            {person.countMovies}{' '}
+                            {declineWord(person.countMovies, [
+                                t('filmography.singleMovie'),
+                                t('filmography.fewMovies'),
+                                t('filmography.manyMovies'),
+                            ])}
+                        </p>
+                    )
                 )}
             </div>
         </Link>

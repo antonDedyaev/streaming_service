@@ -62,11 +62,8 @@ const Collection = () => {
 
     useEffect(() => {
         dispatch(fetchMovies());
-    }, [asPath, locale]);
-
-    useEffect(() => {
         dispatch(getAllStaticData());
-    }, []);
+    }, [asPath, locale]);
 
     const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
 

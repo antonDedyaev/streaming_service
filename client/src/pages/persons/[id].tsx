@@ -50,7 +50,7 @@ const CardActorPage = () => {
 
     useEffect(() => {
         dispatch(getGenresAndCountries());
-    }, []);
+    }, [locale]);
 
     useEffect(() => {
         const getPerson = async () => {
@@ -63,8 +63,25 @@ const CardActorPage = () => {
                 setLoading(false);
             }
         };
-        getPerson();
+        {
+            id && getPerson();
+        }
     }, [id]);
+
+    const converToString = (array: string[], version: 'en' | 'ru') => {
+        if (version === 'ru') {
+            return array.map((item) => professionInTheSingular(item)).join(', ');
+        }
+        if (version === 'en')
+            return array
+                .map((item) => {
+                    if (item === 'voice_actor') {
+                        return 'Voice actor';
+                    }
+                    return firstCapitalLetter(item);
+                })
+                .join(', ');
+    };
 
     return (
         <MainContainer
@@ -76,14 +93,10 @@ const CardActorPage = () => {
                     ? locale === 'ru'
                         ? `${person.name ? person.name : person.enName}${
                               person.name ? (person.enName ? ` (${person.enName})` : '') : ''
-                          }: ${t('browserTab')}. ${professionInTheSingular(person.profession)}.`
+                          }: ${t('browserTab')}. ${converToString(person.profession, 'ru')}.`
                         : `${person.enName ? person.enName : person.name}${
                               person.enName ? (person.name ? ` (${person.name})` : '') : ''
-                          }: ${t('browserTab')}. ${
-                              person.enProfession === 'voice_actor'
-                                  ? 'Voice actor'
-                                  : firstCapitalLetter(person.enProfession)
-                          }.`
+                          }: ${t('browserTab')}. ${converToString(person.enProfession, 'en')}.`
                     : `${t('pageError', { ns: 'moviesPage' })}`
             }
             page="other"
@@ -131,7 +144,7 @@ const CardActorPage = () => {
                             <Breadcrumbs
                                 path={asPath.split('/').slice(1)}
                                 type="slash"
-                                ponytailName={{
+                                tailName={{
                                     name: person.name ? person.name : person.enName,
                                     enName: person.enName ? person.enName : person.name,
                                 }}

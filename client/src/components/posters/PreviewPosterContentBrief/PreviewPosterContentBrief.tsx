@@ -26,8 +26,8 @@ const PreviewPosterContentBrief = ({ movie, className }: PreviewPosterContentBri
             )}
             <div className={styles.container__text}>
                 <p>
-                    {/* {movie.year}, {locale === 'ru' ? movie.countries[0].name : movie.countries[0].enName},{' '} */}
-                    {/* {firstCapitalLetter(locale === 'ru' ? movie.genres[0].name : movie.genres[0].enName)} */}
+                    {movie.year}, {locale === 'ru' ? movie.countries[0].name : movie.countries[0].enName},{' '}
+                    {firstCapitalLetter(locale === 'ru' ? movie.genres[0].name : movie.genres[0].enName)}
                 </p>
                 <p>{`${movie.movieLength} ${declineWord(movie.movieLength, [
                     t('minutes.0'),

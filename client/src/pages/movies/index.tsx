@@ -51,7 +51,13 @@ const MoviesPage = () => {
     const dispatch = useAppDispatch();
     const { asPath, locale } = useRouter();
 
-    const { genres, countries, actors } = useAppSelector((state) => state.staticData);
+    useEffect(() => {
+        dispatch(fetchMovies());
+        /*dispatch(fetchActors());*/
+        dispatch(getAllStaticData());
+    }, [locale, asPath]);
+
+    const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
 
     const countryNames =
         locale === 'ru'
@@ -85,15 +91,6 @@ const MoviesPage = () => {
     const imaxMovies = movies
         .filter((movie) => movie.hasIMAX)
         .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime());
-
-    useEffect(() => {
-        dispatch(fetchMovies());
-        dispatch(fetchActors());
-    }, [locale, asPath]);
-
-    useEffect(() => {
-        dispatch(getAllStaticData());
-    });
 
     return (
         <MainContainer

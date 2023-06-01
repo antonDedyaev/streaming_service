@@ -9,23 +9,15 @@ import TopTenSection from '@/components/sections/TopTenSection/TopTenSection';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
-import CommentItem from '@/components/comments/CommentItem/CommentItem';
-import { comments } from '@/components/comments/commentsTestData';
-import CommentsList from '@/components/comments/CommentsList/CommentsList';
-import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
-import Link from 'next/link';
-
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetServerSideProps, GetStaticProps } from 'next';
+import { GetStaticProps } from 'next';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { movies } from '@/components/movie/movieMedallion/MovieMedallionsList/Temp/Movie.data';
 import { useEffect } from 'react';
 import { fetchMovies } from '@/store/slices/moviesSlice';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import { useRouter } from 'next/router';
-import { staticDataSlice } from '@/store/slices/staticDataSlice';
-import { fetchGenres, getActorsAndDirectors, getAllStaticData, getGenresAndCountries } from '@/store/ActionCreators';
+import { getGenresAndCountries } from '@/store/ActionCreators';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     props: {
@@ -44,7 +36,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
 function HomePage() {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const { locale, asPath } = useRouter();
+    const { locale } = useRouter();
 
     const movies = useAppSelector((state) => state.movies.movies);
 
@@ -53,15 +45,8 @@ function HomePage() {
 
     useEffect(() => {
         dispatch(fetchMovies());
+        dispatch(getGenresAndCountries());
     }, [locale]);
-
-    useEffect(() => {
-        dispatch(getAllStaticData());
-        /*dispatch(getGenresAndCountries());
-        dispatch(getActorsAndDirectors());*/
-    }, []);
-
-    const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
 
     return (
         <>

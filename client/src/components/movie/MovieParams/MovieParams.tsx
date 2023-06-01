@@ -29,11 +29,11 @@ const MovieParams = ({ movie }: MovieParamsProps) => {
             </div>
             <div className={styles.container__list}>
                 <TextLinkUI
-                    href={`/collections/${movie.countries[0].name}`}
+                    href={`/collections/${movie.countries[0].enName.split(' ').join('_')}`}
                     option="bright"
                     className={[styles.container__listItem, styles.container__listItem_point].join(' ')}
                 >
-                    {movie.countries[0].name}
+                    {locale === 'ru' ? movie.countries[0].name : movie.countries[0].enName}
                 </TextLinkUI>
                 {movie.genres.slice(0, 3).map((genre) => (
                     <TextLinkUI
