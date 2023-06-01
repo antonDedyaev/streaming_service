@@ -7,6 +7,7 @@
     background-color: #100e19fb;
     display: flex;
     justify-content: center;
+    z-index: 1000;
 
     &__button {
         position: absolute;
@@ -26,7 +27,7 @@
 
         &:not(:hover) {
             .container__image {
-                transition: .4s;
+                transition: 0.4s;
             }
         }
     }

@@ -56,7 +56,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
 
     useEffect(() => {
         dispatch(getAllStaticData());
-    }, [locale]);
+    }, [locale, asPath]);
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);

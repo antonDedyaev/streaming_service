@@ -15,7 +15,7 @@ interface MovieMedallionsListProps {
 const MovieMedallionsList = ({ className, movie }: MovieMedallionsListProps) => {
     const { t } = useTranslation('moviesPage');
     const { locale } = useRouter();
-    const actors = movie.persons.filter((persons) => persons.enProfession === 'actor');
+    const actors = movie.persons.filter((persons) => persons.enProfession.includes('actor'));
     return (
         <div className={[styles.content, className].join(' ').trim()}>
             <MovieMedallionItem text={t('filterPanel.rating')} disabled={true}>

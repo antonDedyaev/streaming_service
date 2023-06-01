@@ -14,7 +14,12 @@ const MovieAppeal = ({ title }: MovieAppealProps) => {
                 {t('watch')} «{title}» {t('onAllDevices')}
             </h2>
             <p>{t('availableForDownload')}</p>
-            <ShapedLinkUI className={styles.container__link} href="https://www.ivi.ru/devices" shape="rectangular">
+            <ShapedLinkUI
+                className={styles.container__link}
+                href="https://www.ivi.ru/devices"
+                shape="rectangular"
+                target="_blank"
+            >
                 {t('connectDevices')}
             </ShapedLinkUI>
         </div>

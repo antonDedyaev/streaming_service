@@ -9,16 +9,16 @@
         margin: 0 12px 0 0;
     }
 
-    &__descriptrion {
-
-    }
-
     &__name {
         font-weight: 700;
         font-size: 15px;
         line-height: 20px;
         margin: 0 0 5px 0;
-        transition: .2s;
+        transition: 0.2s;
+
+        & > span {
+            color: #fff;
+        }
     }
 
     &:hover {

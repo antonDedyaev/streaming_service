@@ -66,7 +66,7 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
 
     useEffect(() => {
         dispatch(getAllStaticData());
-    }, [locale]);
+    }, [locale, asPath]);
 
     const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
 
