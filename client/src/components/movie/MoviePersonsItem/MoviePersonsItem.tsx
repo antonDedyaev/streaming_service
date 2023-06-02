@@ -1,6 +1,6 @@
 import styles from './MoviePersonsItem.module.scss';
 import ActorList from '@/components/actor/ActorList/ActorList';
-import ButtonUI from '@/components/UI/buttons/Button/ButtonUI';
+import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import IPerson from '@/models/IPerson';
@@ -33,13 +33,13 @@ const MoviePersonsItem = ({ persons, title, closeModal }: MoviePersonsItemProps)
                     <ActorList persons={persons.slice(0, quantity)} size="medium" closeModal={close} />
                 </div>
                 {showButton && (
-                    <ButtonUI
+                    <BorderedButton
                         className={styles.container__spoilerButton}
-                        background="transparent"
+                        size='large'
                         onClick={() => showMore()}
                     >
                         {t('showMore')}
-                    </ButtonUI>
+                    </BorderedButton>
                 )}
             </div>
         </div>

@@ -61,7 +61,7 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
-    }, [filteredList]);
+    }, [filteredList, locale]);
 
     useEffect(() => {
         dispatch(getAllStaticData());
