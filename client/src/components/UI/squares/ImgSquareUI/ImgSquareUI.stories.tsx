@@ -16,7 +16,7 @@ const actor: IPerson = {
     id: 1,
     name: '',
     enName: '',
-    photo: require('../../../../testAsserts/img/actorTest1.jpg'),
+    photo: require('../../../../testAsserts/img/BG554460.jpg'),
     profession: [''],
     enProfession: [''],
 };

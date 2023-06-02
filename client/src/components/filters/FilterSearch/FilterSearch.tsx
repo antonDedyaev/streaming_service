@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import styles from './FilterSearch.module.scss';
 import Autosuggest from 'react-autosuggest';
-import axios, { AxiosResponse } from 'axios';
-import theme from './theme.module.scss';
+import axios from 'axios';
+import theme from '../theme.module.scss';
 import { useTranslation } from 'next-i18next';
-import IPerson from '../../models/IPerson';
-import { useRouter } from 'next/router';
-import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
-import { actorFilterAdded, addFilteredMovies, directorFilterAdded } from '../../store/slices/moviesSlice';
-import { checkFiltersStatus } from '../../utils/functions';
+import IPerson from '../../../models/IPerson';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks/redux';
+import { actorFilterAdded, addFilteredMovies, directorFilterAdded } from '../../../store/slices/moviesSlice';
+import { checkFiltersStatus } from '../../../utils/functions';
 
 interface ISearch {
     suggestionsList: IPerson[];

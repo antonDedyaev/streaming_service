@@ -126,12 +126,3 @@ const MoreModal = ({ movie }: MoreModalProps) => {
 };
 
 export default MoreModal;
-/*<Link href={`/movies/${movie.id}`}>
-                        <Image
-                            className={styles.container__posterImage}
-                            src={movie.posterUrl}
-                            alt={`${movie.name} ${movie.enName}`}
-                            width={128}
-                            height={196}
-                        />
-                    </Link>*/

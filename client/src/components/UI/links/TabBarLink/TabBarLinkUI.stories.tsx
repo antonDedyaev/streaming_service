@@ -6,7 +6,6 @@ import homeIcon from '../../../../../public/icons/tabbar/home.svg';
 const meta: Meta<typeof TabBarLinkUI> = {
     title: 'Links/TabBarLink',
     component: TabBarLinkUI,
-    tags: ['autodocs'],
     parameters: {
         backgrounds: { default: 'dark' },
     },
@@ -16,11 +15,11 @@ export default meta;
 
 type Story = StoryObj<typeof TabBarLinkUI>;
 
-export const TabBarItem: Story = {
+export const TabBarLink: Story = {
     args: {
         href: 'https://www.ivi.ru/',
         icon: homeIcon,
         text: 'Мой Иви',
-        selected: true
+        selected: true,
     },
 };

@@ -37,14 +37,14 @@ type Story = StoryObj<typeof TransparentButton>;
 
 export const BrightButton: Story = {
     args: {
-        children: 'bright button',
+        children: 'Кнопка',
         textColor: 'bright',
     },
 };
 
 export const FadedButton: Story = {
     args: {
-        children: 'faded button',
+        children: 'Кнопка',
         textColor: 'faded',
     },
 };

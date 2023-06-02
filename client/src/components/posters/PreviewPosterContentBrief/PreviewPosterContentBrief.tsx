@@ -1,6 +1,6 @@
 import IMovie from '@/models/IMovie';
 import styles from './PreviewPosterContentBrief.module.scss';
-import { declineWord, firstCapitalLetter } from '@/utils/functions';
+import { declineWord, firstCapitalLetter } from '../../../utils/functions';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 

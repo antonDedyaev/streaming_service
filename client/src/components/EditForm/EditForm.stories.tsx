@@ -3,9 +3,8 @@ import './EditForm.module.scss';
 import EditForm from './EditForm';
 
 const meta: Meta<typeof EditForm> = {
-    title: 'EditForm/EditForm',
+    title: 'MovieEditForm',
     component: EditForm,
-    tags: ['autodocs'],
     parameters: {
         backgrounds: { default: 'dark' },
     },

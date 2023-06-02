@@ -6,7 +6,6 @@ import IPerson from '@/models/IPerson';
 const meta: Meta<typeof ActorItem> = {
     title: 'Cards/Round',
     component: ActorItem,
-    tags: ['autodocs'],
     argTypes: {
         size: {
             control: false,

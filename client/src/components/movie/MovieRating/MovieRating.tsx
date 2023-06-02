@@ -3,7 +3,7 @@ import TextSquareUI from '../../UI/squares/TextSquareUI/TextSquareUI';
 import { useTranslation } from 'next-i18next';
 import IMovie from '@/models/IMovie';
 import { declineWord } from '../../../utils/functions';
-import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
+import BorderedButton from '../../UI/buttons/BorderedButton/BorderedButton';
 
 interface MovieRatingProps {
     movie: IMovie;
@@ -31,7 +31,9 @@ const MovieRating = ({ movie }: MovieRatingProps) => {
                 </p>
             </div>
 
-            <BorderedButton className={styles.container__estimate} size='small'>{t('rate')}</BorderedButton>
+            <BorderedButton className={styles.container__estimate} size="small">
+                {t('rate')}
+            </BorderedButton>
         </div>
     );
 };

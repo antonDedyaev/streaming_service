@@ -1,10 +1,6 @@
-import { useEffect } from 'react';
 import styles from './DropMenu.module.scss';
-import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
-import LinksList from '../LinksList/LinksList';
-import IGenre from '@/models/IGenre';
-import ICountry from '@/models/ICountry';
-import { firstCapitalLetter } from '@/utils/functions';
+import TextLinkUI from '../../UI/links/TextLink/TextLinkUI';
+import { firstCapitalLetter } from '../../../utils/functions';
 
 interface IContent {
     title: string;

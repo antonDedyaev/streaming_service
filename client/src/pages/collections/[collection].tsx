@@ -1,19 +1,18 @@
-import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
-import FilterList from '@/components/filters/FilterList';
-import FilterPanel from '@/components/filters/FilterPanel';
+import FilterList from '@/components/filters/FilterList/FilterList';
+import FilterPanel from '../../components/filters/FilterPanel/FilterPanel';
 import panelStyles from '../../components/filters/FilterPanel.module.scss';
-import FilterPlank from '@/components/filters/FilterPlank';
+import FilterPlank from '@/components/filters/FilterPlank/FilterPlank';
 import plankStyles from '@/components/filters/FilterPlank.module.scss';
-import FilterRange from '@/components/filters/FilterRange';
+import FilterRange from '@/components/filters/FilterRange/FilterRange';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 
 import styles from '@/styles/pages/CollectionPage.module.scss';
 import ratingIcon from '@/../public/icons/rating.svg';
 import votesIcon from '../../../public/icons/userRank.svg';
-import FilterSearch from '@/components/filters/FilterSearch';
+import FilterSearch from '@/components/filters/FilterSearch/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
