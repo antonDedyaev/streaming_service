@@ -1,5 +1,4 @@
 import AgeBadge from '@/components/UI/badges/AgeBadge/AgeBadge';
-import PriceBadge from '@/components/UI/badges/PriceBadge/PriceBadge';
 import PreviewPosterContent from '../PreviewPosterContent/PreviewPosterContent';
 import IMovies from '@/models/IMovies';
 import Image from 'next/image';
@@ -26,7 +25,6 @@ const PreviewPoster = ({ movie, className }: PreviewPosterProps) => {
 
             <div className={[style.container__block, style.container__block_text].join(' ')}>
                 <p className={style.container__title}>{locale === 'en' && movie.enName ? movie.enName : movie.name}</p>
-                <PriceBadge priceType="purchase" />
             </div>
         </Link>
     );
