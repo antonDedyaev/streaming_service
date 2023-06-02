@@ -8,7 +8,7 @@ import eyeOpenIcon from '../../../../public/icons/eye_open.svg';
 import Image from 'next/image';
 
 interface ModalInputUIProps {
-    type: 'search' | 'email' | 'password';
+    type: 'search' | 'email' | 'password' | 'comment';
     inputType: string;
     placeholder: string;
     value: string;
@@ -55,17 +55,27 @@ const ModalInputUI = ({ type, inputType, placeholder, value, focus, onChange, on
 
             {type === 'search' &&
                 (value === '' ? (
-                    <Image src={searchIcon} className={styles.container__icon} alt="" />
+                    <Image src={searchIcon} className={styles.container__icon} alt="search" />
                 ) : (
                     <Image
                         src={closeIcon}
                         className={styles.container__icon}
-                        alt=""
+                        alt="close"
                         onClick={() => (onClick ? onClick() : '')}
                     />
                 ))}
 
-            {type === 'email' && <Image src={userIcon} className={styles.container__icon} alt="" />}
+                {type === 'comment' &&
+                    (value === '' ? ('') : (
+                        <Image
+                            src={closeIcon}
+                            className={styles.container__icon}
+                            alt="close"
+                            onClick={() => (onClick ? onClick() : '')}
+                        />
+                    ))}
+
+            {type === 'email' && <Image src={userIcon} className={styles.container__icon} alt="user" />}
 
             {type === 'password' &&
                 (isShowPassword ? (

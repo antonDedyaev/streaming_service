@@ -1,10 +1,12 @@
 .container {
     width: 100%;
     margin-top: 24px;
-    pointer-events: none;
     display: flex;
     align-items: center;
     padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.08);
+    cursor: pointer;
 
     &__value {
         display: flex;

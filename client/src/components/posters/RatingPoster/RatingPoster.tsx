@@ -12,7 +12,7 @@ interface RatingPosterProps {
 const RatingPoster = ({ movie, className }: RatingPosterProps) => {
     return (
         <div className={[style.container, className].join(' ')}>
-            <Link href="/">
+            <Link href={`/movies/${movie.id}`}>
                 <div className={style.container__imageWrapper}>
                     <Image className={style.container__image} fill src={movie.posterUrl} alt={movie.name} />
                     <div className={style.container__fadeArea}></div>

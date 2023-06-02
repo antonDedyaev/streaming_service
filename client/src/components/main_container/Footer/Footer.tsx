@@ -8,7 +8,7 @@ import phoneIcon from '../../../../public/icons/link/phone.svg';
 import loudspeaker from '../../../../public/icons/link/loudspeaker.svg';
 import tvIcon from '../../../../public/icons/link/devices_tv.svg';
 import devicesIcon from '../../../../public/icons/link/devices_all.svg';
-import ButtonUI from '../../UI/buttons/Button/ButtonUI';
+import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import LinksList from '../LinksList/LinksList';
 import { useTranslation } from 'next-i18next';
 
@@ -134,14 +134,14 @@ const Footer: FC = () => {
                                 <ShapedLinkUI href="mailto:support@ivi.ru" shape="square">
                                     <Image src={mailIcon} height={16} width={16} alt="Иконка почты" />
                                 </ShapedLinkUI>
-                                <ButtonUI
-                                    background="gray"
-                                    shape="square"
+                                <ColoredButton
+                                    size='small'
+                                    color='gray'
                                     className={[styles.container__button, styles.container__button_size].join(' ')}
                                     onClick={() => setPhoneIsHidden(!phoneIsHidden)}
                                 >
                                     <Image src={phoneIcon} height={16} width={16} alt="Иконка телефона" />
-                                </ButtonUI>
+                                </ColoredButton>
                             </div>
                             <div
                                 className={[

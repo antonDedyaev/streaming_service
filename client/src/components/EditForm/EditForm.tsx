@@ -8,6 +8,7 @@ import BorderedButton from '../UI/buttons/BorderedButton/BorderedButton';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import TransparentButton from '../UI/buttons/TransparentButton/TransparentButton';
 
 interface IEditableItem {
     id: number;
@@ -56,8 +57,10 @@ const EditForm = ({ item, deletable }: IEditFormProps) => {
         } catch (e: any) {
             console.log(e.response?.data?.message);
         }
+
         setIsFieldActive(false);
     };
+
     return (
         <div
             className={[styles.container, isItemDeleted ? styles.container_hidden : styles.container_visible].join(' ')}
@@ -92,14 +95,18 @@ const EditForm = ({ item, deletable }: IEditFormProps) => {
                         onChange={(e) => setInputValueEn(e.target.value)}
                     />
                 </div>
-                <button className={styles.container__editButton} onClick={() => setIsFieldActive(!isFieldActive)}>
+                <TransparentButton
+                    className={styles.container__editButton} 
+                    textColor='faded'
+                    onClick={() => setIsFieldActive(!isFieldActive)}
+                >
                     <Image
                         src={isFieldActive ? confirmBtn : editBtn}
                         width={20}
                         height={20}
                         alt="Кнопка редактирования и удаления"
-                    />
-                </button>
+                    />    
+                </TransparentButton>
                 <BorderedButton size="small" className={styles.container__saveButton} onClick={handleSaveResult}>
                     {t('editing.saveButton')}
                 </BorderedButton>
@@ -107,4 +114,5 @@ const EditForm = ({ item, deletable }: IEditFormProps) => {
         </div>
     );
 };
+
 export default EditForm;
