@@ -44,5 +44,11 @@
         "Editor",
         "Voice actor"
     ],
-    "textTime": ["hrs.", "min."]
+    "textTime": ["hrs.", "min."],
+    "comments": {
+        "comments": "Comments",
+        "placeholder": "Write a comment",
+        "send": "Send",
+        "reply": "Reply"
+    }
 }

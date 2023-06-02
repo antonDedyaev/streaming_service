@@ -21,6 +21,7 @@ import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import { useAppDispatch } from '@/store/hooks/redux';
 import { getGenresAndCountries } from '@/store/ActionCreators';
+import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
     let movie: IMovie | null = null;
@@ -156,6 +157,9 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
                             <div className={styles.devices__image}>
                                 <MovieDevicesImage poster={movie.posterUrl} title={movie.name} />
                             </div>
+                        </section>
+                        <section>
+                            <CommentsSection comments={movie.comments} />
                         </section>
                         <section>
                             <Breadcrumbs
