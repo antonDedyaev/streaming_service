@@ -87,7 +87,9 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
     const imaxMovies = movies
         .filter((movie) => movie.hasIMAX)
         .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime());
-
+    const allFilters = useAppSelector((state) => state.movies.filters);
+    const result = Object.values(allFilters).find((filter) => filter.length !== 0 && filter !== 0);
+    console.log('Не пустой', result);
     return (
         <MainContainer
             keywords={['moviesPage', 'iviEtoKryto']}
@@ -100,7 +102,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
                         <Breadcrumbs path={asPath.split('/').slice(1)} />
 
                         <h2 className={styles.container__title}>
-                            {t('moviesPage:moviesSpoiler.sectionTitle')} {t('moviesPage:moviesSpoiler.header')}
+                            {isFilterApplied && t('moviesPage:moviesSpoiler.sectionTitle') + asPath}
                         </h2>
                         <SpoilerUI shownLines={2} toggleButtonTexts={[t('showSpoiler'), t('hideSpoiler')]}>
                             <p>{t('moviesPage:moviesSpoiler.content.0')}</p>

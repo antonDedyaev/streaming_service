@@ -1,7 +1,6 @@
 import ICountry from '@/models/ICountry';
 import IGenre from '@/models/IGenre';
 import IMovies from '@/models/IMovies';
-import { ISortParams } from '@/components/movie/SortMovies/SortMovies';
 import { addFilteredMovies } from '@/store/slices/moviesSlice';
 import { AppDispatch } from '@/store/store';
 
@@ -29,7 +28,7 @@ export const getCollection = (title: string, movies: IMovies[], genres: IGenre[]
             return getMoviesByGenre(movies, 'фантастика');
         case 'drama':
             return getMoviesByGenre(movies, 'драма');
-        case 'foreign':
+        case 'Foreign':
             return getMoviesByForeign(movies);
         default:
             return getMovies(movies, title, genres, countries);

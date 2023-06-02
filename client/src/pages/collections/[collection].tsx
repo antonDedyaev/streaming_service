@@ -76,10 +76,27 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
     const countriesList = Array.from(new Set<string>(countryNames));
 
     const path = asPath.split('/').slice(-1)[0].split('-');
-    const dynamicHeader =
-        path.length === 1
-            ? t(`collection:category.${path[0]}`)
-            : t(`moviesPage:${path[0] + path[1][0].toUpperCase() + path[1].slice(1)}`);
+
+    const getHeader = (path: string[]) => {
+        let header = '';
+        if (path.length === 1) {
+            header = t(`collection:category.${path[0]}`);
+        }
+        if (path.length === 1 && path[0].startsWith(path[0][0].toUpperCase())) {
+            if (path[0] === 'Russia') {
+                header = t('collection:countries.Russia');
+            } else if (path[0] === 'USSR') {
+                header = t('collection:countries.USSR');
+            } else {
+                header = t('collection:countries.Foreign');
+            }
+        }
+        if (path.length > 1) {
+            header = t(`moviesPage:${path[0] + path[1][0].toUpperCase() + path[1].slice(1)}`);
+        }
+
+        return header;
+    };
 
     const collectionTitle = asPath.split('/').slice(-1)[0];
     const collection = getCollection(collectionTitle, movies, genres, countries);
@@ -97,7 +114,7 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
                     <div className={styles.container__spoiler}>
                         <Breadcrumbs path={asPath.split('/').slice(1)} />
                         <h2 className={styles.container__title}>
-                            {dynamicHeader} {t('moviesPage:moviesSpoiler.header')}
+                            {getHeader(path)} {t('moviesPage:moviesSpoiler.header')}
                         </h2>
                     </div>
                     <div className={styles.container__controlButtons}>
