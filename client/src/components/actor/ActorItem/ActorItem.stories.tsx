@@ -1,7 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
 import ActorItem from './ActorItem';
-import '../../../styles/nullstyle.scss';
-import '../../../styles/globals.scss';
 import './ActorItem.module.scss';
 import IPerson from '@/models/IPerson';
 
@@ -14,6 +12,13 @@ const meta: Meta<typeof ActorItem> = {
             control: false,
         },
     },
+    decorators: [
+        (Story) => (
+            <div style={{ background: '#100e19', paddingLeft: '10px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export default meta;

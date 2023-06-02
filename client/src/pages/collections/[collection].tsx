@@ -18,7 +18,6 @@ import { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
-/*import useSWR from 'swr';*/
 import PostersList from '@/components/posters/PostersList/PostersList';
 import { getCollection } from '../../utils/moviesHelpers';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
@@ -79,7 +78,7 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
     const path = asPath.split('/').slice(-1)[0].split('-');
     const dynamicHeader =
         path.length === 1
-            ? t(`mainPage:${path[0]}`)
+            ? t(`collection:category.${path[0]}`)
             : t(`moviesPage:${path[0] + path[1][0].toUpperCase() + path[1].slice(1)}`);
 
     const collectionTitle = asPath.split('/').slice(-1)[0];
@@ -89,9 +88,9 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
 
     return (
         <MainContainer
-            keywords={['homePage', 'iviEtoKryto']}
+            keywords={['collection', 'iviEtoKryto']}
             title="Смотреть фильмы онлайн бесплатно в хорошем HD качестве и без регистрации. Удобный просмотр онлайн фильмов на ivi.ru"
-            page="home"
+            page="other"
         >
             <div className="container">
                 <div className={styles.container}>
@@ -100,13 +99,6 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
                         <h2 className={styles.container__title}>
                             {dynamicHeader} {t('moviesPage:moviesSpoiler.header')}
                         </h2>
-                        {/* <SpoilerUI shownLines={2} toggleButtonTexts={[t('showSpoiler'), t('hideSpoiler')]}>
-                            <p>{t('moviesPage:moviesSpoiler.content.0')}</p>
-                            <p>{t('moviesPage:moviesSpoiler.content.1')}</p>
-                            <p>{t('moviesPage:moviesSpoiler.content.2')}</p>
-                            <p>{t('moviesPage:moviesSpoiler.content.3')}</p>
-                            <p>{t('moviesPage:moviesSpoiler.content.4')}</p>
-                        </SpoilerUI> */}
                     </div>
                     <div className={styles.container__controlButtons}>
                         <button onClick={() => setShowFilterPanel(!showFilterPanel)}>

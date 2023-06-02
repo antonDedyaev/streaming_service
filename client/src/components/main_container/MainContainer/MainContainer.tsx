@@ -6,8 +6,6 @@ import TabBar from '../TabBar/TabBar';
 import { useRouter } from 'next/router';
 import SearchModal from '@/components/modals/SearchModal/SearchModal';
 import LoginModal from '@/components/modals/LoginModal/LoginModal';
-import { Provider } from 'react-redux';
-import { setupStore } from '@/store/store';
 
 interface MainContainerProps {
     children: ReactNode;

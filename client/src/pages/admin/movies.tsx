@@ -6,7 +6,7 @@ import EditForm from '@/components/EditForm/EditForm';
 import ArrowButton from '@/components/UI/buttons/ArrowButton/ArrowButtonUI';
 import IMovies from '@/models/IMovies';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
@@ -96,7 +96,7 @@ const MovieEditPage = ({ movies }: { movies: IMovieEditable[] }) => {
                 <ul>
                     {renderedList.slice(0, shownMoviesLimit).map((movie, index) => (
                         <li key={index}>
-                            <EditForm item={movie} />
+                            <EditForm deletable={true} item={movie} />
                         </li>
                     ))}
                     {renderedList.length > shownMoviesLimit && (

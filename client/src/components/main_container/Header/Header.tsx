@@ -164,7 +164,10 @@ const Header = ({ page }: HeaderProps) => {
                                   {
                                       title: t('dropmenu.countries'),
                                       links: [
-                                          { text: locale === 'ru' ? 'Русские' : 'Russia', href: '/collections/Russia' },
+                                          {
+                                              text: locale === 'ru' ? 'Русские' : 'Russian',
+                                              href: '/collections/Russia',
+                                          },
                                           {
                                               text: locale === 'ru' ? 'Зарубежные' : 'Foreign',
                                               href: '/collections/foreign',

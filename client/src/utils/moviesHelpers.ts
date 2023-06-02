@@ -51,7 +51,6 @@ export const getMoviesByGenreEn = (arrOfMovies: IMovies[], genre: string) =>
 export const getMoviesByCountry = (arrOfMovies: IMovies[], country: string) =>
     arrOfMovies.flatMap((movie) => {
         const filtered = movie.countries.filter((item) => item.enName === country);
-        console.log('filtered', filtered);
 
         return filtered.length === 0 ? [] : movie;
     });
@@ -83,22 +82,21 @@ export const getMovies = (arrOfMovies: IMovies[], value: string, genres: IGenre[
 };
 
 export const getSortedMovies = (
-    sortParams: ISortParams,
     sortingParameter: string,
     moviesToSort: IMovies[],
     locale: string,
     dispatch: AppDispatch,
 ) => {
     switch (sortingParameter) {
-        case sortParams.userRates:
+        case 'userRates':
             moviesToSort.sort((a, b) => b.votesKp - a.votesKp);
             dispatch(addFilteredMovies(moviesToSort));
             break;
-        case sortParams.rating:
+        case 'rating':
             moviesToSort.sort((a, b) => b.ratingKp - a.ratingKp);
             dispatch(addFilteredMovies(moviesToSort));
             break;
-        case sortParams.releaseDate:
+        case 'releaseDate':
             moviesToSort.sort(
                 (a, b) =>
                     new Date(
@@ -110,7 +108,7 @@ export const getSortedMovies = (
             );
             dispatch(addFilteredMovies(moviesToSort));
             break;
-        case sortParams.movieName:
+        case 'name':
             moviesToSort.sort((a, b) => {
                 const firstArgName = a.enName && locale === 'en' ? a.enName : a.name;
                 const secondArgName = b.enName && locale === 'en' ? b.enName : b.name;

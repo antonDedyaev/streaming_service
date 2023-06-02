@@ -10,7 +10,7 @@ export interface ISortParams {
     userRates: string;
     rating: string;
     releaseDate: string;
-    movieName: string;
+    name: string;
 }
 
 const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
@@ -19,39 +19,40 @@ const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
     const dispatch = useAppDispatch();
     const [isDropdownShown, setIsDropdownShown] = useState(false);
 
-    const sortParams: ISortParams = {
-        userRates: t('sorting.userRates'),
-        rating: t('sorting.rating'),
-        releaseDate: t('sorting.releaseDate'),
-        movieName: t('sorting.name'),
-    };
-    const [sortingParameter, setSortingParameter] = useState(sortParams.userRates);
+    const sortParams: string[] = ['userRates', 'rating', 'releaseDate', 'name'];
+
+    const [sortingParameter, setSortingParameter] = useState('userRates');
 
     useEffect(() => {
-        getSortedMovies(sortParams, sortingParameter, [...filteredMovies], locale!, dispatch);
+        getSortedMovies(sortingParameter, [...filteredMovies], locale!, dispatch);
     }, [sortingParameter]);
 
-    const handleSortTypeSelection = ({ currentTarget }: React.MouseEvent<HTMLDivElement>) => {
-        setSortingParameter(currentTarget.textContent!);
+    const handleSortTypeSelection = ({ currentTarget }: React.MouseEvent<HTMLDivElement>, key: string) => {
+        setSortingParameter(key);
         currentTarget
             .parentElement!.querySelector(`.${styles.container__dropdownItem_selected}`)
             ?.classList.remove(styles.container__dropdownItem_selected);
         currentTarget.classList.add(styles.container__dropdownItem_selected);
     };
 
-    const renderMenuItem = (paramName: string) => {
+    const renderMenuItem = (param: string) => {
         return (
-            <div className={styles.container__dropdownItem} key={paramName} onClick={handleSortTypeSelection}>
+            <div
+                className={styles.container__dropdownItem}
+                key={param}
+                onClick={(e) => handleSortTypeSelection(e, param)}
+            >
                 <div className={styles.container__itemStripe}></div>
-                <div className={styles.container__itemText}>{paramName}</div>
+                <div className={styles.container__itemText}>
+                    {param !== 'userRates'
+                        ? t(`sorting.${param}`)
+                        : `${t('sorting.by')} ${t(`sorting.${param}`).slice(0, 1).toLowerCase()}${t(
+                              `sorting.${param}`,
+                          ).slice(1)}`}
+                </div>
             </div>
         );
     };
-
-    const selectedParam =
-        sortingParameter === sortParams.userRates
-            ? sortingParameter
-            : `${t('sorting.by')} ${sortingParameter.slice(0, 1).toLowerCase()}${sortingParameter.slice(1)}`;
 
     return (
         <section>
@@ -66,12 +67,16 @@ const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
                     >
                         <div className={styles.container__sortingPanel}>
                             <div className={styles.container__sortIcon}></div>
-                            <div className={styles.container__sortParameter}>{selectedParam}</div>
+                            <div className={styles.container__sortParameter}>{`${t('sorting.by')} ${t(
+                                `sorting.${sortingParameter}`,
+                            )
+                                .slice(0, 1)
+                                .toLowerCase()}${t(`sorting.${sortingParameter}`).slice(1)}`}</div>
                             <div className={styles.container__sortArrow}></div>
                         </div>
                         <div className={styles.container__dropdown}>
                             <div className={styles.container__itemTitle}>{t('sorting.sort')}</div>
-                            {Object.values(sortParams).map((param) => renderMenuItem(param))}
+                            {sortParams.map((param) => renderMenuItem(param))}
                         </div>
                     </div>
                 </div>
