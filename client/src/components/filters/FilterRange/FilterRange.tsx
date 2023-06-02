@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import styles from './FilterRange.module.scss';
 import { useEffect, useState } from 'react';
-import greaterThan from '../../../public/icons/greater-than.svg';
+import greaterThan from '../../../../public/icons/greater-than.svg';
 import { useTranslation } from 'next-i18next';
-import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
-import { checkFiltersStatus } from '../../utils/functions';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks/redux';
+import { checkFiltersStatus } from '../../../utils/functions';
 import axios from 'axios';
-import { addFilteredMovies, ratingFilterAdded, votesFilterAdded } from '../../store/slices/moviesSlice';
-import IMovies from '@/models/IMovies';
+import { addFilteredMovies, ratingFilterAdded, votesFilterAdded } from '../../../store/slices/moviesSlice';
+/*import IMovies from '@/models/IMovies';
 import IGenre from '@/models/IGenre';
-import ICountry from '@/models/ICountry';
+import ICountry from '@/models/ICountry';*/
 interface IRating {
     category: 'ratingKp' | 'votesKp';
     image: string;
@@ -17,11 +17,11 @@ interface IRating {
     step: number;
 }
 
-interface IFiltered {
+/*interface IFiltered {
     film: IMovies;
     genres: IGenre[];
     countries: ICountry[];
-}
+}*/
 
 const FilterRange = ({ category, image, limit, step }: IRating) => {
     const { t } = useTranslation('moviesPage');

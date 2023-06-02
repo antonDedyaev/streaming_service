@@ -1,40 +1,37 @@
 import { Meta, StoryObj } from '@storybook/react';
 import ActorItem from './ActorItem';
-import '../../../styles/nullstyle.scss';
-import '../../../styles/globals.scss';
 import './ActorItem.module.scss';
+import IPerson from '@/models/IPerson';
 
 const meta: Meta<typeof ActorItem> = {
     title: 'Cards/Round',
     component: ActorItem,
-    tags: ['autodocs'],
     argTypes: {
         size: {
             control: false,
         },
     },
+    decorators: [
+        (Story) => (
+            <div style={{ background: '#100e19', paddingLeft: '10px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export default meta;
 
 type Story = StoryObj<typeof ActorItem>;
 
-export interface IData {
-    id: number;
-    img: string;
-    amtMovies: number;
-    firstName: string;
-    lastName: string;
-    role: string;
-}
-
-const data: IData = {
+const data: IPerson = {
     id: 1,
-    img: require('../../../testAsserts/img/BG554460.jpg'),
-    amtMovies: 4,
-    firstName: 'Имя',
-    lastName: 'Фамилия',
-    role: 'Роль',
+    name: 'Фамилия Имя',
+    enName: 'Фамилия Имя',
+    photo: require('../../../testAsserts/img/BG554460.jpg'),
+    profession: ['профессия'],
+    enProfession: ['профессия'],
+    countMovies: 4,
 };
 
 export const Large: Story = {
@@ -46,7 +43,7 @@ export const Large: Story = {
         ),
     ],
     args: {
-        actor: data,
+        person: data,
         size: 'large',
     },
 };
@@ -60,7 +57,7 @@ export const Medium: Story = {
         ),
     ],
     args: {
-        actor: data,
+        person: data,
         size: 'medium',
     },
 };
@@ -74,7 +71,7 @@ export const Small: Story = {
         ),
     ],
     args: {
-        actor: data,
+        person: data,
         size: 'small',
     },
 };

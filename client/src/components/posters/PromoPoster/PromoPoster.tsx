@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import style from './PromoPoster.module.scss';
 import { IMoviePromo } from './promoMovies.data';
-import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
+import ColoredButton from '../../UI/buttons/ColoredButton/ColoredButton';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 

@@ -38,7 +38,7 @@
         &_search {
             pointer-events: none;
             &::before {
-                content: url('../../../public/icons/search.svg');
+                content: url('../../../../public/icons/search.svg');
                 opacity: 0.3;
                 transition: color 0.4s;
             }
@@ -48,7 +48,7 @@
             cursor: pointer;
             pointer-events: all;
             &::before {
-                content: url('../../../public/icons/close.svg');
+                content: url('../../../../public/icons/close.svg');
                 opacity: 0.3;
                 transition: color 0.4s;
             }

@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Link from './UnderlinedLink';
-import './UnderlinedLink.module.scss';
+import Link from './SearchMovieLink';
+import './SearchMovieLink.module.scss';
 
 const meta: Meta<typeof Link> = {
-    title: 'Links/UnderlinedLink',
+    title: 'Links/SearchMovieLink',
     component: Link,
     decorators: [
         (Story) => (
@@ -18,8 +18,11 @@ export default meta;
 
 type Story = StoryObj<typeof Link>;
 
-export const UnderlinedLink: Story = {
+export const SearchMovieLink: Story = {
     args: {
-        text: 'Подчеркнутая ссылка',
+        href: '/',
+        name: 'Фильм',
+        year: 1900,
+        value: '',
     },
 };

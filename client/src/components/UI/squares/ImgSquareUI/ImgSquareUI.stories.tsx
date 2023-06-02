@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import ImgSquareUI from './ImgSquareUI';
 import './ImgSquareUI.module.scss';
-import IActor from '@/models/IActor';
+import IPerson from '@/models/IPerson';
 
 const meta: Meta<typeof ImgSquareUI> = {
     title: 'Cards/ImgSquare',
@@ -12,13 +12,13 @@ export default meta;
 
 type Story = StoryObj<typeof ImgSquareUI>;
 
-const actor: IActor = {
+const actor: IPerson = {
     id: 1,
-    img: require('../../../../testAsserts/img/actorTest1.jpg'),
-    amtMovies: 1,
-    firstName: 'Руперт',
-    lastName: 'Гринт',
-    role: 'актер',
+    name: '',
+    enName: '',
+    photo: require('../../../../testAsserts/img/BG554460.jpg'),
+    profession: [''],
+    enProfession: [''],
 };
 
 export const BorderSmall: Story = {
@@ -30,7 +30,7 @@ export const BorderSmall: Story = {
         ),
     ],
     args: {
-        actor: actor,
+        person: actor,
     },
 };
 
@@ -43,7 +43,7 @@ export const BorderMedium: Story = {
         ),
     ],
     args: {
-        actor: actor,
+        person: actor,
         border: 'medium',
     },
 };

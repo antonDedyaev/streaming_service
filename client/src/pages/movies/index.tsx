@@ -1,16 +1,16 @@
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
-import FilterList from '@/components/filters/FilterList';
-import FilterPanel from '@/components/filters/FilterPanel';
-import FilterPlank from '@/components/filters/FilterPlank';
-import plankStyles from '@/components/filters/FilterPlank.module.scss';
-import FilterRange from '@/components/filters/FilterRange';
+import FilterList from '@/components/filters/FilterList/FilterList';
+import FilterPanel from '@/components/filters/FilterPanel/FilterPanel';
+import FilterPlank from '@/components/filters/FilterPlank/FilterPlank';
+import plankStyles from '@/components/filters/FilterPlank/FilterPlank.module.scss';
+import FilterRange from '@/components/filters/FilterRange/FilterRange';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
 import styles from '@/styles/pages/MoviesPage.module.scss';
 import ratingIcon from '@/../public/icons/rating.svg';
 import votesIcon from '../../../public/icons/userRank.svg';
-import FilterSearch from '@/components/filters/FilterSearch';
+import FilterSearch from '@/components/filters/FilterSearch/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { GetStaticProps } from 'next';
@@ -69,7 +69,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
             : countries.map(({ enName }: { enName: string }) => enName);
     const countriesList = Array.from(new Set<string>(countryNames));
 
-    const filteredActors = actors.filter((actor) => actor.name && actor.photo);
+    const filteredActors = actors.filter((actor) => actor.name).sort((a, b) => b.countMovies! - a.countMovies!);
 
     const [isFilterApplied, setIsFilterApplied] = useState(false);
     const [shownPostersLimit, setShownPostersLimit] = useState(35);

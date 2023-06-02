@@ -1,11 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 import MovieRating from './MovieRating';
-import '../../../styles/nullstyle.scss';
-import '../../../styles/globals.scss';
 import './MovieRating.module.scss';
-import { IMovie } from '../../movie/movieMedallion/MovieMedallionsList/Temp/IMovie';
 
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import IMovie from '@/models/IMovie';
 
 const meta: Meta<typeof MovieRating> = {
     title: 'Information/Rating',
@@ -24,24 +22,27 @@ type Story = StoryObj<typeof MovieRating>;
 
 const data: IMovie = {
     id: 1,
-    title: 'Название',
+    type: 'movie',
+    name: 'Название',
+    enName: 'Название',
+    posterUrl: '/img/posterTest.jpg',
+    posterPreviewURL: '/img/posterTest.jpg',
     year: 1900,
-    ageLimit: '0+',
-    time: 'Длительность',
-    production: 'Производство',
-    genres: ['Жанр', 'Жанр', 'Жанр'],
-    displays: ['FullHD', 'HD', '1080', '720'],
-    voiceActing: ['Рус', 'Eng'],
-    subtitles: ['Рус'],
-    subtitlesFull: ['Русский'],
-    description: [],
-    language: ['Русский', 'Английский'],
-    raiting: 9.5,
-    nameraiting: 'Рейтинг',
-    actors: [],
+    description: '',
+    shortDescription: '',
+    ageRating: 0,
+    ratingKp: 9.5,
+    votesKp: 11111,
+    movieLength: 126,
+    genres: [],
+    countries: [],
+    persons: [],
+    trailer: '',
+    watchingWithMovie: [],
+    comments: [],
 };
 
-export const FullScreen: Story = {
+export const Rating: Story = {
     decorators: [
         (Story) => (
             <div style={{ background: '#100e19', width: '400px' }}>

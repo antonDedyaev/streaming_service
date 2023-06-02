@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import styles from './FilterPanel.module.scss';
-import closeIcon from '../../../public/icons/close.svg';
+import closeIcon from '../../../../public/icons/close.svg';
 import { ReactNode } from 'react';
-import TransparentButton from '../UI/buttons/TransparentButton/TransparentButton';
+import TransparentButton from '../../UI/buttons/TransparentButton/TransparentButton';
 
 import { useTranslation } from 'next-i18next';
-import { useAppDispatch, useAppSelector } from '../../store/hooks/redux';
-import { filtersRemoved } from '../../store/slices/moviesSlice';
+import { useAppDispatch } from '../../../store/hooks/redux';
+import { filtersRemoved } from '../../../store/slices/moviesSlice';
 interface IPanel {
     className?: string;
     isFilterApplied: boolean;

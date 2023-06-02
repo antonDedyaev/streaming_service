@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import style from './RatingPoster.module.scss';
-import IMovie from '@/models/IMovie';
 import { IRatingMovie } from './ratingMovies.data';
 
 interface RatingPosterProps {

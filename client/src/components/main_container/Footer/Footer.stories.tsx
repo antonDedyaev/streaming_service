@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Footer from './Footer';
+import FooterСomponent from './Footer';
 import './Footer.module.scss';
 
-const meta: Meta<typeof Footer> = {
-    title: 'Footer/Footer',
-    component: Footer,
+const meta: Meta<typeof FooterСomponent> = {
+    title: 'Footer',
+    component: FooterСomponent,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Footer>;
+type Story = StoryObj<typeof FooterСomponent>;
 
-export const PageFooter: Story = {};
+export const Footer: Story = {};

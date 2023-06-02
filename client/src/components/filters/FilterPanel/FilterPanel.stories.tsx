@@ -1,29 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import FilterPanel from './FilterPanel';
+import Panel from './FilterPanel';
 import './FilterPanel.module.scss';
-import FilterPlank from './FilterPlank';
-import plankStyles from './FilterPlank.module.scss';
-import FilterList from './FilterList';
-import './FilterList.module.scss';
-import FilterRange from './FilterRange';
-import './FilterRange.module.scss';
-import FilterSearch from './FilterSearch';
-import './FilterSearch.module.scss';
-import { genres, countries, actorSuggestions, directorSuggestions } from './temp/items';
-import rating from '../../../public/icons/rating.svg';
-import rank from '../../../public/icons/userRank.svg';
+import FilterPlank from '../FilterPlank/FilterPlank';
+import plankStyles from '../FilterPlank/FilterPlank.module.scss';
+import FilterList from '../FilterList/FilterList';
+import '../FilterList/FilterList.module.scss';
+import FilterRange from '../FilterRange/FilterRange';
+import '../FilterRange/FilterRange.module.scss';
+import FilterSearch from '../FilterSearch/FilterSearch';
+import '../FilterSearch/FilterSearch.module.scss';
+import { genres, countries, actorSuggestions, directorSuggestions } from '../temp/items';
+import rating from '../../../../public/icons/rating.svg';
+import rank from '../../../../public/icons/userRank.svg';
 
-const meta: Meta<typeof FilterPanel> = {
+const meta: Meta<typeof Panel> = {
     title: 'Filters/FilterPanel',
-    component: FilterPanel,
-    tags: ['autodocs'],
+    component: Panel,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof FilterPanel>;
+type Story = StoryObj<typeof Panel>;
 
-export const MoviesFilters: Story = {
+export const FilterPanel: Story = {
     args: {
         isFilterApplied: true,
         children: (
