@@ -12,10 +12,7 @@ import { useRouter } from 'next/router';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import { useTranslation } from 'next-i18next';
-import axios from 'axios';
-import IGenre from '@/models/IGenre';
-import { getGenresAndCountries } from '@/store/ActionCreators';
-import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { useAppSelector } from '@/store/hooks/redux';
 
 interface HeaderProps {
     page: 'home' | 'other';
@@ -24,8 +21,6 @@ interface HeaderProps {
 const Header = ({ page }: HeaderProps) => {
     const { t } = useTranslation('header');
     const [isShowMoviesDrop, setIsShowMoviesDrop] = useState<boolean>(false);
-    const [isShowSeriesDrop, setIsShowSeriesDrop] = useState<boolean>(false);
-    const [isShowCartoonDrop, setIsShowCartoonDrop] = useState<boolean>(false);
     const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
 
     const { asPath, locale } = useRouter();
@@ -34,8 +29,6 @@ const Header = ({ page }: HeaderProps) => {
 
     const clearShowHandler = () => {
         setIsShowMoviesDrop(false);
-        setIsShowSeriesDrop(false);
-        setIsShowCartoonDrop(false);
     };
 
     const mouseOverMovieHandler = () => {
@@ -43,29 +36,19 @@ const Header = ({ page }: HeaderProps) => {
         setIsShowMoviesDrop(true);
     };
 
-    const mouseOverSeriesHandler = () => {
-        clearShowHandler();
-        setIsShowSeriesDrop(true);
-    };
-
-    const mouseOverСartoonHandler = () => {
-        clearShowHandler();
-        setIsShowCartoonDrop(true);
-    };
-
     const clearMouseHandlers = () => {
         clearShowHandler();
     };
 
     useEffect(() => {
-        if (isShowMoviesDrop || isShowSeriesDrop || isShowCartoonDrop) {
+        if (isShowMoviesDrop) {
             setIsMouseOver(true);
         } else {
             setIsMouseOver(false);
         }
-    }, [isShowMoviesDrop, isShowSeriesDrop, isShowCartoonDrop]);
+    }, [isShowMoviesDrop]);
 
-    const { genres, countries } = useAppSelector((state) => state.staticData);
+    const { genres } = useAppSelector((state) => state.staticData);
 
     const genersLinks = () => {
         const array: {
@@ -73,7 +56,7 @@ const Header = ({ page }: HeaderProps) => {
             href: string;
         }[] = [];
         genres.forEach((genre) => {
-            array.push({ text: locale == 'ru' ? genre.name : genre.enName, href: `/collections/1${genre.enName}` });
+            array.push({ text: locale == 'ru' ? genre.name : genre.enName, href: `/collections/${genre.enName}` });
         });
         return array;
     };
@@ -119,17 +102,6 @@ const Header = ({ page }: HeaderProps) => {
                                 href: 'https://www.ivi.ru/series',
                                 text: t('tvShows'),
                                 option: 'dim',
-                                /*onMouseOver: mouseOverSeriesHandler,
-                                className: [styles.container__menuLink, styles.container__menuLink_series].join(' '),*/
-                                onMouseOver: clearShowHandler,
-                                target: '_blank',
-                            },
-                            {
-                                href: 'https://www.ivi.ru/animation',
-                                text: t('cartoons'),
-                                option: 'dim',
-                                /*onMouseOver: mouseOverСartoonHandler,
-                                className: [styles.container__menuLink, styles.container__menuLink_cartoon].join(' '),*/
                                 onMouseOver: clearShowHandler,
                                 target: '_blank',
                             },
@@ -188,110 +160,55 @@ const Header = ({ page }: HeaderProps) => {
                                   {
                                       title: t('dropmenu.genres'),
                                       links: genersLinks(),
-
-                                      /*[
-                                          { text: 'фильм', href: '/' },
-                                          { text: 'фильм', href: '/' },
-                                          { text: 'фильм', href: '/' },
-                                          { text: 'фильм', href: '/' },
-                                          { text: 'фильм', href: '/' },
-                                          { text: 'фильм', href: '/' },
-                                      ]*/
                                   },
                                   {
                                       title: t('dropmenu.countries'),
                                       links: [
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
+                                          {
+                                              text: locale === 'ru' ? 'Русские' : 'Russian',
+                                              href: '/collections/Russia',
+                                          },
+                                          {
+                                              text: locale === 'ru' ? 'Зарубежные' : 'Foreign',
+                                              href: '/collections/foreign',
+                                          },
+                                          {
+                                              text: locale === 'ru' ? 'Советское кино' : 'USSR movie',
+                                              href: '/collections/USSR',
+                                          },
                                       ],
                                   },
                                   {
                                       title: t('dropmenu.years'),
                                       links: [
-                                          { text: 'Фильмы 2023 года', href: '/collections/2023' },
-                                          { text: 'Фильмы 2022 года', href: '/collections/2022' },
-                                          { text: 'Фильмы 2021 года', href: '/collections/2021' },
-                                          { text: 'Фильмы 2020 года', href: '/collections/2020' },
-                                          { text: 'Фильмы 2019 года', href: '/collections/2019' },
-                                          { text: 'Фильмы 2018 года', href: '/collections/2018' },
+                                          {
+                                              text: locale === 'ru' ? 'Фильмы 2023 года' : 'Movies 2023',
+                                              href: '/collections/2023',
+                                          },
+                                          {
+                                              text: locale === 'ru' ? 'Фильмы 2022 года' : 'Movies 2022',
+                                              href: '/collections/2022',
+                                          },
+                                          {
+                                              text: locale === 'ru' ? 'Фильмы 2021 года' : 'Movies 2021',
+                                              href: '/collections/2021',
+                                          },
+                                          {
+                                              text: locale === 'ru' ? 'Фильмы 2020 года' : 'Movies 2020',
+                                              href: '/collections/2020',
+                                          },
+                                          {
+                                              text: locale === 'ru' ? 'Фильмы 2019 года' : 'Movies 2019',
+                                              href: '/collections/2019',
+                                          },
+                                          {
+                                              text: locale === 'ru' ? 'Фильмы 2018 года' : 'Movies 2018',
+                                              href: '/collections/2018',
+                                          },
                                       ],
                                   },
                               ]
-                            : [] /*isShowSeriesDrop
-                            ? [
-                                  {
-                                      title: t('dropmenu.genres'),
-                                      links: [
-                                          { text: 'сериал', href: '/' },
-                                          { text: 'сериал', href: '/' },
-                                          { text: 'сериал', href: '/' },
-                                          { text: 'сериал', href: '/' },
-                                          { text: 'сериал', href: '/' },
-                                          { text: 'сериал', href: '/' },
-                                      ],
-                                  },
-                                  {
-                                      title: t('dropmenu.countries'),
-                                      links: [
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                      ],
-                                  },
-                                  {
-                                      title: t('dropmenu.years'),
-                                      links: [
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                      ],
-                                  },
-                              ]
-                            : [
-                                  {
-                                      title: t('dropmenu.genres'),
-                                      links: [
-                                          { text: 'мультфильм', href: '/' },
-                                          { text: 'мультфильм', href: '/' },
-                                          { text: 'мультфильм', href: '/' },
-                                          { text: 'мультфильм', href: '/' },
-                                          { text: 'мультфильм', href: '/' },
-                                          { text: 'мультфильм', href: '/' },
-                                      ],
-                                  },
-                                  {
-                                      title: t('dropmenu.countries'),
-                                      links: [
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                          { text: 'Страна', href: '/' },
-                                      ],
-                                  },
-                                  {
-                                      title: t('dropmenu.years'),
-                                      links: [
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                          { text: 'Год', href: '/' },
-                                      ],
-                                  },
-                              ]*/
+                            : []
                     }
                 />
             </div>

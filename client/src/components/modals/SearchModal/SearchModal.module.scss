@@ -4,7 +4,7 @@
     margin: 0 30px;
     max-width: 860px;
     padding-top: 60px;
-    transition: .4s;
+    transition: 0.4s;
 
     &__title {
         font-size: 40px;
@@ -16,6 +16,14 @@
 
     &__content {
         padding: 24px 0 0 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        & a {
+            margin-bottom: 10px;
+            flex-basis: 50%;
+            flex-shrink: 0;
+        }
     }
 }
 
@@ -24,7 +32,6 @@
         width: 62%;
     }
 }
-
 
 @media (max-width: 1095px) {
     .container {

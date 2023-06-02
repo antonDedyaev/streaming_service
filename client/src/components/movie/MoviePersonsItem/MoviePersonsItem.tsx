@@ -8,9 +8,10 @@ import IPerson from '@/models/IPerson';
 interface MoviePersonsItemProps {
     persons: IPerson[];
     title: string;
+    closeModal?: (close: boolean) => void;
 }
 
-const MoviePersonsItem = ({ persons, title }: MoviePersonsItemProps) => {
+const MoviePersonsItem = ({ persons, title, closeModal }: MoviePersonsItemProps) => {
     const [showButton, setShowButton] = useState(persons.length > 16 ? true : false);
     const [quantity, setQuantity] = useState(16);
     const showMore = () => {
@@ -19,6 +20,9 @@ const MoviePersonsItem = ({ persons, title }: MoviePersonsItemProps) => {
     };
 
     const { t } = useTranslation('movie');
+    const close = (value: boolean) => {
+        closeModal?.(value);
+    };
 
     return (
         <div className={styles.container}>
@@ -26,7 +30,7 @@ const MoviePersonsItem = ({ persons, title }: MoviePersonsItemProps) => {
 
             <div className={styles.container__spoiler}>
                 <div className={styles.container__item}>
-                    <ActorList persons={persons.slice(0, quantity)} size="medium" />
+                    <ActorList persons={persons.slice(0, quantity)} size="medium" closeModal={close} />
                 </div>
                 {showButton && (
                     <BorderedButton

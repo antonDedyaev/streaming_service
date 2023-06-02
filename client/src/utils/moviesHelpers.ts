@@ -29,6 +29,8 @@ export const getCollection = (title: string, movies: IMovies[], genres: IGenre[]
             return getMoviesByGenre(movies, 'фантастика');
         case 'drama':
             return getMoviesByGenre(movies, 'драма');
+        case 'foreign':
+            return getMoviesByForeign(movies);
         default:
             return getMovies(movies, title, genres, countries);
     }
@@ -48,9 +50,22 @@ export const getMoviesByGenreEn = (arrOfMovies: IMovies[], genre: string) =>
 
 export const getMoviesByCountry = (arrOfMovies: IMovies[], country: string) =>
     arrOfMovies.flatMap((movie) => {
-        const filtered = movie.countries.filter((item) => item.name === country);
+        const filtered = movie.countries.filter((item) => item.enName === country);
+
         return filtered.length === 0 ? [] : movie;
     });
+
+export const getMoviesByForeign = (arrOfMovies: IMovies[]) => {
+    return arrOfMovies.flatMap((movie) => {
+        let isCountry: boolean = false;
+        movie.countries.forEach((item) => {
+            if (item.enName === 'Russia' || item.enName === 'USSR') {
+                isCountry = true;
+            }
+        });
+        return isCountry ? [] : movie;
+    });
+};
 
 export const getMovies = (arrOfMovies: IMovies[], value: string, genres: IGenre[], countries: ICountry[]) => {
     if (Number(value)) {
@@ -58,8 +73,8 @@ export const getMovies = (arrOfMovies: IMovies[], value: string, genres: IGenre[
     } else {
         if (genres.find((genre) => genre.enName === value)) {
             return getMoviesByGenreEn(arrOfMovies, value);
-        } else if (countries.find((gener) => gener.enName === value)) {
-            return getMoviesByCountry(arrOfMovies, value);
+        } else if (countries.find((country) => country.enName === value.split('_').join(' '))) {
+            return getMoviesByCountry(arrOfMovies, value.split('_').join(' '));
         } else {
             return [];
         }
@@ -67,22 +82,21 @@ export const getMovies = (arrOfMovies: IMovies[], value: string, genres: IGenre[
 };
 
 export const getSortedMovies = (
-    sortParams: ISortParams,
     sortingParameter: string,
     moviesToSort: IMovies[],
     locale: string,
     dispatch: AppDispatch,
 ) => {
     switch (sortingParameter) {
-        case sortParams.userRates:
+        case 'userRates':
             moviesToSort.sort((a, b) => b.votesKp - a.votesKp);
             dispatch(addFilteredMovies(moviesToSort));
             break;
-        case sortParams.rating:
+        case 'rating':
             moviesToSort.sort((a, b) => b.ratingKp - a.ratingKp);
             dispatch(addFilteredMovies(moviesToSort));
             break;
-        case sortParams.releaseDate:
+        case 'releaseDate':
             moviesToSort.sort(
                 (a, b) =>
                     new Date(
@@ -94,7 +108,7 @@ export const getSortedMovies = (
             );
             dispatch(addFilteredMovies(moviesToSort));
             break;
-        case sortParams.movieName:
+        case 'name':
             moviesToSort.sort((a, b) => {
                 const firstArgName = a.enName && locale === 'en' ? a.enName : a.name;
                 const secondArgName = b.enName && locale === 'en' ? b.enName : b.name;

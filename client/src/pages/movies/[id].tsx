@@ -19,7 +19,7 @@ import { firstCapitalLetter } from '@/utils/functions';
 import Loading from '@/components/Loading/Loading';
 import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
-import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { useAppDispatch } from '@/store/hooks/redux';
 import { getGenresAndCountries } from '@/store/ActionCreators';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
@@ -57,7 +57,7 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
 
     useEffect(() => {
         dispatch(getGenresAndCountries());
-    }, []);
+    }, [locale]);
 
     return (
         <MainContainer
@@ -90,7 +90,7 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
                                     name: movie.genres[0].name,
                                     enName: movie.genres[0].enName,
                                 }}
-                                ponytailName={{ name: movie.name, enName: movie.enName }}
+                                tailName={{ name: movie.name, enName: movie.enName }}
                                 type="pointShort"
                             />
                         </section>
@@ -109,22 +109,24 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
                             </div>
                         </section>
 
-                        <section className={styles.container__watch}>
-                            <MoviesSection
-                                showAllLink={false}
-                                title={`${t('withMovie.0')} «${
-                                    locale === 'ru'
-                                        ? movie.name
+                        {movie.watchingWithMovie.length > 0 && (
+                            <section className={styles.container__watch}>
+                                <MoviesSection
+                                    showAllLink={false}
+                                    title={`${t('withMovie.0')} «${
+                                        locale === 'ru'
                                             ? movie.name
+                                                ? movie.name
+                                                : movie.enName
                                             : movie.enName
-                                        : movie.enName
-                                        ? movie.enName
-                                        : movie.name
-                                }» ${t('withMovie.1')}`}
-                                movies={movie.watchingWithMovie}
-                                href=""
-                            />
-                        </section>
+                                            ? movie.enName
+                                            : movie.name
+                                    }» ${t('withMovie.1')}`}
+                                    movies={movie.watchingWithMovie}
+                                    href=""
+                                />
+                            </section>
+                        )}
 
                         {movie.persons.length > 0 && (
                             <section className={styles.container__persons}>
@@ -158,7 +160,7 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
                                     name: movie.genres[0].name,
                                     enName: movie.genres[0].enName,
                                 }}
-                                ponytailName={{
+                                tailName={{
                                     name: movie.name ? movie.name : movie.enName,
                                     enName: movie.enName ? movie.enName : movie.name,
                                 }}

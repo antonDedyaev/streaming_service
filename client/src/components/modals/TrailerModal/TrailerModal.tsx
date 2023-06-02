@@ -11,7 +11,11 @@ const TrailerModal = ({ trailer }: TrailerModalProps) => {
     return (
         <ModalUI className={styles.modal}>
             <div className={styles.container}>
-                <ReactPlayer className={styles.player} width="80%" height="80%" url={trailer} controls={true} />
+                {trailer ? (
+                    <ReactPlayer className={styles.player} width="80%" height="80%" url={trailer} controls={true} />
+                ) : (
+                    <h2>Трейлер еще не появился</h2>
+                )}
             </div>
         </ModalUI>
     );

@@ -45,7 +45,7 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
                             truncateFormat="vertical"
                             buttonTextColor="faded"
                         >
-                            <p>{movie.shortDescription}</p>
+                            {movie.shortDescription && <p>{movie.shortDescription}</p>}
                             <p>{movie.description}</p>
                             <p>
                                 Приглашаем поклонников вдохновляющих и трогательных историях про поиск себя и своей

@@ -16,9 +16,13 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
     const { asPath } = useRouter();
     const { t } = useTranslation(['moviesPage', 'movie']);
 
-    const directors = persons.filter((person) => person.enProfession === 'director');
-    const actors = persons.filter((person) => person.enProfession === 'actor');
-    //console.log(persons);
+    const directors = persons.filter((persons) => persons.enProfession.includes('director'));
+    directors.map((director) => {
+        director.profession = ['режиссеры'];
+        director.enProfession = ['director'];
+    });
+
+    const actors = persons.filter((persons) => persons.enProfession.includes('actor'));
 
     return (
         <div className={styles.section}>

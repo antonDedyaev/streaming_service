@@ -4,17 +4,19 @@ import IGenre from '@/models/IGenre';
 import { firstCapitalLetter } from '@/utils/functions';
 import TextLinkUI from '../UI/links/TextLink/TextLinkUI';
 import { useRouter } from 'next/router';
+import { useAppSelector } from '@/store/hooks/redux';
 
 interface BreadcrumbsProps {
     path: string[];
     genre?: IGenre;
-    ponytailName?: { name: string; enName: string };
+    tailName?: { name: string; enName: string };
     type?: 'slash' | 'point' | 'pointShort';
 }
 
-const Breadcrumbs = ({ path, genre, ponytailName, type = 'slash' }: BreadcrumbsProps) => {
+const Breadcrumbs = ({ path, genre, tailName, type = 'slash' }: BreadcrumbsProps) => {
     const { t } = useTranslation('collection');
     const { locale } = useRouter();
+    const { genres, countries } = useAppSelector((state) => state.staticData);
 
     const localizedPaths = path.map((item) => {
         const splitItem = item.split('-');
@@ -22,6 +24,7 @@ const Breadcrumbs = ({ path, genre, ponytailName, type = 'slash' }: BreadcrumbsP
             splitItem.length > 1 ? splitItem[0] + splitItem[1][0].toUpperCase() + splitItem[1].slice(1) : splitItem;
         return t(`${joinedItem}`);
     });
+
     return (
         <div className={styles.container}>
             <ul className={[styles.container__crumbsList, styles[`container__crumbsList_${type}`]].join(' ')}>
@@ -36,7 +39,10 @@ const Breadcrumbs = ({ path, genre, ponytailName, type = 'slash' }: BreadcrumbsP
                 )}
                 {localizedPaths.map((item, index) => {
                     const last = index === path.length - 1;
-                    const ref = path.slice(0, index).join('/');
+                    const ref = path[index]; /*.slice(0, index).join('/')*/
+                    /* console.log('localizedPaths', localizedPaths);
+                     */
+
                     if (!last) {
                         if (item !== 'persons') {
                             return (
@@ -54,7 +60,7 @@ const Breadcrumbs = ({ path, genre, ponytailName, type = 'slash' }: BreadcrumbsP
                             );
                         }
                     } else {
-                        if (genre && ponytailName) {
+                        if (genre && tailName) {
                             return (
                                 <div key={type}>
                                     <li>
@@ -67,19 +73,36 @@ const Breadcrumbs = ({ path, genre, ponytailName, type = 'slash' }: BreadcrumbsP
                                         </TextLinkUI>
                                     </li>
                                     {type !== 'pointShort' && (
-                                        <li>{locale === 'ru' ? ponytailName.name : ponytailName.enName}</li>
+                                        <li className={styles.container__tail}>
+                                            {locale === 'ru' ? tailName.name : tailName.enName}
+                                        </li>
                                     )}
                                 </div>
                             );
                         }
-                        if (ponytailName) {
+                        if (tailName) {
                             return (
                                 type !== 'pointShort' && (
-                                    <li key={index}>{locale === 'ru' ? ponytailName.name : ponytailName.enName}</li>
+                                    <li key={index}>{locale === 'ru' ? tailName.name : tailName.enName}</li>
                                 )
                             );
+                        } else {
+                            const gener = genres.filter((genre) => genre.enName === item);
+                            const country = countries.filter((country) => country.enName === item.split('_').join(' '));
+                            if (gener.length > 0)
+                                return (
+                                    <li key={index}>
+                                        {firstCapitalLetter(locale === 'ru' ? gener[0].name : gener[0].enName)}
+                                    </li>
+                                );
+                            if (country.length > 0)
+                                return (
+                                    <li key={index}>
+                                        {firstCapitalLetter(locale === 'ru' ? country[0].name : country[0].enName)}
+                                    </li>
+                                );
+                            return <li key={index}>{item}</li>;
                         }
-                        return <li key={index}>{item}</li>;
                     }
                 })}
             </ul>

@@ -14,6 +14,15 @@ const nextConfig = {
         ],
     },
     i18n,
+    redirects: async () => {
+        return [
+            {
+                source: '/collections', // source path /home
+                destination: '/movies', // destination path
+                permanent: true,
+            },
+        ];
+    },
 };
 
 module.exports = nextConfig;

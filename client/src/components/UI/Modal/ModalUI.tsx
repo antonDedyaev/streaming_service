@@ -8,9 +8,10 @@ import TransparentButton from '../buttons/TransparentButton/TransparentButton';
 interface ModalUIProps {
     children: ReactNode;
     className?: string;
+    close?: boolean;
 }
 
-const ModalUI = ({ children, className }: ModalUIProps) => {
+const ModalUI = ({ children, className, close }: ModalUIProps) => {
     const location = useRouter();
     const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?trailer)|(\?more)/, '');
 
@@ -24,6 +25,10 @@ const ModalUI = ({ children, className }: ModalUIProps) => {
         body.classList.remove('modal-active');
         location.push(backPath);
     };
+
+    useEffect(() => {
+        close && body.classList.remove('modal-active');
+    }, [close]);
 
     return (
         <div className={[styles.container, className].join(' ')}>

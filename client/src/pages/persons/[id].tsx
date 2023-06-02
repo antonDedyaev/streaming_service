@@ -2,7 +2,7 @@ import MainContainer from '@/components/main_container/MainContainer/MainContain
 import styles from '@/styles/pages/CardPersonPage.module.scss';
 import ImgSquareUI from '@/components/UI/squares/ImgSquareUI/ImgSquareUI';
 import FilmographySection from '@/components/sections/FilmographySection/FilmographySection';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import IPerson from '@/models/IPerson';
@@ -16,55 +16,57 @@ import { firstCapitalLetter, professionInTheSingular } from '@/utils/functions';
 import { getGenresAndCountries } from '@/store/ActionCreators';
 import { useAppDispatch } from '@/store/hooks/redux';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-    props: {
-        ...(await serverSideTranslations(locale!, [
-            'common',
-            'footer',
-            'header',
-            'modals',
-            'person',
-            'moviesPage',
-            'collection',
-        ])),
-    },
-});
+export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
+    const response = await axios.get(`http://localhost:6125/personswithinfo/${params!.id}`);
+    const person = response.data;
+    console.log(person);
 
-export const getStaticPaths = async () => {
     return {
-        paths: ['/persons/id'],
-        fallback: true,
+        props: {
+            person,
+            ...(await serverSideTranslations(locale!, [
+                'collection',
+                'common',
+                'footer',
+                'header',
+                'mainPage',
+                'modals',
+                'moviesPage',
+                'movie',
+            ])),
+        },
     };
 };
 
-const CardActorPage = () => {
+const CardActorPage = ({ person }: { person: IPerson }) => {
     const { t } = useTranslation(['person', 'moviesPage']);
     const dispatch = useAppDispatch();
-    const router = useRouter();
-    const { id } = router.query;
-    const locale = router.locale;
-    const asPath = router.asPath;
+    const { locale, asPath, isReady, back } = useRouter();
 
     const [loading, setLoading] = useState(true);
-    const [person, setPerson] = useState<IPerson>();
 
     useEffect(() => {
-        dispatch(getGenresAndCountries());
+        isReady && setLoading(false);
     }, []);
 
     useEffect(() => {
-        const getPerson = async () => {
-            try {
-                const requestPerson = await axios.get(`http://localhost:6125/personswithinfo/${id}`);
-                setPerson(requestPerson.data);
-            } catch (e: any) {
-                console.log(e.response?.data?.message);
-            } finally {
-                setLoading(false);
-            }
-        };
-        getPerson();
-    }, [id]);
+        dispatch(getGenresAndCountries());
+    }, [locale]);
+
+    const converToString = (array: string[], version: 'en' | 'ru') => {
+        if (version === 'ru') {
+            return array.map((item) => professionInTheSingular(item)).join(', ');
+        }
+        if (version === 'en')
+            return array
+                .map((item) => {
+                    if (item === 'voice_actor') {
+                        return 'Voice actor';
+                    }
+                    return firstCapitalLetter(item);
+                })
+                .join(', ');
+    };
 
     return (
         <MainContainer
@@ -76,14 +78,10 @@ const CardActorPage = () => {
                     ? locale === 'ru'
                         ? `${person.name ? person.name : person.enName}${
                               person.name ? (person.enName ? ` (${person.enName})` : '') : ''
-                          }: ${t('browserTab')}. ${professionInTheSingular(person.profession)}.`
+                          }: ${t('browserTab')}. ${converToString(person.profession, 'ru')}.`
                         : `${person.enName ? person.enName : person.name}${
                               person.enName ? (person.name ? ` (${person.name})` : '') : ''
-                          }: ${t('browserTab')}. ${
-                              person.enProfession === 'voice_actor'
-                                  ? 'Voice actor'
-                                  : firstCapitalLetter(person.enProfession)
-                          }.`
+                          }: ${t('browserTab')}. ${converToString(person.enProfession, 'en')}.`
                     : `${t('pageError', { ns: 'moviesPage' })}`
             }
             page="other"
@@ -94,9 +92,9 @@ const CardActorPage = () => {
                 </div>
             ) : person ? (
                 <div className="container">
-                    <div className={styles.back} onClick={() => router.back()}>
+                    <div className={styles.back} onClick={() => back()}>
                         <img src="/icons/arrows/arrow_left.svg" alt="arrow left" />
-                        {t('back')}
+                        {t('person:back')}
                     </div>
 
                     <div className={styles.container}>
@@ -131,7 +129,7 @@ const CardActorPage = () => {
                             <Breadcrumbs
                                 path={asPath.split('/').slice(1)}
                                 type="slash"
-                                ponytailName={{
+                                tailName={{
                                     name: person.name ? person.name : person.enName,
                                     enName: person.enName ? person.enName : person.name,
                                 }}

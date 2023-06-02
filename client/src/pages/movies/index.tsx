@@ -18,7 +18,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
-/*import useSWR from 'swr';*/
 
 import PostersList from '@/components/posters/PostersList/PostersList';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
@@ -56,7 +55,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
 
     useEffect(() => {
         dispatch(getAllStaticData());
-    }, [locale]);
+    }, [locale, asPath]);
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
@@ -91,9 +90,9 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
 
     return (
         <MainContainer
-            keywords={['homePage', 'iviEtoKryto']}
+            keywords={['moviesPage', 'iviEtoKryto']}
             title="Смотреть фильмы онлайн бесплатно в хорошем HD качестве и без регистрации. Удобный просмотр онлайн фильмов на ivi.ru"
-            page="home"
+            page="other"
         >
             <div className="container">
                 <div className={styles.container}>
