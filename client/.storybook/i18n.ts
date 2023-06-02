@@ -3,7 +3,7 @@ import i18n from 'i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const ns = ['collection', 'common', 'footer', 'header', 'mainPage', 'modals', 'moviesPage', 'adminPage'];
+const ns = ['collection', 'common', 'footer', 'header', 'mainPage', 'modals', 'moviesPage', 'adminPage', 'movie'];
 const supportedLngs = ['en', 'ru'];
 const resources = ns.reduce((acc, n) => {
     supportedLngs.forEach((lng) => {

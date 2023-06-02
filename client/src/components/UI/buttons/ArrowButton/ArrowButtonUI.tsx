@@ -5,7 +5,7 @@ import styles from './ArrowButtonUI.module.scss';
 
 interface ArrowButtonProps {
     className: string;
-    direction: 'top' | 'right' | 'bottom' | 'left';
+    direction: 'right' | 'left';
     iconSize: 'large' | 'medium' | 'small';
     onClick?: () => void;
 }

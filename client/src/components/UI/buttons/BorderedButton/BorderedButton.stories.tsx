@@ -12,8 +12,23 @@ const meta: Meta<typeof BorderedButton> = {
             descriptrion: 'Размер кнопки',
             defaultValue: 'medium',
             options: ['large', 'medium', 'small'],
-        }
+        },
     },
+    decorators: [
+        (Story) => (
+            <div
+                style={{
+                    background: '#100e19',
+                    height: '50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
+            >
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export default meta;
@@ -21,6 +36,13 @@ export default meta;
 type Story = StoryObj<typeof BorderedButton>;
 
 export const LargeButton: Story = {
+    decorators: [
+        (Story) => (
+            <div style={{ width: '100px' }}>
+                <Story />
+            </div>
+        ),
+    ],
     args: {
         size: 'large',
         children: 'Button',

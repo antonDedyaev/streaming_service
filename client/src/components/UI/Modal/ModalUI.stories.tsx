@@ -5,14 +5,6 @@ import './ModalUI.module.scss';
 const meta: Meta<typeof ModalUI> = {
     title: 'ModalUI',
     component: ModalUI,
-    tags: ['autodocs'],
-    argTypes: {
-        children: {
-            type: 'string',
-            name: 'label',
-            defaultValue: 'Я модалка',
-        },
-    },
 };
 
 export default meta;
@@ -20,6 +12,13 @@ export default meta;
 type Story = StoryObj<typeof ModalUI>;
 
 export const RedButton: Story = {
+    decorators: [
+        (Story) => (
+            <div style={{ color: '#fff' }}>
+                <Story />
+            </div>
+        ),
+    ],
     args: {
         children: 'Я модалка',
     },

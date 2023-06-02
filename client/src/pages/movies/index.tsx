@@ -70,7 +70,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
             : countries.map(({ enName }: { enName: string }) => enName);
     const countriesList = Array.from(new Set<string>(countryNames));
 
-    const filteredActors = actors.filter((actor) => actor.name && actor.photo);
+    const filteredActors = actors.filter((actor) => actor.name).sort((a, b) => b.countMovies! - a.countMovies!);
 
     const [isFilterApplied, setIsFilterApplied] = useState(false);
     const [shownPostersLimit, setShownPostersLimit] = useState(35);

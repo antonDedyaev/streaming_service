@@ -14,7 +14,7 @@ interface ModalInputUIProps {
     value: string;
     focus: boolean;
     onChange: (value: string) => void;
-    onClick?: () => void;
+    onClick: () => void;
 }
 
 const ModalInputUI = ({ type, inputType, placeholder, value, focus, onChange, onClick }: ModalInputUIProps) => {

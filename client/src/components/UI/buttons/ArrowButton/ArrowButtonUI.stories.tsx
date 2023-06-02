@@ -9,23 +9,28 @@ const meta: Meta<typeof ArrowButtonUI> = {
     argTypes: {
         direction: {
             type: 'string',
-            descriptrion: 'Направление стрелочки',
             defaultValue: 'right',
-            options: ['top', 'right', 'bottom', 'left'],
+            options: ['right', 'left'],
             control: {
                 type: 'radio',
             },
         },
         iconSize: {
             type: 'string',
-            descriptrion: 'Размер иконки',
-            defaultValue: 'medium',
+            defaultValue: 'large',
             options: ['large', 'medium', 'small'],
             control: {
                 type: 'radio',
             },
         },
     },
+    decorators: [
+        (Story) => (
+            <div style={{ background: '#100e19', height: '50px' }}>
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export default meta;

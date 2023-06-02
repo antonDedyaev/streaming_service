@@ -9,7 +9,7 @@ import MoreModal from '@/components/modals/MoreModal/MoreModal';
 import { useRouter } from 'next/router';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import IMovie from '@/models/IMovie';
@@ -23,8 +23,13 @@ import { useAppDispatch } from '@/store/hooks/redux';
 import { getGenresAndCountries } from '@/store/ActionCreators';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
-    const response = await axios.get(`http://localhost:6125/film/${params!.id}`);
-    const movie = response.data;
+    let movie: IMovie | null = null;
+    try {
+        const response = await axios.get(`http://localhost:6125/film/${params!.id}`);
+        movie = response.data;
+    } catch (error) {
+        console.log(movie);
+    }
 
     return {
         props: {
