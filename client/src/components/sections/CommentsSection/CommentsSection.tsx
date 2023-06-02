@@ -1,12 +1,21 @@
 import CommentsList from '@/components/comments/CommentsList/CommentsList';
-import { comments } from '@/components/comments/commentsTestData';
 import styles from './CommentsSection.module.scss';
+import IComment from '@/models/IComment';
+import CommentForm from '@/components/comments/CommentForm/CommentForm';
+import { useTranslation } from 'next-i18next';
 
-const CommentsSection = () => {
+interface CommentsSectionProps {
+    comments: IComment[]
+}
+
+const CommentsSection = ({ comments }: CommentsSectionProps) => {
+    const { t } = useTranslation('movie');
+
     return (
         <div className={styles.section}>
             <div className={styles.section__header}>
-                <h2 className={styles.section__title}>Отзывы</h2>
+                <h2 className={styles.section__title}>{t('comments.comments')}</h2>
+                <CommentForm />
             </div>
 
             <div className={styles.section__content}>
