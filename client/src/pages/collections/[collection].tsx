@@ -1,9 +1,9 @@
-import FilterList from '@/components/filters/FilterList/FilterList';
+import FilterList from '../../components/filters/FilterList/FilterList';
 import FilterPanel from '../../components/filters/FilterPanel/FilterPanel';
-import panelStyles from '../../components/filters/FilterPanel.module.scss';
-import FilterPlank from '@/components/filters/FilterPlank/FilterPlank';
-import plankStyles from '@/components/filters/FilterPlank.module.scss';
-import FilterRange from '@/components/filters/FilterRange/FilterRange';
+import panelStyles from '../../components/filters/FilterPanel/FilterPanel.module.scss';
+import FilterPlank from '../../components/filters/FilterPlank/FilterPlank';
+import plankStyles from '../../components/filters/FilterPlank/FilterPlank.module.scss';
+import FilterRange from '../../components/filters/FilterRange/FilterRange';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 
 import styles from '@/styles/pages/CollectionPage.module.scss';
