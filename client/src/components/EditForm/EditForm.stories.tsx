@@ -18,5 +18,6 @@ type Story = StoryObj<typeof EditForm>;
 export const MovieEditForm: Story = {
     args: {
         item: { id: 1, name: 'Хранители', enName: 'Watchmen' },
+        deletable: true,
     },
 };
