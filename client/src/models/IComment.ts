@@ -3,5 +3,5 @@ export default interface IComment {
     user: string;
     date: string;
     text: string;
-    childComment: IComment[];
+    childComment?: IComment[];
 }
