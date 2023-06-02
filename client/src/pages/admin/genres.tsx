@@ -40,7 +40,7 @@ const GenreEditPage = ({ genres }: { genres: IGenre[] }) => {
                 <ul>
                     {genres.map((genre, index) => (
                         <li key={index}>
-                            <EditForm item={genre} />
+                            <EditForm deletable={false} item={genre} />
                         </li>
                     ))}
                 </ul>

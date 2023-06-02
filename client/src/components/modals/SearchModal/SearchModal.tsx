@@ -6,7 +6,6 @@ import SearchMovieLink from '@/components/UI/links/SearchMovieLink/SearchMovieLi
 import { useTranslation } from 'next-i18next';
 import IMovies from '@/models/IMovies';
 import { useRouter } from 'next/router';
-import { GetStaticProps } from 'next';
 import axios from 'axios';
 
 const SearchModal = () => {
