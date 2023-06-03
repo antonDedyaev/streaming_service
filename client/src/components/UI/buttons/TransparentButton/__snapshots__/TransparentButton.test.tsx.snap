@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TRANSPARENTBUTTON SNAPSHOTS TESTS textColor="bright" TransparentButton should not be changed 1`] = `
+<button
+  class="button button_bright button"
+  type="button"
+>
+  Text
+</button>
+`;
+
+exports[`TRANSPARENTBUTTON SNAPSHOTS TESTS textColor="faded" TransparentButton should not be changed 1`] = `
+<button
+  class="button button_faded button"
+  type="button"
+>
+  Text
+</button>
+`;

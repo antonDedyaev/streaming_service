@@ -5,7 +5,6 @@ exports[`TabBarLinkUI SNAPSHOT TEST TabBarLinkUI should not be changed 1`] = `
   class="container container_selected"
   href=""
   id="tab-item"
-  role="tab-link"
 >
   <div
     class="container__itemGlow"

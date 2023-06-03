@@ -1,12 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
-import UnderlinedLink from './UnderlinedLink';
-import '../../../../styles/nullstyle.scss';
-import '../../../../styles/globals.scss';
+import Link from './UnderlinedLink';
 import './UnderlinedLink.module.scss';
 
-const meta: Meta<typeof UnderlinedLink> = {
+const meta: Meta<typeof Link> = {
     title: 'Links/UnderlinedLink',
-    component: UnderlinedLink,
+    component: Link,
     decorators: [
         (Story) => (
             <div style={{ background: '#100e19' }}>
@@ -18,11 +16,10 @@ const meta: Meta<typeof UnderlinedLink> = {
 
 export default meta;
 
-type Story = StoryObj<typeof UnderlinedLink>;
+type Story = StoryObj<typeof Link>;
 
-export const Underlined: Story = {
+export const UnderlinedLink: Story = {
     args: {
-        text: 'Актёры и создатели'
-    }
+        text: 'Подчеркнутая ссылка',
+    },
 };
-

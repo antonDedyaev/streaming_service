@@ -11,6 +11,14 @@
     "drama": "Dramas",
     "foreign": "Foreign",
     "category": {
+        "byGenre": "by genre",
+        "byCountry": "by country",
+        "byRating": "by rating",
+        "byVotes": "by votes",
+        "over": "Over",
+        "higher": "and higher",
+        "byActor": "by actor",
+        "byDirector": "by director",
         "drama": "Dramas",
         "comedy": "Comedies",
         "biography": "Biographic movies",
@@ -33,14 +41,16 @@
         "sports": "Sport movies",
         "short": "Short movies",
         "children's": "Children's movies",
-        "Russia": "Russian movies",
-        "foreign": "Foreign movies",
-        "USSR": "Soviet movies",
         "2018": "Movies of 2018",
         "2019": "Movies of 2019",
         "2020": "Movies of 2020",
         "2021": "Movies of 2021",
         "2022": "Movies of 2022",
         "2023": "Movies of 2023"
+    },
+    "countries": {
+        "Russia": "Russian movies",
+        "USSR": "Soviet movies",
+        "Foreign": "Foreign movies"
     }
 }

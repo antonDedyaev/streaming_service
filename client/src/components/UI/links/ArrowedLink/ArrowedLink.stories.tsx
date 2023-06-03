@@ -1,12 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
-import ArrowedLink from './ArrowedLink';
-import '../../../../styles/nullstyle.scss';
-import '../../../../styles/globals.scss';
+import Link from './ArrowedLink';
 import './ArrowedLink.module.scss';
 
-const meta: Meta<typeof ArrowedLink> = {
+const meta: Meta<typeof Link> = {
     title: 'Links/ArrowedLink',
-    component: ArrowedLink,
+    component: Link,
     decorators: [
         (Story) => (
             <div style={{ background: '#100e19' }}>
@@ -18,12 +16,11 @@ const meta: Meta<typeof ArrowedLink> = {
 
 export default meta;
 
-type Story = StoryObj<typeof ArrowedLink>;
+type Story = StoryObj<typeof Link>;
 
-export const Arrowed: Story = {
+export const ArrowedLink: Story = {
     args: {
-        text: 'Лучшие фильмы',
-        href: ''
-    }
+        text: 'Ссылка',
+        href: '',
+    },
 };
-

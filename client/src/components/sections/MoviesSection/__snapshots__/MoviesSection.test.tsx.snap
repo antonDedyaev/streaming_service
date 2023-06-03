@@ -1,0 +1,455 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOVIESSECTION SNAPSHOTS TESTS MoviesSection should not be changed 1`] = `
+<div
+  class="section"
+  data-testid="moviesSection"
+>
+  <div
+    class="section__header"
+  >
+    <a
+      class="link"
+      href="/"
+    >
+      <h3>
+        title
+      </h3>
+      <img
+        alt=""
+        class="arrow"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+        style="color: transparent;"
+        width="40"
+      />
+    </a>
+  </div>
+  <div
+    class="section__content"
+  >
+    <div
+      class="jsx-687504307 container container_preview"
+      data-testid="slider"
+    >
+      <div
+        class="jsx-687504307 container__contentContainer"
+      >
+        <div
+          class="jsx-687504307 container__content content"
+        >
+          <a
+            class="container previewItem"
+            href="/movies/535341"
+          >
+            <div
+              class="container__block container__block_image"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="1+1"
+                  class="container__image"
+                  data-nimg="fill"
+                  decoding="async"
+                  loading="lazy"
+                  sizes="100vw"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=3840&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=3840&q=75 3840w"
+                  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                />
+              </div>
+              <div
+                class="container"
+                data-testid="previewPosterContent"
+              >
+                <div
+                  class="container__icons"
+                >
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_favorite"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_similar"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_rate"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_dislike"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="container container__info"
+                  data-testid="previewPosterContentBrief"
+                >
+                  <div
+                    class="container__rating"
+                  >
+                    <span
+                      class="container__rating container__rating_integer"
+                    >
+                      8
+                    </span>
+                    <span
+                      class="container__rating container__rating_fraction"
+                    >
+                      .8
+                    </span>
+                  </div>
+                  <div
+                    class="container__text"
+                  >
+                    <p>
+                      2011
+                      , 
+                      France
+                      ,
+                       
+                      Drama
+                    </p>
+                    <p>
+                      112 minutes.2
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="badge container__badge"
+                data-testid="ageBadge"
+              >
+                16
+                +
+              </div>
+            </div>
+            <div
+              class="container__block container__block_text"
+            >
+              <p
+                class="container__title"
+              >
+                1+1
+              </p>
+            </div>
+          </a>
+          <a
+            class="container previewItem"
+            href="/movies/1143242"
+          >
+            <div
+              class="container__block container__block_image"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Джентльмены"
+                  class="container__image"
+                  data-nimg="fill"
+                  decoding="async"
+                  loading="lazy"
+                  sizes="100vw"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=3840&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=3840&q=75 3840w"
+                  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                />
+              </div>
+              <div
+                class="container"
+                data-testid="previewPosterContent"
+              >
+                <div
+                  class="container__icons"
+                >
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_favorite"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_similar"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_rate"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_dislike"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="container container__info"
+                  data-testid="previewPosterContentBrief"
+                >
+                  <div
+                    class="container__rating"
+                  >
+                    <span
+                      class="container__rating container__rating_integer"
+                    >
+                      8
+                    </span>
+                    <span
+                      class="container__rating container__rating_fraction"
+                    >
+                      .5
+                    </span>
+                  </div>
+                  <div
+                    class="container__text"
+                  >
+                    <p>
+                      2019
+                      , 
+                      Great Britain
+                      ,
+                       
+                      Crime
+                    </p>
+                    <p>
+                      113 minutes.2
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="badge container__badge"
+                data-testid="ageBadge"
+              >
+                18
+                +
+              </div>
+            </div>
+            <div
+              class="container__block container__block_text"
+            >
+              <p
+                class="container__title"
+              >
+                Джентльмены
+              </p>
+            </div>
+          </a>
+          <a
+            class="container previewItem"
+            href="/movies/462682"
+          >
+            <div
+              class="container__block container__block_image"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Волк с Уолл-стрит"
+                  class="container__image"
+                  data-nimg="fill"
+                  decoding="async"
+                  loading="lazy"
+                  sizes="100vw"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=3840&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=3840&q=75 3840w"
+                  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                />
+              </div>
+              <div
+                class="container"
+                data-testid="previewPosterContent"
+              >
+                <div
+                  class="container__icons"
+                >
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_favorite"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_similar"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_rate"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                  <img
+                    alt="icon"
+                    class="container__icon container__icon_dislike"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    loading="lazy"
+                    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                    style="color: transparent;"
+                    width="40"
+                  />
+                </div>
+                <div
+                  class="container container__info"
+                  data-testid="previewPosterContentBrief"
+                >
+                  <div
+                    class="container__rating"
+                  >
+                    <span
+                      class="container__rating container__rating_integer"
+                    >
+                      8
+                    </span>
+                    <span
+                      class="container__rating container__rating_fraction"
+                    >
+                      .0
+                    </span>
+                  </div>
+                  <div
+                    class="container__text"
+                  >
+                    <p>
+                      2013
+                      , 
+                      USA
+                      ,
+                       
+                      Drama
+                    </p>
+                    <p>
+                      180 minutes.2
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="badge container__badge"
+                data-testid="ageBadge"
+              >
+                18
+                +
+              </div>
+            </div>
+            <div
+              class="container__block container__block_text"
+            >
+              <p
+                class="container__title"
+              >
+                Волк с Уолл-стрит
+              </p>
+            </div>
+          </a>
+          <div>
+            <a
+              class="container"
+              href="/"
+            >
+              <div
+                class="container__content"
+              >
+                View all
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

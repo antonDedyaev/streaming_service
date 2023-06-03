@@ -1,10 +1,6 @@
-import { useEffect } from 'react';
 import styles from './DropMenu.module.scss';
-import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
-import LinksList from '../LinksList/LinksList';
-import IGenre from '@/models/IGenre';
-import ICountry from '@/models/ICountry';
-import { firstCapitalLetter } from '@/utils/functions';
+import TextLinkUI from '../../UI/links/TextLink/TextLinkUI';
+import { firstCapitalLetter } from '../../../utils/functions';
 
 interface IContent {
     title: string;
@@ -21,7 +17,7 @@ interface DropMenuProps {
 
 const DropMenu = ({ className, content }: DropMenuProps) => {
     return (
-        <div className={[styles.container, className].join(' ')}>
+        <div className={[styles.container, className].join(' ')} data-testid={'dropMenu'}>
             {content.map((item) => (
                 <div key={item.title} className={styles.container__item}>
                     <h2 className={styles.container__title}>{item.title}</h2>

@@ -15,7 +15,6 @@ const TabBarLinkUI = ({ href, icon, text, selected }: TabBarLinkUIProps) => {
             id="tab-item"
             href={href}
             className={[styles.container, selected ? styles.container_selected : ''].join(' ')}
-            role="tab-link"
         >
             <div className={styles.container__itemGlow}></div>
             <div className={styles.container__itemIcon}>

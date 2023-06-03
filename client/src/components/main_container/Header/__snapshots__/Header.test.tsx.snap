@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="header"
+>
+  <div
+    class="container container_home "
+  >
+    <a
+      class="container__logo"
+      href="/"
+    >
+      <img
+        alt="ivi"
+        data-nimg="1"
+        decoding="async"
+        height="40"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+        style="color: transparent;"
+        width="40"
+      />
+    </a>
+    <div
+      class="container__menuList"
+    >
+      <ul
+        class="container container__menu"
+      >
+        <li
+          class="container__item"
+        >
+          <a
+            class="container container_dim"
+            href="/"
+          >
+            myIvi
+          </a>
+        </li>
+        <li
+          class="container__item"
+        >
+          <a
+            class="container container_dim"
+            href="https://www.ivi.ru/new"
+            target="_blank"
+          >
+            latest
+          </a>
+        </li>
+        <li
+          class="container__item"
+        >
+          <a
+            class="container container_dim container__menuLink container__menuLink_movie"
+            href="/movies"
+          >
+            movies
+          </a>
+        </li>
+        <li
+          class="container__item"
+        >
+          <a
+            class="container container_dim"
+            href="https://www.ivi.ru/series"
+            target="_blank"
+          >
+            tvShows
+          </a>
+        </li>
+        <li
+          class="container__item"
+        >
+          <a
+            class="container container_dim"
+            href="https://www.ivi.ru/tvplus"
+            target="_blank"
+          >
+            broadcast
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="container__rightSide"
+    >
+      <button
+        class="button button_small button_red container__button"
+        type="button"
+      >
+        freePeriod
+      </button>
+      <a
+        class="container container_bright container__search"
+        href="/?ivi_search"
+      >
+        <img
+          alt=""
+          class="container__icon"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+        <p
+          class="container__text"
+        >
+          search
+        </p>
+      </a>
+      <a
+        class="container__link container__link_bell"
+        href="/"
+      >
+        <img
+          alt="Уведомления"
+          class="container__icon"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </a>
+      <a
+        class="container__link container__link_locale"
+        href="/"
+      >
+        en
+      </a>
+      <a
+        class="container__link container__link_user"
+        href="/?sign-in"
+      >
+        <img
+          alt="Пользователь"
+          class="container__icon container__icon_user"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </a>
+    </div>
+    <div
+      class="container container__dropMenu "
+      data-testid="dropMenu"
+    />
+  </div>
+</div>
+`;

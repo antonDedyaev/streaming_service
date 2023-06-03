@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import MovieDevicesImage from './MovieDevicesImage';
-import { movies } from '../movieMedallion/MovieMedallionsList/Temp/Movie.data';
 
 describe('MOVIEDEVICESIMAGE SNAPSHOTS TESTS', () => {
     test('MovieDevicesImage should not be changed', () => {
-        render(<MovieDevicesImage movie={movies[0]} />);
+        render(<MovieDevicesImage poster={require('../../../testAsserts/img/BG554460.jpg')} title="poster" />);
 
-        const div = screen.getByTestId('div-movieDevicesImage');
+        const div = screen.getByTestId('movieDevicesImage');
         expect(div).toMatchSnapshot();
     });
 });

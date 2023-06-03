@@ -1,17 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MOVIERATING SNAPSHOTS TESTS MovieRating should not be changed 1`] = `
-<button
-  class="jsx-3203401595 button button_undefined button container"
+<div
+  class="container"
+  data-testid="movieRating"
 >
   <div
     class="container__value"
   >
     <div
       class="value value_medium value_high"
-      data-testid="div-text"
+      data-testid="textSquare"
     >
-      9.5
+      8.8
     </div>
   </div>
   <div
@@ -20,23 +21,24 @@ exports[`MOVIERATING SNAPSHOTS TESTS MovieRating should not be changed 1`] = `
     <h2
       class="container__text container__text_rating"
     >
-      Рейтинг
+      movieRating
     </h2>
     <p
       class="container__text container__text_plot"
     >
-      Интересный сюжет
+      hightlights
     </p>
     <p
       class="container__text container__text_marks"
     >
-      118 163 оценки
+      1 580 297 userRate.2
     </p>
   </div>
-  <div
-    class="container__estimate"
+  <button
+    class="button button_small container__estimate"
+    type="button"
   >
-    Оценить
-  </div>
-</button>
+    rate
+  </button>
+</div>
 `;

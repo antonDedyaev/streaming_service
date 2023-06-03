@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SORTMOVIES SNAPSHOTS TESTS SortMovies should not be changed 1`] = `
+<section
+  data-testid="sortMovies"
+>
+  <div
+    class="container"
+  >
+    <div
+      class="container__sortingControl"
+    >
+      <div
+        class="container__sorting "
+      >
+        <div
+          class="container__sortingPanel"
+        >
+          <div
+            class="container__sortIcon"
+          />
+          <div
+            class="container__sortParameter"
+          >
+            sorting.by sorting.userRates
+          </div>
+          <div
+            class="container__sortArrow"
+          />
+        </div>
+        <div
+          class="container__dropdown"
+        >
+          <div
+            class="container__itemTitle"
+          >
+            sorting.sort
+          </div>
+          <div
+            class="container__dropdownItem"
+          >
+            <div
+              class="container__itemStripe"
+            />
+            <div
+              class="container__itemText"
+            >
+              sorting.by sorting.userRates
+            </div>
+          </div>
+          <div
+            class="container__dropdownItem"
+          >
+            <div
+              class="container__itemStripe"
+            />
+            <div
+              class="container__itemText"
+            >
+              sorting.rating
+            </div>
+          </div>
+          <div
+            class="container__dropdownItem"
+          >
+            <div
+              class="container__itemStripe"
+            />
+            <div
+              class="container__itemText"
+            >
+              sorting.releaseDate
+            </div>
+          </div>
+          <div
+            class="container__dropdownItem"
+          >
+            <div
+              class="container__itemStripe"
+            />
+            <div
+              class="container__itemText"
+            >
+              sorting.name
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;

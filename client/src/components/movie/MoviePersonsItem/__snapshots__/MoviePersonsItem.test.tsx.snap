@@ -1,0 +1,716 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOVIEPERSONSITEM SNAPSHOTS TESTS MoviePersonsItem should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="moviePersonsItem"
+>
+  <span
+    class="container__title"
+  >
+    title
+  </span>
+  <div
+    class="container__spoiler"
+  >
+    <div
+      class="container__item"
+    >
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/71427"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Франсуа Клюзе François Cluzet"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            François
+            <br />
+            Cluzet
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/41644"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Омар Си Omar Sy"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_41644.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_41644.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_41644.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Omar
+            <br />
+            Sy
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/57174"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Анн Ле Ни Anne Le Ny"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_57174.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_57174.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_57174.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Anne
+            <br />
+            Le Ny
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/868557"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Одри Флеро Audrey Fleurot"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_868557.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_868557.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_868557.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Audrey
+            <br />
+            Fleurot
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/541041"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Жозефин де Мо Joséphine de Meaux"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_541041.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_541041.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_541041.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Joséphine
+            <br />
+            de Meaux
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/445"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Клотильд Молле Clotilde Mollet"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_445.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_445.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_445.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Clotilde
+            <br />
+            Mollet
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/964574"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Альба Гайя Крагеде Беллуджи Alba Gaïa Bellugi"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_964574.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_964574.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_964574.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Alba
+            <br />
+            Gaïa Bellugi
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/2237576"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Сирил Менди Cyril Mendy"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2237576.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2237576.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2237576.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Cyril
+            <br />
+            Mendy
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/3084679"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Салимата Камате Salimata Kamate"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084679.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084679.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084679.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Salimata
+            <br />
+            Kamate
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/3084680"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Абса Дьяту Тур Absa Diatou Toure"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Absa
+            <br />
+            Diatou Toure
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/83742"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Грегуар Эстерманн Grégoire Oestermann"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_83742.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_83742.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_83742.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Grégoire
+            <br />
+            Oestermann
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/233518"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Доминик Дагье Dominique Daguier"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_233518.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_233518.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_233518.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Dominique
+            <br />
+            Daguier
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/25264"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Франсуа Карон François Caron"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_25264.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_25264.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_25264.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            François
+            <br />
+            Caron
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/5570"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Кристиан Амери Christian Ameri"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_5570.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_5570.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_5570.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Christian
+            <br />
+            Ameri
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/2497518"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Тома Соливерес Thomas Solivérès"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2497518.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2497518.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2497518.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Thomas
+            <br />
+            Solivérès
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+      <a
+        class="container container_medium item item_medium"
+        href="/persons/240040"
+      >
+        <div
+          class="container__imageContainer"
+        >
+          <div
+            class="container__imageWrapper"
+          >
+            <img
+              alt="Дороти Бриер Dorothée Brière"
+              class="container__image"
+              data-nimg="1"
+              decoding="async"
+              height="300"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_240040.jpg&w=640&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_240040.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_240040.jpg&w=640&q=75 2x"
+              style="color: transparent;"
+              width="300"
+            />
+          </div>
+        </div>
+        <div
+          class="container__textContainer"
+        >
+          <h2
+            class="container__fullName"
+          >
+            Dorothée
+            <br />
+            Brière
+          </h2>
+          <p
+            class="container__amountMovies"
+          >
+            1
+             
+            filmography.singleMovie
+          </p>
+        </div>
+      </a>
+    </div>
+    <button
+      class="button button_large container__spoilerButton"
+      type="button"
+    >
+      showMore
+    </button>
+  </div>
+</div>
+`;

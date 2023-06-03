@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FILTERRANGE SNAPSHOTS TESTS "category" ratingKp FilterRange should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="filterRange"
+>
+  <div
+    class="container__ratingContent"
+  >
+    <div
+      class="container__ratingValue container__ratingValue_notSelected"
+    >
+      <img
+        alt="Рейтинг"
+        data-nimg="1"
+        decoding="async"
+        height="26"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+        style="color: transparent;"
+        width="26"
+      />
+      <img
+        alt="Знак больше"
+        data-nimg="1"
+        decoding="async"
+        height="18"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+        style="color: transparent;"
+        width="18"
+      />
+      <span>
+        filterPanel.notSelected
+      </span>
+    </div>
+    <div>
+      <input
+        max="5"
+        step="1"
+        type="range"
+        value="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FILTERRANGE SNAPSHOTS TESTS "category" votesKp FilterRange should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="filterRange"
+>
+  <div
+    class="container__ratingContent"
+  >
+    <div
+      class="container__ratingValue container__ratingValue_notSelected"
+    >
+      <img
+        alt="Рейтинг"
+        data-nimg="1"
+        decoding="async"
+        height="26"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=64&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=64&q=75 2x"
+        style="color: transparent;"
+        width="26"
+      />
+      <img
+        alt="Знак больше"
+        data-nimg="1"
+        decoding="async"
+        height="18"
+        loading="lazy"
+        src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+        srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+        style="color: transparent;"
+        width="18"
+      />
+      <span>
+        filterPanel.notSelected
+      </span>
+    </div>
+    <div>
+      <input
+        max="5"
+        step="1"
+        type="range"
+        value="0"
+      />
+    </div>
+  </div>
+</div>
+`;

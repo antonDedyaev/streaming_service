@@ -62,7 +62,7 @@ const Header = ({ page }: HeaderProps) => {
     };
 
     return (
-        <div onMouseLeave={clearMouseHandlers} className="container">
+        <div onMouseLeave={clearMouseHandlers} className="container" data-testid={'header'}>
             <div
                 className={[
                     styles.container,
@@ -135,7 +135,7 @@ const Header = ({ page }: HeaderProps) => {
                         locale={currentLocale}
                         className={[styles.container__link, styles.container__link_locale].join(' ')}
                     >
-                        {currentLocale}
+                        {currentLocale === 'ru' ? 'en' : 'ru'}
                     </Link>
 
                     <Link
@@ -170,7 +170,7 @@ const Header = ({ page }: HeaderProps) => {
                                           },
                                           {
                                               text: locale === 'ru' ? 'Зарубежные' : 'Foreign',
-                                              href: '/collections/foreign',
+                                              href: '/collections/Foreign',
                                           },
                                           {
                                               text: locale === 'ru' ? 'Советское кино' : 'USSR movie',

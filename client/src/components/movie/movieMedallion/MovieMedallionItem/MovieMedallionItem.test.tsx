@@ -9,7 +9,7 @@ describe('MOVIEMEDALLIONITEM SNAPSHOTS TESTS', () => {
             </MovieMedallionItem>,
         );
 
-        const div = screen.getByTestId('div-MedallionItem');
+        const div = screen.getByTestId('medallionItem');
         expect(div).toMatchSnapshot();
     });
 
@@ -19,7 +19,7 @@ describe('MOVIEMEDALLIONITEM SNAPSHOTS TESTS', () => {
                 <div></div>
             </MovieMedallionItem>,
         );
-        const div = screen.getByTestId('div-MedallionItem');
+        const div = screen.getByTestId('medallionItem');
         expect(div).toMatchSnapshot();
     });
 });

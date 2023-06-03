@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FILTERPANEL SNAPSHOTS TESTS FilterPanel should not be changed 1`] = `
+<section
+  class="container "
+  data-testid="filterPanel"
+>
+  <div
+    class="container__body"
+  >
+    <div
+      class="container__content"
+    >
+      <div
+        class="container__filterList"
+      >
+        Фильтры
+      </div>
+      <div
+        class="container__buttonContainer"
+      >
+        <button
+          class="button button_bright container__resetButton container__resetButton_disabled"
+          type="button"
+        >
+          <img
+            alt="Иконка-крестик"
+            data-nimg="1"
+            decoding="async"
+            height="16"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=32&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=16&q=75 1x, /_next/image?url=%2Fimg.jpg&w=32&q=75 2x"
+            style="color: transparent;"
+            width="16"
+          />
+          filterPanel.removeFilters
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+`;

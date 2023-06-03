@@ -8,7 +8,7 @@ import phoneIcon from '../../../../public/icons/link/phone.svg';
 import loudspeaker from '../../../../public/icons/link/loudspeaker.svg';
 import tvIcon from '../../../../public/icons/link/devices_tv.svg';
 import devicesIcon from '../../../../public/icons/link/devices_all.svg';
-import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
+import ColoredButton from '../../UI/buttons/ColoredButton/ColoredButton';
 import LinksList from '../LinksList/LinksList';
 import { useTranslation } from 'next-i18next';
 
@@ -16,7 +16,7 @@ const Footer: FC = () => {
     const { t } = useTranslation('footer');
     const [phoneIsHidden, setPhoneIsHidden] = useState(true);
     return (
-        <footer className={styles.container}>
+        <footer className={styles.container} data-testid={'footer'}>
             <div className="container">
                 <div className={[styles.container__content, styles.container__content_columnNarrow].join(' ')}>
                     <div>
@@ -135,8 +135,8 @@ const Footer: FC = () => {
                                     <Image src={mailIcon} height={16} width={16} alt="Иконка почты" />
                                 </ShapedLinkUI>
                                 <ColoredButton
-                                    size='small'
-                                    color='gray'
+                                    size="small"
+                                    color="gray"
                                     className={[styles.container__button, styles.container__button_size].join(' ')}
                                     onClick={() => setPhoneIsHidden(!phoneIsHidden)}
                                 >

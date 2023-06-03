@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CARDLINK SNAPSHOTS TESTS CardLink should not be changed 1`] = `
+<a
+  class="container"
+  href="/"
+>
+  <div
+    class="container__content"
+  >
+    text
+  </div>
+</a>
+`;

@@ -12,8 +12,23 @@ const meta: Meta<typeof TransparentButton> = {
             descriptrion: 'цвет шрифта',
             defaultValue: 'bright',
             options: ['bright', 'faded'],
-        }
+        },
     },
+    decorators: [
+        (Story) => (
+            <div
+                style={{
+                    background: '#100e19',
+                    height: '50px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    paddingLeft: '10px',
+                }}
+            >
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export default meta;
@@ -22,14 +37,14 @@ type Story = StoryObj<typeof TransparentButton>;
 
 export const BrightButton: Story = {
     args: {
-        children: 'bright button',
-        textColor: 'bright'
+        children: 'Кнопка',
+        textColor: 'bright',
     },
 };
 
 export const FadedButton: Story = {
     args: {
-        children: 'faded button',
-        textColor: 'faded'
+        children: 'Кнопка',
+        textColor: 'faded',
     },
 };

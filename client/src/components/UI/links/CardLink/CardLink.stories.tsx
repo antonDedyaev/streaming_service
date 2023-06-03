@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import CardLink from './CardLink';
+import Link from './CardLink';
 import './CardLink.module.scss';
 
-const meta: Meta<typeof CardLink> = {
+const meta: Meta<typeof Link> = {
     title: 'Links/CardLink',
-    component: CardLink,
-    tags: ['autodocs'],
+    component: Link,
     parameters: {
         backgrounds: { default: 'dark' },
     },
@@ -13,9 +12,9 @@ const meta: Meta<typeof CardLink> = {
 
 export default meta;
 
-type Story = StoryObj<typeof CardLink>;
+type Story = StoryObj<typeof Link>;
 
-export const MoviesCardLink: Story = {
+export const CardLink: Story = {
     args: {
         href: '',
         children: 'Посмотреть все',

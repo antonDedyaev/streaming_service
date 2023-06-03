@@ -15,7 +15,8 @@ exports[`SpoilerUI TESTS ellipsed SpoilerUI should not be changed 1`] = `
     </p>
   </div>
   <button
-    class="jsx-3995137698 button button_none button container__button container__button_bright"
+    class="button button_bright container__button"
+    type="button"
   >
     Развернуть
   </button>

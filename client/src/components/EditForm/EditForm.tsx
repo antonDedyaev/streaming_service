@@ -64,6 +64,7 @@ const EditForm = ({ item, deletable }: IEditFormProps) => {
     return (
         <div
             className={[styles.container, isItemDeleted ? styles.container_hidden : styles.container_visible].join(' ')}
+            data-testid={'editForm'}
         >
             <div className={styles.container__form}>
                 {deletable && (
@@ -96,8 +97,8 @@ const EditForm = ({ item, deletable }: IEditFormProps) => {
                     />
                 </div>
                 <TransparentButton
-                    className={styles.container__editButton} 
-                    textColor='faded'
+                    className={styles.container__editButton}
+                    textColor="faded"
                     onClick={() => setIsFieldActive(!isFieldActive)}
                 >
                     <Image
@@ -105,7 +106,7 @@ const EditForm = ({ item, deletable }: IEditFormProps) => {
                         width={20}
                         height={20}
                         alt="Кнопка редактирования и удаления"
-                    />    
+                    />
                 </TransparentButton>
                 <BorderedButton size="small" className={styles.container__saveButton} onClick={handleSaveResult}>
                     {t('editing.saveButton')}

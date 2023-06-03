@@ -1,4 +1,4 @@
-import ModalInputUI from '@/components/UI/ModalInput/ModalInputUI';
+import InputUI from '@/components/UI/Input/InputUI';
 import styles from './CommentForm.module.scss';
 import { useRef, useState } from 'react';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
@@ -22,9 +22,9 @@ const CommentForm = ({ onSubmit }: CommentFormProps) => {
         if (inputWrapper.firstElementChild === event.target) {
             setFocus(true);
         } else {
-            setFocus(false)
+            setFocus(false);
         }
-    }
+    };
 
     return (
         <div className={styles.container}>
@@ -33,10 +33,10 @@ const CommentForm = ({ onSubmit }: CommentFormProps) => {
                 ref={inputWrapperRef}
                 onClick={(event) => clickHandler(event)}
             >
-                <ModalInputUI
+                <InputUI
                     focus={focus}
-                    type='comment'
-                    inputType='text'
+                    type="comment"
+                    inputType="text"
                     placeholder={t('comments.placeholder')}
                     value={value}
                     onChange={(value) => setValue(value)}
@@ -55,7 +55,7 @@ const CommentForm = ({ onSubmit }: CommentFormProps) => {
                 {t('comments.send')}
             </ColoredButton>
         </div>
-    )
-}
+    );
+};
 
 export default CommentForm;

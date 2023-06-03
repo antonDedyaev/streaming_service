@@ -38,7 +38,7 @@ const MoreModal = ({ movie }: MoreModalProps) => {
 
     return (
         <ModalUI className={styles.modal} close={isClose}>
-            <div className={styles.container}>
+            <div className={styles.container} data-testid={'moreModal'}>
                 <div className={styles.container__inner}>
                     <h1 className={styles.container__title}>
                         {locale === 'ru'
@@ -126,12 +126,3 @@ const MoreModal = ({ movie }: MoreModalProps) => {
 };
 
 export default MoreModal;
-/*<Link href={`/movies/${movie.id}`}>
-                        <Image
-                            className={styles.container__posterImage}
-                            src={movie.posterUrl}
-                            alt={`${movie.name} ${movie.enName}`}
-                            width={128}
-                            height={196}
-                        />
-                    </Link>*/

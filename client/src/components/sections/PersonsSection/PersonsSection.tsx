@@ -1,11 +1,12 @@
 import Slider from '@/components/Slider/Slider';
-import ActorList from '@/components/actor/ActorList/ActorList';
+
 import IPerson from '@/models/IPerson';
 import styles from './PersonsSection.module.scss';
 import UnderlinedLink from '@/components/UI/links/UnderlinedLink/UnderlinedLink';
 import { useRouter } from 'next/router';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import { useTranslation } from 'next-i18next';
+import PersonList from '@/components/person/PersonList/PersonList';
 
 interface PersonsSectionProps {
     persons: IPerson[];
@@ -25,7 +26,7 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
     const actors = persons.filter((persons) => persons.enProfession.includes('actor'));
 
     return (
-        <div className={styles.section}>
+        <div className={styles.section} data-testid={'personsSection'}>
             <div className={styles.section__header}>
                 {size === 'large' ? (
                     <h3 className={styles.section__title}>{t('celebrities')}</h3>
@@ -37,14 +38,14 @@ const PersonsSection = ({ persons, size }: PersonsSectionProps) => {
             <div className={styles.section__content}>
                 {size === 'large' ? (
                     <Slider itemType="actor" length={persons.length}>
-                        <ActorList persons={persons} size={size} />
+                        <PersonList persons={persons} size={size} />
                     </Slider>
                 ) : (
                     <div className={styles.section__list}>
                         {directors.length > 0 && (
-                            <ActorList persons={directors.slice(0, directors.length >= 2 ? 2 : 1)} size={size} />
+                            <PersonList persons={directors.slice(0, directors.length >= 2 ? 2 : 1)} size={size} />
                         )}
-                        <ActorList
+                        <PersonList
                             persons={actors.slice(0, directors.length > 0 ? (directors.length >= 2 ? 8 : 9) : 10)}
                             size={size}
                         />

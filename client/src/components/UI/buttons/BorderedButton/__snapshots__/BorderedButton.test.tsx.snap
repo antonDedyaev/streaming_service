@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BORDEREDBUTTON SNAPSHOTS TESTS size="large" BorderedButton should not be changed 1`] = `
+<button
+  class="button button_large button"
+  type="button"
+>
+  Text
+</button>
+`;
+
+exports[`BORDEREDBUTTON SNAPSHOTS TESTS size="medium" BorderedButton should not be changed 1`] = `
+<button
+  class="button button_medium button"
+  type="button"
+>
+  Text
+</button>
+`;
+
+exports[`BORDEREDBUTTON SNAPSHOTS TESTS size="small" BorderedButton should not be changed 1`] = `
+<button
+  class="button button_small button"
+  type="button"
+>
+  Text
+</button>
+`;

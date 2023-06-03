@@ -1,6 +1,6 @@
 import IMovie from '@/models/IMovie';
 import styles from './PreviewPosterContentBrief.module.scss';
-import { declineWord, firstCapitalLetter } from '@/utils/functions';
+import { declineWord, firstCapitalLetter } from '../../../utils/functions';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 
@@ -13,7 +13,7 @@ const PreviewPosterContentBrief = ({ movie, className }: PreviewPosterContentBri
     const { locale } = useRouter();
     const { t } = useTranslation('moviesPage');
     return (
-        <div className={[styles.container, className].join(' ')}>
+        <div className={[styles.container, className].join(' ')} data-testid={'previewPosterContentBrief'}>
             {movie.ratingKp && (
                 <div className={styles.container__rating}>
                     <span className={[styles.container__rating, styles.container__rating_integer].join(' ')}>

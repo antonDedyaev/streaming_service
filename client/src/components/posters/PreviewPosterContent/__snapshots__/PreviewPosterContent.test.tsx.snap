@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PREVIEWPOSTERCONTENT SNAPSHOTS TESTS PreviewPosterContent should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="previewPosterContent"
+>
+  <div
+    class="container__icons"
+  >
+    <img
+      alt="icon"
+      class="container__icon container__icon_favorite"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+    <img
+      alt="icon"
+      class="container__icon container__icon_similar"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+    <img
+      alt="icon"
+      class="container__icon container__icon_rate"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+    <img
+      alt="icon"
+      class="container__icon container__icon_dislike"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+  </div>
+  <div
+    class="container container__info"
+    data-testid="previewPosterContentBrief"
+  >
+    <div
+      class="container__rating"
+    >
+      <span
+        class="container__rating container__rating_integer"
+      >
+        8
+      </span>
+      <span
+        class="container__rating container__rating_fraction"
+      >
+        .8
+      </span>
+    </div>
+    <div
+      class="container__text"
+    >
+      <p>
+        2011
+        , 
+        France
+        ,
+         
+        Drama
+      </p>
+      <p>
+        112 minutes.2
+      </p>
+    </div>
+  </div>
+</div>
+`;

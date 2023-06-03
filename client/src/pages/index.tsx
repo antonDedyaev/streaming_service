@@ -12,7 +12,7 @@ import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { GetStaticProps } from 'next';
-import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { useAppDispatch } from '@/store/hooks/redux';
 import { useEffect } from 'react';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import { useRouter } from 'next/router';

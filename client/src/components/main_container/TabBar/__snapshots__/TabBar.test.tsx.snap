@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TABBAR SNAPSHOTS TESTS TabBar should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="tabBar"
+>
+  <div
+    class="container__tabBar"
+  >
+    <a
+      class="container "
+      href="https://www.ivi.ru/"
+      id="tab-item"
+    >
+      <div
+        class="container__itemGlow"
+      />
+      <div
+        class="container__itemIcon"
+      >
+        <img
+          alt="Иконка Мой Иви"
+          data-nimg="1"
+          decoding="async"
+          height="20"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+          style="color: transparent;"
+          width="20"
+        />
+      </div>
+      <div
+        class="container__itemCaption"
+      >
+        Мой Иви
+      </div>
+    </a>
+    <a
+      class="container "
+      href="/movies"
+      id="tab-item"
+    >
+      <div
+        class="container__itemGlow"
+      />
+      <div
+        class="container__itemIcon"
+      >
+        <img
+          alt="Иконка Каталог"
+          data-nimg="1"
+          decoding="async"
+          height="20"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+          style="color: transparent;"
+          width="20"
+        />
+      </div>
+      <div
+        class="container__itemCaption"
+      >
+        Каталог
+      </div>
+    </a>
+    <a
+      class="container "
+      href="/?ivi_search?ivi_search"
+      id="tab-item"
+    >
+      <div
+        class="container__itemGlow"
+      />
+      <div
+        class="container__itemIcon"
+      >
+        <img
+          alt="Иконка Поиск"
+          data-nimg="1"
+          decoding="async"
+          height="20"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+          style="color: transparent;"
+          width="20"
+        />
+      </div>
+      <div
+        class="container__itemCaption"
+      >
+        Поиск
+      </div>
+    </a>
+    <a
+      class="container "
+      href="https://www.ivi.ru/tvplus"
+      id="tab-item"
+    >
+      <div
+        class="container__itemGlow"
+      />
+      <div
+        class="container__itemIcon"
+      >
+        <img
+          alt="Иконка TV+"
+          data-nimg="1"
+          decoding="async"
+          height="20"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+          style="color: transparent;"
+          width="20"
+        />
+      </div>
+      <div
+        class="container__itemCaption"
+      >
+        TV+
+      </div>
+    </a>
+    <a
+      class="container "
+      href="#!"
+      id="tab-item"
+    >
+      <div
+        class="container__itemGlow"
+      />
+      <div
+        class="container__itemIcon"
+      >
+        <img
+          alt="Иконка Ещё"
+          data-nimg="1"
+          decoding="async"
+          height="20"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+          style="color: transparent;"
+          width="20"
+        />
+      </div>
+      <div
+        class="container__itemCaption"
+      >
+        Ещё
+      </div>
+    </a>
+  </div>
+</div>
+`;

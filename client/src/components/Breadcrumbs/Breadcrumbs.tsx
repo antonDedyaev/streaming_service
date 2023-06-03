@@ -1,32 +1,34 @@
 import styles from './Breadcrumbs.module.scss';
 import { useTranslation } from 'next-i18next';
 import IGenre from '@/models/IGenre';
-import { firstCapitalLetter } from '@/utils/functions';
+import { firstCapitalLetter } from '../../utils/functions';
 import TextLinkUI from '../UI/links/TextLink/TextLinkUI';
 import { useRouter } from 'next/router';
-import { useAppSelector } from '@/store/hooks/redux';
+import { useAppSelector } from '../../store/hooks/redux';
 
 interface BreadcrumbsProps {
     path: string[];
     genre?: IGenre;
     tailName?: { name: string; enName: string };
     type?: 'slash' | 'point' | 'pointShort';
+    linked?: boolean;
 }
 
-const Breadcrumbs = ({ path, genre, tailName, type = 'slash' }: BreadcrumbsProps) => {
+const Breadcrumbs = ({ path, genre, tailName, type = 'slash', linked = true }: BreadcrumbsProps) => {
     const { t } = useTranslation('collection');
-    const { locale } = useRouter();
+    const { locale, asPath } = useRouter();
     const { genres, countries } = useAppSelector((state) => state.staticData);
 
     const localizedPaths = path.map((item) => {
         const splitItem = item.split('-');
         const joinedItem =
             splitItem.length > 1 ? splitItem[0] + splitItem[1][0].toUpperCase() + splitItem[1].slice(1) : splitItem;
+
         return t(`${joinedItem}`);
     });
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid={'breadcrumbs'}>
             <ul className={[styles.container__crumbsList, styles[`container__crumbsList_${type}`]].join(' ')}>
                 {type !== 'pointShort' && (
                     <TextLinkUI
@@ -42,9 +44,22 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash' }: BreadcrumbsProps
                     const ref = path[index]; /*.slice(0, index).join('/')*/
                     /* console.log('localizedPaths', localizedPaths);
                      */
+                    if (!linked) {
+                        return localizedPaths.length > 1 && index === 0 ? (
+                            <li key={index}>
+                                <TextLinkUI option="bright" href={'/movies'} className={styles.container__crumb}>
+                                    {t('movies')}
+                                </TextLinkUI>
+                            </li>
+                        ) : (
+                            <li key={index} className={styles.container__unlinked}>
+                                {item}
+                            </li>
+                        );
+                    }
 
                     if (!last) {
-                        if (item !== 'persons') {
+                        if (item !== 'persons' && linked) {
                             return (
                                 <li key={index}>
                                     <TextLinkUI
@@ -63,7 +78,7 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash' }: BreadcrumbsProps
                         if (genre && tailName) {
                             return (
                                 <div key={type}>
-                                    <li>
+                                    <li key={index}>
                                         <TextLinkUI
                                             option="bright"
                                             href={`/collections/${genre.enName}`}
@@ -73,7 +88,7 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash' }: BreadcrumbsProps
                                         </TextLinkUI>
                                     </li>
                                     {type !== 'pointShort' && (
-                                        <li className={styles.container__tail}>
+                                        <li key={index} className={styles.container__tail}>
                                             {locale === 'ru' ? tailName.name : tailName.enName}
                                         </li>
                                     )}
@@ -87,12 +102,12 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash' }: BreadcrumbsProps
                                 )
                             );
                         } else {
-                            const gener = genres.filter((genre) => genre.enName === item);
+                            const genre = genres.filter((genre) => genre.enName === item);
                             const country = countries.filter((country) => country.enName === item.split('_').join(' '));
-                            if (gener.length > 0)
+                            if (genre.length > 0)
                                 return (
                                     <li key={index}>
-                                        {firstCapitalLetter(locale === 'ru' ? gener[0].name : gener[0].enName)}
+                                        {firstCapitalLetter(locale === 'ru' ? genre[0].name : genre[0].enName)}
                                     </li>
                                 );
                             if (country.length > 0)

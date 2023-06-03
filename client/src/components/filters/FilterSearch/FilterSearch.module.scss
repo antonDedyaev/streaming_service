@@ -1,0 +1,57 @@
+.container {
+    padding-top: 12px;
+
+    &__formContent * {
+        transition-duration: 0.4s;
+    }
+
+    &__inputBody {
+        position: relative;
+        display: flex;
+        margin-left: -10px;
+        margin-right: -10px;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+    &__fieldButton {
+        position: absolute;
+        right: 0;
+
+        height: 40px;
+        width: 40px;
+
+        opacity: 0.3;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__buttonIcon {
+        position: absolute;
+        top: 12px;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+
+        &_search {
+            pointer-events: none;
+            &::before {
+                content: url('../../../../public/icons/search.svg');
+                opacity: 0.3;
+                transition: color 0.4s;
+            }
+        }
+
+        &_remove {
+            cursor: pointer;
+            pointer-events: all;
+            &::before {
+                content: url('../../../../public/icons/close.svg');
+                opacity: 0.3;
+                transition: color 0.4s;
+            }
+        }
+    }
+}

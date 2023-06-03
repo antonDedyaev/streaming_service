@@ -7,8 +7,8 @@ import IMovies from './IMovies';
 export default interface IMovie {
     id: number;
     type: string;
-    name: string;
-    enName: string;
+    name: string | null;
+    enName: string | null;
     posterUrl: string;
     posterPreviewURL: string;
     year: number;

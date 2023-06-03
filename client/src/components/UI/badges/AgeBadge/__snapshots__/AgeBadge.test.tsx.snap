@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AGEBADGE SNAPSHOTS TESTS AgeBadge should not be changed 1`] = `
+<div
+  class="badge "
+  data-testid="ageBadge"
+>
+  8
+  +
+</div>
+`;

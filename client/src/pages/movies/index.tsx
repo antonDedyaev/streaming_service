@@ -1,16 +1,16 @@
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
-import FilterList from '@/components/filters/FilterList';
-import FilterPanel from '@/components/filters/FilterPanel';
-import FilterPlank from '@/components/filters/FilterPlank';
-import plankStyles from '@/components/filters/FilterPlank.module.scss';
-import FilterRange from '@/components/filters/FilterRange';
+import FilterList from '@/components/filters/FilterList/FilterList';
+import FilterPanel from '@/components/filters/FilterPanel/FilterPanel';
+import FilterPlank from '@/components/filters/FilterPlank/FilterPlank';
+import plankStyles from '@/components/filters/FilterPlank/FilterPlank.module.scss';
+import FilterRange from '@/components/filters/FilterRange/FilterRange';
 import MainContainer from '@/components/main_container/MainContainer/MainContainer';
 import MoviesSection from '@/components/sections/MoviesSection/MoviesSection';
 import PersonsSection from '@/components/sections/PersonsSection/PersonsSection';
 import styles from '@/styles/pages/MoviesPage.module.scss';
 import ratingIcon from '@/../public/icons/rating.svg';
 import votesIcon from '../../../public/icons/userRank.svg';
-import FilterSearch from '@/components/filters/FilterSearch';
+import FilterSearch from '@/components/filters/FilterSearch/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { GetStaticProps } from 'next';
@@ -25,6 +25,8 @@ import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
 import { getAllStaticData } from '@/store/ActionCreators';
 import IMovies from '@/models/IMovies';
+import { getDynamicUrl } from '@/utils/moviesHelpers';
+import { IFilters } from '@/store/slices/moviesSlice';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');
@@ -49,13 +51,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const { asPath, locale } = useRouter();
+    const { asPath, locale, basePath } = useRouter();
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
-
-    useEffect(() => {
-        dispatch(getAllStaticData());
-    }, [locale, asPath]);
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
@@ -69,7 +67,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
             : countries.map(({ enName }: { enName: string }) => enName);
     const countriesList = Array.from(new Set<string>(countryNames));
 
-    const filteredActors = actors.filter((actor) => actor.name && actor.photo);
+    const filteredActors = actors.filter((actor) => actor.name).sort((a, b) => b.countMovies! - a.countMovies!);
 
     const [isFilterApplied, setIsFilterApplied] = useState(false);
     const [shownPostersLimit, setShownPostersLimit] = useState(35);
@@ -88,6 +86,52 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
         .filter((movie) => movie.hasIMAX)
         .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime());
 
+    const allFilters: IFilters = useAppSelector((state) => state.movies.filters);
+
+    const urlString = getDynamicUrl(allFilters);
+
+    useEffect(() => {
+        const urlTail = urlString.length !== 0 && 'filters' + urlString;
+        history.pushState(
+            null,
+            'Filters',
+            urlTail ? `http://localhost:3000${asPath}/${urlTail}` : `http://localhost:3000${asPath}`,
+        );
+    }, [urlString]);
+
+    useEffect(() => {
+        dispatch(getAllStaticData());
+    }, [locale, asPath, urlString]);
+
+    const currentFilters = Object.entries(allFilters).filter(([, value]) => value.length !== 0 && value !== 0);
+    const crumbs = currentFilters.map(([, value]) => value + ' ').join('/');
+
+    const subHeaderFilters = currentFilters
+        .flatMap(([key, value]) => {
+            return key === 'votesKp' || key === 'ratingKp' ? `${t('collection:category.over')} ${value}` : value;
+        })
+        .join(', ');
+
+    const headerFilters = currentFilters.flatMap(([key, value]) => {
+        switch (key) {
+            case 'genres':
+                return value.length === 1 && `${t('collection:category.byGenre')}: ${value}`;
+            case 'countries':
+                return value.length === 1 && `${t('collection:category.byCountry')}: ${value}`;
+            case 'ratingKp':
+                return `${t('collection:category.byRating')}: ${value} ${t('collection:category.higher')}`;
+            case 'votesKp':
+                return `${t('collection:category.byVotes')}: ${value} ${t('collection:category.higher')}`;
+            case 'actor':
+                return `${t('collection:category.byActor')}: ${value}`;
+            case 'director':
+                return `${t('collection:category.byDirector')}: ${value}`;
+            default:
+                break;
+        }
+    });
+    const header = headerFilters.length > 1 ? '' : headerFilters[0];
+
     return (
         <MainContainer
             keywords={['moviesPage', 'iviEtoKryto']}
@@ -97,18 +141,28 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
             <div className="container">
                 <div className={styles.container}>
                     <div className={styles.container__spoiler}>
-                        <Breadcrumbs path={asPath.split('/').slice(1)} />
+                        <Breadcrumbs
+                            path={(crumbs ? asPath + '/' + crumbs : asPath).split('/').slice(1)}
+                            linked={false}
+                        />
 
                         <h2 className={styles.container__title}>
-                            {t('moviesPage:moviesSpoiler.sectionTitle')} {t('moviesPage:moviesSpoiler.header')}
+                            {isFilterApplied && header
+                                ? `${t('moviesPage:moviesSpoiler.sectionTitle')} ${header}`
+                                : `${t('moviesPage:moviesSpoiler.sectionTitle')} ${t(
+                                      'moviesPage:moviesSpoiler.header',
+                                  )}`}
                         </h2>
-                        <SpoilerUI shownLines={2} toggleButtonTexts={[t('showSpoiler'), t('hideSpoiler')]}>
-                            <p>{t('moviesPage:moviesSpoiler.content.0')}</p>
-                            <p>{t('moviesPage:moviesSpoiler.content.1')}</p>
-                            <p>{t('moviesPage:moviesSpoiler.content.2')}</p>
-                            <p>{t('moviesPage:moviesSpoiler.content.3')}</p>
-                            <p>{t('moviesPage:moviesSpoiler.content.4')}</p>
-                        </SpoilerUI>
+                        {isFilterApplied && <span className={styles.container__subTitle}>{subHeaderFilters}</span>}
+                        {!isFilterApplied && (
+                            <SpoilerUI shownLines={2} toggleButtonTexts={[t('showSpoiler'), t('hideSpoiler')]}>
+                                <p>{t('moviesPage:moviesSpoiler.content.0')}</p>
+                                <p>{t('moviesPage:moviesSpoiler.content.1')}</p>
+                                <p>{t('moviesPage:moviesSpoiler.content.2')}</p>
+                                <p>{t('moviesPage:moviesSpoiler.content.3')}</p>
+                                <p>{t('moviesPage:moviesSpoiler.content.4')}</p>
+                            </SpoilerUI>
+                        )}
                     </div>
                     {isFilterApplied && <SortMovies filteredMovies={filteredList} />}
                     <FilterPanel isFilterApplied={isFilterApplied}>

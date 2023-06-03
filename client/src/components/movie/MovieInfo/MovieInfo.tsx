@@ -20,7 +20,7 @@ const MovieInfo = ({ movie }: MovieInfoProps) => {
     const { locale } = useRouter();
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid="movieInfo">
             <h1 className={styles.container__title}>
                 {locale === 'ru'
                     ? `${movie.name ? movie.name : movie.enName} (Фильм ${movie.year})`

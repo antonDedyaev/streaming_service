@@ -19,7 +19,7 @@ describe('ShapedLinkUI SNAPSHOT TESTS', () => {
                 />
             </ShapedLinkUI>,
         );
-        const link = screen.getByRole('link-to-media');
+        const link = screen.getByRole('link');
 
         expect(link).toMatchSnapshot();
     });
@@ -33,7 +33,7 @@ describe('ShapedLinkUI SNAPSHOT TESTS', () => {
                 </div>
             </ShapedLinkUI>,
         );
-        const link = screen.getByRole('link-to-media');
+        const link = screen.getByRole('link');
 
         expect(link).toMatchSnapshot();
     });

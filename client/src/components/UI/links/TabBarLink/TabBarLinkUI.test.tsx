@@ -7,7 +7,7 @@ import catalogueIcon from '../../../../../public/icons/tabbar_icons/catalogue.sv
 describe('TabBarLinkUI SNAPSHOT TEST', () => {
     test('TabBarLinkUI should not be changed', () => {
         render(<TabBarLinkUI selected={true} href="" icon={catalogueIcon} text="Каталог" />);
-        const link = screen.getByRole('tab-link');
+        const link = screen.getByRole('link');
 
         expect(link).toMatchSnapshot();
     });
