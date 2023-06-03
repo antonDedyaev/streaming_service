@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOVIEAPPEAL SNAPSHOTS TESTS MovieAppeal should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="movieAppeal"
+>
+  <h2>
+    watch
+     «
+    title
+    » 
+    onAllDevices
+  </h2>
+  <p>
+    availableForDownload
+  </p>
+  <a
+    class="container container_rectangular container__link"
+    href="https://www.ivi.ru/devices"
+    target="_blank"
+  >
+    <div
+      class="container__content"
+    >
+      connectDevices
+    </div>
+  </a>
+</div>
+`;

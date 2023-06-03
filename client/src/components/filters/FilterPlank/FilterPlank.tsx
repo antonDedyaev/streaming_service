@@ -61,7 +61,7 @@ const FilterPlank = ({ title, className, children }: IPlank) => {
     const domNode = useClickOutside(() => setIsDropdownShown(false));
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid={'filterPlank'}>
             <div
                 className={[styles.container__plank, isDropdownShown ? styles.container__plank_isActive : null].join(
                     ' ',

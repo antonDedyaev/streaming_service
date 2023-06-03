@@ -10,10 +10,10 @@ interface RatingPosterProps {
 
 const RatingPoster = ({ movie, className }: RatingPosterProps) => {
     return (
-        <div className={[style.container, className].join(' ')}>
+        <div className={[style.container, className].join(' ')} data-testid={'ratingPoster'}>
             <Link href={`/movies/${movie.id}`}>
                 <div className={style.container__imageWrapper}>
-                    <Image className={style.container__image} fill src={movie.posterUrl} alt={movie.name} />
+                    <Image className={style.container__image} fill src={movie.posterUrl} alt={movie.name!} />
                     <div className={style.container__fadeArea}></div>
                 </div>
                 <div className={style.container__content}>
@@ -25,7 +25,7 @@ const RatingPoster = ({ movie, className }: RatingPosterProps) => {
                             width={153}
                             height={40}
                             src={movie.logo!}
-                            alt={movie.name}
+                            alt={movie.name!}
                         />
                     </div>
 

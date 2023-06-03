@@ -1,6 +1,6 @@
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import styles from './LoginModal.module.scss';
-import ModalInputUI from '@/components/UI/ModalInput/ModalInputUI';
+import InputUI from '@/components/UI/Input/InputUI';
 import { useRef, useState } from 'react';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import { loginAPI } from '@/store/services/LoginService';
@@ -85,7 +85,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         ref={emailWrapperRef}
                         onClick={(event) => clickHandler(event)}
                     >
-                        <ModalInputUI
+                        <InputUI
                             focus={emailFocus}
                             type="email"
                             inputType="text"
@@ -100,7 +100,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         ref={passwordWrapperRef}
                         onClick={(event) => clickHandler(event)}
                     >
-                        <ModalInputUI
+                        <InputUI
                             focus={passwordFocus}
                             type="password"
                             inputType={isShowPassword ? 'text' : 'password'}
@@ -117,7 +117,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                             ref={repeatPasswordWrapperRef}
                             onClick={(event) => clickHandler(event)}
                         >
-                            <ModalInputUI
+                            <InputUI
                                 focus={repeatPasswordFocus}
                                 type="password"
                                 inputType={isShowRepeatPassword ? 'text' : 'password'}

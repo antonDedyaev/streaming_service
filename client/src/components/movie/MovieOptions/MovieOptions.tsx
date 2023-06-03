@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 const MovieOptions = () => {
     const { t } = useTranslation('movie');
     return (
-        <div className={styles.container} data-testid={'div-options'}>
+        <div className={styles.container} data-testid={'options'}>
             <div className={styles.container__block}>
                 <div className={styles.container__title}>{t('languages')}</div>
                 <div className={styles.container__value}>{t('langVariant')}</div>

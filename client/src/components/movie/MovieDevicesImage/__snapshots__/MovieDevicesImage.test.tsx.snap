@@ -3,7 +3,7 @@
 exports[`MOVIEDEVICESIMAGE SNAPSHOTS TESTS MovieDevicesImage should not be changed 1`] = `
 <div
   class="container"
-  data-testid="div-movieDevicesImage"
+  data-testid="movieDevicesImage"
 >
   <img
     alt="Устройства для просмотра Иви"
@@ -30,26 +30,26 @@ exports[`MOVIEDEVICESIMAGE SNAPSHOTS TESTS MovieDevicesImage should not be chang
     width="40"
   />
   <img
-    alt="Постер Каратэ-пацан (Фильм 2010)"
+    alt="Постер poster"
     class="container__posterTv"
     data-nimg="1"
     decoding="async"
     height="192"
     loading="lazy"
-    src="/_next/image?url=%2Fimg%2FposterTest.jpg&w=750&q=75"
-    srcset="/_next/image?url=%2Fimg%2FposterTest.jpg&w=384&q=75 1x, /_next/image?url=%2Fimg%2FposterTest.jpg&w=750&q=75 2x"
+    src="/_next/image?url=%2Fimg.jpg&w=750&q=75"
+    srcset="/_next/image?url=%2Fimg.jpg&w=384&q=75 1x, /_next/image?url=%2Fimg.jpg&w=750&q=75 2x"
     style="color: transparent;"
     width="337"
   />
   <img
-    alt="Постер Каратэ-пацан (Фильм 2010)"
+    alt="Постер poster"
     class="container__posterIpad"
     data-nimg="1"
     decoding="async"
     height="102"
     loading="lazy"
-    src="/_next/image?url=%2Fimg%2FposterTest.jpg&w=384&q=75"
-    srcset="/_next/image?url=%2Fimg%2FposterTest.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg%2FposterTest.jpg&w=384&q=75 2x"
+    src="/_next/image?url=%2Fimg.jpg&w=384&q=75"
+    srcset="/_next/image?url=%2Fimg.jpg&w=256&q=75 1x, /_next/image?url=%2Fimg.jpg&w=384&q=75 2x"
     style="color: transparent;"
     width="188"
   />

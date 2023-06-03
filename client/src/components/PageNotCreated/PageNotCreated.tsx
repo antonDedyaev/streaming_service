@@ -9,7 +9,7 @@ const PageNotCreated = () => {
     const router = useRouter();
     const { t } = useTranslation('moviesPage');
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid={'pageNotCreated'}>
             <Image src={attentionIcon} alt="Внимание" />
             <p>{t('pageError')}</p>
             <BorderedButton size="medium" className={styles.button} onClick={() => router.back()}>

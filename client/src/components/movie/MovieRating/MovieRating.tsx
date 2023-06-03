@@ -12,7 +12,7 @@ interface MovieRatingProps {
 const MovieRating = ({ movie }: MovieRatingProps) => {
     const { t } = useTranslation('movie');
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid={'movieRating'}>
             <div className={styles.container__value}>
                 <TextSquareUI value={Number(movie.ratingKp.toFixed(1))} textSize="medium" />
             </div>

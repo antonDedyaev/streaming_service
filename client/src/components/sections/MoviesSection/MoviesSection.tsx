@@ -16,7 +16,7 @@ interface MoviesSectionProps {
 const MoviesSection = ({ title, movies, href, showAllLink = true }: MoviesSectionProps) => {
     const { locale } = useRouter();
     return (
-        <div className={styles.section}>
+        <div className={styles.section} data-testid={'moviesSection'}>
             <div className={styles.section__header}>
                 {href ? <ArrowedLink text={title} href={href} /> : <h3 className={styles.section__title}>{title}</h3>}
             </div>

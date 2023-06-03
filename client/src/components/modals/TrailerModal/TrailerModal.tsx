@@ -12,7 +12,7 @@ const TrailerModal = ({ trailer }: TrailerModalProps) => {
     const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
     return (
         <ModalUI className={styles.modal}>
-            <div className={styles.container}>
+            <div className={styles.container} data-testid={'trailerModal'}>
                 {trailer ? (
                     <ReactPlayer className={styles.player} width="80%" height="80%" url={trailer} controls={true} />
                 ) : (

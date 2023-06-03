@@ -62,7 +62,7 @@ const Header = ({ page }: HeaderProps) => {
     };
 
     return (
-        <div onMouseLeave={clearMouseHandlers} className="container">
+        <div onMouseLeave={clearMouseHandlers} className="container" data-testid={'header'}>
             <div
                 className={[
                     styles.container,

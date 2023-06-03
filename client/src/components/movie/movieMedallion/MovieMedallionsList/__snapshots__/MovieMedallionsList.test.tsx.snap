@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOVIEMEDALLIONSLIST SNAPSHOTS TESTS MovieMedallionsList should not be changed 1`] = `
+<div
+  class="content"
+  data-testid="movieMedallionsList"
+>
+  <div
+    class="container container_inactive"
+    data-testid="medallionItem"
+  >
+    <div
+      class="container__content"
+    >
+      <div
+        class="container__contentBlock"
+      >
+        <div
+          class="value  value_high"
+          data-testid="textSquare"
+        >
+          8.8
+        </div>
+      </div>
+    </div>
+    <div
+      class="container__caption"
+    >
+      filterPanel.rating
+    </div>
+  </div>
+  <a
+    href="/persons/71427"
+  >
+    <div
+      class="container"
+      data-testid="medallionItem"
+    >
+      <div
+        class="container__content"
+      >
+        <div
+          class="container__contentBlock"
+        >
+          <img
+            alt="Франсуа Клюзе"
+            class="image"
+            data-nimg="1"
+            decoding="async"
+            height="300"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="300"
+          />
+        </div>
+      </div>
+      <div
+        class="container__caption"
+      >
+        François Cluzet
+      </div>
+    </div>
+  </a>
+  <a
+    href="/persons/3084680"
+  >
+    <div
+      class="container"
+      data-testid="medallionItem"
+    >
+      <div
+        class="container__content"
+      >
+        <div
+          class="container__contentBlock"
+        >
+          <img
+            alt="Абса Дьяту Тур"
+            class="image"
+            data-nimg="1"
+            decoding="async"
+            height="300"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="300"
+          />
+        </div>
+      </div>
+      <div
+        class="container__caption"
+      >
+        Absa Diatou Toure
+      </div>
+    </div>
+  </a>
+  <a
+    href="/persons/1960244"
+  >
+    <div
+      class="container"
+      data-testid="medallionItem"
+    >
+      <div
+        class="container__content"
+      >
+        <div
+          class="container__contentBlock"
+        >
+          <img
+            alt="Мари-Лор Дикуру"
+            class="image"
+            data-nimg="1"
+            decoding="async"
+            height="300"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1960244.jpg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1960244.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1960244.jpg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="300"
+          />
+        </div>
+      </div>
+      <div
+        class="container__caption"
+      >
+        Marie-Laure Descoureaux
+      </div>
+    </div>
+  </a>
+  <a
+    href="/persons/2228474"
+  >
+    <div
+      class="container"
+      data-testid="medallionItem"
+    >
+      <div
+        class="container__content"
+      >
+        <div
+          class="container__contentBlock"
+        >
+          <img
+            alt="Йен Фенелон"
+            class="image"
+            data-nimg="1"
+            decoding="async"
+            height="300"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2228474.jpg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2228474.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2228474.jpg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="300"
+          />
+        </div>
+      </div>
+      <div
+        class="container__caption"
+      >
+        Ian Fenelon
+      </div>
+    </div>
+  </a>
+  <a
+    href="/persons/1277398"
+  >
+    <div
+      class="container"
+      data-testid="medallionItem"
+    >
+      <div
+        class="container__content"
+      >
+        <div
+          class="container__contentBlock"
+        >
+          <img
+            alt="Бенжамин Барош"
+            class="image"
+            data-nimg="1"
+            decoding="async"
+            height="300"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1277398.jpg&w=640&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1277398.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1277398.jpg&w=640&q=75 2x"
+            style="color: transparent;"
+            width="300"
+          />
+        </div>
+      </div>
+      <div
+        class="container__caption"
+      >
+        Benjamin Baroche
+      </div>
+    </div>
+  </a>
+</div>
+`;

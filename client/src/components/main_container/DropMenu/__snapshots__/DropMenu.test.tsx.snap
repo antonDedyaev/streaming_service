@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DROPMENU SNAPSHOTS TESTS DropMenu should not be changed 1`] = `
+<div
+  class="container container__dropMenu"
+  data-testid="dropMenu"
+>
+  <div
+    class="container__item"
+  >
+    <h2
+      class="container__title"
+    >
+      title
+    </h2>
+    <div
+      class="container__content"
+    >
+      <a
+        class="container container_dim container__link"
+        href="/link1"
+      >
+        Ссылка 1
+      </a>
+      <a
+        class="container container_dim container__link"
+        href="/link2"
+      >
+        Ссылка 2
+      </a>
+      <a
+        class="container container_dim container__link"
+        href="/link3"
+      >
+        Ссылка 3
+      </a>
+    </div>
+  </div>
+</div>
+`;

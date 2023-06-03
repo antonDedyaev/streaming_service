@@ -17,7 +17,7 @@ const MovieParams = ({ movie }: MovieParamsProps) => {
     const { locale } = useRouter();
     const { t } = useTranslation('movie');
     return (
-        <div className={styles.container} data-testid="div-params">
+        <div className={styles.container} data-testid="params">
             <div className={styles.container__list}>
                 <TextLinkUI href={`/collections/${movie.year}`} option="bright">
                     {movie.year}

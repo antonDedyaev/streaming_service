@@ -6,7 +6,7 @@ const MoviePlayer = () => {
     const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid={'moviePlayer'}>
             <ReactPlayer
                 className={styles.container__player}
                 width="100%"

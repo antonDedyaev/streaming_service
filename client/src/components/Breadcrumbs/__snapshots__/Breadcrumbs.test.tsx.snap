@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BREADCRUMBS SNAPSHOTS TESTS "type" point Breadcrumbs should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="breadcrumbs"
+>
+  <ul
+    class="container__crumbsList container__crumbsList_point"
+  >
+    <a
+      class="container container_bright container__crumb2"
+      href="/"
+    >
+      myIvi
+    </a>
+    <li>
+      <a
+        class="container container_bright container__crumb2"
+        href="/movie"
+      >
+        movie
+      </a>
+    </li>
+    <div>
+      <li>
+        <a
+          class="container container_bright"
+          href="/collections/Genre"
+        >
+          Genre
+        </a>
+      </li>
+      <li
+        class="container__tail"
+      >
+        Name
+      </li>
+    </div>
+  </ul>
+</div>
+`;
+
+exports[`BREADCRUMBS SNAPSHOTS TESTS "type" pointShort Breadcrumbs should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="breadcrumbs"
+>
+  <ul
+    class="container__crumbsList container__crumbsList_pointShort"
+  >
+    <li>
+      <a
+        class="container container_bright container__crumb2"
+        href="/movie"
+      >
+        movie
+      </a>
+    </li>
+    <div>
+      <li>
+        <a
+          class="container container_bright"
+          href="/collections/Genre"
+        >
+          Genre
+        </a>
+      </li>
+    </div>
+  </ul>
+</div>
+`;
+
+exports[`BREADCRUMBS SNAPSHOTS TESTS "type" slash Breadcrumbs should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="breadcrumbs"
+>
+  <ul
+    class="container__crumbsList container__crumbsList_slash"
+  >
+    <a
+      class="container container_bright container__crumb"
+      href="/"
+    >
+      myIvi
+    </a>
+    <li>
+      <a
+        class="container container_bright container__crumb"
+        href="/movie"
+      >
+        movie
+      </a>
+    </li>
+    <li>
+      1
+    </li>
+  </ul>
+</div>
+`;

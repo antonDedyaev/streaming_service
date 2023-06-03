@@ -1,0 +1,601 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
+<footer
+  class="container"
+  data-testid="footer"
+>
+  <div
+    class="container"
+  >
+    <div
+      class="container__content container__content_columnNarrow"
+    >
+      <div>
+        <span
+          class="container__title"
+        >
+          about.title
+        </span>
+        <ul
+          class="container__column container__menu"
+        >
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              about.company
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              about.vacancies
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              about.betaTests
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              about.forPartners
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              about.advertising
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              about.userAgreement
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              about.confidentiality
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              about.compliance
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <span
+          class="container__title"
+        >
+          categories.title
+        </span>
+        <ul
+          class="container__column container__menu"
+        >
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              categories.myIvi
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              categories.latest
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="/movies"
+            >
+              categories.movies
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              categories.tvShows
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              categories.cartoons
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              categories.broadcast
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_dim"
+              href="#!"
+            >
+              categories.recommendations
+            </a>
+          </li>
+          <li
+            class="container__item"
+          >
+            <a
+              class="container container_gradient"
+              href="#!"
+            >
+              categories.certificate
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <span
+          class="container__title"
+        >
+          support.title
+        </span>
+        <div
+          class="container__description"
+        >
+          <span>
+            support.disclaimer.help
+          </span>
+          <span>
+            support.disclaimer.operators
+          </span>
+        </div>
+        <div
+          class="container__support"
+        >
+          <a
+            class="container container_rectangular container__chatButton"
+            href="https://www.ivi.ru/profile"
+          >
+            <div
+              class="container__content"
+            >
+              <div>
+                support.chat
+              </div>
+            </div>
+          </a>
+          <div
+            class="container__supportButtons"
+          >
+            <a
+              class="container container_square "
+              href="mailto:support@ivi.ru"
+            >
+              <div
+                class="container__content"
+              >
+                <img
+                  alt="Иконка почты"
+                  data-nimg="1"
+                  decoding="async"
+                  height="16"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=32&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=16&q=75 1x, /_next/image?url=%2Fimg.jpg&w=32&q=75 2x"
+                  style="color: transparent;"
+                  width="16"
+                />
+              </div>
+            </a>
+            <button
+              class="button button_small button_gray container__button container__button_size"
+              type="button"
+            >
+              <img
+                alt="Иконка телефона"
+                data-nimg="1"
+                decoding="async"
+                height="16"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=32&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=16&q=75 1x, /_next/image?url=%2Fimg.jpg&w=32&q=75 2x"
+                style="color: transparent;"
+                width="16"
+              />
+            </button>
+          </div>
+          <div
+            class="container__supportPhones "
+          >
+            <a
+              class="container__phoneItem"
+              href="tel:88002344923"
+              rel="nofollow"
+            >
+              <div
+                class="container__phoneNumber"
+              >
+                8 800 234-49-23
+              </div>
+              <div
+                class="container__description"
+              >
+                support.freeCall
+              </div>
+            </a>
+          </div>
+          <ul
+            class="container__questions"
+          >
+            <li>
+              <a
+                class="container container_bright container__title container__title_askText"
+                href="https://ask.ivi.ru/"
+              >
+                ask.ivi.ru
+              </a>
+              <p
+                class="container__description"
+              >
+                support.FAQ
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div
+          class="container__footerWidget"
+        >
+          <div
+            class="container__iconSection"
+          >
+            <img
+              alt="Иконка перечеркнутого громкоговорителя"
+              data-nimg="1"
+              decoding="async"
+              height="76"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=256&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=96&q=75 1x, /_next/image?url=%2Fimg.jpg&w=256&q=75 2x"
+              style="color: transparent;"
+              width="76"
+            />
+          </div>
+          <p
+            class="container__text"
+          >
+            noAds
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container__content container__content_columnWide"
+    >
+      <div>
+        <div
+          class="container__stores"
+        >
+          <a
+            class="container container_rectangular "
+            href="https://go.onelink.me/app/devicesiOS"
+          >
+            <div
+              class="container__content"
+            >
+              <img
+                alt="Логотип AppStore"
+                data-nimg="1"
+                decoding="async"
+                height="20"
+                loading="lazy"
+                src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/appleLogo.svg"
+                style="color: transparent;"
+                width="20"
+              />
+              <div
+                class="container__textBlock"
+              >
+                <div>
+                  stores.appStore
+                </div>
+                <div>
+                  App Store
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="container container_rectangular "
+            href="https://go.onelink.me/app/devicesAndroid"
+          >
+            <div
+              class="container__content"
+            >
+              <img
+                alt="Логотип Google Play"
+                data-nimg="1"
+                decoding="async"
+                height="20"
+                loading="lazy"
+                src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/googlePlayLogo.svg"
+                style="color: transparent;"
+                width="20"
+              />
+              <div
+                class="container__textBlock"
+              >
+                <div>
+                  stores.googlePlay
+                </div>
+                <div>
+                  Google Play
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="container container_rectangular "
+            href="#!"
+          >
+            <div
+              class="container__content"
+            >
+              <img
+                alt="Иконка телевизора"
+                data-nimg="1"
+                decoding="async"
+                height="20"
+                loading="lazy"
+                src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                style="color: transparent;"
+                width="20"
+              />
+              <div
+                class="container__textBlock"
+              >
+                <div>
+                  stores.smartTV
+                </div>
+                <div>
+                  Smart TV
+                </div>
+              </div>
+            </div>
+          </a>
+          <a
+            class="container container_rectangular "
+            href="#!"
+          >
+            <div
+              class="container__content"
+            >
+              <div
+                class="container__textBlock container__textBlock_single"
+              >
+                <img
+                  alt="Иконка умных устройств"
+                  data-nimg="1"
+                  decoding="async"
+                  height="20"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=48&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=32&q=75 1x, /_next/image?url=%2Fimg.jpg&w=48&q=75 2x"
+                  style="color: transparent;"
+                  width="20"
+                />
+                stores.allDevices
+              </div>
+            </div>
+          </a>
+        </div>
+        <div
+          class="container__copyrightsContainer"
+        >
+          <p
+            class="container__copyrights container__copyrights_site"
+          >
+            <span>
+              © 
+            </span>
+            <span>
+              2023
+            </span>
+            <span>
+               
+              copyrights.ivi
+            </span>
+          </p>
+          <p
+            class="container__copyrights container__copyrights_content"
+          >
+            HBO ® and related service marks are the property of Home Box Office, Inc
+          </p>
+        </div>
+      </div>
+      <div>
+        <div
+          class="container__community"
+        >
+          <a
+            class="container container_round "
+            href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
+          >
+            <div
+              class="container__content"
+            >
+              <img
+                alt="Логотип ВКонтакте"
+                data-nimg="1"
+                decoding="async"
+                height="16"
+                loading="lazy"
+                src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_vkontakte.svg"
+                style="color: transparent;"
+                width="16"
+              />
+            </div>
+          </a>
+          <a
+            class="container container_round "
+            href="https://ok.ru/ivi.ru"
+          >
+            <div
+              class="container__content"
+            >
+              <img
+                alt="Логотип Одноклассники"
+                data-nimg="1"
+                decoding="async"
+                height="16"
+                loading="lazy"
+                src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_odnoklassniki.svg"
+                style="color: transparent;"
+                width="16"
+              />
+            </div>
+          </a>
+          <a
+            class="container container_round "
+            href="https://twitter.com/ivi_ru"
+          >
+            <div
+              class="container__content"
+            >
+              <img
+                alt="Логотип Twitter"
+                data-nimg="1"
+                decoding="async"
+                height="16"
+                loading="lazy"
+                src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_twitter.svg"
+                style="color: transparent;"
+                width="16"
+              />
+            </div>
+          </a>
+          <a
+            class="container container_round "
+            href="https://vb.me/a0544c"
+          >
+            <div
+              class="container__content"
+            >
+              <img
+                alt="Логотип Viber"
+                data-nimg="1"
+                decoding="async"
+                height="16"
+                loading="lazy"
+                src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_viber.svg"
+                style="color: transparent;"
+                width="16"
+              />
+            </div>
+          </a>
+          <a
+            class="container container_round "
+            href="https://www.linkedin.com/company/2543415/"
+          >
+            <div
+              class="container__content"
+            >
+              <img
+                alt="Логотип LinkedIn"
+                data-nimg="1"
+                decoding="async"
+                height="16"
+                loading="lazy"
+                src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_linkedin.svg"
+                style="color: transparent;"
+                width="16"
+              />
+            </div>
+          </a>
+          <a
+            class="container container_round "
+            href="https://t.me/official_iviru"
+          >
+            <div
+              class="container__content"
+            >
+              <img
+                alt="Логотип Telegram"
+                data-nimg="1"
+                decoding="async"
+                height="16"
+                loading="lazy"
+                src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_telegram.svg"
+                style="color: transparent;"
+                width="16"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+`;

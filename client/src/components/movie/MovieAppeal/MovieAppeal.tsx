@@ -9,7 +9,7 @@ interface MovieAppealProps {
 const MovieAppeal = ({ title }: MovieAppealProps) => {
     const { t } = useTranslation('movie');
     return (
-        <div className={styles.container} data-testid="div-movieAppeal">
+        <div className={styles.container} data-testid="movieAppeal">
             <h2>
                 {t('watch')} «{title}» {t('onAllDevices')}
             </h2>

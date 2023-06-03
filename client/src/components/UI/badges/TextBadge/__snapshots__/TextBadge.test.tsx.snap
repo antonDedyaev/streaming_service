@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEXTBADGE SNAPSHOTS TESTS TextBadge should not be changed 1`] = `
+<div
+  class="badge"
+  data-testid="textBadge"
+>
+  text
+</div>
+`;

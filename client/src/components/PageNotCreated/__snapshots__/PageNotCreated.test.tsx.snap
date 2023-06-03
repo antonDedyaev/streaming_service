@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PAGENOTCREATED SNAPSHOTS TESTS PageNotCreated should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="pageNotCreated"
+>
+  <img
+    alt="Внимание"
+    data-nimg="1"
+    decoding="async"
+    height="40"
+    loading="lazy"
+    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+    style="color: transparent;"
+    width="40"
+  />
+  <p>
+    pageError
+  </p>
+  <button
+    class="button button_medium button"
+    type="button"
+  >
+    buttonBack
+  </button>
+</div>
+`;

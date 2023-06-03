@@ -4,7 +4,6 @@ exports[`ShapedLinkUI SNAPSHOT TESTS Rectangular link should not be changed 1`] 
 <a
   class="container container_rectangular "
   href="#!"
-  role="link-to-media"
 >
   <div
     class="container__content"
@@ -33,7 +32,6 @@ exports[`ShapedLinkUI SNAPSHOT TESTS Round link should not be changed 1`] = `
 <a
   class="container container_round "
   href="https://t.me/official_iviru"
-  role="link-to-media"
 >
   <div
     class="container__content"

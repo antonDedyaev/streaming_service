@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PREVIEWPOSTERCONTENTBRIEF SNAPSHOTS TESTS PreviewPosterContentBrief should not be changed 1`] = `
+<div
+  class="container "
+  data-testid="previewPosterContentBrief"
+>
+  <div
+    class="container__rating"
+  >
+    <span
+      class="container__rating container__rating_integer"
+    >
+      8
+    </span>
+    <span
+      class="container__rating container__rating_fraction"
+    >
+      .8
+    </span>
+  </div>
+  <div
+    class="container__text"
+  >
+    <p>
+      2011
+      , 
+      France
+      ,
+       
+      Drama
+    </p>
+    <p>
+      112 minutes.2
+    </p>
+  </div>
+</div>
+`;

@@ -17,7 +17,7 @@ interface DropMenuProps {
 
 const DropMenu = ({ className, content }: DropMenuProps) => {
     return (
-        <div className={[styles.container, className].join(' ')}>
+        <div className={[styles.container, className].join(' ')} data-testid={'dropMenu'}>
             {content.map((item) => (
                 <div key={item.title} className={styles.container__item}>
                     <h2 className={styles.container__title}>{item.title}</h2>

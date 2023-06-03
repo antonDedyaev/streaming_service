@@ -1,12 +1,23 @@
 import { render, screen } from '@testing-library/react';
 import MovieRating from './MovieRating';
-import { movies } from '../movieMedallion/MovieMedallionsList/Temp/Movie.data';
+import { movieTest } from '../../../testAsserts/testItems';
+
+jest.mock('next-i18next', () => ({
+    useTranslation: () => {
+        return {
+            t: (str: string) => str,
+            i18n: {
+                changeLanguage: () => new Promise(() => {}),
+            },
+        };
+    },
+}));
 
 describe('MOVIERATING SNAPSHOTS TESTS', () => {
     test('MovieRating should not be changed', () => {
-        render(<MovieRating movie={movies[0]} />);
+        render(<MovieRating movie={movieTest} />);
 
-        const button = screen.getByRole('button');
-        expect(button).toMatchSnapshot();
+        const div = screen.getByTestId('movieRating');
+        expect(div).toMatchSnapshot();
     });
 });
