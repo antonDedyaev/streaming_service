@@ -19,7 +19,7 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
 import PostersList from '@/components/posters/PostersList/PostersList';
-import { getCollection } from '../../utils/moviesHelpers';
+import { getCollection, getDynamicUrl } from '../../utils/moviesHelpers';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
@@ -103,6 +103,22 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
 
     const renderedList = filteredList.length !== 0 ? filteredList : collection;
 
+    const allFilters = useAppSelector((state) => state.movies.filters);
+    const urlString = getDynamicUrl(allFilters);
+
+    useEffect(() => {
+        const urlTail = urlString.length !== 0 ? 'filters' + urlString : '';
+
+        history.pushState(null, 'Filters', `http://localhost:3000${asPath}/${urlTail}`);
+    }, [urlString]);
+
+    const currentFilters = Object.entries(allFilters).filter(([, value]) => value.length !== 0 && value !== 0);
+    const subHeaderFilters = currentFilters
+        .flatMap(([key, value]) => {
+            return key === 'votesKp' || key === 'ratingKp' ? `${t('collection:category.over')} ${value}` : value;
+        })
+        .join(', ');
+
     return (
         <MainContainer
             keywords={['collection', 'iviEtoKryto']}
@@ -116,6 +132,7 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
                         <h2 className={styles.container__title}>
                             {getHeader(path)} {t('moviesPage:moviesSpoiler.header')}
                         </h2>
+                        {isFilterApplied && <span className={styles.container__subTitle}>{subHeaderFilters}</span>}
                     </div>
                     <div className={styles.container__controlButtons}>
                         <button onClick={() => setShowFilterPanel(!showFilterPanel)}>

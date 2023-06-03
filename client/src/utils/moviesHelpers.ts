@@ -1,7 +1,7 @@
 import ICountry from '@/models/ICountry';
 import IGenre from '@/models/IGenre';
 import IMovies from '@/models/IMovies';
-import { addFilteredMovies } from '@/store/slices/moviesSlice';
+import { IFilters, addFilteredMovies } from '@/store/slices/moviesSlice';
 import { AppDispatch } from '@/store/store';
 
 export const getCollection = (title: string, movies: IMovies[], genres: IGenre[], countries: ICountry[]) => {
@@ -122,4 +122,24 @@ export const getSortedMovies = (
         default:
             break;
     }
+};
+
+export const getDynamicUrl = (filters: IFilters) => {
+    const currentFilters = Object.entries(filters).filter(([, value]) => value.length !== 0 && value !== 0);
+    return currentFilters
+        .flatMap(([key, value], index) => {
+            const prev = currentFilters[index - 1] && currentFilters[index - 1][0];
+            const divider =
+                prev !== 'votesKp' && prev !== 'ratingKp' && prev !== 'actor' && prev !== 'director' ? '?' : '&';
+            if (key === 'genres' || key === 'countries') {
+                return '/' + value.map((item: string) => item.toLowerCase()).join('+');
+            }
+            if (key === 'votesKp' || key === 'ratingKp') {
+                return `${divider}${key}_gte=${Math.floor(value)}`;
+            }
+            if (key === 'actor' || key === 'director') {
+                return `${divider}${key}=${value}`;
+            }
+        })
+        .join('');
 };
