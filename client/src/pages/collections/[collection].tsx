@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
 import PostersList from '@/components/posters/PostersList/PostersList';
-import { getCollection } from '../../utils/moviesHelpers';
+import { getCollection, getDynamicUrl } from '../../utils/moviesHelpers';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
@@ -75,15 +75,48 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
     const countriesList = Array.from(new Set<string>(countryNames));
 
     const path = asPath.split('/').slice(-1)[0].split('-');
-    const dynamicHeader =
-        path.length === 1
-            ? t(`collection:category.${path[0]}`)
-            : t(`moviesPage:${path[0] + path[1][0].toUpperCase() + path[1].slice(1)}`);
+
+    const getHeader = (path: string[]) => {
+        let header = '';
+        if (path.length === 1) {
+            header = t(`collection:category.${path[0]}`);
+        }
+        if (path.length === 1 && path[0].startsWith(path[0][0].toUpperCase())) {
+            if (path[0] === 'Russia') {
+                header = t('collection:countries.Russia');
+            } else if (path[0] === 'USSR') {
+                header = t('collection:countries.USSR');
+            } else {
+                header = t('collection:countries.Foreign');
+            }
+        }
+        if (path.length > 1) {
+            header = t(`moviesPage:${path[0] + path[1][0].toUpperCase() + path[1].slice(1)}`);
+        }
+
+        return header;
+    };
 
     const collectionTitle = asPath.split('/').slice(-1)[0];
     const collection = getCollection(collectionTitle, movies, genres, countries);
 
     const renderedList = filteredList.length !== 0 ? filteredList : collection;
+
+    const allFilters = useAppSelector((state) => state.movies.filters);
+    const urlString = getDynamicUrl(allFilters);
+
+    useEffect(() => {
+        const urlTail = urlString.length !== 0 ? 'filters' + urlString : '';
+
+        history.pushState(null, 'Filters', `http://localhost:3000${asPath}/${urlTail}`);
+    }, [urlString]);
+
+    const currentFilters = Object.entries(allFilters).filter(([, value]) => value.length !== 0 && value !== 0);
+    const subHeaderFilters = currentFilters
+        .flatMap(([key, value]) => {
+            return key === 'votesKp' || key === 'ratingKp' ? `${t('collection:category.over')} ${value}` : value;
+        })
+        .join(', ');
 
     return (
         <MainContainer
@@ -96,8 +129,9 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
                     <div className={styles.container__spoiler}>
                         <Breadcrumbs path={asPath.split('/').slice(1)} />
                         <h2 className={styles.container__title}>
-                            {dynamicHeader} {t('moviesPage:moviesSpoiler.header')}
+                            {getHeader(path)} {t('moviesPage:moviesSpoiler.header')}
                         </h2>
+                        {isFilterApplied && <span className={styles.container__subTitle}>{subHeaderFilters}</span>}
                     </div>
                     <div className={styles.container__controlButtons}>
                         <button onClick={() => setShowFilterPanel(!showFilterPanel)}>
@@ -133,7 +167,7 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
                             title={t('moviesPage:filterPanel.countries')}
                             className={plankStyles.container__dropdown_centerPositioned}
                         >
-                            <FilterList items={countriesList} category="countries" />
+                            <FilterList items={countriesList.sort()} category="countries" />
                         </FilterPlank>
 
                         <FilterPlank

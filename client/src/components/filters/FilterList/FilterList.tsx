@@ -22,6 +22,17 @@ interface IList {
 const FilterList = ({ items, category }: IList) => {
     const dispatch = useAppDispatch();
     const allFilters = useAppSelector((state) => state.movies.filters);
+
+    const fullQuery = Object.entries(allFilters)
+        .flatMap(([key, value]) => {
+            if (value.length !== 0 && value !== 0) {
+                return Array.isArray(value) ? value.map((item) => `${key}=${item}`) : `${key}=${value}`;
+            } else {
+                return [];
+            }
+        })
+        .join('&');
+
     const genres = allFilters.genres.map((genre) => `genres=${genre}`);
     const countries = allFilters.countries.map((country) => `countries=${country}`);
     const joinedQuery = [...genres, ...countries].join('&');
@@ -31,7 +42,7 @@ const FilterList = ({ items, category }: IList) => {
     useEffect(() => {
         const sendFilters = async () => {
             try {
-                const response = await axios.get(`http://localhost:6125/movies?${joinedQuery}&limit=1000`);
+                const response = await axios.get(`http://localhost:6125/movies?${fullQuery}&limit=1000`);
                 dispatch(addFilteredMovies(joinedQuery !== '' ? response.data.docs[0].page : []));
             } catch (e: any) {
                 console.log(e.response?.data?.message);

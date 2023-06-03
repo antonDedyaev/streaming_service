@@ -28,7 +28,16 @@ const FilterSearch = ({ suggestionsList, category }: ISearch) => {
     });
 
     const allFilters = useAppSelector((state) => state.movies.filters);
-    const joinedQuery = `actor=${allFilters.actor}&director=${allFilters.director}`;
+
+    const fullQuery = Object.entries(allFilters)
+        .flatMap(([key, value]) => {
+            if (value.length !== 0 && value !== 0) {
+                return Array.isArray(value) ? value.map((item) => `${key}=${item}`) : `${key}=${value}`;
+            } else {
+                return [];
+            }
+        })
+        .join('&');
 
     useEffect(() => {
         category === 'actor' ? dispatch(actorFilterAdded(inputValue)) : dispatch(directorFilterAdded(inputValue));
@@ -49,7 +58,7 @@ const FilterSearch = ({ suggestionsList, category }: ISearch) => {
                 return;
             }
             try {
-                const response = await axios.get(`http://localhost:6125/movies?${joinedQuery}`);
+                const response = await axios.get(`http://localhost:6125/movies?${fullQuery}&limit=1000`);
                 dispatch(addFilteredMovies(response.data.docs[0].page));
             } catch (e: any) {
                 console.log(e.response?.data?.message);

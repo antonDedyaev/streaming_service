@@ -2,7 +2,7 @@
     display: flex;
     margin-bottom: 24px;
 
-    &__crumbsList {
+    & &__crumbsList {
         display: flex;
         list-style: none;
         flex-wrap: wrap;
@@ -45,6 +45,8 @@
             font-weight: 500;
             color: rgba(255, 255, 255, 0.56);
 
+            text-transform: capitalize;
+
             &:not(:last-child) {
                 cursor: pointer;
             }
@@ -68,5 +70,9 @@
         &:hover:not(:active) {
             box-shadow: 0 0 0 #7e798f, inset 0 -1.5em 0 #7e798f;
         }
+    }
+
+    &__unlinked {
+        pointer-events: none;
     }
 }

@@ -12,6 +12,18 @@
         margin: 0 0 10px 0;
     }
 
+    &__subTitle {
+        width: auto;
+        color: #a5a1b2;
+        margin-right: 16px;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 400;
+        font-style: normal;
+
+        text-transform: capitalize;
+    }
+
     &__spoiler {
         max-width: 930px;
     }
