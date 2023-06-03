@@ -1,10 +1,10 @@
 import styles from './Breadcrumbs.module.scss';
 import { useTranslation } from 'next-i18next';
 import IGenre from '@/models/IGenre';
-import { firstCapitalLetter } from '@/utils/functions';
+import { firstCapitalLetter } from '../../utils/functions';
 import TextLinkUI from '../UI/links/TextLink/TextLinkUI';
 import { useRouter } from 'next/router';
-import { useAppSelector } from '@/store/hooks/redux';
+import { useAppSelector } from '../../store/hooks/redux';
 
 interface BreadcrumbsProps {
     path: string[];

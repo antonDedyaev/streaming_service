@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FilterPlank from './FilterPlank';
 import styles from './FilterPlank.module.scss';
-import FilterList from './FilterList';
-import FilterRange from './FilterRange';
-import FilterSearch from './FilterSearch';
-import { genres, directorSuggestions } from './temp/items';
-import rating from '../../../public/icons/rating.svg';
+import FilterList from '../FilterList/FilterList';
+import FilterRange from '../FilterRange/FilterRange';
+import FilterSearch from '../FilterSearch/FilterSearch';
+import { genres, directorSuggestions } from '../temp/items';
+import rating from '../../../../public/icons/rating.svg';
 
 const meta: Meta<typeof FilterPlank> = {
     title: 'Filters/FilterPlank',
@@ -20,7 +20,7 @@ type Story = StoryObj<typeof FilterPlank>;
 export const ListFilterPlank: Story = {
     args: {
         title: 'Жанры',
-        className: styles.container__dropdown_genres,
+        className: styles.container__dropdown_leftPositioned,
         children: <FilterList category="genres" items={genres} />,
     },
 };

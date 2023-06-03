@@ -4,7 +4,7 @@ import { singleParagraph, moviePlot } from './storiesTemplates';
 import './SpoilerUI.module.scss';
 
 const meta: Meta<typeof SpoilerUI> = {
-    title: 'Spoiler/Spoiler',
+    title: 'Spoiler',
     component: SpoilerUI,
     tags: ['autodocs'],
     parameters: {

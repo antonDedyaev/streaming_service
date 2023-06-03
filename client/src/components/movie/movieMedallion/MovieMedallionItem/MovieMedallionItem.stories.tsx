@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
 import MovieMedallionItem from './MovieMedallionItem';
-import '../../../../styles/globals.scss';
 import './MovieMedallionItem.module.scss';
 
 const meta: Meta<typeof MovieMedallionItem> = {

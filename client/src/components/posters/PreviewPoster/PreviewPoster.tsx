@@ -1,4 +1,4 @@
-import AgeBadge from '@/components/UI/badges/AgeBadge/AgeBadge';
+import AgeBadge from '../../UI/badges/AgeBadge/AgeBadge';
 import PreviewPosterContent from '../PreviewPosterContent/PreviewPosterContent';
 import IMovies from '@/models/IMovies';
 import Image from 'next/image';

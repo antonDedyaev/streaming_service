@@ -3,23 +3,22 @@ import ModalUI from './ModalUI';
 import './ModalUI.module.scss';
 
 const meta: Meta<typeof ModalUI> = {
-    title: 'ModalUI',
+    title: 'Modal',
     component: ModalUI,
-    tags: ['autodocs'],
-    argTypes: {
-        children: {
-            type: 'string',
-            name: 'label',
-            defaultValue: 'Я модалка',
-        },
-    },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof ModalUI>;
 
-export const RedButton: Story = {
+export const Modal: Story = {
+    decorators: [
+        (Story) => (
+            <div style={{ color: '#fff' }}>
+                <Story />
+            </div>
+        ),
+    ],
     args: {
         children: 'Я модалка',
     },
