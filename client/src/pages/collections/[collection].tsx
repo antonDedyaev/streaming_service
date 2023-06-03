@@ -168,7 +168,7 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
                             title={t('moviesPage:filterPanel.countries')}
                             className={plankStyles.container__dropdown_centerPositioned}
                         >
-                            <FilterList items={countriesList} category="countries" />
+                            <FilterList items={countriesList.sort()} category="countries" />
                         </FilterPlank>
 
                         <FilterPlank
