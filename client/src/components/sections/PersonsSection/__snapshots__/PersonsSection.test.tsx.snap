@@ -19,6 +19,7 @@ exports[`PERSONSSECTION SNAPSHOTS TESTS size large PersonsSection should not be 
   >
     <div
       class="jsx-687504307 container container_actor"
+      data-testid="slider"
     >
       <div
         class="jsx-687504307 container__contentContainer"
@@ -4179,7 +4180,6 @@ exports[`PERSONSSECTION SNAPSHOTS TESTS size small PersonsSection should not be 
       <a
         class="container container_round section__list_link"
         href="undefined?more"
-        role="link-to-media"
       >
         <div
           class="container__content"

@@ -31,6 +31,7 @@ exports[`TOPTENSECTION SNAPSHOTS TESTS TopTenSection should not be changed 1`] =
   >
     <div
       class="jsx-687504307 container container_rating"
+      data-testid="slider"
     >
       <div
         class="jsx-687504307 container__contentContainer"

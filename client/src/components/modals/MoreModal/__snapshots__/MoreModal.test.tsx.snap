@@ -15,6 +15,7 @@ exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
     </h1>
     <div
       class="container"
+      data-testid="moviePersonsItem"
     >
       <span
         class="container__title"
@@ -118,6 +119,7 @@ exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
     </div>
     <div
       class="container"
+      data-testid="moviePersonsItem"
     >
       <span
         class="container__title"
@@ -737,6 +739,7 @@ exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
     </div>
     <div
       class="container"
+      data-testid="moviePersonsItem"
     >
       <span
         class="container__title"
@@ -840,6 +843,7 @@ exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
     </div>
     <div
       class="container"
+      data-testid="moviePersonsItem"
     >
       <span
         class="container__title"
@@ -900,6 +904,7 @@ exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
     </div>
     <div
       class="container"
+      data-testid="moviePersonsItem"
     >
       <span
         class="container__title"
@@ -1046,6 +1051,7 @@ exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
     </div>
     <div
       class="container"
+      data-testid="moviePersonsItem"
     >
       <span
         class="container__title"
@@ -1192,6 +1198,7 @@ exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
     </div>
     <div
       class="container"
+      data-testid="moviePersonsItem"
     >
       <span
         class="container__title"
@@ -1252,6 +1259,7 @@ exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
     </div>
     <div
       class="container"
+      data-testid="moviePersonsItem"
     >
       <span
         class="container__title"
@@ -1312,6 +1320,7 @@ exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
     </div>
     <div
       class="container"
+      data-testid="moviePersonsItem"
     >
       <span
         class="container__title"
@@ -1388,6 +1397,7 @@ exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
     />
     <div
       class="container container__posterBrief"
+      data-testid="previewPosterContentBrief"
     >
       <div
         class="container__rating"

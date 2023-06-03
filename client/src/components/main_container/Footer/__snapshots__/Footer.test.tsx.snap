@@ -215,7 +215,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_rectangular container__chatButton"
             href="https://www.ivi.ru/profile"
-            role="link-to-media"
           >
             <div
               class="container__content"
@@ -231,7 +230,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
             <a
               class="container container_square "
               href="mailto:support@ivi.ru"
-              role="link-to-media"
             >
               <div
                 class="container__content"
@@ -342,7 +340,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_rectangular "
             href="https://go.onelink.me/app/devicesiOS"
-            role="link-to-media"
           >
             <div
               class="container__content"
@@ -372,7 +369,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_rectangular "
             href="https://go.onelink.me/app/devicesAndroid"
-            role="link-to-media"
           >
             <div
               class="container__content"
@@ -402,7 +398,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_rectangular "
             href="#!"
-            role="link-to-media"
           >
             <div
               class="container__content"
@@ -433,7 +428,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_rectangular "
             href="#!"
-            role="link-to-media"
           >
             <div
               class="container__content"
@@ -488,7 +482,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_round "
             href="https://vk.com/iviru?crc=fa4448c13e06e69ba9e814e8743c7e2e"
-            role="link-to-media"
           >
             <div
               class="container__content"
@@ -508,7 +501,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_round "
             href="https://ok.ru/ivi.ru"
-            role="link-to-media"
           >
             <div
               class="container__content"
@@ -528,7 +520,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_round "
             href="https://twitter.com/ivi_ru"
-            role="link-to-media"
           >
             <div
               class="container__content"
@@ -548,7 +539,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_round "
             href="https://vb.me/a0544c"
-            role="link-to-media"
           >
             <div
               class="container__content"
@@ -568,7 +558,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_round "
             href="https://www.linkedin.com/company/2543415/"
-            role="link-to-media"
           >
             <div
               class="container__content"
@@ -588,7 +577,6 @@ exports[`FOOTER SNAPSHOTS TESTS Footer should not be changed 1`] = `
           <a
             class="container container_round "
             href="https://t.me/official_iviru"
-            role="link-to-media"
           >
             <div
               class="container__content"

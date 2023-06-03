@@ -59,6 +59,7 @@ exports[`PREVIEWPOSTERCONTENT SNAPSHOTS TESTS PreviewPosterContent should not be
   </div>
   <div
     class="container container__info"
+    data-testid="previewPosterContentBrief"
   >
     <div
       class="container__rating"

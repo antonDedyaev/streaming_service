@@ -25,6 +25,7 @@ exports[`PREVIEWPOSTER SNAPSHOTS TESTS PreviewPoster should not be changed 1`] =
     </div>
     <div
       class="container"
+      data-testid="previewPosterContent"
     >
       <div
         class="container__icons"
@@ -80,6 +81,7 @@ exports[`PREVIEWPOSTER SNAPSHOTS TESTS PreviewPoster should not be changed 1`] =
       </div>
       <div
         class="container container__info"
+        data-testid="previewPosterContentBrief"
       >
         <div
           class="container__rating"
@@ -114,6 +116,7 @@ exports[`PREVIEWPOSTER SNAPSHOTS TESTS PreviewPoster should not be changed 1`] =
     </div>
     <div
       class="badge container__badge"
+      data-testid="ageBadge"
     >
       16
       +

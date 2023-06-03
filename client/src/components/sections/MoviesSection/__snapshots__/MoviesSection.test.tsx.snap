@@ -34,6 +34,7 @@ exports[`MOVIESSECTION SNAPSHOTS TESTS MoviesSection should not be changed 1`] =
   >
     <div
       class="jsx-687504307 container container_preview"
+      data-testid="slider"
     >
       <div
         class="jsx-687504307 container__contentContainer"
@@ -156,6 +157,7 @@ exports[`MOVIESSECTION SNAPSHOTS TESTS MoviesSection should not be changed 1`] =
               </div>
               <div
                 class="badge container__badge"
+                data-testid="ageBadge"
               >
                 16
                 +
@@ -286,6 +288,7 @@ exports[`MOVIESSECTION SNAPSHOTS TESTS MoviesSection should not be changed 1`] =
               </div>
               <div
                 class="badge container__badge"
+                data-testid="ageBadge"
               >
                 18
                 +
@@ -416,6 +419,7 @@ exports[`MOVIESSECTION SNAPSHOTS TESTS MoviesSection should not be changed 1`] =
               </div>
               <div
                 class="badge container__badge"
+                data-testid="ageBadge"
               >
                 18
                 +

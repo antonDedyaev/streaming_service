@@ -18,6 +18,7 @@ exports[`SEARCHMODAL SNAPSHOTS TESTS SearchModal should not be changed 1`] = `
     >
       <div
         class="container container_search "
+        data-testid="input"
       >
         <div
           class="container__placeholder"

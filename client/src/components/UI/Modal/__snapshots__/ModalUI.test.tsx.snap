@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModalUI SNAPSHOTS TESTS ModalUI should not be changed 1`] = `
+exports[`MODALUI SNAPSHOTS TESTS ModalUI should not be changed 1`] = `
 <div
   class="container "
 >

@@ -15,7 +15,7 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
   >
     <div
       class="container"
-      data-testid="div-params"
+      data-testid="params"
     >
       <div
         class="container__list"
@@ -130,7 +130,7 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
   >
     <div
       class="container"
-      data-testid="div-moviePlayer"
+      data-testid="moviePlayer"
     >
       <div
         class="container__buttons"
@@ -203,11 +203,11 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
     >
       <div
         class="content container__blockCards"
-        data-testid="div-movieMedallionsList"
+        data-testid="movieMedallionsList"
       >
         <div
           class="container container_inactive"
-          data-testid="div-MedallionItem"
+          data-testid="medallionItem"
         >
           <div
             class="container__content"
@@ -234,7 +234,7 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
         >
           <div
             class="container"
-            data-testid="div-MedallionItem"
+            data-testid="medallionItem"
           >
             <div
               class="container__content"
@@ -268,7 +268,7 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
         >
           <div
             class="container"
-            data-testid="div-MedallionItem"
+            data-testid="medallionItem"
           >
             <div
               class="container__content"
@@ -302,7 +302,7 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
         >
           <div
             class="container"
-            data-testid="div-MedallionItem"
+            data-testid="medallionItem"
           >
             <div
               class="container__content"
@@ -336,7 +336,7 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
         >
           <div
             class="container"
-            data-testid="div-MedallionItem"
+            data-testid="medallionItem"
           >
             <div
               class="container__content"
@@ -370,7 +370,7 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
         >
           <div
             class="container"
-            data-testid="div-MedallionItem"
+            data-testid="medallionItem"
           >
             <div
               class="container__content"
@@ -433,7 +433,7 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
             >
               <div
                 class="container"
-                data-testid="div-options"
+                data-testid="options"
               >
                 <div
                   class="container__block"
@@ -543,7 +543,7 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
       >
         <div
           class="container"
-          data-testid="div-movieRating"
+          data-testid="movieRating"
         >
           <div
             class="container__value"
@@ -587,7 +587,7 @@ exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
       >
         <div
           class="container"
-          data-testid="div-options"
+          data-testid="options"
         >
           <div
             class="container__block"

@@ -159,7 +159,7 @@ exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
     </div>
     <div
       class="container container__dropMenu "
-      data-testid="div-dropMenu"
+      data-testid="dropMenu"
     />
   </div>
 </div>
