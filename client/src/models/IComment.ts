@@ -4,4 +4,5 @@ export default interface IComment {
     date: string;
     text: string;
     childComment?: IComment[];
+    parentId?: number
 }

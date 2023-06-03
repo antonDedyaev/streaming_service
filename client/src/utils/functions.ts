@@ -58,3 +58,51 @@ export const checkFiltersStatus = (filters: IFilters) => {
         actor === ''
     );
 };
+
+export const formatDate = (date: string): string => {
+    const year = date.slice(11,15);
+    const day = date.slice(8,10);
+    const month = date.slice(4,7);
+    let formatedMonth;
+
+    switch (month) {
+        case 'Jan':
+            formatedMonth = 'января'
+            break
+        case 'Feb':
+            formatedMonth = 'февраля'
+            break
+        case 'Mar':
+            formatedMonth = 'марта'
+            break
+        case 'Apr':
+            formatedMonth = 'апреля'
+            break
+        case 'May':
+            formatedMonth = 'мая'
+            break
+        case 'Jun':
+            formatedMonth = 'июня'
+            break
+        case 'Jul':
+            formatedMonth = 'июля'
+            break
+        case 'Aug':
+            formatedMonth = 'августа'
+            break
+        case 'Sep':
+            formatedMonth = 'сентября'
+            break
+        case 'Oct':
+            formatedMonth = 'октября'
+            break
+        case 'Nov':
+            formatedMonth = 'ноября'
+            break
+        case 'Dec':
+            formatedMonth = 'декабря'
+            break
+    }
+
+    return `${day[0] === '0' ? day[1] : day} ${formatedMonth} ${year}`
+};

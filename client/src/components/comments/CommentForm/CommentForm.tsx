@@ -6,12 +6,11 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 
 interface CommentFormProps {
-    
+    onSubmit: (value: string) => void
 }
 
-const CommentForm = ({  }: CommentFormProps) => {
+const CommentForm = ({ onSubmit }: CommentFormProps) => {
     const { t } = useTranslation('movie');
-    const { locale } = useRouter();
     const [value, setValue] = useState<string>('');
     const [focus, setFocus] = useState<boolean>(false);
 
@@ -25,11 +24,6 @@ const CommentForm = ({  }: CommentFormProps) => {
         } else {
             setFocus(false)
         }
-    }
-
-    const submitHeandler = () => {
-        console.log(value)
-        setValue('')
     }
 
     return (
@@ -53,7 +47,10 @@ const CommentForm = ({  }: CommentFormProps) => {
                 className={styles.container__button}
                 size='large'
                 color='gray'
-                onClick={submitHeandler}
+                onClick={() => {
+                    onSubmit(value);
+                    setValue('')
+                }}
             >
                 {t('comments.send')}
             </ColoredButton>

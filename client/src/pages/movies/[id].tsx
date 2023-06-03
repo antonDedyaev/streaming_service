@@ -135,6 +135,10 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
                             </section>
                         )}
 
+                        <section className={styles.container__comments}>
+                            <CommentsSection comments={movie.comments} />
+                        </section>
+
                         <section className={[styles.container__devices, styles.devices].join(' ')}>
                             <div className={styles.devices__appeal}>
                                 <MovieAppeal
@@ -153,9 +157,7 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
                                 <MovieDevicesImage poster={movie.posterUrl} title={movie.name} />
                             </div>
                         </section>
-                        <section>
-                            <CommentsSection comments={movie.comments} />
-                        </section>
+
                         <section>
                             <Breadcrumbs
                                 path={asPath.split('/').slice(1)}
