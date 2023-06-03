@@ -1,0 +1,1424 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOREMODAL SNAPSHOTS TESTS MoreModal should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="moreModal"
+>
+  <div
+    class="container__inner"
+  >
+    <h1
+      class="container__title"
+    >
+      Intouchables (Movie 2011)
+    </h1>
+    <div
+      class="container"
+    >
+      <span
+        class="container__title"
+      >
+        personsInvolved.0
+      </span>
+      <div
+        class="container__spoiler"
+      >
+        <div
+          class="container__item"
+        >
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/382906"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Оливье Накаш Olivier Nakache"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_382906.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_382906.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_382906.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Olivier
+                <br />
+                Nakache
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/426346"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Эрик Толедано Éric Toledano"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_426346.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_426346.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_426346.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Éric
+                <br />
+                Toledano
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <span
+        class="container__title"
+      >
+        personsInvolved.1
+      </span>
+      <div
+        class="container__spoiler"
+      >
+        <div
+          class="container__item"
+        >
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/71427"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Франсуа Клюзе François Cluzet"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                François
+                <br />
+                Cluzet
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/3084680"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Абса Дьяту Тур Absa Diatou Toure"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Absa
+                <br />
+                Diatou Toure
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/1960244"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Мари-Лор Дикуру Marie-Laure Descoureaux"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1960244.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1960244.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1960244.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Marie-Laure
+                <br />
+                Descoureaux
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/2228474"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Йен Фенелон Ian Fenelon"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2228474.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2228474.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2228474.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Ian
+                <br />
+                Fenelon
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/1277398"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Бенжамин Барош Benjamin Baroche"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1277398.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1277398.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1277398.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Benjamin
+                <br />
+                Baroche
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/1171108"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Жером Паувельс Jérôme Pauwels"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1171108.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1171108.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1171108.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Jérôme
+                <br />
+                Pauwels
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/551535"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Антуан Лоран Antoine Laurent"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_551535.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_551535.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_551535.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Antoine
+                <br />
+                Laurent
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/2687590"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Доминик Анри Dominique Henry"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2687590.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2687590.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2687590.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Dominique
+                <br />
+                Henry
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/3084681"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Ле Капариксьо Франсе Le Capriccio Français"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084681.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084681.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084681.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Le
+                <br />
+                Capriccio Français
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/3084682"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Филипп Ле Февр Philippe Le Fevre"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084682.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084682.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084682.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Philippe
+                <br />
+                Le Fevre
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/2269034"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Пьер-Лоран Барнерон Pierre-Laurent Barneron"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2269034.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2269034.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2269034.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Pierre-Laurent
+                <br />
+                Barneron
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/4559766"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Хэ Юньпин He Yunping"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_4559766.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_4559766.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_4559766.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                He
+                <br />
+                Yunping
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/3152842"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Филипп Поццо ди Борго Philippe Pozzo di Borgo"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3152842.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3152842.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3152842.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Philippe
+                <br />
+                Pozzo di Borgo
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/2789409"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Абдель Селлу Abdel Sellou"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2789409.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2789409.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2789409.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Abdel
+                <br />
+                Sellou
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <span
+        class="container__title"
+      >
+        personsInvolved.2
+      </span>
+      <div
+        class="container__spoiler"
+      >
+        <div
+          class="container__item"
+        >
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/2402288"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Арно Бертран Arnaud Bertrand"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2402288.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2402288.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2402288.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Arnaud
+                <br />
+                Bertrand
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/884847"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Доминик Бутонна Dominique Boutonnat"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_884847.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_884847.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_884847.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Dominique
+                <br />
+                Boutonnat
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <span
+        class="container__title"
+      >
+        personInvolved.3
+      </span>
+      <div
+        class="container__spoiler"
+      >
+        <div
+          class="container__item"
+        >
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/634036"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Матьё Вадпьед Mathieu Vadepied"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_634036.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_634036.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_634036.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Mathieu
+                <br />
+                Vadepied
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <span
+        class="container__title"
+      >
+        personsInvolved.4
+      </span>
+      <div
+        class="container__spoiler"
+      >
+        <div
+          class="container__item"
+        >
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/634036"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Матьё Вадпьед Mathieu Vadepied"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_634036.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_634036.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_634036.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Mathieu
+                <br />
+                Vadepied
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/1998619"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Изабель Паннетье Isabelle Pannetier"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1998619.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1998619.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1998619.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Isabelle
+                <br />
+                Pannetier
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/2004628"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Оливия Блох-Лене Olivia Bloch-Lainé"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2004628.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2004628.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2004628.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Olivia
+                <br />
+                Bloch-Lainé
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <span
+        class="container__title"
+      >
+        personsInvolved.5
+      </span>
+      <div
+        class="container__spoiler"
+      >
+        <div
+          class="container__item"
+        >
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/3152842"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Филипп Поццо ди Борго Philippe Pozzo di Borgo"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3152842.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3152842.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3152842.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Philippe
+                <br />
+                Pozzo di Borgo
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/382906"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Оливье Накаш Olivier Nakache"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_382906.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_382906.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_382906.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Olivier
+                <br />
+                Nakache
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/426346"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Эрик Толедано Éric Toledano"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_426346.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_426346.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_426346.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Éric
+                <br />
+                Toledano
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <span
+        class="container__title"
+      >
+        personInvolved.6
+      </span>
+      <div
+        class="container__spoiler"
+      >
+        <div
+          class="container__item"
+        >
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/590648"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Людовико Эйнауди Ludovico Einaudi"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_590648.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_590648.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_590648.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Ludovico
+                <br />
+                Einaudi
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <span
+        class="container__title"
+      >
+        personInvolved.7
+      </span>
+      <div
+        class="container__spoiler"
+      >
+        <div
+          class="container__item"
+        >
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/1987674"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Дориан Ригаль-Ансу Dorian Rigal-Ansous"
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1987674.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1987674.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1987674.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Dorian
+                <br />
+                Rigal-Ansous
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container"
+    >
+      <span
+        class="container__title"
+      >
+        personInvolved.8
+      </span>
+      <div
+        class="container__spoiler"
+      >
+        <div
+          class="container__item"
+        >
+          <a
+            class="container container_medium item item_medium"
+            href="/persons/1963412"
+          >
+            <div
+              class="container__imageContainer"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="Данил Щебланов "
+                  class="container__image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1963412.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1963412.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1963412.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__textContainer"
+            >
+              <h2
+                class="container__fullName"
+              >
+                Данил
+                <br />
+                Щебланов
+              </h2>
+              <p
+                class="container__amountMovies"
+              >
+                1
+                 
+                filmography.singleMovie
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="container__poster"
+  >
+    <img
+      alt="1+1 Intouchables"
+      class="container__posterImage"
+      data-nimg="1"
+      decoding="async"
+      height="196"
+      loading="lazy"
+      src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=256&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=256&q=75 2x"
+      style="color: transparent;"
+      width="128"
+    />
+    <div
+      class="container container__posterBrief"
+    >
+      <div
+        class="container__rating"
+      >
+        <span
+          class="container__rating container__rating_integer"
+        >
+          8
+        </span>
+        <span
+          class="container__rating container__rating_fraction"
+        >
+          .8
+        </span>
+      </div>
+      <div
+        class="container__text"
+      >
+        <p>
+          2011
+          , 
+          France
+          ,
+           
+          Drama
+        </p>
+        <p>
+          112 minutes.2
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

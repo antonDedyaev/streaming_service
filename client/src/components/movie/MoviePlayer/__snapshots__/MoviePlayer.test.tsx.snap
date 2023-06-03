@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOVIEPLAYER SNAPSHOTS TESTS MoviePlayer should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="moviePlayer"
+>
+  <div
+    class="container__buttons"
+  >
+    <div
+      class="container"
+      data-testid="buttons"
+    >
+      <button
+        class="button button_medium button_lightGray container__item"
+        type="button"
+      >
+        <img
+          alt="playIcon"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+         
+        <span>
+          trailer
+        </span>
+      </button>
+      <button
+        class="button button_medium button_lightGray container__item"
+        type="button"
+      >
+        <img
+          alt="bookmarkIcon"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </button>
+      <button
+        class="button button_medium button_lightGray container__item"
+        type="button"
+      >
+        <img
+          alt="shareIcon"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

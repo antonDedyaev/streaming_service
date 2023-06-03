@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COLOREDBUTTON SNAPSHOTS TESTS size="large" and color="red" ColoredButton should not be changed 1`] = `
+<button
+  class="button button_large button_red button"
+  type="button"
+>
+  Text
+</button>
+`;
+
+exports[`COLOREDBUTTON SNAPSHOTS TESTS size="medium" and color="gray" ColoredButton should not be changed 1`] = `
+<button
+  class="button button_medium button_gray button"
+  type="button"
+>
+  Text
+</button>
+`;
+
+exports[`COLOREDBUTTON SNAPSHOTS TESTS size="small" and color="lightGray" ColoredButton should not be changed 1`] = `
+<button
+  class="button button_small button_lightGray button"
+  type="button"
+>
+  Text
+</button>
+`;

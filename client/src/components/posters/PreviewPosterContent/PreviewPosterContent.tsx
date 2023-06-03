@@ -14,7 +14,7 @@ interface PreviewPosterContentProps {
 
 const PreviewPosterContent = ({ movie }: PreviewPosterContentProps) => {
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid={'previewPosterContent'}>
             <div className={styles.container__icons}>
                 <Image
                     className={[styles.container__icon, styles.container__icon_favorite].join(' ')}

@@ -7,21 +7,12 @@ import { useAppDispatch, useAppSelector } from '../../../store/hooks/redux';
 import { checkFiltersStatus } from '../../../utils/functions';
 import axios from 'axios';
 import { addFilteredMovies, ratingFilterAdded, votesFilterAdded } from '../../../store/slices/moviesSlice';
-/*import IMovies from '@/models/IMovies';
-import IGenre from '@/models/IGenre';
-import ICountry from '@/models/ICountry';*/
 interface IRating {
     category: 'ratingKp' | 'votesKp';
     image: string;
     limit: number;
     step: number;
 }
-
-/*interface IFiltered {
-    film: IMovies;
-    genres: IGenre[];
-    countries: ICountry[];
-}*/
 
 const FilterRange = ({ category, image, limit, step }: IRating) => {
     const { t } = useTranslation('moviesPage');
@@ -52,7 +43,7 @@ const FilterRange = ({ category, image, limit, step }: IRating) => {
         }
     }, [allFilters]);
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid={'filterRange'}>
             <div className={styles.container__ratingContent}>
                 <div
                     className={[

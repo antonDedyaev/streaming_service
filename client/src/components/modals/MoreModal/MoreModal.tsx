@@ -38,7 +38,7 @@ const MoreModal = ({ movie }: MoreModalProps) => {
 
     return (
         <ModalUI className={styles.modal} close={isClose}>
-            <div className={styles.container}>
+            <div className={styles.container} data-testid={'moreModal'}>
                 <div className={styles.container__inner}>
                     <h1 className={styles.container__title}>
                         {locale === 'ru'

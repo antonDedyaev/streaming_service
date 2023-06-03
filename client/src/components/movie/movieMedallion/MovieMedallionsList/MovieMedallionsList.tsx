@@ -17,7 +17,7 @@ const MovieMedallionsList = ({ className, movie }: MovieMedallionsListProps) => 
     const { locale } = useRouter();
     const actors = movie.persons.filter((persons) => persons.enProfession.includes('actor'));
     return (
-        <div className={[styles.content, className].join(' ').trim()}>
+        <div className={[styles.content, className].join(' ').trim()} data-testid={'movieMedallionsList'}>
             <MovieMedallionItem text={t('filterPanel.rating')} disabled={true}>
                 <TextSquareUI value={Number(movie.ratingKp.toFixed(1))} />
             </MovieMedallionItem>

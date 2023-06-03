@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TRAILERMODAL SNAPSHOTS TESTS TrailerModal should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="trailerModal"
+>
+  <h2>
+    Trailer not yet added
+  </h2>
+</div>
+`;

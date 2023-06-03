@@ -4,10 +4,9 @@ import styles from './UnderlinedLink.module.scss';
 interface UnderlinedLinkProps {
     text: string;
     href?: string;
-    /*onClick: (e: any) => void;*/
 }
 
-const UnderlinedLink = ({ text, href = '' /*, onClick */ }: UnderlinedLinkProps) => {
+const UnderlinedLink = ({ text, href = '' }: UnderlinedLinkProps) => {
     return (
         <Link className={styles.link} href={href}>
             {text}
@@ -16,4 +15,3 @@ const UnderlinedLink = ({ text, href = '' /*, onClick */ }: UnderlinedLinkProps)
 };
 
 export default UnderlinedLink;
-/*<Link className={styles.link} href={href} onClick={(e) => onClick(e) }></Link>*/

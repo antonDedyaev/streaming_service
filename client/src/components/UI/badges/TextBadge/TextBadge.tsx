@@ -1,15 +1,15 @@
-import style from './TextBadge.module.scss'
+import style from './TextBadge.module.scss';
 
 interface TextBadgeProps {
-    text: string
+    text: string;
 }
 
-const TextBadge = ({text}: TextBadgeProps) => {
+const TextBadge = ({ text }: TextBadgeProps) => {
     return (
-        <div className={style.badge}>
+        <div className={style.badge} data-testid={'textBadge'}>
             {text}
         </div>
-    )
-}
+    );
+};
 
 export default TextBadge;

@@ -13,7 +13,7 @@ interface TopTenSectionProps {
 const TopTenSection = ({ movies }: TopTenSectionProps) => {
     const { t } = useTranslation('mainPage');
     return (
-        <div className={styles.section}>
+        <div className={styles.section} data-testid={'topTenSection'}>
             <div className={styles.section__header}>
                 <Image className={styles.topIcon} src={topIcon} alt="топ 10" />
                 <h3 className={styles.section__title}>{t('weekTop')}</h3>

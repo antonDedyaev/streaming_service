@@ -1,0 +1,750 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MOVIEINFO SNAPSHOTS TESTS MovieInfo should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="movieInfo"
+>
+  <h1
+    class="container__title"
+  >
+    Intouchables (Movie 2011)
+  </h1>
+  <div
+    class="container__params"
+  >
+    <div
+      class="container"
+      data-testid="div-params"
+    >
+      <div
+        class="container__list"
+      >
+        <a
+          class="container container_bright"
+          href="/collections/2011"
+        >
+          2011
+        </a>
+        <span
+          class="container__listItem"
+        >
+          1 textTime.0 52 textTime.1
+        </span>
+        <span
+          class="container__listItem"
+        >
+          16
+          +
+        </span>
+      </div>
+      <div
+        class="container__list"
+      >
+        <a
+          class="container container_bright container__listItem container__listItem_point"
+          href="/collections/France"
+        >
+          France
+        </a>
+        <a
+          class="container container_bright container__listItem container__listItem_point"
+          href="/collections/drama"
+        >
+          Drama
+        </a>
+        <a
+          class="container container_bright container__listItem container__listItem_point"
+          href="/collections/comedy"
+        >
+          Comedy
+        </a>
+        <a
+          class="container container_bright container__listItem container__listItem_point"
+          href="/collections/biography"
+        >
+          Biography
+        </a>
+      </div>
+      <div
+        class="container__list"
+      >
+        <div
+          class="badge"
+          data-testid="textBadge"
+        >
+          FullHD
+        </div>
+        <img
+          alt="soundIcon"
+          class="container__listIcon container__listIcon_sound"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+        <div
+          class="container__listItem"
+        >
+          <div
+            class="container__listItem container__listItem_point"
+          >
+            Рус
+          </div>
+          <div
+            class="container__listItem container__listItem_point"
+          >
+            Eng
+          </div>
+        </div>
+        <img
+          alt="subtitlesIcon"
+          class="container__listIcon"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+        <div
+          class="container__listItem"
+        >
+          <div
+            class="container__listItem container__listItem_point"
+          >
+            Рус
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="container__player"
+  >
+    <div
+      class="container"
+      data-testid="div-moviePlayer"
+    >
+      <div
+        class="container__buttons"
+      >
+        <div
+          class="container"
+          data-testid="buttons"
+        >
+          <button
+            class="button button_medium button_lightGray container__item"
+            type="button"
+          >
+            <img
+              alt="playIcon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+             
+            <span>
+              trailer
+            </span>
+          </button>
+          <button
+            class="button button_medium button_lightGray container__item"
+            type="button"
+          >
+            <img
+              alt="bookmarkIcon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </button>
+          <button
+            class="button button_medium button_lightGray container__item"
+            type="button"
+          >
+            <img
+              alt="shareIcon"
+              data-nimg="1"
+              decoding="async"
+              height="40"
+              loading="lazy"
+              src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+              srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+              style="color: transparent;"
+              width="40"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="container__infoBlock"
+  >
+    <div
+      class="container__block"
+    >
+      <div
+        class="content container__blockCards"
+        data-testid="div-movieMedallionsList"
+      >
+        <div
+          class="container container_inactive"
+          data-testid="div-MedallionItem"
+        >
+          <div
+            class="container__content"
+          >
+            <div
+              class="container__contentBlock"
+            >
+              <div
+                class="value  value_high"
+                data-testid="textSquare"
+              >
+                8.8
+              </div>
+            </div>
+          </div>
+          <div
+            class="container__caption"
+          >
+            filterPanel.rating
+          </div>
+        </div>
+        <a
+          href="/persons/71427"
+        >
+          <div
+            class="container"
+            data-testid="div-MedallionItem"
+          >
+            <div
+              class="container__content"
+            >
+              <div
+                class="container__contentBlock"
+              >
+                <img
+                  alt="Франсуа Клюзе"
+                  class="image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__caption"
+            >
+              François Cluzet
+            </div>
+          </div>
+        </a>
+        <a
+          href="/persons/3084680"
+        >
+          <div
+            class="container"
+            data-testid="div-MedallionItem"
+          >
+            <div
+              class="container__content"
+            >
+              <div
+                class="container__contentBlock"
+              >
+                <img
+                  alt="Абса Дьяту Тур"
+                  class="image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_3084680.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__caption"
+            >
+              Absa Diatou Toure
+            </div>
+          </div>
+        </a>
+        <a
+          href="/persons/1960244"
+        >
+          <div
+            class="container"
+            data-testid="div-MedallionItem"
+          >
+            <div
+              class="container__content"
+            >
+              <div
+                class="container__contentBlock"
+              >
+                <img
+                  alt="Мари-Лор Дикуру"
+                  class="image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1960244.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1960244.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1960244.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__caption"
+            >
+              Marie-Laure Descoureaux
+            </div>
+          </div>
+        </a>
+        <a
+          href="/persons/2228474"
+        >
+          <div
+            class="container"
+            data-testid="div-MedallionItem"
+          >
+            <div
+              class="container__content"
+            >
+              <div
+                class="container__contentBlock"
+              >
+                <img
+                  alt="Йен Фенелон"
+                  class="image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2228474.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2228474.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_2228474.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__caption"
+            >
+              Ian Fenelon
+            </div>
+          </div>
+        </a>
+        <a
+          href="/persons/1277398"
+        >
+          <div
+            class="container"
+            data-testid="div-MedallionItem"
+          >
+            <div
+              class="container__content"
+            >
+              <div
+                class="container__contentBlock"
+              >
+                <img
+                  alt="Бенжамин Барош"
+                  class="image"
+                  data-nimg="1"
+                  decoding="async"
+                  height="300"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1277398.jpg&w=640&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1277398.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_1277398.jpg&w=640&q=75 2x"
+                  style="color: transparent;"
+                  width="300"
+                />
+              </div>
+            </div>
+            <div
+              class="container__caption"
+            >
+              Benjamin Baroche
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="container__blockSpoiler"
+      >
+        <div
+          class="jsx-3493037998 container container_hidden"
+          data-testid="clipped-text"
+          id="text-wrapper"
+          role="spoiler-wrapper"
+        >
+          <div
+            class="jsx-3493037998 container__text clamped"
+          >
+            <p>
+              Аристократ на коляске нанимает в сиделки бывшего заключенного. Искрометная французская комедия с Омаром Си
+            </p>
+            <p>
+              Пострадав в результате несчастного случая, богатый аристократ Филипп нанимает в помощники человека, который менее всего подходит для этой работы, – молодого жителя предместья Дрисса, только что освободившегося из тюрьмы. Несмотря на то, что Филипп прикован к инвалидному креслу, Дриссу удается привнести в размеренную жизнь аристократа дух приключений.
+            </p>
+            <p>
+              Приглашаем поклонников вдохновляющих и трогательных историях про поиск себя и своей внутренней силы посмотреть онлайн фильм «
+              Intouchables
+              ».
+            </p>
+            <p>
+              Приглашаем посмотреть фильм «
+              Intouchables
+              » в нашем онлайн-кинотеатре в хорошем HD качестве. Приятного просмотра!
+            </p>
+            <div
+              class="container__blockSpoilerOptions"
+            >
+              <div
+                class="container"
+                data-testid="div-options"
+              >
+                <div
+                  class="container__block"
+                >
+                  <div
+                    class="container__title"
+                  >
+                    languages
+                  </div>
+                  <div
+                    class="container__value"
+                  >
+                    langVariant
+                  </div>
+                </div>
+                <div
+                  class="container__block"
+                >
+                  <div
+                    class="container__title"
+                  >
+                    subtitles
+                  </div>
+                  <div
+                    class="container__value"
+                  >
+                    subVariant
+                  </div>
+                </div>
+                <div
+                  class="container__block"
+                >
+                  <div
+                    class="container__title container__title_full"
+                  >
+                    quality
+                    <span
+                      class="container__quality"
+                    >
+                       
+                      qualityDisclaimer
+                    </span>
+                  </div>
+                  <div
+                    class="container__title container__title_mobile"
+                  >
+                    qualityAdaptive
+                  </div>
+                  <div
+                    class="container__badgesContainer"
+                  >
+                    <div
+                      class="container__badge"
+                    >
+                      <div
+                        class="badge"
+                        data-testid="textBadge"
+                      >
+                        FullHD
+                      </div>
+                    </div>
+                    <div
+                      class="container__badge"
+                    >
+                      <div
+                        class="badge"
+                        data-testid="textBadge"
+                      >
+                        HD
+                      </div>
+                    </div>
+                    <div
+                      class="container__badge"
+                    >
+                      <div
+                        class="badge"
+                        data-testid="textBadge"
+                      >
+                        1080
+                      </div>
+                    </div>
+                    <div
+                      class="container__badge"
+                    >
+                      <div
+                        class="badge"
+                        data-testid="textBadge"
+                      >
+                        720
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="button button_faded container__button"
+            type="button"
+          >
+            showMovieDetails
+          </button>
+        </div>
+      </div>
+      <div
+        class="container__blockRatingBox"
+      >
+        <div
+          class="container"
+          data-testid="div-movieRating"
+        >
+          <div
+            class="container__value"
+          >
+            <div
+              class="value value_medium value_high"
+              data-testid="textSquare"
+            >
+              8.8
+            </div>
+          </div>
+          <div
+            class="container__textContainer"
+          >
+            <h2
+              class="container__text container__text_rating"
+            >
+              movieRating
+            </h2>
+            <p
+              class="container__text container__text_plot"
+            >
+              hightlights
+            </p>
+            <p
+              class="container__text container__text_marks"
+            >
+              1 580 297 userRate.2
+            </p>
+          </div>
+          <button
+            class="button button_small container__estimate"
+            type="button"
+          >
+            rate
+          </button>
+        </div>
+      </div>
+      <div
+        class="container__blockOptions"
+      >
+        <div
+          class="container"
+          data-testid="div-options"
+        >
+          <div
+            class="container__block"
+          >
+            <div
+              class="container__title"
+            >
+              languages
+            </div>
+            <div
+              class="container__value"
+            >
+              langVariant
+            </div>
+          </div>
+          <div
+            class="container__block"
+          >
+            <div
+              class="container__title"
+            >
+              subtitles
+            </div>
+            <div
+              class="container__value"
+            >
+              subVariant
+            </div>
+          </div>
+          <div
+            class="container__block"
+          >
+            <div
+              class="container__title container__title_full"
+            >
+              quality
+              <span
+                class="container__quality"
+              >
+                 
+                qualityDisclaimer
+              </span>
+            </div>
+            <div
+              class="container__title container__title_mobile"
+            >
+              qualityAdaptive
+            </div>
+            <div
+              class="container__badgesContainer"
+            >
+              <div
+                class="container__badge"
+              >
+                <div
+                  class="badge"
+                  data-testid="textBadge"
+                >
+                  FullHD
+                </div>
+              </div>
+              <div
+                class="container__badge"
+              >
+                <div
+                  class="badge"
+                  data-testid="textBadge"
+                >
+                  HD
+                </div>
+              </div>
+              <div
+                class="container__badge"
+              >
+                <div
+                  class="badge"
+                  data-testid="textBadge"
+                >
+                  1080
+                </div>
+              </div>
+              <div
+                class="container__badge"
+              >
+                <div
+                  class="badge"
+                  data-testid="textBadge"
+                >
+                  720
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container__buttons"
+    >
+      <div
+        class="container"
+        data-testid="buttons"
+      >
+        <button
+          class="button button_medium button_lightGray container__item"
+          type="button"
+        >
+          <img
+            alt="playIcon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+           
+          <span>
+            trailer
+          </span>
+        </button>
+        <button
+          class="button button_medium button_lightGray container__item"
+          type="button"
+        >
+          <img
+            alt="bookmarkIcon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </button>
+        <button
+          class="button button_medium button_lightGray container__item"
+          type="button"
+        >
+          <img
+            alt="shareIcon"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

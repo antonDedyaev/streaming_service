@@ -15,12 +15,12 @@ const PromoPoster = ({ movie, className }: PromoPosterProps) => {
     const { t } = useTranslation(['common', 'mainPage']);
     const { locale } = useRouter();
     return (
-        <div className={[style.container, className].join(' ')}>
+        <div className={[style.container, className].join(' ')} data-testid={'promoPoster'}>
             <div className={[style.container__imageWrapper, style.container__imageWrapper_background].join(' ')}>
                 <Image
                     className={[style.container__image, style.container__image_background].join(' ')}
                     src={movie.posterUrl}
-                    alt={movie.name}
+                    alt={movie.name!}
                     fill
                 />
             </div>
@@ -30,7 +30,7 @@ const PromoPoster = ({ movie, className }: PromoPosterProps) => {
                         <Image
                             className={[style.container__image, style.container__image_logo].join(' ')}
                             src={movie.logo!}
-                            alt={movie.name}
+                            alt={movie.name!}
                             fill
                         />
                     </div>

@@ -16,7 +16,7 @@ const Footer: FC = () => {
     const { t } = useTranslation('footer');
     const [phoneIsHidden, setPhoneIsHidden] = useState(true);
     return (
-        <footer className={styles.container}>
+        <footer className={styles.container} data-testid={'footer'}>
             <div className="container">
                 <div className={[styles.container__content, styles.container__content_columnNarrow].join(' ')}>
                     <div>

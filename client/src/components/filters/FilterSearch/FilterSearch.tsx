@@ -65,7 +65,7 @@ const FilterSearch = ({ suggestionsList, category }: ISearch) => {
     }, [allFilters]);
 
     return (
-        <div className={styles.container__formContent}>
+        <div className={styles.container__formContent} data-testid={'filterSearch'}>
             <div className={styles.container__inputBody} onKeyDown={handleEnterPressed as VoidFunction}>
                 <Autosuggest
                     theme={theme}

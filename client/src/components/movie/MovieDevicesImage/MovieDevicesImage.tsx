@@ -10,7 +10,7 @@ interface MovieDevicesImageProps {
 
 const MovieDevicesImage = ({ poster, title }: MovieDevicesImageProps) => {
     return (
-        <div className={styles.container} data-testid="div-movieDevicesImage">
+        <div className={styles.container} data-testid="movieDevicesImage">
             <Image className={styles.container__tv} src={tvImg} alt="Устройства для просмотра Иви" />
             <Image className={styles.container__ipad} src={ipadImg} alt="Устройства для просмотра Иви" />
             <Image

@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PERSONITEM SNAPSHOTS TESTS large PersonItem should not be changed 1`] = `
+<a
+  class="container container_large "
+  href="/persons/71427"
+>
+  <div
+    class="container__imageContainer"
+  >
+    <div
+      class="container__imageWrapper"
+    >
+      <img
+        alt="Франсуа Клюзе François Cluzet"
+        class="container__image"
+        data-nimg="1"
+        decoding="async"
+        height="300"
+        loading="lazy"
+        src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75 2x"
+        style="color: transparent;"
+        width="300"
+      />
+    </div>
+    <div
+      class="container__amountBadge"
+    >
+      1
+    </div>
+  </div>
+  <div
+    class="container__textContainer"
+  >
+    <h2
+      class="container__fullName"
+    >
+      François
+      <br />
+      Cluzet
+    </h2>
+    <p
+      class="container__amountMovies"
+    >
+      1
+       
+      filmography.singleMovie
+    </p>
+  </div>
+</a>
+`;
+
+exports[`PERSONITEM SNAPSHOTS TESTS medium PersonItem should not be changed 1`] = `
+<a
+  class="container container_medium "
+  href="/persons/71427"
+>
+  <div
+    class="container__imageContainer"
+  >
+    <div
+      class="container__imageWrapper"
+    >
+      <img
+        alt="Франсуа Клюзе François Cluzet"
+        class="container__image"
+        data-nimg="1"
+        decoding="async"
+        height="300"
+        loading="lazy"
+        src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75 2x"
+        style="color: transparent;"
+        width="300"
+      />
+    </div>
+  </div>
+  <div
+    class="container__textContainer"
+  >
+    <h2
+      class="container__fullName"
+    >
+      François
+      <br />
+      Cluzet
+    </h2>
+    <p
+      class="container__amountMovies"
+    >
+      1
+       
+      filmography.singleMovie
+    </p>
+  </div>
+</a>
+`;
+
+exports[`PERSONITEM SNAPSHOTS TESTS small PersonItem should not be changed 1`] = `
+<a
+  class="container container_small "
+  href="/persons/71427"
+>
+  <div
+    class="container__imageContainer"
+  >
+    <div
+      class="container__imageWrapper"
+    >
+      <img
+        alt="Франсуа Клюзе François Cluzet"
+        class="container__image"
+        data-nimg="1"
+        decoding="async"
+        height="300"
+        loading="lazy"
+        src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=384&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Factor_iphone%2Fiphone360_71427.jpg&w=640&q=75 2x"
+        style="color: transparent;"
+        width="300"
+      />
+    </div>
+  </div>
+  <div
+    class="container__textContainer"
+  >
+    <h2
+      class="container__fullName"
+    >
+      François
+      <br />
+      Cluzet
+    </h2>
+    <h3
+      class="container__role"
+    >
+      Actor
+    </h3>
+  </div>
+</a>
+`;

@@ -7,6 +7,7 @@ import TransparentButton from '../../UI/buttons/TransparentButton/TransparentBut
 import { useTranslation } from 'next-i18next';
 import { useAppDispatch } from '../../../store/hooks/redux';
 import { filtersRemoved } from '../../../store/slices/moviesSlice';
+
 interface IPanel {
     className?: string;
     isFilterApplied: boolean;
@@ -22,7 +23,7 @@ const FilterPanel = ({ className, children, isFilterApplied }: IPanel) => {
     };
 
     return (
-        <section className={[styles.container, className].join(' ')}>
+        <section className={[styles.container, className].join(' ')} data-testid={'filterPanel'}>
             <div className={styles.container__body}>
                 <div className={styles.container__content}>
                     <div className={styles.container__filterList}>{children}</div>

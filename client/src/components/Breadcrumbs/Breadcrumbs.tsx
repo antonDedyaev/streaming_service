@@ -26,7 +26,7 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash' }: BreadcrumbsProps
     });
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid={'breadcrumbs'}>
             <ul className={[styles.container__crumbsList, styles[`container__crumbsList_${type}`]].join(' ')}>
                 {type !== 'pointShort' && (
                     <TextLinkUI

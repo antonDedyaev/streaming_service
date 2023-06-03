@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TOPTENSECTION SNAPSHOTS TESTS TopTenSection should not be changed 1`] = `
+<div
+  class="section"
+  data-testid="topTenSection"
+>
+  <div
+    class="section__header"
+  >
+    <img
+      alt="топ 10"
+      class="topIcon"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+    <h3
+      class="section__title"
+    >
+      weekTop
+    </h3>
+  </div>
+  <div
+    class="section__content"
+  >
+    <div
+      class="jsx-687504307 container container_rating"
+    >
+      <div
+        class="jsx-687504307 container__contentContainer"
+      >
+        <div
+          class="jsx-687504307 container__content content"
+        >
+          <div
+            class="container ratingItem"
+            data-testid="ratingPoster"
+          >
+            <a
+              href="/movies/535341"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="1+1"
+                  class="container__image"
+                  data-nimg="fill"
+                  decoding="async"
+                  loading="lazy"
+                  sizes="100vw"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=3840&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=3840&q=75 3840w"
+                  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                />
+                <div
+                  class="container__fadeArea"
+                />
+              </div>
+              <div
+                class="container__content"
+              >
+                <div
+                  class="container__fadeArea"
+                />
+                <div
+                  class="container__logoWrapper"
+                >
+                  <img
+                    alt="1+1"
+                    class="container__logo"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    src=""
+                    style="color: transparent;"
+                    width="153"
+                  />
+                </div>
+                <div
+                  class="container__numberWrapper"
+                >
+                  <img
+                    alt="undefined"
+                    class="container__placeNumber"
+                    data-nimg="1"
+                    decoding="async"
+                    height="66"
+                    loading="lazy"
+                    src="https://solea-parent.dfs.ivi.ru/picture/bypass/numberundefined.svg"
+                    style="color: transparent;"
+                    width="48"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <div
+            class="container ratingItem"
+            data-testid="ratingPoster"
+          >
+            <a
+              href="/movies/535341"
+            >
+              <div
+                class="container__imageWrapper"
+              >
+                <img
+                  alt="1+1"
+                  class="container__image"
+                  data-nimg="fill"
+                  decoding="async"
+                  loading="lazy"
+                  sizes="100vw"
+                  src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=3840&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_big%2F535341.jpg&w=3840&q=75 3840w"
+                  style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                />
+                <div
+                  class="container__fadeArea"
+                />
+              </div>
+              <div
+                class="container__content"
+              >
+                <div
+                  class="container__fadeArea"
+                />
+                <div
+                  class="container__logoWrapper"
+                >
+                  <img
+                    alt="1+1"
+                    class="container__logo"
+                    data-nimg="1"
+                    decoding="async"
+                    height="40"
+                    src=""
+                    style="color: transparent;"
+                    width="153"
+                  />
+                </div>
+                <div
+                  class="container__numberWrapper"
+                >
+                  <img
+                    alt="undefined"
+                    class="container__placeNumber"
+                    data-nimg="1"
+                    decoding="async"
+                    height="66"
+                    loading="lazy"
+                    src="https://solea-parent.dfs.ivi.ru/picture/bypass/numberundefined.svg"
+                    style="color: transparent;"
+                    width="48"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,7 +1,7 @@
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import styles from './SearchModal.module.scss';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import ModalInputUI from '@/components/UI/ModalInput/ModalInputUI';
+import InputUI from '@/components/UI/Input/InputUI';
 import SearchMovieLink from '@/components/UI/links/SearchMovieLink/SearchMovieLink';
 import { useTranslation } from 'next-i18next';
 import IMovies from '@/models/IMovies';
@@ -57,12 +57,12 @@ const SearchModal = () => {
 
     return (
         <ModalUI close={isClose}>
-            <div className={styles.container} onClick={(event) => clickHandler(event)}>
+            <div className={styles.container} onClick={(event) => clickHandler(event)} data-testid={'searchModal'}>
                 <div className={styles.container__header}>
                     <h2 className={styles.container__title}>{t('searchModal.search')}</h2>
 
                     <div className={styles.container__inputWrapper} ref={inputWrapperRef}>
-                        <ModalInputUI
+                        <InputUI
                             focus={focus}
                             type="search"
                             inputType="string"

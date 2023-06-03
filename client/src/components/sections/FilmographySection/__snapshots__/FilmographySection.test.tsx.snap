@@ -1,0 +1,238 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FILMOGRAPHYSECTION SNAPSHOTS TESTS FilmographySection should not be changed 1`] = `
+<div
+  class="section"
+  data-testid="filmographySection"
+>
+  <div
+    class="section__header"
+  >
+    <h2
+      class="section__title"
+    >
+      title
+    </h2>
+    <p
+      class="section__amount"
+    >
+      3 filmography.fewMovies
+    </p>
+  </div>
+  <div
+    class="section__content"
+  >
+    <div
+      class="section__contentList"
+    >
+      <div
+        class="listItem"
+      >
+        <div
+          class="container"
+          data-testid="filmographyItem"
+        >
+          <a
+            class="container__body"
+            href="/movies/535341"
+          >
+            <div
+              class="container__imageWrapper"
+            >
+              <img
+                alt="Постер Intouchables"
+                data-nimg="1"
+                decoding="async"
+                height="123"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_535341.jpg&w=256&q=75 2x"
+                style="color: transparent;"
+                width="80"
+              />
+            </div>
+            <div
+              class="container__main"
+            >
+              <div
+                class="container__infoContainer"
+              >
+                <h2
+                  class="container__year"
+                >
+                  2011
+                </h2>
+                <h2
+                  class="container__title"
+                  title="Intouchables"
+                >
+                  Intouchables
+                </h2>
+                <div
+                  class="container__ratingContainer"
+                >
+                  <span
+                    class="container__ratingLabel"
+                  >
+                    rating
+                    : 
+                  </span>
+                  <span
+                    class="container__ratingValue"
+                  >
+                    8.8
+                  </span>
+                </div>
+              </div>
+              <button
+                class="button button_large button_gray container__button"
+                type="button"
+              >
+                details
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div
+        class="listItem"
+      >
+        <div
+          class="container"
+          data-testid="filmographyItem"
+        >
+          <a
+            class="container__body"
+            href="/movies/1143242"
+          >
+            <div
+              class="container__imageWrapper"
+            >
+              <img
+                alt="Постер The Gentlemen"
+                data-nimg="1"
+                decoding="async"
+                height="123"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_1143242.jpg&w=256&q=75 2x"
+                style="color: transparent;"
+                width="80"
+              />
+            </div>
+            <div
+              class="container__main"
+            >
+              <div
+                class="container__infoContainer"
+              >
+                <h2
+                  class="container__year"
+                >
+                  2019
+                </h2>
+                <h2
+                  class="container__title"
+                  title="The Gentlemen"
+                >
+                  The Gentlemen
+                </h2>
+                <div
+                  class="container__ratingContainer"
+                >
+                  <span
+                    class="container__ratingLabel"
+                  >
+                    rating
+                    : 
+                  </span>
+                  <span
+                    class="container__ratingValue"
+                  >
+                    8.5
+                  </span>
+                </div>
+              </div>
+              <button
+                class="button button_large button_gray container__button"
+                type="button"
+              >
+                details
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div
+        class="listItem"
+      >
+        <div
+          class="container"
+          data-testid="filmographyItem"
+        >
+          <a
+            class="container__body"
+            href="/movies/462682"
+          >
+            <div
+              class="container__imageWrapper"
+            >
+              <img
+                alt="Постер The Wolf of Wall Street"
+                data-nimg="1"
+                decoding="async"
+                height="123"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_462682.jpg&w=256&q=75 2x"
+                style="color: transparent;"
+                width="80"
+              />
+            </div>
+            <div
+              class="container__main"
+            >
+              <div
+                class="container__infoContainer"
+              >
+                <h2
+                  class="container__year"
+                >
+                  2013
+                </h2>
+                <h2
+                  class="container__title"
+                  title="The Wolf of Wall Street"
+                >
+                  The Wolf of Wall Street
+                </h2>
+                <div
+                  class="container__ratingContainer"
+                >
+                  <span
+                    class="container__ratingLabel"
+                  >
+                    rating
+                    : 
+                  </span>
+                  <span
+                    class="container__ratingValue"
+                  >
+                    8.0
+                  </span>
+                </div>
+              </div>
+              <button
+                class="button button_large button_gray container__button"
+                type="button"
+              >
+                details
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

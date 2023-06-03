@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FILTERPLANK SNAPSHOTS TESTS FilterPlank should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="filterPlank"
+>
+  <div
+    class="container__plank "
+  >
+    <div
+      class="container__plankContent"
+    >
+      <div
+        class="container__textWrapper"
+      >
+        <div
+          class="container__title"
+        >
+          Жанры
+        </div>
+        <div
+          class="container__subTitle"
+        >
+          [object Object]
+        </div>
+      </div>
+      <div
+        class="container__arrow"
+      />
+    </div>
+    <div
+      class="container__dropdown "
+    >
+      <div
+        class="container__dropdownContent"
+      >
+        children
+      </div>
+    </div>
+  </div>
+</div>
+`;

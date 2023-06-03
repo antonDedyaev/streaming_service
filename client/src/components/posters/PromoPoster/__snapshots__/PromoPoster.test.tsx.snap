@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PROMOPOSTER SNAPSHOTS TESTS PromoPoster should not be changed 1`] = `
+<div
+  class="container promoItem"
+  data-testid="promoPoster"
+>
+  <div
+    class="container__imageWrapper container__imageWrapper_background"
+  >
+    <img
+      alt="сыщицы"
+      class="container__image container__image_background"
+      data-nimg="fill"
+      decoding="async"
+      loading="lazy"
+      sizes="100vw"
+      src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2Fe%2Fa%2F29d4105d2daaddc1591c6542d0571f.jpg%2F1216x524%2F%3Fq%3D85&w=3840&q=75"
+      srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2Fe%2Fa%2F29d4105d2daaddc1591c6542d0571f.jpg%2F1216x524%2F%3Fq%3D85&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2Fe%2Fa%2F29d4105d2daaddc1591c6542d0571f.jpg%2F1216x524%2F%3Fq%3D85&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2Fe%2Fa%2F29d4105d2daaddc1591c6542d0571f.jpg%2F1216x524%2F%3Fq%3D85&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2Fe%2Fa%2F29d4105d2daaddc1591c6542d0571f.jpg%2F1216x524%2F%3Fq%3D85&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2Fe%2Fa%2F29d4105d2daaddc1591c6542d0571f.jpg%2F1216x524%2F%3Fq%3D85&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2Fe%2Fa%2F29d4105d2daaddc1591c6542d0571f.jpg%2F1216x524%2F%3Fq%3D85&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2Fe%2Fa%2F29d4105d2daaddc1591c6542d0571f.jpg%2F1216x524%2F%3Fq%3D85&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2Fe%2Fa%2F29d4105d2daaddc1591c6542d0571f.jpg%2F1216x524%2F%3Fq%3D85&w=3840&q=75 3840w"
+      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+    />
+  </div>
+  <a
+    class="container__link"
+    href="/movies/1"
+  >
+    <div
+      class="container__content"
+    >
+      <div
+        class="container__imageWrapper container__imageWrapper_logo"
+      >
+        <img
+          alt="сыщицы"
+          class="container__image container__image_logo"
+          data-nimg="fill"
+          decoding="async"
+          loading="lazy"
+          sizes="100vw"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2F1%2F3%2F99035f529d7c175424b1c905d36462.png%2Fx200%2F&w=3840&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2F1%2F3%2F99035f529d7c175424b1c905d36462.png%2Fx200%2F&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2F1%2F3%2F99035f529d7c175424b1c905d36462.png%2Fx200%2F&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2F1%2F3%2F99035f529d7c175424b1c905d36462.png%2Fx200%2F&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2F1%2F3%2F99035f529d7c175424b1c905d36462.png%2Fx200%2F&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2F1%2F3%2F99035f529d7c175424b1c905d36462.png%2Fx200%2F&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2F1%2F3%2F99035f529d7c175424b1c905d36462.png%2Fx200%2F&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2F1%2F3%2F99035f529d7c175424b1c905d36462.png%2Fx200%2F&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage33%2Fcontents%2F1%2F3%2F99035f529d7c175424b1c905d36462.png%2Fx200%2F&w=3840&q=75 3840w"
+          style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+        />
+      </div>
+      <div
+        class="container__synopsis"
+      >
+        mainPage:synopsis
+      </div>
+    </div>
+    <button
+      class="button button_large button_red container__button"
+      type="button"
+    >
+      watchButton
+    </button>
+  </a>
+</div>
+`;

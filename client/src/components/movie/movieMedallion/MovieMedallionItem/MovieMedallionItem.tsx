@@ -10,7 +10,7 @@ const MovieMedallionItem = ({ children, text, disabled = false }: MovieMedallion
     return (
         <div
             className={[styles.container, disabled ? styles.container_inactive : ''].join(' ').trim()}
-            data-testid="div-MedallionItem"
+            data-testid="medallionItem"
         >
             <div className={styles.container__content}>
                 <div className={styles.container__contentBlock}>{children}</div>

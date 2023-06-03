@@ -12,7 +12,7 @@ const MovieButtons = () => {
     const { asPath } = useRouter();
     const router = useRouter();
     return (
-        <div className={styles.container} role={'div-buttons'}>
+        <div className={styles.container} data-testid={'buttons'}>
             <ColoredButton
                 onClick={() => router.push(`${asPath}?trailer`)}
                 className={styles.container__item}

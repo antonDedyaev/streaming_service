@@ -1,9 +1,9 @@
 import IMovies from '@/models/IMovies';
 import styles from './FilmographySection.module.scss';
 import { declineWord } from '@/utils/functions';
-import ActorFilmographyList from '@/components/actor/ActorFilmographyList/ActorFilmographyList';
 import SpoilerUI from '@/components/UI/Spoiler/SpoilerUI';
 import { useTranslation } from 'next-i18next';
+import PersonFilmographyList from '@/components/person/PersonFilmographyList/PersonFilmographyList';
 
 interface FilmographySectionProps {
     movies: IMovies[];
@@ -13,7 +13,7 @@ const FilmographySection = ({ movies }: FilmographySectionProps) => {
     const { t } = useTranslation(['person', 'moviesPage']);
 
     return (
-        <div className={styles.section}>
+        <div className={styles.section} data-testid={'filmographySection'}>
             <div className={styles.section__header}>
                 <h2 className={styles.section__title}>{t('title')}</h2>
                 <p className={styles.section__amount}>
@@ -27,7 +27,7 @@ const FilmographySection = ({ movies }: FilmographySectionProps) => {
 
             <div className={styles.section__content}>
                 <div className={styles.section__contentList}>
-                    <ActorFilmographyList movies={movies.slice(0, 8)} />
+                    <PersonFilmographyList movies={movies.slice(0, 8)} />
                 </div>
 
                 {movies.length > 8 && (
@@ -44,7 +44,7 @@ const FilmographySection = ({ movies }: FilmographySectionProps) => {
                         buttonTextColor="faded"
                     >
                         <div className={styles.section__contentList}>
-                            <ActorFilmographyList movies={movies.slice(8)} />
+                            <PersonFilmographyList movies={movies.slice(8)} />
                         </div>
                     </SpoilerUI>
                 )}

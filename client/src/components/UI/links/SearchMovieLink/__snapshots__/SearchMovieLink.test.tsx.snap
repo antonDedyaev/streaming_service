@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SEARCHMOVIELINK SNAPSHOTS TESTS SearchMovieLink should not be changed 1`] = `
+<a
+  class="container"
+  href="/"
+>
+  <img
+    alt=""
+    class="container__icon"
+    data-nimg="1"
+    decoding="async"
+    height="40"
+    loading="lazy"
+    src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+    srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+    style="color: transparent;"
+    width="40"
+  />
+  <div
+    class="container__description"
+  >
+    <h2
+      class="container__name"
+    >
+      <span />
+      text
+    </h2>
+    <p
+      class="container__year"
+    >
+      1900
+    </p>
+  </div>
+</a>
+`;

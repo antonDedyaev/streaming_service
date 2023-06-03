@@ -55,7 +55,7 @@ const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
     };
 
     return (
-        <section>
+        <section data-testid={'sortMovies'}>
             <div className={styles.container}>
                 <div className={styles.container__sortingControl}>
                     <div

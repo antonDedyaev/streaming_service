@@ -53,7 +53,7 @@ export const Slider = ({ itemType, children, length }: SliderProps) => {
 
     return (
         <>
-            <div className={[styles.container, styles[`container_${itemType}`]].join(' ')}>
+            <div className={[styles.container, styles[`container_${itemType}`]].join(' ')} data-testid={'slider'}>
                 {position < minPosition && (
                     <ArrowButton
                         className={[styles.container__button, styles.container__button_left].join(' ')}

@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LINKSLIST SNAPSHOTS TESTS direction column LinksList should not be changed 1`] = `
+<ul
+  class="container__column container__menu"
+>
+  <li
+    class="container__item"
+  >
+    <a
+      class="container container_dim"
+      href="/"
+    >
+      Ссылка 1
+    </a>
+  </li>
+  <li
+    class="container__item"
+  >
+    <a
+      class="container container_dim"
+      href="/"
+    >
+      Ссылка 2
+    </a>
+  </li>
+  <li
+    class="container__item"
+  >
+    <a
+      class="container container_dim"
+      href="/"
+    >
+      Ссылка 3
+    </a>
+  </li>
+  <li
+    class="container__item"
+  >
+    <a
+      class="container container_dim"
+      href="/"
+    >
+      Ссылка 4
+    </a>
+  </li>
+  <li
+    class="container__item"
+  >
+    <a
+      class="container container_dim"
+      href="/"
+    >
+      Ссылка 5
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`LINKSLIST SNAPSHOTS TESTS direction row LinksList should not be changed 1`] = `
+<ul
+  class="container container__menu"
+>
+  <li
+    class="container__item"
+  >
+    <a
+      class="container container_dim"
+      href="/"
+    >
+      Ссылка 1
+    </a>
+  </li>
+  <li
+    class="container__item"
+  >
+    <a
+      class="container container_dim"
+      href="/"
+    >
+      Ссылка 2
+    </a>
+  </li>
+  <li
+    class="container__item"
+  >
+    <a
+      class="container container_dim"
+      href="/"
+    >
+      Ссылка 3
+    </a>
+  </li>
+  <li
+    class="container__item"
+  >
+    <a
+      class="container container_dim"
+      href="/"
+    >
+      Ссылка 4
+    </a>
+  </li>
+  <li
+    class="container__item"
+  >
+    <a
+      class="container container_dim"
+      href="/"
+    >
+      Ссылка 5
+    </a>
+  </li>
+</ul>
+`;
