@@ -137,7 +137,7 @@ exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
         class="container__link container__link_locale"
         href="/"
       >
-        ru
+        en
       </a>
       <a
         class="container__link container__link_user"
