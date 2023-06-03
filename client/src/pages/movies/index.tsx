@@ -51,13 +51,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const { asPath, locale } = useRouter();
+    const { asPath, locale, basePath } = useRouter();
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
-
-    useEffect(() => {
-        dispatch(getAllStaticData());
-    }, [locale, asPath]);
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
@@ -95,10 +91,17 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
     const urlString = getDynamicUrl(allFilters);
 
     useEffect(() => {
-        const urlTail = urlString.length !== 0 ? 'filters' + urlString : '';
-
-        history.pushState(null, 'Filters', `http://localhost:3000${asPath}/${urlTail}`);
+        const urlTail = urlString.length !== 0 && 'filters' + urlString;
+        history.pushState(
+            null,
+            'Filters',
+            urlTail ? `http://localhost:3000${asPath}/${urlTail}` : `http://localhost:3000${asPath}`,
+        );
     }, [urlString]);
+
+    useEffect(() => {
+        dispatch(getAllStaticData());
+    }, [locale, asPath, urlString]);
 
     const currentFilters = Object.entries(allFilters).filter(([, value]) => value.length !== 0 && value !== 0);
     const crumbs = currentFilters.map(([, value]) => value + ' ').join('/');

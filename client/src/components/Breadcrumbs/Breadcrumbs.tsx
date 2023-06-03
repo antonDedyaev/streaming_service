@@ -46,14 +46,15 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash', linked = true }: B
                      */
                     if (!linked) {
                         return localizedPaths.length > 1 && index === 0 ? (
-                            <>
-                                <span className={styles.container__headSlash}>/</span>
+                            <li key={index}>
                                 <TextLinkUI option="bright" href={'/movies'} className={styles.container__crumb}>
                                     {t('movies')}
                                 </TextLinkUI>
-                            </>
+                            </li>
                         ) : (
-                            <li className={styles.container__unlinked}>{item}</li>
+                            <li key={index} className={styles.container__unlinked}>
+                                {item}
+                            </li>
                         );
                     }
 
@@ -77,7 +78,7 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash', linked = true }: B
                         if (genre && tailName) {
                             return (
                                 <div key={type}>
-                                    <li>
+                                    <li key={index}>
                                         <TextLinkUI
                                             option="bright"
                                             href={`/collections/${genre.enName}`}
@@ -87,7 +88,7 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash', linked = true }: B
                                         </TextLinkUI>
                                     </li>
                                     {type !== 'pointShort' && (
-                                        <li className={styles.container__tail}>
+                                        <li key={index} className={styles.container__tail}>
                                             {locale === 'ru' ? tailName.name : tailName.enName}
                                         </li>
                                     )}
