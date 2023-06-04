@@ -25,9 +25,9 @@ export const getCollection = (title: string, movies: IMovies[], genres: IGenre[]
                 .filter((movie) => movie.hasIMAX)
                 .sort((a, b) => new Date(b.premiereRussia).getTime() - new Date(a.premiereRussia).getTime());
         case 'fantasy':
-            return getMoviesByGenre(movies, 'фантастика');
+            return getMoviesByGenre(movies, 'fantasy');
         case 'drama':
-            return getMoviesByGenre(movies, 'драма');
+            return getMoviesByGenre(movies, 'drama');
         case 'Foreign':
             return getMoviesByForeign(movies);
         default:
@@ -36,12 +36,6 @@ export const getCollection = (title: string, movies: IMovies[], genres: IGenre[]
 };
 
 export const getMoviesByGenre = (arrOfMovies: IMovies[], genre: string) =>
-    arrOfMovies.flatMap((movie) => {
-        const filtered = movie.genres.filter((item) => item.name === genre);
-        return filtered.length === 0 ? [] : movie;
-    });
-
-export const getMoviesByGenreEn = (arrOfMovies: IMovies[], genre: string) =>
     arrOfMovies.flatMap((movie) => {
         const filtered = movie.genres.filter((item) => item.enName === genre);
         return filtered.length === 0 ? [] : movie;
@@ -71,7 +65,7 @@ export const getMovies = (arrOfMovies: IMovies[], value: string, genres: IGenre[
         return arrOfMovies.filter((movie) => movie.year === Number(value));
     } else {
         if (genres.find((genre) => genre.enName === value)) {
-            return getMoviesByGenreEn(arrOfMovies, value);
+            return getMoviesByGenre(arrOfMovies, value);
         } else if (countries.find((country) => country.enName === value.split('_').join(' '))) {
             return getMoviesByCountry(arrOfMovies, value.split('_').join(' '));
         } else {

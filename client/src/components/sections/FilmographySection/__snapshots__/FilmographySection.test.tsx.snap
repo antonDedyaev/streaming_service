@@ -16,7 +16,7 @@ exports[`FILMOGRAPHYSECTION SNAPSHOTS TESTS FilmographySection should not be cha
     <p
       class="section__amount"
     >
-      3 filmography.fewMovies
+      5 filmography.manyMovies
     </p>
   </div>
   <div
@@ -219,6 +219,142 @@ exports[`FILMOGRAPHYSECTION SNAPSHOTS TESTS FilmographySection should not be cha
                     class="container__ratingValue"
                   >
                     8.0
+                  </span>
+                </div>
+              </div>
+              <button
+                class="button button_large button_gray container__button"
+                type="button"
+              >
+                details
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div
+        class="listItem"
+      >
+        <div
+          class="container"
+          data-testid="filmographyItem"
+        >
+          <a
+            class="container__body"
+            href="/movies/251733"
+          >
+            <div
+              class="container__imageWrapper"
+            >
+              <img
+                alt="Постер Avatar"
+                data-nimg="1"
+                decoding="async"
+                height="123"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_251733.jpg&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_251733.jpg&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_251733.jpg&w=256&q=75 2x"
+                style="color: transparent;"
+                width="80"
+              />
+            </div>
+            <div
+              class="container__main"
+            >
+              <div
+                class="container__infoContainer"
+              >
+                <h2
+                  class="container__year"
+                >
+                  2009
+                </h2>
+                <h2
+                  class="container__title"
+                  title="Avatar"
+                >
+                  Avatar
+                </h2>
+                <div
+                  class="container__ratingContainer"
+                >
+                  <span
+                    class="container__ratingLabel"
+                  >
+                    rating
+                    : 
+                  </span>
+                  <span
+                    class="container__ratingValue"
+                  >
+                    8.0
+                  </span>
+                </div>
+              </div>
+              <button
+                class="button button_large button_gray container__button"
+                type="button"
+              >
+                details
+              </button>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div
+        class="listItem"
+      >
+        <div
+          class="container"
+          data-testid="filmographyItem"
+        >
+          <a
+            class="container__body"
+            href="/movies/41520"
+          >
+            <div
+              class="container__imageWrapper"
+            >
+              <img
+                alt="Постер "
+                data-nimg="1"
+                decoding="async"
+                height="123"
+                loading="lazy"
+                src="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_41520.jpg&w=256&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_41520.jpg&w=96&q=75 1x, /_next/image?url=https%3A%2F%2Fst.kp.yandex.net%2Fimages%2Ffilm_iphone%2Fiphone360_41520.jpg&w=256&q=75 2x"
+                style="color: transparent;"
+                width="80"
+              />
+            </div>
+            <div
+              class="container__main"
+            >
+              <div
+                class="container__infoContainer"
+              >
+                <h2
+                  class="container__year"
+                >
+                  2000
+                </h2>
+                <h2
+                  class="container__title"
+                  title=""
+                />
+                <div
+                  class="container__ratingContainer"
+                >
+                  <span
+                    class="container__ratingLabel"
+                  >
+                    rating
+                    : 
+                  </span>
+                  <span
+                    class="container__ratingValue"
+                  >
+                    8.2
                   </span>
                 </div>
               </div>
