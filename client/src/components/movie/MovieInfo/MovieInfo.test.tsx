@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import MovieInfo from './MovieInfo';
 import { movieTest } from '../../../testAsserts/testItems';
+import { act } from 'react-dom/test-utils';
 
 jest.mock('next-i18next', () => ({
     useTranslation: () => {
@@ -23,7 +24,9 @@ jest.mock('next/router', () => ({
 
 describe('MOVIEINFO SNAPSHOTS TESTS', () => {
     test('MovieInfo should not be changed', () => {
-        render(<MovieInfo movie={movieTest} />);
+        act(() => {
+            render(<MovieInfo movie={movieTest} />);
+        });
 
         const div = screen.getByTestId('movieInfo');
         expect(div).toMatchSnapshot();

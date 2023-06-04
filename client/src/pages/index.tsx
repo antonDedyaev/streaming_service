@@ -45,8 +45,8 @@ function HomePage({ movies }: { movies: IMovies[] }) {
     const dispatch = useAppDispatch();
     const { locale } = useRouter();
 
-    const fantasies = getMoviesByGenre(movies, 'фантастика');
-    const dramas = getMoviesByGenre(movies, 'драма');
+    const fantasies = getMoviesByGenre(movies, 'fantasy');
+    const dramas = getMoviesByGenre(movies, 'drama');
 
     useEffect(() => {
         dispatch(fetchGenres());

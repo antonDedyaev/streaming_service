@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import MoviePlayer from './MoviePlayer';
+import { act } from 'react-dom/test-utils';
 
 jest.mock('next-i18next', () => ({
     useTranslation: () => {
@@ -22,7 +23,9 @@ jest.mock('next/router', () => ({
 
 describe('MOVIEPLAYER SNAPSHOTS TESTS', () => {
     test('MoviePlayer should not be changed', () => {
-        render(<MoviePlayer />);
+        act(() => {
+            render(<MoviePlayer />);
+        });
 
         const div = screen.getByTestId('moviePlayer');
         expect(div).toMatchSnapshot();
