@@ -29,7 +29,7 @@ jest.mock('next/router', () => ({
 describe('BREADCRUMBS SNAPSHOTS TESTS', () => {
     test('"type" slash Breadcrumbs should not be changed', () => {
         mockedSelector.mockReturnValue({ genres, countries });
-        render(<Breadcrumbs path={['movie', '1']} type="slash" />);
+        render(<Breadcrumbs path={['movie', '10']} type="slash" />);
 
         const div = screen.getByTestId('breadcrumbs');
         expect(div).toMatchSnapshot();
@@ -39,8 +39,8 @@ describe('BREADCRUMBS SNAPSHOTS TESTS', () => {
         mockedSelector.mockReturnValue({ genres, countries });
         render(
             <Breadcrumbs
-                path={['movie', '1']}
-                genre={{ id: 1, name: 'Жанр', enName: 'Genre' }}
+                path={['movie', '14']}
+                genre={{ id: 11, name: 'Жанр', enName: 'Genre' }}
                 tailName={{ name: 'Название', enName: 'Name' }}
                 type="point"
             />,
@@ -54,8 +54,8 @@ describe('BREADCRUMBS SNAPSHOTS TESTS', () => {
         mockedSelector.mockReturnValue({ genres, countries });
         render(
             <Breadcrumbs
-                path={['movie', '1']}
-                genre={{ id: 1, name: 'Жанр', enName: 'Genre' }}
+                path={['movie', '13']}
+                genre={{ id: 12, name: 'Жанр', enName: 'Genre' }}
                 tailName={{ name: 'Название', enName: 'Name' }}
                 type="pointShort"
             />,

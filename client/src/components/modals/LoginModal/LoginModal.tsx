@@ -5,6 +5,8 @@ import { useRef, useState } from 'react';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import { loginAPI } from '@/store/services/LoginService';
 import { useTranslation } from 'next-i18next';
+import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
+import Image from 'next/image';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up';
@@ -137,6 +139,22 @@ const LoginModal = ({ type }: LoginModalProps) => {
                     >
                         {type === 'sign-in' ? t('loginModal.signIn') : t('loginModal.signUp')}
                     </ColoredButton>
+                </div>
+                <div className={styles.container__social}>
+                    <h3>Войти через социальную сеть</h3>
+                    <div className={styles.container__socialLinks}>
+                        <ShapedLinkUI shape="rectangular" href="/">
+                            <Image
+                                src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_vkontakte.svg"
+                                height={20}
+                                width={20}
+                                alt="Логотип Vk"
+                            />
+                        </ShapedLinkUI>
+                        <ShapedLinkUI shape="rectangular" href="/">
+                            <Image src="/icons/google.svg" height={20} width={20} alt="Логотип google" />
+                        </ShapedLinkUI>
+                    </div>
                 </div>
             </div>
         </ModalUI>
