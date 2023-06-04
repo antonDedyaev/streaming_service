@@ -40,17 +40,12 @@
         "music": "Music movies",
         "sports": "Sport movies",
         "short": "Short movies",
-        "children's": "Children's movies",
-        "2018": "Movies of 2018",
-        "2019": "Movies of 2019",
-        "2020": "Movies of 2020",
-        "2021": "Movies of 2021",
-        "2022": "Movies of 2022",
-        "2023": "Movies of 2023"
+        "children's": "Children's movies"
     },
     "countries": {
         "Russia": "Russian movies",
         "USSR": "Soviet movies",
         "Foreign": "Foreign movies"
-    }
+    },
+    "years": "Movies of {{year}}"
 }

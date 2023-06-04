@@ -19,7 +19,7 @@ interface HeaderProps {
 }
 
 const Header = ({ page }: HeaderProps) => {
-    const { t } = useTranslation('header');
+    const { t } = useTranslation(['header', 'collection']);
     const [isShowMoviesDrop, setIsShowMoviesDrop] = useState<boolean>(false);
     const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
 
@@ -80,34 +80,34 @@ const Header = ({ page }: HeaderProps) => {
                         links={[
                             {
                                 href: '/',
-                                text: t('myIvi'),
+                                text: t('header:myIvi'),
                                 option: 'dim',
                                 onMouseOver: clearShowHandler,
                             },
                             {
                                 href: 'https://www.ivi.ru/new',
-                                text: t('latest'),
+                                text: t('header:latest'),
                                 option: 'dim',
                                 onMouseOver: clearShowHandler,
                                 target: '_blank',
                             },
                             {
                                 href: '/movies',
-                                text: t('movies'),
+                                text: t('header:movies'),
                                 option: 'dim',
                                 onMouseOver: mouseOverMovieHandler,
                                 className: [styles.container__menuLink, styles.container__menuLink_movie].join(' '),
                             },
                             {
                                 href: 'https://www.ivi.ru/series',
-                                text: t('tvShows'),
+                                text: t('header:tvShows'),
                                 option: 'dim',
                                 onMouseOver: clearShowHandler,
                                 target: '_blank',
                             },
                             {
                                 href: 'https://www.ivi.ru/tvplus',
-                                text: t('broadcast'),
+                                text: t('header:broadcast'),
                                 option: 'dim',
                                 onMouseOver: clearShowHandler,
                                 target: '_blank',
@@ -118,12 +118,12 @@ const Header = ({ page }: HeaderProps) => {
 
                 <div className={styles.container__rightSide}>
                     <ColoredButton color="red" size="small" className={styles.container__button}>
-                        {t('freePeriod')}
+                        {t('header:freePeriod')}
                     </ColoredButton>
 
                     <TextLinkUI href={`${asPath}?ivi_search`} option="bright" className={styles.container__search}>
                         <Image className={styles.container__icon} src={searchIcon} alt="" />
-                        <p className={styles.container__text}>{t('search')}</p>
+                        <p className={styles.container__text}>{t('header:search')}</p>
                     </TextLinkUI>
 
                     <Link href={'/'} className={[styles.container__link, styles.container__link_bell].join(' ')}>
@@ -158,51 +158,51 @@ const Header = ({ page }: HeaderProps) => {
                         isShowMoviesDrop
                             ? [
                                   {
-                                      title: t('dropmenu.genres'),
+                                      title: t('header:dropmenu.genres'),
                                       links: genersLinks(),
                                   },
                                   {
-                                      title: t('dropmenu.countries'),
+                                      title: t('header:dropmenu.countries'),
                                       links: [
                                           {
-                                              text: locale === 'ru' ? 'Русские' : 'Russian',
+                                              text: t('collection:countries.Russia').split(' ')[0],
                                               href: '/collections/Russia',
                                           },
                                           {
-                                              text: locale === 'ru' ? 'Зарубежные' : 'Foreign',
+                                              text: t('collection:countries.Foreign').split(' ')[0],
                                               href: '/collections/Foreign',
                                           },
                                           {
-                                              text: locale === 'ru' ? 'Советское кино' : 'USSR movie',
+                                              text: t('collection:countries.USSR'),
                                               href: '/collections/USSR',
                                           },
                                       ],
                                   },
                                   {
-                                      title: t('dropmenu.years'),
+                                      title: t('header:dropmenu.years'),
                                       links: [
                                           {
-                                              text: locale === 'ru' ? 'Фильмы 2023 года' : 'Movies 2023',
+                                              text: t('collection:years', { year: 2023 }),
                                               href: '/collections/2023',
                                           },
                                           {
-                                              text: locale === 'ru' ? 'Фильмы 2022 года' : 'Movies 2022',
+                                              text: t('collection:years', { year: 2022 }),
                                               href: '/collections/2022',
                                           },
                                           {
-                                              text: locale === 'ru' ? 'Фильмы 2021 года' : 'Movies 2021',
+                                              text: t('collection:years', { year: 2021 }),
                                               href: '/collections/2021',
                                           },
                                           {
-                                              text: locale === 'ru' ? 'Фильмы 2020 года' : 'Movies 2020',
+                                              text: t('collection:years', { year: 2020 }),
                                               href: '/collections/2020',
                                           },
                                           {
-                                              text: locale === 'ru' ? 'Фильмы 2019 года' : 'Movies 2019',
+                                              text: t('collection:years', { year: 2019 }),
                                               href: '/collections/2019',
                                           },
                                           {
-                                              text: locale === 'ru' ? 'Фильмы 2018 года' : 'Movies 2018',
+                                              text: t('collection:years', { year: 2018 }),
                                               href: '/collections/2018',
                                           },
                                       ],

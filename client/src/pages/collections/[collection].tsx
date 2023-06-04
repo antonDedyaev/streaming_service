@@ -86,6 +86,8 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
                 header = t('collection:countries.Russia');
             } else if (path[0] === 'USSR') {
                 header = t('collection:countries.USSR');
+            } else if (!isNaN(Number(path[0]))) {
+                header = t('collection:years', { year: path[0] });
             } else {
                 header = t('collection:countries.Foreign');
             }
