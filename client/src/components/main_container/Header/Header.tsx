@@ -27,6 +27,9 @@ const Header = ({ page }: HeaderProps) => {
 
     const currentLocale = locale === 'ru' ? 'en' : 'ru';
 
+    const { isAuth } = useAppSelector((state) => state.user);
+    console.log(isAuth);
+
     const clearShowHandler = () => {
         setIsShowMoviesDrop(false);
     };
@@ -139,8 +142,12 @@ const Header = ({ page }: HeaderProps) => {
                     </Link>
 
                     <Link
-                        href={`${asPath}?sign-in`}
-                        className={[styles.container__link, styles.container__link_user].join(' ')}
+                        href={isAuth ? `${asPath}?authorized` : `${asPath}?sign-in`}
+                        className={[
+                            styles.container__link,
+                            styles.container__link_user,
+                            isAuth ? styles.container__link_auth : '',
+                        ].join(' ')}
                     >
                         <Image
                             className={[styles.container__icon, styles.container__icon_user].join(' ')}
