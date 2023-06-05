@@ -7,6 +7,10 @@ import { loginAPI } from '@/store/services/LoginService';
 import { useTranslation } from 'next-i18next';
 import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
+import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
+import { useRouter } from 'next/router';
+import { useAppDispatch } from '@/store/hooks/redux';
+import { login } from '@/store/ActionCreators';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up';
@@ -14,6 +18,11 @@ interface LoginModalProps {
 
 const LoginModal = ({ type }: LoginModalProps) => {
     const { t } = useTranslation('modals');
+    const location = useRouter();
+    const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?trailer)|(\?more)/, '');
+    const hrefSing = type === 'sign-in' ? `${backPath}?sign-up` : `${backPath}?sign-in`;
+    const dispatch = useAppDispatch();
+
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [repeatPassword, setRepeatPassword] = useState<string>('');
@@ -29,17 +38,20 @@ const LoginModal = ({ type }: LoginModalProps) => {
     const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
     const [isShowRepeatPassword, setIsShowRepeatPassword] = useState<boolean>(false);
 
-    const [signIn, {}] = loginAPI.useFetchLoginMutation();
+    /* const [signIn, {}] = loginAPI.useFetchLoginMutation();
     const [signUp, {}] = loginAPI.useFetchRegistrationMutation();
+    console.log(signIn.bind);*/
+
     // const [signInWithVK, {}] = loginAPI.useFetchAuthWithVKQuery()
     // const [signInWithGoogle, {}] = loginAPI.useFetchAuthWithGoogleQuery()
 
     const signInHandler = async () => {
-        await signIn({ email: email, password: password });
+        dispatch(login(email, password));
+        /* await signIn({ email: email, password: password });*/
     };
 
     const signUpHandler = async () => {
-        await signUp({ email: email, password: password });
+        /*await signUp({ email: email, password: password });*/
     };
 
     const clickHandler = (event: React.MouseEvent) => {
@@ -131,14 +143,19 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         </div>
                     )}
 
-                    <ColoredButton
-                        onClick={type === 'sign-in' ? signInHandler : signUpHandler}
-                        className={styles.container__button}
-                        color="red"
-                        size="large"
-                    >
-                        {type === 'sign-in' ? t('loginModal.signIn') : t('loginModal.signUp')}
-                    </ColoredButton>
+                    <div className={styles.container__sing}>
+                        <TextLinkUI href={`${hrefSing}`} option="dim">
+                            {type === 'sign-in' ? 'Регистрация' : 'Войти'}
+                        </TextLinkUI>
+                        <ColoredButton
+                            onClick={type === 'sign-in' ? signInHandler : signUpHandler}
+                            className={styles.container__button}
+                            color="red"
+                            size="large"
+                        >
+                            {type === 'sign-in' ? t('loginModal.signIn') : t('loginModal.signUp')}
+                        </ColoredButton>
+                    </div>
                 </div>
                 <div className={styles.container__social}>
                     <h3>Войти через социальную сеть</h3>
