@@ -120,14 +120,17 @@ const Header = ({ page }: HeaderProps) => {
                 </div>
 
                 <div className={styles.container__rightSide}>
-                    {/* <ColoredButton color="red" size="small" className={styles.container__button}>
-                        {t('header:freePeriod')}
-                    </ColoredButton> */}
-                    <ColoredButton color="red" size="small" className={styles.container__button}>
-                        <Link href={'/admin'} className={styles.container__adminButton}>
-                            {t('header:adminButton')}
-                        </Link>
-                    </ColoredButton>
+                    {isAuth ? (
+                        <ColoredButton color="red" size="small" className={styles.container__button}>
+                            <Link href={'/admin'} className={styles.container__adminButton}>
+                                {t('header:adminButton')}
+                            </Link>
+                        </ColoredButton>
+                    ) : (
+                        <ColoredButton color="red" size="small" className={styles.container__button}>
+                            {t('header:freePeriod')}
+                        </ColoredButton>
+                    )}
 
                     <TextLinkUI href={`${asPath}?ivi_search`} option="bright" className={styles.container__search}>
                         <Image className={styles.container__icon} src={searchIcon} alt="" />
