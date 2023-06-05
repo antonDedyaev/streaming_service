@@ -13,7 +13,10 @@ interface ModalUIProps {
 
 const ModalUI = ({ children, className, close }: ModalUIProps) => {
     const location = useRouter();
-    const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?trailer)|(\?more)/, '');
+    const backPath = location.asPath.replace(
+        /(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?authorized)|(\?trailer)|(\?more)/,
+        '',
+    );
 
     const body = document.querySelector('body')!;
 
@@ -28,6 +31,7 @@ const ModalUI = ({ children, className, close }: ModalUIProps) => {
 
     useEffect(() => {
         close && body.classList.remove('modal-active');
+        close && location.asPath.includes('?authorized') && closeHandler();
     }, [close]);
 
     return (
