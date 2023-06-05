@@ -16,7 +16,7 @@ import { useAppDispatch } from '@/store/hooks/redux';
 import { useEffect } from 'react';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import { useRouter } from 'next/router';
-import { fetchGenres } from '@/store/ActionCreators';
+import { fetchGenres, getDataFromLocalStorage } from '@/store/ActionCreators';
 import axios from 'axios';
 import IMovies from '@/models/IMovies';
 
@@ -43,14 +43,15 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 function HomePage({ movies }: { movies: IMovies[] }) {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const { locale } = useRouter();
+    const { locale, asPath } = useRouter();
 
     const fantasies = getMoviesByGenre(movies, 'fantasy');
     const dramas = getMoviesByGenre(movies, 'drama');
 
     useEffect(() => {
         dispatch(fetchGenres());
-    }, [locale]);
+        dispatch(getDataFromLocalStorage());
+    }, [locale, asPath]);
 
     return (
         <>

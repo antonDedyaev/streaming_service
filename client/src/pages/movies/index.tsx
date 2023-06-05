@@ -23,7 +23,7 @@ import PostersList from '@/components/posters/PostersList/PostersList';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
-import { getAllStaticData } from '@/store/ActionCreators';
+import { getAllStaticData, getDataFromLocalStorage } from '@/store/ActionCreators';
 import IMovies from '@/models/IMovies';
 import { getDynamicUrl } from '@/utils/moviesHelpers';
 import { IFilters } from '@/store/slices/moviesSlice';
@@ -101,6 +101,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
 
     useEffect(() => {
         dispatch(getAllStaticData());
+        dispatch(getDataFromLocalStorage());
     }, [locale, asPath, urlString]);
 
     const currentFilters = Object.entries(allFilters).filter(([, value]) => value.length !== 0 && value !== 0);
