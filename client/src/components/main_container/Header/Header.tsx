@@ -117,8 +117,13 @@ const Header = ({ page }: HeaderProps) => {
                 </div>
 
                 <div className={styles.container__rightSide}>
-                    <ColoredButton color="red" size="small" className={styles.container__button}>
+                    {/* <ColoredButton color="red" size="small" className={styles.container__button}>
                         {t('header:freePeriod')}
+                    </ColoredButton> */}
+                    <ColoredButton color="red" size="small" className={styles.container__button}>
+                        <Link href={'/admin'} className={styles.container__adminButton}>
+                            {t('header:adminButton')}
+                        </Link>
                     </ColoredButton>
 
                     <TextLinkUI href={`${asPath}?ivi_search`} option="bright" className={styles.container__search}>
@@ -135,7 +140,7 @@ const Header = ({ page }: HeaderProps) => {
                         locale={currentLocale}
                         className={[styles.container__link, styles.container__link_locale].join(' ')}
                     >
-                        {currentLocale === 'ru' ? 'en' : 'ru'}
+                        {locale}
                     </Link>
 
                     <Link

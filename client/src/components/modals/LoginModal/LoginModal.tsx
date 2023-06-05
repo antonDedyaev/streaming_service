@@ -135,7 +135,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                                 focus={repeatPasswordFocus}
                                 type="password"
                                 inputType={isShowRepeatPassword ? 'text' : 'password'}
-                                placeholder="Подтвердите пароль"
+                                placeholder={t('loginModal.passwordConfirm')}
                                 value={repeatPassword}
                                 onChange={(value) => setRepeatPassword(value)}
                                 onClick={() => setIsShowRepeatPassword(!isShowRepeatPassword)}
@@ -145,7 +145,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
 
                     <div className={styles.container__sing}>
                         <TextLinkUI href={`${hrefSing}`} option="dim">
-                            {type === 'sign-in' ? 'Регистрация' : 'Войти'}
+                            {type === 'sign-in' ? t('loginModal.signInLabel') : t('loginModal.signUpLabel')}
                         </TextLinkUI>
                         <ColoredButton
                             onClick={type === 'sign-in' ? signInHandler : signUpHandler}
@@ -158,7 +158,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                     </div>
                 </div>
                 <div className={styles.container__social}>
-                    <h3>Войти через социальную сеть</h3>
+                    <h3>{t('loginModal.signInSocial')}</h3>
                     <div className={styles.container__socialLinks}>
                         <ShapedLinkUI shape="rectangular" href="/">
                             <Image

@@ -6,7 +6,11 @@
     "loginModal": {
         "emailInput": "Enter your email",
         "passwordInput": "Enter your password",
+        "passwordConfirm": "Confirm your password",
+        "signInLabel": "Sign-in",
         "signIn": "Sign in",
+        "signInSocial": "Enter via social networks",
+        "signUpLabel": "Sign-up",
         "signUp": "Sign up"
     }
 }

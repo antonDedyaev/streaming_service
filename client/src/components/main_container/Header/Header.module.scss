@@ -43,6 +43,10 @@
         justify-self: right;
     }
 
+    &__adminButton {
+        color: #fff;
+    }
+
     &__button {
         font-size: 13px;
         font-weight: 600;
@@ -173,7 +177,7 @@
         &__link {
             &_locale {
                 margin-left: 20px;
-                margin-right: 0px;
+                // margin-right: 0px;
             }
         }
     }
