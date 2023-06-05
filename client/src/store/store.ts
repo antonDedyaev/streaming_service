@@ -3,12 +3,14 @@ import { loginAPI } from './services/LoginService';
 import moviesSliceReducer from './slices/moviesSlice';
 import actorsSliceReducer from './slices/actorsSlice';
 import staticDataSliceReducer from './slices/staticDataSlice';
+import userSliceReducer from './slices/userSlice';
 
 const rootReducer = combineReducers({
     [loginAPI.reducerPath]: loginAPI.reducer,
     movies: moviesSliceReducer,
     actors: actorsSliceReducer,
     staticData: staticDataSliceReducer,
+    user: userSliceReducer,
 });
 
 export const setupStore = () => {

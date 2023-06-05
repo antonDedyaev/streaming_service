@@ -3,7 +3,7 @@ import { ILoginData } from '../models/ILoginData';
 
 export const loginAPI = createApi({
     reducerPath: 'loginAPI',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:6125' }),
     endpoints: (build) => ({
         fetchLogin: build.mutation<{ token: string }, ILoginData>({
             query: (loginData) => ({
