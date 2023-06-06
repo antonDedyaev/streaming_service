@@ -158,7 +158,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         className={styles.container__link}
                         onClick={() => logoutHandler()}
                     >
-                        <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" /> Выйти
+                        <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" /> {t('loginModal.signOut')}
                     </TransparentButton>
                 </div>
             ) : (
@@ -205,7 +205,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                                     focus={repeatPasswordFocus}
                                     type="password"
                                     inputType={isShowRepeatPassword ? 'text' : 'password'}
-                                    placeholder="Подтвердите пароль"
+                                    placeholder={t('loginModal.passwordConfirm')}
                                     value={repeatPassword}
                                     onChange={(value) => setRepeatPassword(value)}
                                     onClick={() => setIsShowRepeatPassword(!isShowRepeatPassword)}
@@ -218,7 +218,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
 
                         <div className={styles.container__sing}>
                             <TextLinkUI href={`${hrefSing}`} option="dim">
-                                {type === 'sign-in' ? 'Регистрация' : 'Войти'}
+                                {type === 'sign-in' ? t('loginModal.signUpLabel') : t('loginModal.signInLabel')}
                             </TextLinkUI>
 
                             <ColoredButton
@@ -233,7 +233,8 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         </div>
                     </div>
                     <div className={styles.container__social}>
-                        <h3>Войти через социальную сеть</h3>
+                        <h3>{t('loginModal.signInSocial')}</h3>
+
                         <div className={styles.container__socialButtons}>
                             <ColoredButton size="medium" color="gray" onClick={() => signInVKHandler()}>
                                 <Image

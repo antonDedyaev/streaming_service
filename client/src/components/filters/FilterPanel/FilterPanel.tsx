@@ -18,12 +18,12 @@ const FilterPanel = ({ className, children, isFilterApplied }: IPanel) => {
     const { t } = useTranslation('moviesPage');
     const dispatch = useAppDispatch();
 
-    const HandleRemoveFilters = () => {
+    const handleRemoveFilters = () => {
         dispatch(filtersRemoved({ genres: [], countries: [], ratingKp: 0, votesKp: 0, director: '', actor: '' }));
     };
 
     return (
-        <section className={[styles.container, className].join(' ')} data-testid={'filterPanel'}>
+        <div className={[styles.container, className].join(' ')} data-testid={'filterPanel'}>
             <div className={styles.container__body}>
                 <div className={styles.container__content}>
                     <div className={styles.container__filterList}>{children}</div>
@@ -34,7 +34,7 @@ const FilterPanel = ({ className, children, isFilterApplied }: IPanel) => {
                                 !isFilterApplied ? styles.container__resetButton_disabled : null,
                             ].join(' ')}
                             textColor="bright"
-                            onClick={HandleRemoveFilters}
+                            onClick={handleRemoveFilters}
                         >
                             <Image src={closeIcon} height={16} width={16} alt="Иконка-крестик" />
                             {t('filterPanel.removeFilters')}
@@ -42,7 +42,7 @@ const FilterPanel = ({ className, children, isFilterApplied }: IPanel) => {
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 

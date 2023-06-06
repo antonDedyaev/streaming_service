@@ -6,7 +6,12 @@
     "loginModal": {
         "emailInput": "Введите email",
         "passwordInput": "Введите пароль",
+        "passwordConfirm": "Подтвердите пароль",
+        "signInLabel": "Вход",
         "signIn": "Войти",
-        "signUp": "Зарегистрироваться"
+        "signInSocial": "Войти через социальную сеть",
+        "signUpLabel": "Регистрация",
+        "signUp": "Зарегистрироваться",
+        "signOut": "Выход"
     }
 }

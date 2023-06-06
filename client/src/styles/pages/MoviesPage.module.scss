@@ -28,6 +28,11 @@
         max-width: 930px;
     }
 
+    &__sortAndFilter {
+        display: flex;
+        flex-direction: column;
+    }
+
     &__section {
         padding-top: 24px;
         //padding: 24px 0 12px;
@@ -56,5 +61,13 @@
         line-height: 20px;
         font-weight: 500;
         font-style: normal;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        &__sortAndFilter {
+            flex-direction: column-reverse;
+        }
     }
 }
