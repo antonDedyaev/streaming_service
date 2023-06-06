@@ -8,11 +8,11 @@ import CommentForm from '../CommentForm/CommentForm';
 import { formatDate } from '@/utils/functions';
 
 interface CommentItemProps {
-    comment: IComment
-    hasChildren: boolean
+    comment: IComment;
+    handleReply: (value: string) => void;
 }
 
-const CommentItem = ({ comment, hasChildren }: CommentItemProps) => {
+const CommentItem = ({ comment, handleReply }: CommentItemProps) => {
     const { t } = useTranslation('movie');
     const [formShown, setFormShown] = useState<boolean>(false);
 
@@ -38,7 +38,7 @@ const CommentItem = ({ comment, hasChildren }: CommentItemProps) => {
                 <div className={styles.container__text}>{comment.text}</div>
             </div>
 
-            {hasChildren &&
+            {comment.childComment &&
                 <div className={styles.container__actions}>
                     <TransparentButton
                         className={styles.container__button}
@@ -50,7 +50,7 @@ const CommentItem = ({ comment, hasChildren }: CommentItemProps) => {
                 </div>
             }
 
-            {formShown && <CommentForm onSubmit={handleSubmit} />}
+            {formShown && <CommentForm onSubmit={handleReply} />}
         </div>
     )
 }

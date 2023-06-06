@@ -3,7 +3,6 @@ import styles from './CommentForm.module.scss';
 import { useRef, useState } from 'react';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
 
 interface CommentFormProps {
     onSubmit: (value: string) => void

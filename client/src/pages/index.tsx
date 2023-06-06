@@ -53,6 +53,19 @@ function HomePage({ movies }: { movies: IMovies[] }) {
         dispatch(getDataFromLocalStorage());
     }, [locale, asPath]);
 
+    // const test = async () => {
+    //     try {
+    //       const response = await axios.get(`http://localhost:6125/auth/google`)
+    //       console.log(response.data) 
+    //     } catch (err) {
+    //       console.log(err)
+    //     }
+    //   }
+
+    // useEffect(() => {
+    //     test()
+    // }, [])
+
     return (
         <>
             <MainContainer

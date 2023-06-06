@@ -1,4 +1,5 @@
-import { IFilters } from '@/store/slices/moviesSlice';
+import IFilters from "@/models/IFilters";
+
 
 export const declineWord = (number: number, arrayOfOptions: string[]): string => {
     let dozens = number % 100;
