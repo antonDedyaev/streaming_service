@@ -13,7 +13,7 @@ import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 import Loading from '@/components/Loading/Loading';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import { firstCapitalLetter, professionInTheSingular } from '@/utils/functions';
-import { getGenresAndCountries } from '@/store/ActionCreators';
+import { getDataFromLocalStorage, getGenresAndCountries } from '@/store/ActionCreators';
 import { useAppDispatch } from '@/store/hooks/redux';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
@@ -51,7 +51,8 @@ const CardActorPage = ({ person }: { person: IPerson }) => {
 
     useEffect(() => {
         dispatch(getGenresAndCountries());
-    }, [locale]);
+        dispatch(getDataFromLocalStorage());
+    }, [locale, asPath]);
 
     const converToString = (array: string[], version: 'en' | 'ru') => {
         if (version === 'ru') {

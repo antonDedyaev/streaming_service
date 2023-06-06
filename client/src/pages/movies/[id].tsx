@@ -20,7 +20,7 @@ import Loading from '@/components/Loading/Loading';
 import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import { useAppDispatch } from '@/store/hooks/redux';
-import { getGenresAndCountries } from '@/store/ActionCreators';
+import { getDataFromLocalStorage, getGenresAndCountries } from '@/store/ActionCreators';
 import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
@@ -63,7 +63,8 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
 
     useEffect(() => {
         dispatch(getGenresAndCountries());
-    }, [locale]);
+        dispatch(getDataFromLocalStorage());
+    }, [locale, asPath]);
 
     return (
         <MainContainer

@@ -162,3 +162,12 @@
         }
     }
 }
+
+@media screen and (min-width: 200px) and (max-width: 599px) {
+    .container {
+        margin-top: 24px;
+        &__dropdown {
+            min-width: 230px;
+        }
+    }
+}

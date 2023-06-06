@@ -22,7 +22,7 @@ import { getCollection, getDynamicUrl } from '../../utils/moviesHelpers';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
-import { getAllStaticData } from '@/store/ActionCreators';
+import { getAllStaticData, getDataFromLocalStorage } from '@/store/ActionCreators';
 import axios from 'axios';
 import IMovies from '@/models/IMovies';
 
@@ -64,6 +64,7 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
 
     useEffect(() => {
         dispatch(getAllStaticData());
+        dispatch(getDataFromLocalStorage());
     }, [locale, asPath]);
 
     const { genres, countries, actors, directors } = useAppSelector((state) => state.staticData);
@@ -86,6 +87,8 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
                 header = t('collection:countries.Russia');
             } else if (path[0] === 'USSR') {
                 header = t('collection:countries.USSR');
+            } else if (!isNaN(Number(path[0]))) {
+                header = t('collection:years', { year: path[0] });
             } else {
                 header = t('collection:countries.Foreign');
             }

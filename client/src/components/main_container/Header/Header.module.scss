@@ -43,6 +43,10 @@
         justify-self: right;
     }
 
+    &__adminButton {
+        color: #fff;
+    }
+
     &__button {
         font-size: 13px;
         font-weight: 600;
@@ -103,6 +107,12 @@
             &:hover {
                 box-shadow: 0 0 15px #ffffff98;
             }
+        }
+
+        &_auth {
+            background-color: #73a32f;
+            border: 0;
+            opacity: 1;
         }
 
         &_locale {
@@ -173,7 +183,7 @@
         &__link {
             &_locale {
                 margin-left: 20px;
-                margin-right: 0px;
+                // margin-right: 0px;
             }
         }
     }

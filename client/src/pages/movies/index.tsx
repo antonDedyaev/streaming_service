@@ -23,7 +23,7 @@ import PostersList from '@/components/posters/PostersList/PostersList';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
-import { getAllStaticData } from '@/store/ActionCreators';
+import { getAllStaticData, getDataFromLocalStorage } from '@/store/ActionCreators';
 import IMovies from '@/models/IMovies';
 import { getDynamicUrl } from '@/utils/moviesHelpers';
 import { IFilters } from '@/store/slices/moviesSlice';
@@ -101,6 +101,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
 
     useEffect(() => {
         dispatch(getAllStaticData());
+        dispatch(getDataFromLocalStorage());
     }, [locale, asPath, urlString]);
 
     const currentFilters = Object.entries(allFilters).filter(([, value]) => value.length !== 0 && value !== 0);
@@ -164,54 +165,60 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
                             </SpoilerUI>
                         )}
                     </div>
-                    {isFilterApplied && <SortMovies filteredMovies={filteredList} />}
-                    <FilterPanel isFilterApplied={isFilterApplied}>
-                        <FilterPlank
-                            title={t('moviesPage:filterPanel.genres')}
-                            className={plankStyles.container__dropdown_leftPositioned}
-                        >
-                            <FilterList
-                                items={
-                                    locale === 'ru'
-                                        ? genres.map((genre) => genre.name).sort()
-                                        : genres.map((genre) => genre.enName).sort()
-                                }
-                                category="genres"
-                            />
-                        </FilterPlank>
+                    <div className={styles.container__sortAndFilter}>
+                        {isFilterApplied && <SortMovies filteredMovies={filteredList} />}
+                        <FilterPanel isFilterApplied={isFilterApplied}>
+                            <FilterPlank
+                                title={t('moviesPage:filterPanel.genres')}
+                                className={plankStyles.container__dropdown_leftPositioned}
+                            >
+                                <FilterList
+                                    items={
+                                        locale === 'ru'
+                                            ? genres.map((genre) => genre.name).sort()
+                                            : genres.map((genre) => genre.enName).sort()
+                                    }
+                                    category="genres"
+                                />
+                            </FilterPlank>
 
-                        <FilterPlank
-                            title={t('moviesPage:filterPanel.countries')}
-                            className={plankStyles.container__dropdown_centerPositioned}
-                        >
-                            <FilterList items={countriesList.sort()} category="countries" />
-                        </FilterPlank>
+                            <FilterPlank
+                                title={t('moviesPage:filterPanel.countries')}
+                                className={plankStyles.container__dropdown_centerPositioned}
+                            >
+                                <FilterList items={countriesList.sort()} category="countries" />
+                            </FilterPlank>
 
-                        <FilterPlank
-                            title={t('moviesPage:filterPanel.rating')}
-                            className={styles.container__filterItem}
-                        >
-                            <FilterRange category="ratingKp" image={ratingIcon} limit={10} step={0.1} />
-                        </FilterPlank>
+                            <FilterPlank
+                                title={t('moviesPage:filterPanel.rating')}
+                                className={styles.container__filterItem}
+                            >
+                                <FilterRange category="ratingKp" image={ratingIcon} limit={10} step={0.1} />
+                            </FilterPlank>
 
-                        <FilterPlank
-                            title={t('moviesPage:filterPanel.userRank')}
-                            className={styles.container__filterItem}
-                        >
-                            <FilterRange category="votesKp" image={votesIcon} limit={1000000} step={100} />
-                        </FilterPlank>
+                            <FilterPlank
+                                title={t('moviesPage:filterPanel.userRank')}
+                                className={styles.container__filterItem}
+                            >
+                                <FilterRange category="votesKp" image={votesIcon} limit={1000000} step={100} />
+                            </FilterPlank>
 
-                        <FilterPlank
-                            title={t('moviesPage:filterPanel.director')}
-                            className={styles.container__filterItem}
-                        >
-                            <FilterSearch suggestionsList={directors} category="director" />
-                        </FilterPlank>
+                            <FilterPlank
+                                title={t('moviesPage:filterPanel.director')}
+                                className={styles.container__filterItem}
+                            >
+                                <FilterSearch suggestionsList={directors} category="director" />
+                            </FilterPlank>
 
-                        <FilterPlank title={t('moviesPage:filterPanel.actor')} className={styles.container__filterItem}>
-                            <FilterSearch suggestionsList={actors} category="actor" />
-                        </FilterPlank>
-                    </FilterPanel>
+                            <FilterPlank
+                                title={t('moviesPage:filterPanel.actor')}
+                                className={styles.container__filterItem}
+                            >
+                                <FilterSearch suggestionsList={actors} category="actor" />
+                            </FilterPlank>
+                        </FilterPanel>
+                    </div>
+
                     {!isFilterApplied ? (
                         <>
                             <div className={styles.container__section}>

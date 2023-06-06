@@ -1,7 +1,7 @@
 interface IUser {
-    id: number;
-    email: string;
-    password: string;
+    id?: number;
+    user: string;
+    password?: string;
     token: string;
     role: string;
 }

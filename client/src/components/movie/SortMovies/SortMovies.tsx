@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './SortMovies.module.scss';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { getSortedMovies } from '@/utils/moviesHelpers';
@@ -19,9 +19,23 @@ const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
     const dispatch = useAppDispatch();
     const [isDropdownShown, setIsDropdownShown] = useState(false);
 
+    const domNode = useRef<HTMLDivElement>(null);
+
     const sortParams: string[] = ['userRates', 'rating', 'releaseDate', 'name'];
 
     const [sortingParameter, setSortingParameter] = useState('userRates');
+
+    useEffect(() => {
+        const checkClickedTarget = (e: MouseEvent) => {
+            const target = e.target as HTMLDivElement;
+            if (!domNode.current!.contains(target)) {
+                setIsDropdownShown(false);
+            }
+        };
+        document.addEventListener('mousedown', checkClickedTarget);
+
+        return () => document.removeEventListener('mousedown', checkClickedTarget);
+    });
 
     useEffect(() => {
         getSortedMovies(sortingParameter, [...filteredMovies], locale!, dispatch);
@@ -55,33 +69,31 @@ const SortMovies = ({ filteredMovies }: { filteredMovies: IMovies[] }) => {
     };
 
     return (
-        <section data-testid={'sortMovies'}>
-            <div className={styles.container}>
-                <div className={styles.container__sortingControl}>
-                    <div
-                        className={[
-                            styles.container__sorting,
-                            isDropdownShown ? styles.container__sorting_active : null,
-                        ].join(' ')}
-                        onClick={() => setIsDropdownShown(!isDropdownShown)}
-                    >
-                        <div className={styles.container__sortingPanel}>
-                            <div className={styles.container__sortIcon}></div>
-                            <div className={styles.container__sortParameter}>{`${t('sorting.by')} ${t(
-                                `sorting.${sortingParameter}`,
-                            )
-                                .slice(0, 1)
-                                .toLowerCase()}${t(`sorting.${sortingParameter}`).slice(1)}`}</div>
-                            <div className={styles.container__sortArrow}></div>
-                        </div>
-                        <div className={styles.container__dropdown}>
-                            <div className={styles.container__itemTitle}>{t('sorting.sort')}</div>
-                            {sortParams.map((param) => renderMenuItem(param))}
-                        </div>
+        <div className={styles.container} data-testid={'sortMovies'}>
+            <div className={styles.container__sortingControl} ref={domNode}>
+                <div
+                    className={[
+                        styles.container__sorting,
+                        isDropdownShown ? styles.container__sorting_active : null,
+                    ].join(' ')}
+                    onClick={() => setIsDropdownShown(!isDropdownShown)}
+                >
+                    <div className={styles.container__sortingPanel}>
+                        <div className={styles.container__sortIcon}></div>
+                        <div className={styles.container__sortParameter}>{`${t('sorting.by')} ${t(
+                            `sorting.${sortingParameter}`,
+                        )
+                            .slice(0, 1)
+                            .toLowerCase()}${t(`sorting.${sortingParameter}`).slice(1)}`}</div>
+                        <div className={styles.container__sortArrow}></div>
+                    </div>
+                    <div className={styles.container__dropdown}>
+                        <div className={styles.container__itemTitle}>{t('sorting.sort')}</div>
+                        {sortParams.map((param) => renderMenuItem(param))}
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 export default SortMovies;

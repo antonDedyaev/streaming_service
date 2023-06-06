@@ -38,6 +38,7 @@ const MainContainer = ({ children, keywords, title, page }: MainContainerProps) 
             {queryParams.includes('ivi_search') && <SearchModal />}
             {queryParams.includes('sign-in') && <LoginModal type="sign-in" />}
             {queryParams.includes('sign-up') && <LoginModal type="sign-up" />}
+            {queryParams.includes('authorized') && <LoginModal type="authorized" />}
 
             <TabBar />
             <Footer />
