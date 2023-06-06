@@ -82,9 +82,58 @@ export const login = (email: string, password: string) => async (dispatch: AppDi
     }
 };
 
+export const registration = (email: string, password: string) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await AuthService.registration(email, password);
+        const obj = {
+            user: response.data.email,
+            role: response.data.roles[0].value,
+        };
+
+        localStorage.setItem('token', `Bearer ${response.data.accessToken}`);
+        localStorage.setItem('currentUser', JSON.stringify(obj));
+        dispatch(userSlice.actions.setAuth(true));
+        dispatch(
+            userSlice.actions.setUser({
+                user: response.data.email,
+                token: response.data.accessToken,
+                role: response.data.roles[0].value,
+            }),
+        );
+    } catch (e: any) {
+        console.log(e.response?.data?.message);
+        dispatch(userSlice.actions.setError(e.response?.data?.message));
+    }
+};
+
 export const loginGoogle = () => async (dispatch: AppDispatch) => {
     try {
         const response = await AuthService.loginGoogle();
+        console.log(response);
+
+        /* const obj = {
+            user: response.data.email,
+            role: response.data.roles[0].value,
+        };
+
+        localStorage.setItem('token', `Bearer ${response.data.accessToken}`);
+        localStorage.setItem('currentUser', JSON.stringify(obj));
+        dispatch(userSlice.actions.setAuth(true));
+        dispatch(
+            userSlice.actions.setUser({
+                user: response.data.email,
+                token: response.data.accessToken,
+                role: response.data.roles[0].value,
+            }),
+        );*/
+    } catch (e: any) {
+        dispatch(userSlice.actions.setError(e.response?.data?.message));
+    }
+};
+
+export const loginVK = () => async (dispatch: AppDispatch) => {
+    try {
+        const response = await AuthService.loginVK();
         console.log(response);
 
         /* const obj = {

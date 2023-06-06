@@ -11,6 +11,7 @@
         "signIn": "Sign in",
         "signInSocial": "Enter via social networks",
         "signUpLabel": "Sign-up",
-        "signUp": "Sign up"
+        "signUp": "Sign up",
+        "signOut": "Sign out"
     }
 }
