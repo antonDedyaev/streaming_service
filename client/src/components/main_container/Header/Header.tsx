@@ -28,7 +28,6 @@ const Header = ({ page }: HeaderProps) => {
     const currentLocale = locale === 'ru' ? 'en' : 'ru';
 
     const { isAuth } = useAppSelector((state) => state.user);
-    console.log(isAuth);
 
     const clearShowHandler = () => {
         setIsShowMoviesDrop(false);

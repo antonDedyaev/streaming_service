@@ -4,6 +4,13 @@
     flex-direction: column;
     align-items: center;
 
+    &__error {
+        color: red;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
     &__user {
         margin: 30px 0 20px;
         color: #fff;
@@ -49,10 +56,10 @@
             margin-bottom: 15px;
         }
 
-        &Links {
+        &Buttons {
             display: flex;
             justify-content: center;
-            & a:first-child {
+            & button:first-child {
                 margin-right: 10px;
             }
         }
