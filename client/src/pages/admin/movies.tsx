@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import styles from '../../styles/pages/EditItemsPage.module.scss';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import EditForm from '@/components/EditForm/EditForm';
 import ArrowButton from '@/components/UI/buttons/ArrowButton/ArrowButtonUI';
@@ -16,7 +16,7 @@ interface IMovieEditable {
     enName: string;
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
     const response = await axios.get('http://localhost:6125/films');
     const movies = response.data.map((item: IMovies) => {
         return { id: item.id, name: item.name, enName: item.enName };

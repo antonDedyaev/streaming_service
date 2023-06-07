@@ -24,6 +24,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
     const hrefSing = type === 'sign-in' ? `${backPath}?sign-up` : `${backPath}?sign-in`;
     const dispatch = useAppDispatch();
     const { user, isAuth, error } = useAppSelector((state) => state.user);
+    console.log('user', user);
     const [isClose, setIsClose] = useState(false);
     const [errAuth, setErrAuth] = useState('');
     const [errPassword, setErrPassword] = useState('');
@@ -152,7 +153,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
         <ModalUI close={isClose}>
             {type === 'authorized' || isAuth ? (
                 <div className={styles.container}>
-                    <h3 className={styles.container__user}>{user.user}</h3>
+                    <h3 className={styles.container__user}>{`${t('loginModal.welcomeMessage')}, ${user.user}`}</h3>
                     <TransparentButton
                         textColor="faded"
                         className={styles.container__link}
