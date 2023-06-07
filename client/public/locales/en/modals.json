@@ -4,6 +4,7 @@
         "moviesSearch": "Movies"
     },
     "loginModal": {
+        "welcomeMessage": "Welcome",
         "emailInput": "Enter your email",
         "passwordInput": "Enter your password",
         "passwordConfirm": "Confirm your password",

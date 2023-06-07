@@ -21,7 +21,8 @@
         "removeFilters": "Remove filters",
         "notSelected": "not selected",
         "searchByDirector": "Search by director",
-        "searchByActor": "Search by actor"
+        "searchByActor": "Search by actor",
+        "over": "Over"
     },
     "sorting": {
         "sort": "Sort",

@@ -20,7 +20,8 @@
         "removeFilters": "Сбросить фильтры",
         "notSelected": "не выбрано",
         "searchByDirector": "Поиск по режиссеру",
-        "searchByActor": "Поиск по актеру"
+        "searchByActor": "Поиск по актеру",
+        "over": "Больше"
     },
     "sorting": {
         "sort": "Сортировать",
