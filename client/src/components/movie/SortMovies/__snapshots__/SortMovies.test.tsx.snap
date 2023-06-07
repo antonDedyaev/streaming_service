@@ -1,92 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SORTMOVIES SNAPSHOTS TESTS SortMovies should not be changed 1`] = `
-<section
+<div
+  class="container"
   data-testid="sortMovies"
 >
   <div
-    class="container"
+    class="container__sortingControl"
   >
     <div
-      class="container__sortingControl"
+      class="container__sorting "
     >
       <div
-        class="container__sorting "
+        class="container__sortingPanel"
       >
         <div
-          class="container__sortingPanel"
+          class="container__sortIcon"
+        />
+        <div
+          class="container__sortParameter"
+        >
+          sorting.by sorting.userRates
+        </div>
+        <div
+          class="container__sortArrow"
+        />
+      </div>
+      <div
+        class="container__dropdown"
+      >
+        <div
+          class="container__itemTitle"
+        >
+          sorting.sort
+        </div>
+        <div
+          class="container__dropdownItem"
         >
           <div
-            class="container__sortIcon"
+            class="container__itemStripe"
           />
           <div
-            class="container__sortParameter"
+            class="container__itemText"
           >
             sorting.by sorting.userRates
           </div>
-          <div
-            class="container__sortArrow"
-          />
         </div>
         <div
-          class="container__dropdown"
+          class="container__dropdownItem"
         >
           <div
-            class="container__itemTitle"
-          >
-            sorting.sort
-          </div>
+            class="container__itemStripe"
+          />
           <div
-            class="container__dropdownItem"
+            class="container__itemText"
           >
-            <div
-              class="container__itemStripe"
-            />
-            <div
-              class="container__itemText"
-            >
-              sorting.by sorting.userRates
-            </div>
+            sorting.rating
           </div>
+        </div>
+        <div
+          class="container__dropdownItem"
+        >
           <div
-            class="container__dropdownItem"
+            class="container__itemStripe"
+          />
+          <div
+            class="container__itemText"
           >
-            <div
-              class="container__itemStripe"
-            />
-            <div
-              class="container__itemText"
-            >
-              sorting.rating
-            </div>
+            sorting.releaseDate
           </div>
+        </div>
+        <div
+          class="container__dropdownItem"
+        >
           <div
-            class="container__dropdownItem"
-          >
-            <div
-              class="container__itemStripe"
-            />
-            <div
-              class="container__itemText"
-            >
-              sorting.releaseDate
-            </div>
-          </div>
+            class="container__itemStripe"
+          />
           <div
-            class="container__dropdownItem"
+            class="container__itemText"
           >
-            <div
-              class="container__itemStripe"
-            />
-            <div
-              class="container__itemText"
-            >
-              sorting.name
-            </div>
+            sorting.name
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 `;

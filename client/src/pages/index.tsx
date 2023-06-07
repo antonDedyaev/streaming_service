@@ -22,7 +22,6 @@ import IMovies from '@/models/IMovies';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import Link from 'next/link';
 import AuthService from '@/store/services/AuthService';
-import { getGoogleUrl } from '@/utils/getGoogleUrl';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');

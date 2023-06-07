@@ -1,7 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import PromoPoster from './PromoPoster';
-import { promoMovieTest } from '../../../testAsserts/testItems';
-import { act } from 'react-dom/test-utils';
+import Loading from './Loading';
 
 jest.mock('next-i18next', () => ({
     useTranslation: () => {
@@ -22,13 +20,11 @@ jest.mock('next/router', () => ({
     },
 }));
 
-describe('PROMOPOSTER SNAPSHOTS TESTS', () => {
-    test('PromoPoster should not be changed', () => {
-        act(() => {
-            render(<PromoPoster movie={promoMovieTest} className="promoItem" />);
-        });
+describe('LOADING SNAPSHOTS TESTS', () => {
+    test('Loading should not be changed', () => {
+        render(<Loading />);
 
-        const id = screen.getByTestId('promoPoster');
+        const id = screen.getByTestId('loading');
         expect(id).toMatchSnapshot();
     });
 });
