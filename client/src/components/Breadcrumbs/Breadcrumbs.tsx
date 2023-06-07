@@ -46,7 +46,7 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash', linked = true }: B
                      */
                     if (!linked) {
                         return localizedPaths.length > 1 && index === 0 ? (
-                            <li key={index}>
+                            <li key={`${index}${type}`}>
                                 <TextLinkUI option="bright" href={'/movies'} className={styles.container__crumb}>
                                     {t('movies')}
                                 </TextLinkUI>
@@ -61,7 +61,7 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash', linked = true }: B
                     if (!last) {
                         if (item !== 'persons' && linked) {
                             return (
-                                <li key={index}>
+                                <li key={`${index}${type}`}>
                                     <TextLinkUI
                                         option="bright"
                                         href={`/${ref}`}
@@ -77,8 +77,8 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash', linked = true }: B
                     } else {
                         if (genre && tailName) {
                             return (
-                                <div key={type}>
-                                    <li key={index}>
+                                <div key={`${index}_${type}`}>
+                                    <li key={`${type}${genre.enName}`}>
                                         <TextLinkUI
                                             option="bright"
                                             href={`/collections/${genre.enName}`}
@@ -88,7 +88,7 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash', linked = true }: B
                                         </TextLinkUI>
                                     </li>
                                     {type !== 'pointShort' && (
-                                        <li key={index} className={styles.container__tail}>
+                                        <li key={`${index}${type}`} className={styles.container__tail}>
                                             {locale === 'ru' ? tailName.name : tailName.enName}
                                         </li>
                                     )}

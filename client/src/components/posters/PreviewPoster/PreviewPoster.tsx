@@ -19,7 +19,9 @@ const PreviewPoster = ({ movie, className }: PreviewPosterProps) => {
                 <div className={style.container__imageWrapper}>
                     <Image className={style.container__image} src={movie.posterPreviewURL} alt={movie.name} fill />
                 </div>
+
                 <PreviewPosterContent movie={movie} />
+
                 <AgeBadge className={style.container__badge} value={`${movie.ageRating}`} />
             </div>
 

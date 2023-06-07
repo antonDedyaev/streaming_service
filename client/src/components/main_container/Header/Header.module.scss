@@ -96,8 +96,8 @@
         }
 
         &_user {
-            width: 48px;
-            height: 48px;
+            min-width: 48px;
+            min-height: 48px;
             border: 2px solid #fff;
             display: flex;
             justify-content: center;
@@ -182,8 +182,7 @@
 
         &__link {
             &_locale {
-                margin-left: 20px;
-                // margin-right: 0px;
+                margin-left: 0px;
             }
         }
     }
@@ -200,6 +199,9 @@
         &__link {
             &_bell {
                 padding: 10px;
+            }
+            &_locale {
+                margin-right: 10px;
             }
         }
     }
