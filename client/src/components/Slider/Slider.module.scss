@@ -13,30 +13,27 @@
         }
 
         .container__button {
-    
             &_left {
                 left: -40px;
             }
-    
+
             &_right {
                 right: -40px;
             }
         }
     }
 
-    
     &_preview {
         .container__button {
-    
             &_left {
                 img {
-                    top: 46%
+                    top: 46%;
                 }
             }
-    
+
             &_right {
                 img {
-                    top: 46%
+                    top: 46%;
                 }
             }
         }
@@ -44,16 +41,15 @@
 
     &_actor {
         .container__button {
-    
             &_left {
                 img {
-                    top: 42%
+                    top: 42%;
                 }
             }
-    
+
             &_right {
                 img {
-                    top: 42%
+                    top: 42%;
                 }
             }
         }
@@ -83,7 +79,7 @@
         position: absolute;
         top: 0;
         margin: 10px 0 30px 0;
-        
+
         &_left {
             left: -50px;
         }
@@ -113,11 +109,11 @@
         &_actor {
             .container__button {
                 width: 22px;
-    
+
                 &_left {
                     left: -10px !important;
                 }
-    
+
                 &_right {
                     right: -10px !important;
                 }
@@ -125,3 +121,34 @@
         }
     }
 }
+/*
+@media (max-width: 600px) {
+    .container {
+        &__content {
+            &_preview {
+                max-height: 210px;
+            }
+        }
+    }
+}
+
+@media (max-width: 512px) {
+    .container {
+        &__content {
+            &_preview {
+                max-height: 260px;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        &__content {
+            &_preview {
+                max-height: 300px;
+            }
+        }
+    }
+}
+*/

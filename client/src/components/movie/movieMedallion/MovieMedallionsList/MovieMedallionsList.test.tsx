@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import MovieMedallionsList from './MovieMedallionsList';
 import { movieTest } from '../../../../testAsserts/testItems';
+import { act } from 'react-dom/test-utils';
 
 jest.mock('next-i18next', () => ({
     useTranslation: () => {
@@ -23,7 +24,9 @@ jest.mock('next/router', () => ({
 
 describe('MOVIEMEDALLIONSLIST SNAPSHOTS TESTS', () => {
     test('MovieMedallionsList should not be changed', () => {
-        render(<MovieMedallionsList movie={movieTest} />);
+        act(() => {
+            render(<MovieMedallionsList movie={movieTest} />);
+        });
 
         const div = screen.getByTestId('movieMedallionsList');
         expect(div).toMatchSnapshot();

@@ -37,7 +37,7 @@ exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
             class="container container_dim"
             href="/"
           >
-            myIvi
+            header:myIvi
           </a>
         </li>
         <li
@@ -48,7 +48,7 @@ exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
             href="https://www.ivi.ru/new"
             target="_blank"
           >
-            latest
+            header:latest
           </a>
         </li>
         <li
@@ -58,7 +58,7 @@ exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
             class="container container_dim container__menuLink container__menuLink_movie"
             href="/movies"
           >
-            movies
+            header:movies
           </a>
         </li>
         <li
@@ -69,7 +69,7 @@ exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
             href="https://www.ivi.ru/series"
             target="_blank"
           >
-            tvShows
+            header:tvShows
           </a>
         </li>
         <li
@@ -80,7 +80,7 @@ exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
             href="https://www.ivi.ru/tvplus"
             target="_blank"
           >
-            broadcast
+            header:broadcast
           </a>
         </li>
       </ul>
@@ -92,7 +92,7 @@ exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
         class="button button_small button_red container__button"
         type="button"
       >
-        freePeriod
+        header:freePeriod
       </button>
       <a
         class="container container_bright container__search"
@@ -113,7 +113,7 @@ exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
         <p
           class="container__text"
         >
-          search
+          header:search
         </p>
       </a>
       <a
@@ -136,11 +136,9 @@ exports[`HEADER SNAPSHOTS TESTS Header should not be changed 1`] = `
       <a
         class="container__link container__link_locale"
         href="/"
-      >
-        en
-      </a>
+      />
       <a
-        class="container__link container__link_user"
+        class="container__link container__link_user "
         href="/?sign-in"
       >
         <img

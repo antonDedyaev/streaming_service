@@ -2,6 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import ArrowButtonUI from './ArrowButtonUI';
+import { act } from 'react-dom/test-utils';
 
 describe('ArrowButtonUI SNAPSHOTS TESTS', () => {
     test('right-large ArrowButtonUI should not be changed', () => {
@@ -12,7 +13,9 @@ describe('ArrowButtonUI SNAPSHOTS TESTS', () => {
     });
 
     test('left-small ButtonUI should not be changed', () => {
-        render(<ArrowButtonUI className="button" direction="left" iconSize="small" />);
+        act(() => {
+            render(<ArrowButtonUI className="button" direction="left" iconSize="small" />);
+        });
         const button = screen.getByRole('button');
 
         expect(button).toMatchSnapshot();

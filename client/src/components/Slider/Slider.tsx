@@ -64,7 +64,17 @@ export const Slider = ({ itemType, children, length }: SliderProps) => {
                 )}
 
                 <div className={[styles.container__contentContainer].join(' ')}>
-                    <div className={[styles.container__content, 'content'].join(' ')}>{children}</div>
+                    <div
+                        className={[
+                            styles.container__content,
+                            'content',
+                            itemType === 'preview' ? styles.container__content_preview : '',
+                        ]
+                            .join(' ')
+                            .trim()}
+                    >
+                        {children}
+                    </div>
                 </div>
 
                 {position > maxPosition && (
