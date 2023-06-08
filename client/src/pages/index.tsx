@@ -57,18 +57,18 @@ function HomePage({ movies }: { movies: IMovies[] }) {
 
     const from = '/';
 
-    useEffect(() => {
-        const google = async () => {
-            try {
-                const resp = await axios.get('http://localhost:6125/auth/google');
-                console.log('test', resp.data);
-                return resp;
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        google();
-    }, []);
+    // useEffect(() => {
+    //     const google = async () => {
+    //         try {
+    //             const resp = await axios.get('http://localhost:6125/auth/google');
+    //             console.log('test', resp.data);
+    //             return resp;
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     };
+    //     google();
+    // }, []);
 
     return (
         <>

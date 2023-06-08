@@ -12,6 +12,8 @@ import { login, loginGoogle, loginVK, logout, registration } from '@/store/Actio
 import exitIcon from '../../../../public/icons/exit.svg';
 import TransparentButton from '@/components/UI/buttons/TransparentButton/TransparentButton';
 import { userSlice } from '../../../store/slices/userSlice';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import axios from 'axios';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up' | 'authorized';
@@ -19,12 +21,13 @@ interface LoginModalProps {
 
 const LoginModal = ({ type }: LoginModalProps) => {
     const { t } = useTranslation('modals');
+    const router = useRouter();
     const location = useRouter();
     const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?trailer)|(\?more)/, '');
     const hrefSing = type === 'sign-in' ? `${backPath}?sign-up` : `${backPath}?sign-in`;
     const dispatch = useAppDispatch();
+    const { data: session } = useSession();
     const { user, isAuth, error } = useAppSelector((state) => state.user);
-    console.log('user', user);
     const [isClose, setIsClose] = useState(false);
     const [errAuth, setErrAuth] = useState('');
     const [errPassword, setErrPassword] = useState('');
@@ -149,6 +152,13 @@ const LoginModal = ({ type }: LoginModalProps) => {
         }
     }, [error, isAuth, password, repeatPassword, type]);
 
+    const handleLoginwithGoogle = () => {
+        signIn('google', { callbackUrl: '/' });
+        if (session?.user?.name) {
+            localStorage.setItem('email', JSON.stringify(session?.user?.email));
+        }
+    };
+
     return (
         <ModalUI close={isClose}>
             {type === 'authorized' || isAuth ? (
@@ -237,7 +247,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         <h3>{t('loginModal.signInSocial')}</h3>
 
                         <div className={styles.container__socialButtons}>
-                            <ColoredButton size="medium" color="gray" onClick={() => signInVKHandler()}>
+                            <ColoredButton size="medium" color="gray" onClick={handleLoginwithGoogle}>
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_vkontakte.svg"
                                     height={20}
@@ -245,7 +255,11 @@ const LoginModal = ({ type }: LoginModalProps) => {
                                     alt="Логотип Vk"
                                 />
                             </ColoredButton>
-                            <ColoredButton size="medium" color="gray" onClick={() => signInGoogleHandler()}>
+                            <ColoredButton
+                                size="medium"
+                                color="gray"
+                                onClick={() => signIn('google', { callbackUrl: '/' })}
+                            >
                                 <Image src="/icons/google.svg" height={20} width={20} alt="Логотип google" />
                             </ColoredButton>
                         </div>
