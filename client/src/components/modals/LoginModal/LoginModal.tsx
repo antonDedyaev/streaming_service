@@ -1,18 +1,17 @@
 import ModalUI from '@/components/UI/Modal/ModalUI';
 import styles from './LoginModal.module.scss';
 import InputUI from '@/components/UI/Input/InputUI';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
-import { loginAPI } from '@/store/services/LoginService';
 import { useTranslation } from 'next-i18next';
-import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 import { useRouter } from 'next/router';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { login, logout } from '@/store/ActionCreators';
+import { login, loginGoogle, loginVK, logout, registration } from '@/store/ActionCreators';
 import exitIcon from '../../../../public/icons/exit.svg';
 import TransparentButton from '@/components/UI/buttons/TransparentButton/TransparentButton';
+import { userSlice } from '../../../store/slices/userSlice';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up' | 'authorized';
@@ -24,8 +23,11 @@ const LoginModal = ({ type }: LoginModalProps) => {
     const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?trailer)|(\?more)/, '');
     const hrefSing = type === 'sign-in' ? `${backPath}?sign-up` : `${backPath}?sign-in`;
     const dispatch = useAppDispatch();
-    const { user, isAuth } = useAppSelector((state) => state.user);
+    const { user, isAuth, error } = useAppSelector((state) => state.user);
+    console.log('user', user);
     const [isClose, setIsClose] = useState(false);
+    const [errAuth, setErrAuth] = useState('');
+    const [errPassword, setErrPassword] = useState('');
 
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -42,6 +44,8 @@ const LoginModal = ({ type }: LoginModalProps) => {
     const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
     const [isShowRepeatPassword, setIsShowRepeatPassword] = useState<boolean>(false);
 
+    const [isValid, setIsValid] = useState(false);
+
     /* const [signIn, {}] = loginAPI.useFetchLoginMutation();
     const [signUp, {}] = loginAPI.useFetchRegistrationMutation();
     console.log(signIn.bind);*/
@@ -54,7 +58,16 @@ const LoginModal = ({ type }: LoginModalProps) => {
         /* await signIn({ email: email, password: password });*/
     };
 
+    const signInGoogleHandler = async () => {
+        dispatch(loginGoogle());
+    };
+
+    const signInVKHandler = async () => {
+        dispatch(loginVK());
+    };
+
     const signUpHandler = async () => {
+        dispatch(registration(email, password));
         /*await signUp({ email: email, password: password });*/
     };
 
@@ -99,17 +112,54 @@ const LoginModal = ({ type }: LoginModalProps) => {
         }
     };
 
+    useEffect(() => {
+        if (error === 'Internal server error' && type === 'sign-up') {
+            setEmail('');
+            setPassword('');
+            setRepeatPassword('');
+            dispatch(userSlice.actions.setError(''));
+            setErrAuth(location.locale === 'ru' ? 'Пользователь уже зарегистрирован' : 'User already registered');
+        }
+
+        if (error === 'Internal server error' && type === 'sign-in') {
+            setErrAuth(
+                location.locale === 'ru' ? 'Email или пароль введены неверно' : 'Email or password entered incorrectly',
+            );
+            setEmail('');
+            setPassword('');
+            dispatch(userSlice.actions.setError(''));
+        }
+
+        if (!!password && !!repeatPassword && type === 'sign-up') {
+            setErrPassword(location.locale === 'ru' ? 'Пароли не совпадают' : 'Password mismatch');
+            setIsValid(true);
+        }
+
+        if (error === '' && password === repeatPassword && type === 'sign-up') {
+            setErrPassword('');
+            setIsValid(false);
+        }
+
+        if (isAuth) {
+            setErrAuth('');
+            setErrPassword('');
+            setEmail('');
+            setPassword('');
+            setRepeatPassword('');
+        }
+    }, [error, isAuth, password, repeatPassword, type]);
+
     return (
         <ModalUI close={isClose}>
             {type === 'authorized' || isAuth ? (
                 <div className={styles.container}>
-                    <h3 className={styles.container__user}>{user.user}</h3>
+                    <h3 className={styles.container__user}>{`${t('loginModal.welcomeMessage')}, ${user.user}`}</h3>
                     <TransparentButton
                         textColor="faded"
                         className={styles.container__link}
                         onClick={() => logoutHandler()}
                     >
-                        <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" /> Выйти
+                        <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" /> {t('loginModal.signOut')}
                     </TransparentButton>
                 </div>
             ) : (
@@ -164,15 +214,20 @@ const LoginModal = ({ type }: LoginModalProps) => {
                             </div>
                         )}
 
+                        {errAuth && <div className={styles.container__error}>{errAuth}</div>}
+                        {errPassword && <div className={styles.container__error}>{errPassword}</div>}
+
                         <div className={styles.container__sing}>
                             <TextLinkUI href={`${hrefSing}`} option="dim">
                                 {type === 'sign-in' ? t('loginModal.signUpLabel') : t('loginModal.signInLabel')}
                             </TextLinkUI>
+
                             <ColoredButton
                                 onClick={type === 'sign-in' ? signInHandler : signUpHandler}
                                 className={styles.container__button}
                                 color="red"
                                 size="large"
+                                disabled={isValid}
                             >
                                 {type === 'sign-in' ? t('loginModal.signIn') : t('loginModal.signUp')}
                             </ColoredButton>
@@ -180,18 +235,19 @@ const LoginModal = ({ type }: LoginModalProps) => {
                     </div>
                     <div className={styles.container__social}>
                         <h3>{t('loginModal.signInSocial')}</h3>
-                        <div className={styles.container__socialLinks}>
-                            <ShapedLinkUI shape="rectangular" href="/">
+
+                        <div className={styles.container__socialButtons}>
+                            <ColoredButton size="medium" color="gray" onClick={() => signInVKHandler()}>
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_vkontakte.svg"
                                     height={20}
                                     width={20}
                                     alt="Логотип Vk"
                                 />
-                            </ShapedLinkUI>
-                            <ShapedLinkUI shape="rectangular" href="/">
+                            </ColoredButton>
+                            <ColoredButton size="medium" color="gray" onClick={() => signInGoogleHandler()}>
                                 <Image src="/icons/google.svg" height={20} width={20} alt="Логотип google" />
-                            </ShapedLinkUI>
+                            </ColoredButton>
                         </div>
                     </div>
                 </div>

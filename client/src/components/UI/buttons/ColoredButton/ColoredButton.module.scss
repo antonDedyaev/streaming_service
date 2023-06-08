@@ -19,17 +19,23 @@
 
     &_red {
         background-color: #ea003d;
-        &:hover {background-color: #e42e5f}
+        &:hover {
+            background-color: #e42e5f;
+        }
     }
 
     &_gray {
         background-color: #1f1b2e;
-        &:hover {background-color: #2e2844}
+        &:hover {
+            background-color: #2e2844;
+        }
     }
 
     &_lightGray {
         background-color: rgba(255, 255, 255, 0.08);
-        &:hover {background-color: rgba(255, 255, 255, 0.2)}
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
     }
 
     &:hover {
@@ -38,5 +44,11 @@
 
     &:not(:hover) {
         transition: 0.4s;
+    }
+
+    &_disabled {
+        pointer-events: none;
+        background-color: #64354149;
+        color: #706f6f;
     }
 }

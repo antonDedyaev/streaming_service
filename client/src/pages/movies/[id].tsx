@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params, locale })
         const response = await axios.get(`http://localhost:6125/film/${params!.id}`);
         movie = response.data;
     } catch (error) {
-        console.log(movie);
+        console.log(error);
     }
 
     return {

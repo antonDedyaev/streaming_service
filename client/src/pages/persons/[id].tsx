@@ -17,8 +17,13 @@ import { getDataFromLocalStorage, getGenresAndCountries } from '@/store/ActionCr
 import { useAppDispatch } from '@/store/hooks/redux';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
-    const response = await axios.get(`http://localhost:6125/personswithinfo/${params!.id}`);
-    const person = response.data;
+    let person: IPerson | null = null;
+    try {
+        const response = await axios.get(`http://localhost:6125/personswithinfo/${params!.id}`);
+        person = response.data;
+    } catch (error) {
+        console.log(error);
+    }
 
     return {
         props: {

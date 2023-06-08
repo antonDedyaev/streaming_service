@@ -1,6 +1,6 @@
 /*import React from 'react'
 import '@testing-library/jest-dom'*/
-import { render, renderHook } from '@testing-library/react';
+import { act, render, renderHook } from '@testing-library/react';
 import { useWindowSize } from './useWindowSize';
 import HomePage from '@/pages/index';
 import { moviesTest } from '../../testAsserts/testItems';
@@ -38,7 +38,9 @@ describe('USE WINDOW SIZE TESTS', () => {
     test('useWindowSize should return defined value', () => {
         mockedSelector.mockReturnValue({ genres });
         useDispatch.mockReturnValue(mockDispatch);
-        render(<HomePage movies={moviesTest} />);
+        act(() => {
+            render(<HomePage movies={moviesTest} />);
+        });
         const { result } = renderHook(() => useWindowSize());
         expect(result.current).toBeDefined();
     });

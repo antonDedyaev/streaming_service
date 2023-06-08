@@ -16,9 +16,12 @@ import { useAppDispatch } from '@/store/hooks/redux';
 import { useEffect } from 'react';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import { useRouter } from 'next/router';
-import { fetchGenres, getDataFromLocalStorage } from '@/store/ActionCreators';
+import { fetchGenres, getDataFromLocalStorage, loginGoogle } from '@/store/ActionCreators';
 import axios from 'axios';
 import IMovies from '@/models/IMovies';
+import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
+import Link from 'next/link';
+import AuthService from '@/store/services/AuthService';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');
@@ -44,7 +47,6 @@ function HomePage({ movies }: { movies: IMovies[] }) {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const { locale, asPath } = useRouter();
-
     const fantasies = getMoviesByGenre(movies, 'fantasy');
     const dramas = getMoviesByGenre(movies, 'drama');
 
@@ -53,18 +55,20 @@ function HomePage({ movies }: { movies: IMovies[] }) {
         dispatch(getDataFromLocalStorage());
     }, [locale, asPath]);
 
-    // const test = async () => {
-    //     try {
-    //       const response = await axios.get(`http://localhost:6125/auth/google`)
-    //       console.log(response.data) 
-    //     } catch (err) {
-    //       console.log(err)
-    //     }
-    //   }
+    const from = '/';
 
-    // useEffect(() => {
-    //     test()
-    // }, [])
+    useEffect(() => {
+        const google = async () => {
+            try {
+                const resp = await axios.get('http://localhost:6125/auth/google');
+                console.log('test', resp.data);
+                return resp;
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        google();
+    }, []);
 
     return (
         <>

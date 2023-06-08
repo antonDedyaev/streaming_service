@@ -14,7 +14,7 @@
             background-color: #e6e6e6;
             transition: 0.3s;
 
-            height: 235.05px;
+            max-height: 235.05px;
 
             &:hover {
                 transform-origin: bottom;
@@ -53,5 +53,67 @@
         position: absolute;
         bottom: 4px;
         right: 4px;
+    }
+}
+
+@media (max-width: 1272px) {
+    .container {
+        &__block {
+            &_image {
+                max-height: 279px;
+            }
+        }
+    }
+}
+
+@media (max-width: 920px) {
+    .container {
+        &__block {
+            &_image {
+                max-height: 301px;
+            }
+        }
+    }
+}
+
+@media (max-width: 744px) {
+    .container {
+        &__block {
+            &_image {
+                max-height: 324px;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        &__block {
+            &_image {
+                max-height: 179px;
+                max-width: 120px;
+            }
+        }
+    }
+}
+
+@media (max-width: 512px) {
+    .container {
+        &__block {
+            &_image {
+                max-height: 230px;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        &__block {
+            &_image {
+                max-height: 264px;
+            }
+        }
     }
 }

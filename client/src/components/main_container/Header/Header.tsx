@@ -27,8 +27,7 @@ const Header = ({ page }: HeaderProps) => {
 
     const currentLocale = locale === 'ru' ? 'en' : 'ru';
 
-    const { isAuth } = useAppSelector((state) => state.user);
-    console.log(isAuth);
+    const { isAuth, user } = useAppSelector((state) => state.user);
 
     const clearShowHandler = () => {
         setIsShowMoviesDrop(false);
@@ -120,7 +119,7 @@ const Header = ({ page }: HeaderProps) => {
                 </div>
 
                 <div className={styles.container__rightSide}>
-                    {isAuth ? (
+                    {isAuth && user.role === 'admin' ? (
                         <ColoredButton color="red" size="small" className={styles.container__button}>
                             <Link href={'/admin'} className={styles.container__adminButton}>
                                 {t('header:adminButton')}

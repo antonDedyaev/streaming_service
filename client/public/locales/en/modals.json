@@ -4,6 +4,7 @@
         "moviesSearch": "Movies"
     },
     "loginModal": {
+        "welcomeMessage": "Welcome",
         "emailInput": "Enter your email",
         "passwordInput": "Enter your password",
         "passwordConfirm": "Confirm your password",
@@ -11,6 +12,7 @@
         "signIn": "Sign in",
         "signInSocial": "Enter via social networks",
         "signUpLabel": "Sign-up",
-        "signUp": "Sign up"
+        "signUp": "Sign up",
+        "signOut": "Sign out"
     }
 }

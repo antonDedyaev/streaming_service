@@ -4,6 +4,7 @@
         "moviesSearch": "Фильмы"
     },
     "loginModal": {
+        "welcomeMessage": "Добро пожаловать",
         "emailInput": "Введите email",
         "passwordInput": "Введите пароль",
         "passwordConfirm": "Подтвердите пароль",
@@ -11,6 +12,7 @@
         "signIn": "Войти",
         "signInSocial": "Войти через социальную сеть",
         "signUpLabel": "Регистрация",
-        "signUp": "Зарегистрироваться"
+        "signUp": "Зарегистрироваться",
+        "signOut": "Выход"
     }
 }

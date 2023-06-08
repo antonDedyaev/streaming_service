@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LOADING SNAPSHOTS TESTS Loading should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="loading"
+>
+  <div
+    class="spinner"
+  >
+    <div
+      class="blob top"
+    />
+    <div
+      class="blob bottom"
+    />
+    <div
+      class="blob left"
+    />
+    <div
+      class="blob move"
+    />
+  </div>
+  loading
+</div>
+`;

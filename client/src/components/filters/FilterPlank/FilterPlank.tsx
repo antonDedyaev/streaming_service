@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import { useAppSelector } from '../../../store/hooks/redux';
 import styles from './FilterPlank.module.scss';
 import { ReactNode, useState, useEffect, useRef } from 'react';
@@ -9,6 +10,7 @@ interface IPlank {
 }
 
 const FilterPlank = ({ title, className, children }: IPlank) => {
+    const { t } = useTranslation('moviesPage');
     const [isDropdownShown, setIsDropdownShown] = useState(false);
     const [subTitle, setSubTitle] = useState('');
 
@@ -30,25 +32,26 @@ const FilterPlank = ({ title, className, children }: IPlank) => {
     });
 
     const filters = useAppSelector((state) => state.movies.filters);
+    console.log('genres', filters.genres);
 
     useEffect(() => {
         switch (title) {
-            case 'Жанры':
+            case t('filterPanel.genres'):
                 setSubTitle(filters.genres.join(', '));
                 break;
-            case 'Страны':
+            case t('filterPanel.countries'):
                 setSubTitle(filters.countries.join(', '));
                 break;
-            case 'Рейтинг':
-                filters.ratingKp > 0 ? setSubTitle(`Больше ${filters.ratingKp}`) : setSubTitle('');
+            case t('filterPanel.rating'):
+                filters.ratingKp > 0 ? setSubTitle(`${t('filterPanel.over')} ${filters.ratingKp}`) : setSubTitle('');
                 break;
-            case 'Оценки':
-                filters.votesKp > 0 ? setSubTitle(`Больше ${filters.votesKp}`) : setSubTitle('');
+            case t('filterPanel.userRank'):
+                filters.votesKp > 0 ? setSubTitle(`${t('filterPanel.over')} ${filters.votesKp}`) : setSubTitle('');
                 break;
-            case 'Режиссер':
+            case t('filterPanel.director'):
                 setSubTitle(filters.director);
                 break;
-            case 'Актер':
+            case t('filterPanel.actor'):
                 setSubTitle(filters.actor);
                 break;
         }
