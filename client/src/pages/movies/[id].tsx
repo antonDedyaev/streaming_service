@@ -19,8 +19,8 @@ import { firstCapitalLetter } from '@/utils/functions';
 import Loading from '@/components/Loading/Loading';
 import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
-import { useAppDispatch } from '@/store/hooks/redux';
-import { getDataFromLocalStorage, getGenresAndCountries } from '@/store/ActionCreators';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { getDataFromLocalStorage, getGenresAndCountries, validateEmail } from '@/store/ActionCreators';
 import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
@@ -52,10 +52,13 @@ export const getServerSideProps: GetServerSideProps = async ({ params, locale })
 const CardMoviePage = ({ movie }: { movie: IMovie }) => {
     const { t } = useTranslation(['movie', 'moviesPage']);
     const dispatch = useAppDispatch();
+    const router = useRouter();
     const { query, asPath, isReady, locale } = useRouter();
+
     const queryParams = Object.keys(query);
 
     const [loading, setLoading] = useState(true);
+    const { error } = useAppSelector((state) => state.user);
 
     useEffect(() => {
         isReady && setLoading(false);
@@ -64,7 +67,24 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
     useEffect(() => {
         dispatch(getGenresAndCountries());
         dispatch(getDataFromLocalStorage());
+
+        if (localStorage.getItem('token') && localStorage.getItem('currentUser')) {
+            dispatch(validateEmail(localStorage.getItem('token') || ''));
+        }
     }, [locale, asPath]);
+
+    useEffect(() => {
+        if (error === 'Internal server error') {
+            router.push(
+                {
+                    pathname: `${asPath}`,
+                    query: { validation: '' },
+                },
+                undefined,
+                { shallow: true },
+            );
+        }
+    }, [error]);
 
     return (
         <MainContainer

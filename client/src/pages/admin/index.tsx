@@ -7,11 +7,15 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { getDataFromLocalStorage, validateEmail } from '@/store/ActionCreators';
+import ValidationModal from '@/components/modals/ValidationModal/ValidationModal';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     return {
         props: {
-            ...(await serverSideTranslations(locale!, ['adminPage'])),
+            ...(await serverSideTranslations(locale!, ['adminPage', 'modals'])),
         },
     };
 };
@@ -19,7 +23,32 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 const AdminPage = () => {
     const { t } = useTranslation('adminPage');
     const router = useRouter();
+    const dispatch = useAppDispatch();
     const currentLocale = router.locale === 'ru' ? 'en' : 'ru';
+    const { error } = useAppSelector((state) => state.user);
+    const queryParams = Object.keys(router.query);
+
+    useEffect(() => {
+        dispatch(getDataFromLocalStorage());
+        if (localStorage.getItem('token') && localStorage.getItem('currentUser')) {
+            dispatch(validateEmail(localStorage.getItem('token') || ''));
+        }
+    }, []);
+
+    useEffect(() => {
+        let role = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        if (error === 'Internal server error' || role.role !== 'admin') {
+            router.push(
+                {
+                    pathname: `/`,
+                    query: { validation: '' },
+                },
+                undefined,
+                { shallow: true },
+            );
+        }
+    }, []);
+
     return (
         <div className={styles.container}>
             <div className={styles.container__content}>
@@ -36,6 +65,8 @@ const AdminPage = () => {
                     <CardLink href="admin/genres">{t('genres')}</CardLink>
                 </div>
             </div>
+
+            {queryParams.includes('validation') && <ValidationModal />}
         </div>
     );
 };

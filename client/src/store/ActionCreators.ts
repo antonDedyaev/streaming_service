@@ -106,6 +106,33 @@ export const registration = (email: string, password: string) => async (dispatch
     }
 };
 
+export const validateEmail = (token: string) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await AuthService.validateEmail(token.split(' ')[1]);
+
+        const obj = {
+            user: response.data.email,
+            role: response.data.roles[0].value,
+        };
+
+        localStorage.setItem('currentUser', token);
+        localStorage.setItem('currentUser', JSON.stringify(obj));
+        dispatch(userSlice.actions.setAuth(true));
+        dispatch(
+            userSlice.actions.setUser({
+                user: response.data.email,
+                token: token.split(' ')[1],
+                role: response.data.roles[0].value,
+            }),
+        );
+    } catch (e: any) {
+        console.log(e.response?.data?.message);
+        localStorage.removeItem('token');
+        localStorage.removeItem('currentUser');
+        dispatch(userSlice.actions.setError(e.response?.data?.message));
+    }
+};
+
 export const loginGoogle = () => async (dispatch: AppDispatch) => {
     try {
         const response = await AuthService.loginGoogle();
