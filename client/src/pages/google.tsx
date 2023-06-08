@@ -3,7 +3,7 @@ import styles from '../styles/pages/GooglePage.module.scss';
 
 const GooglePage = () => {
     const { data: session } = useSession();
-    console.log(session);
+    console.log(session?.token?.user?.id);
 
     if (session) {
         return (

@@ -62,7 +62,10 @@ const LoginModal = ({ type }: LoginModalProps) => {
     };
 
     const signInGoogleHandler = async () => {
-        dispatch(loginGoogle());
+        signIn('google', { callbackUrl: '/' });
+        if (session) {
+            dispatch(loginGoogle(session.user.email!, session?.token?.user?.id));
+        }
     };
 
     const signInVKHandler = async () => {
@@ -247,7 +250,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         <h3>{t('loginModal.signInSocial')}</h3>
 
                         <div className={styles.container__socialButtons}>
-                            <ColoredButton size="medium" color="gray" onClick={handleLoginwithGoogle}>
+                            <ColoredButton size="medium" color="gray" onClick={signInVKHandler}>
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_vkontakte.svg"
                                     height={20}
@@ -255,11 +258,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                                     alt="Логотип Vk"
                                 />
                             </ColoredButton>
-                            <ColoredButton
-                                size="medium"
-                                color="gray"
-                                onClick={() => signIn('google', { callbackUrl: '/' })}
-                            >
+                            <ColoredButton size="medium" color="gray" onClick={signInGoogleHandler}>
                                 <Image src="/icons/google.svg" height={20} width={20} alt="Логотип google" />
                             </ColoredButton>
                         </div>
