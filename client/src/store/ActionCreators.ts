@@ -1,4 +1,6 @@
+import IComment from '@/models/IComment';
 import AuthService from './services/AuthService';
+import { commentsSlice } from './slices/commentsSlice';
 import { staticDataSlice } from './slices/staticDataSlice';
 import { userSlice } from './slices/userSlice';
 import { AppDispatch } from './store';
@@ -184,3 +186,26 @@ export const getDataFromLocalStorage = () => async (dispatch: AppDispatch) => {
         dispatch(userSlice.actions.setAuth(true));
     }
 };
+
+export const setComments = (comments: IComment[]) => (dispatch: AppDispatch) => {
+    dispatch(commentsSlice.actions.setComments(comments));
+}
+
+export const addNewComment = (comment: {text: string, movieid: number}) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await axios.post('http://localhost:6125/comment/film', comment)
+        console.log(response.data)
+        dispatch(commentsSlice.actions.addNewComment(response.data));
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+export const addChildComment = (comment: {text: string, movieid: number, parentId: number}) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await axios.post('http://localhost:6125/comment/childComment', comment)
+        dispatch(commentsSlice.actions.addChildComment(response.data));
+    } catch (err) {
+        console.log(err)
+    }
+}

@@ -1,14 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import IMovies from '@/models/IMovies';
-
-export interface IFilters {
-    genres: string[];
-    countries: string[];
-    ratingKp: number;
-    votesKp: number;
-    director: string;
-    actor: string;
-}
+import IFilters from '@/models/IFilters';
 
 interface IMoviesState {
     movies: IMovies[];

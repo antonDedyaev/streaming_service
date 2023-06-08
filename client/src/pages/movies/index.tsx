@@ -26,7 +26,8 @@ import SortMovies from '@/components/movie/SortMovies/SortMovies';
 import { getAllStaticData, getDataFromLocalStorage } from '@/store/ActionCreators';
 import IMovies from '@/models/IMovies';
 import { getDynamicUrl } from '@/utils/moviesHelpers';
-import { IFilters } from '@/store/slices/moviesSlice';
+import IFilters from '@/models/IFilters';
+
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');

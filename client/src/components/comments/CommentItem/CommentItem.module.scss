@@ -22,12 +22,21 @@
         font-weight: 700;
     }
 
+    &__content {
+        margin-bottom: 6px;
+    }
+
     &__text {
         font-size: 15px;
         color: #d9d7e0;
     }
 
     &__actions {
-        align-self: flex-end;
+        margin-bottom: 10px;
+        // align-self: flex-end;
+    }
+
+    &__button {
+        text-decoration: underline;
     }
 }

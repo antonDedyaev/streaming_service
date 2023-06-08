@@ -1,7 +1,8 @@
 import ICountry from '@/models/ICountry';
+import IFilters from '@/models/IFilters';
 import IGenre from '@/models/IGenre';
 import IMovies from '@/models/IMovies';
-import { IFilters, addFilteredMovies } from '@/store/slices/moviesSlice';
+import { addFilteredMovies } from '@/store/slices/moviesSlice';
 import { AppDispatch } from '@/store/store';
 
 export const getCollection = (title: string, movies: IMovies[], genres: IGenre[], countries: ICountry[]) => {
