@@ -15,7 +15,7 @@ interface ModalUIProps {
 const ModalUI = ({ children, className, close }: ModalUIProps) => {
     const location = useRouter();
     const backPath = location.asPath.replace(
-        /(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?authorized)|(\?trailer)|(\?more)|(\?validation)/,
+        /(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?authorized)|(\?trailer)|(\?more)|(\?validation=)|(\?validation)/,
         '',
     );
 

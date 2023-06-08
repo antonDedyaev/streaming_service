@@ -101,7 +101,6 @@ function HomePage({ movies }: { movies: IMovies[] }) {
                             <TopTenSection movies={ratingMovies} />
                         </div>
 
-                        <Link href={`${asPath}?validation`}>sdgsgsdgsgdg</Link>
                         <div className={styles.container__spoiler}>
                             <h2 className={styles.container__title}>{t('mainPage:benefitsSpoiler.header')}</h2>
                             <SpoilerUI shownLines={2} toggleButtonTexts={[t('showSpoiler'), t('hideSpoiler')]}>
