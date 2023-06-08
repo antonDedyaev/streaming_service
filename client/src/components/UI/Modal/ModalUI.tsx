@@ -1,9 +1,10 @@
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import styles from './ModalUI.module.scss';
 import Image from 'next/image';
 import closeIcon from '../../../../public/icons/close.svg';
 import { useRouter } from 'next/router';
 import TransparentButton from '../buttons/TransparentButton/TransparentButton';
+import { useAppSelector } from '@/store/hooks/redux';
 
 interface ModalUIProps {
     children: ReactNode;
@@ -14,24 +15,26 @@ interface ModalUIProps {
 const ModalUI = ({ children, className, close }: ModalUIProps) => {
     const location = useRouter();
     const backPath = location.asPath.replace(
-        /(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?authorized)|(\?trailer)|(\?more)/,
+        /(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?authorized)|(\?trailer)|(\?more)|(\?validation=)|(\?validation)/,
         '',
     );
 
-    const body = document.querySelector('body')!;
+    const body = typeof document !== 'undefined' ? document?.querySelector('body') : true;
 
     useEffect(() => {
-        body.classList.add('modal-active');
-    }, []);
+        body !== true && body?.classList.add('modal-active');
+    }, [location.asPath]);
 
     const closeHandler = () => {
-        body.classList.remove('modal-active');
+        body !== true && body?.classList.remove('modal-active');
         location.push(backPath);
     };
 
     useEffect(() => {
-        close && body.classList.remove('modal-active');
-        close && location.asPath.includes('?authorized') && closeHandler();
+        close && body !== true && body?.classList.remove('modal-active');
+        close && location.asPath.includes('?authorized' || '?sign-in' || '?sign-up' || '?validation') && closeHandler();
+
+        body === true && closeHandler();
     }, [close]);
 
     return (

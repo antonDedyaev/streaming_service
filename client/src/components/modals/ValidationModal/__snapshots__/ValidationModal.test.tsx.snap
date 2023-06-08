@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VALIDATIONMODAL SNAPSHOTS TESTS ValidationModal should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="validationModal"
+>
+  <h2>
+    Session expired, please login again!
+  </h2>
+  <a
+    class="container container_gradient"
+    href="/?sign-in"
+  >
+    Log-in
+  </a>
+</div>
+`;

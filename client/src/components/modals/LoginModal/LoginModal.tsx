@@ -8,7 +8,7 @@ import Image from 'next/image';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 import { useRouter } from 'next/router';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { login, loginGoogle, loginVK, logout, registration } from '@/store/ActionCreators';
+import { getDataFromLocalStorage, login, loginGoogle, loginVK, logout, registration } from '@/store/ActionCreators';
 import exitIcon from '../../../../public/icons/exit.svg';
 import TransparentButton from '@/components/UI/buttons/TransparentButton/TransparentButton';
 import { userSlice } from '../../../store/slices/userSlice';
@@ -58,18 +58,23 @@ const LoginModal = ({ type }: LoginModalProps) => {
 
     const signInHandler = async () => {
         dispatch(login(email, password));
+
         /* await signIn({ email: email, password: password });*/
     };
 
     const signInGoogleHandler = async () => {
+<<<<<<< HEAD
         signIn('google', { callbackUrl: '/' });
         if (session) {
             dispatch(loginGoogle(session.user.email!, session?.token?.user?.id));
         }
+=======
+        /* dispatch(loginGoogle());*/
+>>>>>>> bbf6794c43ac87d77315856c6af4a9a11e71bdfb
     };
 
     const signInVKHandler = async () => {
-        dispatch(loginVK());
+        /* dispatch(loginVK());*/
     };
 
     const signUpHandler = async () => {
@@ -78,9 +83,13 @@ const LoginModal = ({ type }: LoginModalProps) => {
     };
 
     const logoutHandler = () => {
-        dispatch(logout());
         setIsClose(true);
+        dispatch(logout());
     };
+
+    useEffect(() => {
+        dispatch(getDataFromLocalStorage());
+    }, []);
 
     const clickHandler = (event: React.MouseEvent) => {
         event.stopPropagation();
@@ -165,16 +174,19 @@ const LoginModal = ({ type }: LoginModalProps) => {
     return (
         <ModalUI close={isClose}>
             {type === 'authorized' || isAuth ? (
-                <div className={styles.container}>
-                    <h3 className={styles.container__user}>{`${t('loginModal.welcomeMessage')}, ${user.user}`}</h3>
-                    <TransparentButton
-                        textColor="faded"
-                        className={styles.container__link}
-                        onClick={() => logoutHandler()}
-                    >
-                        <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" /> {t('loginModal.signOut')}
-                    </TransparentButton>
-                </div>
+                user.user && (
+                    <div className={styles.container}>
+                        <h3 className={styles.container__user}>{`${t('loginModal.welcomeMessage')}, ${user.user}`}</h3>
+                        <TransparentButton
+                            textColor="faded"
+                            className={styles.container__link}
+                            onClick={() => logoutHandler()}
+                        >
+                            <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" />{' '}
+                            {t('loginModal.signOut')}
+                        </TransparentButton>
+                    </div>
+                )
             ) : (
                 <div className={styles.container} onClick={(event) => clickHandler(event)}>
                     <div className={styles.container__content}>

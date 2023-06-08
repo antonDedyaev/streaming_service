@@ -10,6 +10,10 @@ export default class AuthService {
         return axios.post('http://localhost:6125/auth/registration', { email, password });
     }
 
+    static async validateEmail(token: string): Promise<AxiosResponse> {
+        return axios.post('http://localhost:6125/validate/email', { token });
+    }
+
     static async loginGoogle(email: string, id: string): Promise<AxiosResponse> {
         return axios.post('http://localhost:6125/auth/google', { email, id });
     }
