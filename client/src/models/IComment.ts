@@ -3,5 +3,7 @@ export default interface IComment {
     user: string;
     date: string;
     text: string;
+    movieid: number;
     childComment?: IComment[];
+    parentId?: number | null
 }
