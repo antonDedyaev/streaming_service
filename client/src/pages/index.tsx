@@ -13,7 +13,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { GetStaticProps } from 'next';
 import { useAppDispatch } from '@/store/hooks/redux';
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import { useRouter } from 'next/router';
 import { fetchGenres, getDataFromLocalStorage, loginGoogle } from '@/store/ActionCreators';
@@ -54,8 +54,6 @@ function HomePage({ movies }: { movies: IMovies[] }) {
         dispatch(fetchGenres());
         dispatch(getDataFromLocalStorage());
     }, [locale, asPath]);
-
-    const from = '/';
 
     useEffect(() => {
         const google = async () => {

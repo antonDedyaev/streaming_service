@@ -1,11 +1,12 @@
 import Head from 'next/head';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import TabBar from '../TabBar/TabBar';
 import { useRouter } from 'next/router';
 import SearchModal from '@/components/modals/SearchModal/SearchModal';
 import LoginModal from '@/components/modals/LoginModal/LoginModal';
+import ValidationModal from '@/components/modals/ValidationModal/ValidationModal';
 
 interface MainContainerProps {
     children: ReactNode;
@@ -16,7 +17,6 @@ interface MainContainerProps {
 
 const MainContainer = ({ children, keywords, title, page }: MainContainerProps) => {
     const { query } = useRouter();
-
     const queryParams = Object.keys(query);
 
     return (
@@ -39,6 +39,7 @@ const MainContainer = ({ children, keywords, title, page }: MainContainerProps) 
             {queryParams.includes('sign-in') && <LoginModal type="sign-in" />}
             {queryParams.includes('sign-up') && <LoginModal type="sign-up" />}
             {queryParams.includes('authorized') && <LoginModal type="authorized" />}
+            {queryParams.includes('validation') && <ValidationModal />}
 
             <TabBar />
             <Footer />

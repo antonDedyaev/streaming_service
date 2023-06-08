@@ -53,6 +53,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const { asPath, locale, basePath } = useRouter();
+    const backPath = asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?authorized)/, '');
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
 
@@ -96,7 +97,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
         history.pushState(
             null,
             'Filters',
-            urlTail ? `http://localhost:3000${asPath}/${urlTail}` : `http://localhost:3000${asPath}`,
+            urlTail ? `http://localhost:3000${backPath}/${urlTail}` : `http://localhost:3000${backPath}`,
         );
     }, [urlString]);
 
@@ -144,7 +145,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
                 <div className={styles.container}>
                     <div className={styles.container__spoiler}>
                         <Breadcrumbs
-                            path={(crumbs ? asPath + '/' + crumbs : asPath).split('/').slice(1)}
+                            path={(crumbs ? backPath + '/' + crumbs : backPath).split('/').slice(1)}
                             linked={false}
                         />
 
