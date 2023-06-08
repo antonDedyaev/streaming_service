@@ -4,6 +4,7 @@ import moviesSliceReducer from './slices/moviesSlice';
 import actorsSliceReducer from './slices/actorsSlice';
 import staticDataSliceReducer from './slices/staticDataSlice';
 import userSliceReducer from './slices/userSlice';
+import commentsSlice from './slices/commentsSlice';
 
 const rootReducer = combineReducers({
     [loginAPI.reducerPath]: loginAPI.reducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
     actors: actorsSliceReducer,
     staticData: staticDataSliceReducer,
     user: userSliceReducer,
+    comments: commentsSlice,
 });
 
 export const setupStore = () => {
