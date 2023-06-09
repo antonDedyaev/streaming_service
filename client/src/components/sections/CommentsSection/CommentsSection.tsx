@@ -3,9 +3,9 @@ import styles from './CommentsSection.module.scss';
 import IComment from '@/models/IComment';
 import CommentForm from '@/components/comments/CommentForm/CommentForm';
 import { useTranslation } from 'next-i18next';
-import { useAppSelector } from '@/store/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
-import { addChildComment, addNewComment, setComments } from '@/store/ActionCreators';
+import { addNewComment, setComments } from '@/store/ActionCreators';
 import { useEffect, useState } from 'react';
 
 interface CommentsSectionProps {
@@ -15,29 +15,18 @@ interface CommentsSectionProps {
 const CommentsSection = ({ comments }: CommentsSectionProps) => {
     const { t } = useTranslation('movie');
     const { asPath } = useRouter();
-
-    const [tooltipShown, setTooltipShown] = useState(false);
+    const dispatch = useAppDispatch();
 
     const currentUser = useAppSelector((state) => state.user.user);
     const movieid = asPath.replace(/\D/g,'');
 
     useEffect(() => {
-        setComments(comments);
+        dispatch(setComments(comments));
     }, []);
 
     const handleAdd = (value: string) => {
-        if (currentUser.user) {
-            addNewComment({text: value, movieid: +movieid});
-        } else {
-            console.log('авторизуйтесь, чтобы оставить комментарий');
-        }
-    }
-
-    const handleReply = (value: string) => {
-        if (currentUser.user) {
-            // addChildComment({text: value, movieid: +movieid, parentId: ''});
-        } else {
-            console.log('авторизуйтесь, чтобы оставить комментарий');
+        if (currentUser.user && value != '') {
+            dispatch(addNewComment({text: value, movieid: +movieid}));
         }
     }
 
@@ -49,7 +38,7 @@ const CommentsSection = ({ comments }: CommentsSectionProps) => {
             </div>
 
             <div className={styles.section__content}>
-                <CommentsList comments={comments} handleReply={handleReply} />
+                <CommentsList comments={comments} />
             </div>
         </div>
     )

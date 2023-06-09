@@ -49,6 +49,7 @@
         "comments": "Comments",
         "placeholder": "Write a comment",
         "send": "Send",
-        "reply": "reply"
+        "reply": "reply",
+        "tooltip": "Log in to leave a comment"
     }
 }
