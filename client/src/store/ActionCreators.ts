@@ -231,8 +231,7 @@ export const addNewComment =
 
             dispatch(commentsSlice.actions.addNewComment({
                 ...response.data,
-                childComment: [],
-                user: response.data.userEmail
+                childComment: []
             }));
         } catch (err) {
             console.log(err);
@@ -249,11 +248,12 @@ export const addChildComment =
                     "Authorization": token
                 }
             });
+
+            console.log(response.data)
             
             dispatch(commentsSlice.actions.addChildComment({
                 ...response.data,
-                parentId: response.data.parentId[0],
-                user: response.data.userEmail
+                parentId: response.data.parentId[0]
             }));
         } catch (err) {
             console.log(err);

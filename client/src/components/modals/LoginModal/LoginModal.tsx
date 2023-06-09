@@ -63,15 +63,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
     };
 
     const signInGoogleHandler = async () => {
-<<<<<<< HEAD
-        signIn('google');
-        console.log(session?.user);
-        if (session) {
-            dispatch(loginGoogle(session?.user?.email!, '108697593771772318412'));
-        }
-=======
         /* dispatch(loginGoogle());*/
->>>>>>> 024279d27c4703c3e98520b7e1a4f23d42cef949
     };
 
     const signInVKHandler = async () => {
