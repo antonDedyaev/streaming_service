@@ -16,16 +16,14 @@ export default NextAuth({
     secret: process.env.JWT_SECRET,
 
     callbacks: {
-        jwt: async ({ token, user }) => {
-            user && (token.user = user);
+        jwt: async ({ token }) => {
             return token;
         },
         session: async ({ session, token }) => {
-            session.token = token;
+            session.user = token;
             return session;
         },
         async signIn() {
-            console.log('hello');
             return true;
         },
     },

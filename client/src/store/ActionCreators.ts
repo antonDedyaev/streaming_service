@@ -111,6 +111,7 @@ export const registration = (email: string, password: string) => async (dispatch
 export const validateEmail = (token: string) => async (dispatch: AppDispatch) => {
     try {
         const response = await AuthService.validateEmail(token.split(' ')[1]);
+        console.log('response', response);
 
         const obj = {
             user: response.data.email,
@@ -138,10 +139,9 @@ export const validateEmail = (token: string) => async (dispatch: AppDispatch) =>
 export const loginGoogle = (email: string, id: string) => async (dispatch: AppDispatch) => {
     try {
         const response = await AuthService.loginGoogle(email, id);
-        console.log(response.data);
 
         const obj = {
-            user: response.data.email,
+            user: response.data.user,
             role: response.data.roles[0].value,
         };
 
@@ -160,13 +160,13 @@ export const loginGoogle = (email: string, id: string) => async (dispatch: AppDi
     }
 };
 
-export const loginVK = () => async (dispatch: AppDispatch) => {
+export const loginVK = (name: string, id: string) => async (dispatch: AppDispatch) => {
     try {
-        const response = await AuthService.loginVK();
-        console.log(response);
+        const response = await AuthService.loginVK(name, id);
+        console.log('data', response.data);
 
-        /* const obj = {
-            user: response.data.email,
+        const obj = {
+            user: response.data.user,
             role: response.data.roles[0].value,
         };
 
@@ -179,7 +179,7 @@ export const loginVK = () => async (dispatch: AppDispatch) => {
                 token: response.data.accessToken,
                 role: response.data.roles[0].value,
             }),
-        );*/
+        );
     } catch (e: any) {
         console.log(e.response?.data?.message);
         dispatch(userSlice.actions.setError(e.response?.data?.message));

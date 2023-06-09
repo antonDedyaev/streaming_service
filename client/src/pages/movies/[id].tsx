@@ -69,6 +69,7 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
         dispatch(getDataFromLocalStorage());
 
         if (localStorage.getItem('token') && localStorage.getItem('currentUser')) {
+            console.log('fetchToken', localStorage.getItem('token'));
             dispatch(validateEmail(localStorage.getItem('token') || ''));
         }
     }, [locale, asPath]);

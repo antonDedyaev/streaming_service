@@ -17,7 +17,7 @@ interface IMovieEditable {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-    const response = await axios.get('http://localhost:6125/films');
+    const response = await axios.get('http://localhost:6125/filmswithinfo');
     const movies = response.data.map((item: IMovies) => {
         return { id: item.id, name: item.name, enName: item.enName };
     });
