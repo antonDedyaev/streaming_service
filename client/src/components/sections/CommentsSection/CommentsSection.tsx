@@ -6,7 +6,7 @@ import { useTranslation } from 'next-i18next';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
 import { addNewComment, setComments } from '@/store/ActionCreators';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 interface CommentsSectionProps {
     comments: IComment[]
@@ -18,15 +18,20 @@ const CommentsSection = ({ comments }: CommentsSectionProps) => {
     const dispatch = useAppDispatch();
 
     const currentUser = useAppSelector((state) => state.user.user);
+    const commentsState = useAppSelector((state) => state.comments);
     const movieid = asPath.replace(/\D/g,'');
-
+    
     useEffect(() => {
         dispatch(setComments(comments));
     }, []);
 
     const handleAdd = (value: string) => {
         if (currentUser.user && value != '') {
-            dispatch(addNewComment({text: value, movieid: +movieid}));
+            dispatch(addNewComment({
+                text: value, 
+                movieid: +movieid, 
+                user: currentUser.user
+            }));
         }
     }
 
@@ -38,7 +43,7 @@ const CommentsSection = ({ comments }: CommentsSectionProps) => {
             </div>
 
             <div className={styles.section__content}>
-                <CommentsList comments={comments} />
+                <CommentsList comments={commentsState.comments} />
             </div>
         </div>
     )

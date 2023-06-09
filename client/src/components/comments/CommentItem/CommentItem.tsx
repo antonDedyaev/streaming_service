@@ -29,8 +29,15 @@ const CommentItem = ({ comment }: CommentItemProps) => {
 
     const handleReply = (value: string) => {
         if (currentUser.user && value != '') {
-            dispatch(addChildComment({text: value, movieid: +movieid, parentId: comment.id}));
+            dispatch(addChildComment({
+                text: value, 
+                movieid: +movieid, 
+                parentId: comment.id, 
+                user: currentUser.user
+            }));
         }
+        
+        setFormShown(false);
     }
     
     return (
