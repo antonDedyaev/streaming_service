@@ -18,8 +18,8 @@ export default class AuthService {
         return axios.post('http://localhost:6125/auth/google', { email, id });
     }
 
-    static async loginVK(): Promise<AxiosResponse> {
-        return axios.get('http://localhost:6125/auth/vk');
+    static async loginVK(name: string, id: string): Promise<AxiosResponse> {
+        return axios.post('http://localhost:6125/auth/vk', { name, id });
     }
 
     static async logout(): Promise<void> {

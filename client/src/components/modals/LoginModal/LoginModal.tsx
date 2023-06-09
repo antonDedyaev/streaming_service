@@ -63,11 +63,22 @@ const LoginModal = ({ type }: LoginModalProps) => {
     };
 
     const signInGoogleHandler = async () => {
+<<<<<<< HEAD
+        signIn('google');
+        console.log(session?.user);
+        if (session) {
+            dispatch(loginGoogle(session?.user?.email!, '108697593771772318412'));
+        }
+=======
         /* dispatch(loginGoogle());*/
+>>>>>>> 024279d27c4703c3e98520b7e1a4f23d42cef949
     };
 
     const signInVKHandler = async () => {
-        /* dispatch(loginVK());*/
+        signIn('vk');
+        if (session) {
+            dispatch(loginVK(session?.user?.name!, String(session?.user?.sub!)));
+        }
     };
 
     const signUpHandler = async () => {
@@ -157,13 +168,6 @@ const LoginModal = ({ type }: LoginModalProps) => {
         }
     }, [error, isAuth, password, repeatPassword, type]);
 
-    const handleLoginwithGoogle = () => {
-        signIn('google', { callbackUrl: '/' });
-        if (session?.user?.name) {
-            localStorage.setItem('email', JSON.stringify(session?.user?.email));
-        }
-    };
-
     return (
         <ModalUI close={isClose}>
             {type === 'authorized' || isAuth ? (
@@ -181,6 +185,16 @@ const LoginModal = ({ type }: LoginModalProps) => {
                     </div>
                 )
             ) : (
+                // <div className={styles.container}>
+                //     <h3 className={styles.container__user}>{`${t('loginModal.welcomeMessage')}, ${user.user}`}</h3>
+                //     <TransparentButton
+                //         textColor="faded"
+                //         className={styles.container__link}
+                //         onClick={() => logoutHandler()}
+                //     >
+                //         <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" /> {t('loginModal.signOut')}
+                //     </TransparentButton>
+                // </div>
                 <div className={styles.container} onClick={(event) => clickHandler(event)}>
                     <div className={styles.container__content}>
                         <div
