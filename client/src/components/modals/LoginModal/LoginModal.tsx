@@ -8,10 +8,12 @@ import Image from 'next/image';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 import { useRouter } from 'next/router';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { login, loginGoogle, loginVK, logout, registration } from '@/store/ActionCreators';
+import { getDataFromLocalStorage, login, loginGoogle, loginVK, logout, registration } from '@/store/ActionCreators';
 import exitIcon from '../../../../public/icons/exit.svg';
 import TransparentButton from '@/components/UI/buttons/TransparentButton/TransparentButton';
 import { userSlice } from '../../../store/slices/userSlice';
+import { useSession, signIn, signOut } from 'next-auth/react';
+import axios from 'axios';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up' | 'authorized';
@@ -19,12 +21,13 @@ interface LoginModalProps {
 
 const LoginModal = ({ type }: LoginModalProps) => {
     const { t } = useTranslation('modals');
+    const router = useRouter();
     const location = useRouter();
     const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?trailer)|(\?more)/, '');
     const hrefSing = type === 'sign-in' ? `${backPath}?sign-up` : `${backPath}?sign-in`;
     const dispatch = useAppDispatch();
+    const { data: session } = useSession();
     const { user, isAuth, error } = useAppSelector((state) => state.user);
-    console.log('user', user);
     const [isClose, setIsClose] = useState(false);
     const [errAuth, setErrAuth] = useState('');
     const [errPassword, setErrPassword] = useState('');
@@ -55,15 +58,16 @@ const LoginModal = ({ type }: LoginModalProps) => {
 
     const signInHandler = async () => {
         dispatch(login(email, password));
+
         /* await signIn({ email: email, password: password });*/
     };
 
     const signInGoogleHandler = async () => {
-        dispatch(loginGoogle());
+        /* dispatch(loginGoogle());*/
     };
 
     const signInVKHandler = async () => {
-        dispatch(loginVK());
+        /* dispatch(loginVK());*/
     };
 
     const signUpHandler = async () => {
@@ -72,9 +76,13 @@ const LoginModal = ({ type }: LoginModalProps) => {
     };
 
     const logoutHandler = () => {
-        dispatch(logout());
         setIsClose(true);
+        dispatch(logout());
     };
+
+    useEffect(() => {
+        dispatch(getDataFromLocalStorage());
+    }, []);
 
     const clickHandler = (event: React.MouseEvent) => {
         event.stopPropagation();
@@ -149,19 +157,29 @@ const LoginModal = ({ type }: LoginModalProps) => {
         }
     }, [error, isAuth, password, repeatPassword, type]);
 
+    const handleLoginwithGoogle = () => {
+        signIn('google', { callbackUrl: '/' });
+        if (session?.user?.name) {
+            localStorage.setItem('email', JSON.stringify(session?.user?.email));
+        }
+    };
+
     return (
         <ModalUI close={isClose}>
             {type === 'authorized' || isAuth ? (
-                <div className={styles.container}>
-                    <h3 className={styles.container__user}>{`${t('loginModal.welcomeMessage')}, ${user.user}`}</h3>
-                    <TransparentButton
-                        textColor="faded"
-                        className={styles.container__link}
-                        onClick={() => logoutHandler()}
-                    >
-                        <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" /> {t('loginModal.signOut')}
-                    </TransparentButton>
-                </div>
+                user.user && (
+                    <div className={styles.container}>
+                        <h3 className={styles.container__user}>{`${t('loginModal.welcomeMessage')}, ${user.user}`}</h3>
+                        <TransparentButton
+                            textColor="faded"
+                            className={styles.container__link}
+                            onClick={() => logoutHandler()}
+                        >
+                            <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" />{' '}
+                            {t('loginModal.signOut')}
+                        </TransparentButton>
+                    </div>
+                )
             ) : (
                 <div className={styles.container} onClick={(event) => clickHandler(event)}>
                     <div className={styles.container__content}>
@@ -237,7 +255,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                         <h3>{t('loginModal.signInSocial')}</h3>
 
                         <div className={styles.container__socialButtons}>
-                            <ColoredButton size="medium" color="gray" onClick={() => signInVKHandler()}>
+                            <ColoredButton size="medium" color="gray" onClick={signInVKHandler}>
                                 <Image
                                     src="https://solea-parent.dfs.ivi.ru/picture/ffffff,ffffff/social_vkontakte.svg"
                                     height={20}
@@ -245,7 +263,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
                                     alt="Логотип Vk"
                                 />
                             </ColoredButton>
-                            <ColoredButton size="medium" color="gray" onClick={() => signInGoogleHandler()}>
+                            <ColoredButton size="medium" color="gray" onClick={signInGoogleHandler}>
                                 <Image src="/icons/google.svg" height={20} width={20} alt="Логотип google" />
                             </ColoredButton>
                         </div>

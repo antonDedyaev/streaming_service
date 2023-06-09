@@ -32,7 +32,6 @@ const FilterPlank = ({ title, className, children }: IPlank) => {
     });
 
     const filters = useAppSelector((state) => state.movies.filters);
-    console.log('genres', filters.genres);
 
     useEffect(() => {
         switch (title) {

@@ -1,4 +1,3 @@
-import { SessionStrategy } from 'next-auth';
 import NextAuth from 'next-auth/next';
 import GoogleProvider from 'next-auth/providers/google';
 import VkProvider from 'next-auth/providers/vk';
@@ -24,6 +23,10 @@ export default NextAuth({
         session: async ({ session, token }) => {
             session.token = token;
             return session;
+        },
+        async signIn() {
+            console.log('hello');
+            return true;
         },
     },
 });

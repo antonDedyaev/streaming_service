@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import { useTranslation } from 'next-i18next';
-import { useAppSelector } from '@/store/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 
 interface HeaderProps {
     page: 'home' | 'other';

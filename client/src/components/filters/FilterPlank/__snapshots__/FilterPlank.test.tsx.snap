@@ -19,11 +19,6 @@ exports[`FILTERPLANK SNAPSHOTS TESTS FilterPlank should not be changed 1`] = `
         >
           Жанры
         </div>
-        <div
-          class="container__subTitle"
-        >
-          [object Object]
-        </div>
       </div>
       <div
         class="container__arrow"

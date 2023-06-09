@@ -40,7 +40,7 @@ exports[`MOVIESSECTION SNAPSHOTS TESTS MoviesSection should not be changed 1`] =
         class="jsx-687504307 container__contentContainer"
       >
         <div
-          class="jsx-687504307 container__content content"
+          class="jsx-687504307 container__content content container__content_preview"
         >
           <a
             class="container previewItem"

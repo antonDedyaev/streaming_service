@@ -9,7 +9,7 @@ You can browse through movie pages, view movie cast and read all available infor
 Clone the repository using:
 
 ```sh
-git clone https://github.com/antonDedyaev/streaming_service.git
+$ git clone https://github.com/antonDedyaev/streaming_service.git
 ```
 
 ## Client side:
@@ -17,19 +17,19 @@ git clone https://github.com/antonDedyaev/streaming_service.git
 Install dependancies using:
 
 ```sh
-npm install
+$ npm install
 ```
 
 Start the app in dev environment:
 
 ```sh
-npm run dev
+$ npm run dev
 ```
 
 Start the app in prod environment:
 
 ```sh
-npm start
+$ npm start
 ```
 
 ## Server side:
@@ -82,12 +82,12 @@ $ npm run start:dev comments
 
 ### Used frameworks and tools:
 
--   Typescript
--   NextJS / Redux-toolkit
--   Sass
--   React testing library / Jest
--   next-i18next
--   Storybook
--   Nest
--   Docker
--   Swagger
+- Typescript
+- NextJS / Redux-toolkit
+- Sass
+- React testing library / Jest
+- next-i18next
+- Storybook
+- Nest
+- Docker
+- Swagger
