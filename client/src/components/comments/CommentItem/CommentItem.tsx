@@ -6,22 +6,31 @@ import TransparentButton from '@/components/UI/buttons/TransparentButton/Transpa
 import { useState } from 'react';
 import CommentForm from '../CommentForm/CommentForm';
 import { formatDate } from '@/utils/functions';
+import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { addChildComment } from '@/store/ActionCreators';
+import { useRouter } from 'next/router';
 
 interface CommentItemProps {
     comment: IComment;
-    handleReply: (value: string) => void;
 }
 
-const CommentItem = ({ comment, handleReply }: CommentItemProps) => {
+const CommentItem = ({ comment }: CommentItemProps) => {
     const { t } = useTranslation('movie');
+    const { asPath } = useRouter();
+    const dispatch = useAppDispatch();
+
     const [formShown, setFormShown] = useState<boolean>(false);
+    const currentUser = useAppSelector((state) => state.user.user);
+    const movieid = asPath.replace(/\D/g,'');
 
     const handleClick = () => {
         setFormShown(!formShown);
     }
 
-    const handleSubmit = (value: string) => {
-        console.log(value)
+    const handleReply = (value: string) => {
+        if (currentUser.user && value != '') {
+            dispatch(addChildComment({text: value, movieid: +movieid, parentId: comment.id}));
+        }
     }
     
     return (

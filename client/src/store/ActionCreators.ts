@@ -193,19 +193,23 @@ export const setComments = (comments: IComment[]) => (dispatch: AppDispatch) => 
 
 export const addNewComment = (comment: {text: string, movieid: number}) => async (dispatch: AppDispatch) => {
     try {
-        const response = await axios.post('http://localhost:6125/comment/film', comment)
-        console.log(response.data)
+        console.log(comment);
+
+        const response = await axios.post('http://localhost:6125/comment/film', comment);
+       
+        console.log(response.data);
         dispatch(commentsSlice.actions.addNewComment(response.data));
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
 
 export const addChildComment = (comment: {text: string, movieid: number, parentId: number}) => async (dispatch: AppDispatch) => {
     try {
-        const response = await axios.post('http://localhost:6125/comment/childComment', comment)
+        console.log(comment);
+        const response = await axios.post('http://localhost:6125/comment/childComment', comment);
         dispatch(commentsSlice.actions.addChildComment(response.data));
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }

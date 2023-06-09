@@ -4,20 +4,19 @@ import CommentItem from '../CommentItem/CommentItem';
 
 interface CommentsListProps {
     comments: IComment[];
-    handleReply: (value: string) => void;
 }
 
-const CommentsList = ({ comments, handleReply }: CommentsListProps) => {
+const CommentsList = ({ comments }: CommentsListProps) => {
     return (
         <div className={styles.container}>
             {comments.map((comment) => {
                 return (
                     <>
-                        <CommentItem key={comment.id} comment={comment} handleReply={handleReply} />
+                        <CommentItem key={comment.id} comment={comment} />
                         <div className={styles.container__childcomments}>
                             {
                                 comment.childComment?.map(child => 
-                                    <CommentItem key={child.id} comment={child} handleReply={handleReply} />)
+                                    <CommentItem key={child.id} comment={child} />)
                             }
                         </div>
                     </>
