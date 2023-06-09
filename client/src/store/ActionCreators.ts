@@ -218,21 +218,43 @@ export const setComments = (comments: IComment[]) => (dispatch: AppDispatch) => 
     dispatch(commentsSlice.actions.setComments(comments));
 };
 
-export const addNewComment = (comment: { text: string; movieid: number }) => async (dispatch: AppDispatch) => {
-    try {
-        const response = await axios.post('http://localhost:6125/comment/film', comment);
-        console.log(response.data);
-        dispatch(commentsSlice.actions.addNewComment(response.data));
-    } catch (err) {
-        console.log(err);
-    }
+export const addNewComment = 
+    (comment: { text: string; movieid: number; user: string }) => async (dispatch: AppDispatch) => {
+        const token = localStorage.getItem('token');
+
+        try {
+            const response = await axios.post('http://localhost:6125/comment/film', comment, {
+                headers: {
+                    "Authorization": token
+                }
+            });
+
+            dispatch(commentsSlice.actions.addNewComment({
+                ...response.data,
+                childComment: [],
+                user: response.data.userEmail
+            }));
+        } catch (err) {
+            console.log(err);
+        }
 };
 
 export const addChildComment =
-    (comment: { text: string; movieid: number; parentId: number }) => async (dispatch: AppDispatch) => {
+    (comment: { text: string; movieid: number; parentId: number; user: string }) => async (dispatch: AppDispatch) => {
+        const token = localStorage.getItem('token');
+
         try {
-            const response = await axios.post('http://localhost:6125/comment/childComment', comment);
-            dispatch(commentsSlice.actions.addChildComment(response.data));
+            const response = await axios.post('http://localhost:6125/comment/childComment', comment, {
+                headers: {
+                    "Authorization": token
+                }
+            });
+            
+            dispatch(commentsSlice.actions.addChildComment({
+                ...response.data,
+                parentId: response.data.parentId[0],
+                user: response.data.userEmail
+            }));
         } catch (err) {
             console.log(err);
         }
