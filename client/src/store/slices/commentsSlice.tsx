@@ -21,9 +21,7 @@ export const commentsSlice = createSlice({
         },
         addChildComment(state, action: PayloadAction<IComment>) {
             const parent = state.comments.find(el => el.id === action.payload.parentId);
-            if (parent) {
-                parent.childComment?.push(action.payload);
-            }
+            if (parent) parent.childComment?.push(action.payload);
         }
     },
 });
