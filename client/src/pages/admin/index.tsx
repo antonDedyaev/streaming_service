@@ -9,7 +9,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps } from 'next';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { getDataFromLocalStorage, validateEmail } from '@/store/ActionCreators';
+import { getDataFromLocalStorage, getRefreshToken, validateUser } from '@/store/ActionCreators';
 import ValidationModal from '@/components/modals/ValidationModal/ValidationModal';
 import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 
@@ -31,9 +31,25 @@ const AdminPage = () => {
 
     useEffect(() => {
         dispatch(getDataFromLocalStorage());
-        if (localStorage.getItem('accessToken') && localStorage.getItem('currentUser')) {
-            dispatch(validateEmail(localStorage.getItem('accessToken') || ''));
-        }
+        const validate = async () => {
+            console.log(localStorage.getItem('authorization'));
+            if (localStorage.getItem('accessToken') && localStorage.getItem('currentUser')) {
+                console.log('fetchToken', localStorage.getItem('accessToken'));
+                const refreshToken = await getRefreshToken(
+                    localStorage.getItem('accessToken')!,
+                    localStorage.getItem('authorization')!,
+                );
+
+                dispatch(
+                    validateUser(
+                        localStorage.getItem('accessToken') || '',
+                        refreshToken || '',
+                        localStorage.getItem('authorization')!,
+                    ),
+                );
+            }
+        };
+        validate();
     }, []);
 
     useEffect(() => {

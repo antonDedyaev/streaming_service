@@ -70,7 +70,7 @@ export const login = (email: string, password: string) => async (dispatch: AppDi
 
         localStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
         localStorage.setItem('currentUser', JSON.stringify(obj));
-        dispatch(userSlice.actions.setAuthorizationType('mail'));
+        localStorage.setItem('authorization', 'mail');
         dispatch(userSlice.actions.setAuth(true));
         dispatch(
             userSlice.actions.setUser({
@@ -95,7 +95,7 @@ export const registration = (email: string, password: string) => async (dispatch
 
         localStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
         localStorage.setItem('currentUser', JSON.stringify(obj));
-        dispatch(userSlice.actions.setAuthorizationType('mail'));
+        localStorage.setItem('authorization', 'mail');
         dispatch(userSlice.actions.setAuth(true));
         dispatch(
             userSlice.actions.setUser({
@@ -110,12 +110,11 @@ export const registration = (email: string, password: string) => async (dispatch
     }
 };
 
-export const getRefreshToken = async (accessToken: string, authorization: 'mail' | 'vk' | 'google') => {
+export const getRefreshToken = async (accessToken: string, authorization: string) => {
     const getRefreshFunc = (authorization: string) => {
         switch (authorization) {
             case 'mail':
-                const response = AuthService.getEmailRefreshToken(accessToken.split(' ')[1]);
-                return;
+                return AuthService.getEmailRefreshToken(accessToken.split(' ')[1]);
             case 'vk':
                 return AuthService.getVkRefreshToken(accessToken.split(' ')[1]);
             case 'google':
@@ -133,8 +132,7 @@ export const getRefreshToken = async (accessToken: string, authorization: 'mail'
 };
 
 export const validateUser =
-    (accessToken: string, refreshToken: string, authorization: 'mail' | 'vk' | 'google') =>
-    async (dispatch: AppDispatch) => {
+    (accessToken: string, refreshToken: string, authorization: string) => async (dispatch: AppDispatch) => {
         const getValidationFunc = (authorization: string) => {
             switch (authorization) {
                 case 'mail':
@@ -150,20 +148,19 @@ export const validateUser =
 
         try {
             const response = await getValidationFunc(authorization);
-            console.log('response', response);
 
             const obj = {
-                user: response?.data.email,
+                user: authorization === 'vk' ? response?.data.name : response?.data.email,
                 role: response?.data.roles[0].value,
             };
 
             localStorage.setItem('accessToken', accessToken);
             localStorage.setItem('currentUser', JSON.stringify(obj));
-            dispatch(userSlice.actions.setAuthorizationType(authorization));
+            localStorage.setItem('authorization', authorization);
             dispatch(userSlice.actions.setAuth(true));
             dispatch(
                 userSlice.actions.setUser({
-                    user: response?.data.email,
+                    user: authorization === 'vk' ? response?.data.name : response?.data.email,
                     token: accessToken.split(' ')[1],
                     role: response?.data.roles[0].value,
                 }),
@@ -172,6 +169,7 @@ export const validateUser =
             console.log(e.response?.data?.message);
             localStorage.removeItem('accessToken');
             localStorage.removeItem('currentUser');
+            localStorage.removeItem('authorization');
             dispatch(userSlice.actions.setError(e.response?.data?.message));
         }
     };
@@ -188,7 +186,7 @@ export const loginGoogle = (email: string, id: string) => async (dispatch: AppDi
 
         localStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
         localStorage.setItem('currentUser', JSON.stringify(obj));
-        dispatch(userSlice.actions.setAuthorizationType('google'));
+        localStorage.setItem('authorization', 'google');
         dispatch(userSlice.actions.setAuth(true));
         dispatch(
             userSlice.actions.setUser({
@@ -208,18 +206,18 @@ export const loginVK = (name: string, id: string) => async (dispatch: AppDispatc
 
         const obj = {
             user: response.data.user,
-            role: 'user',
+            role: response.data.roles[0].value,
         };
 
         localStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
         localStorage.setItem('currentUser', JSON.stringify(obj));
-        dispatch(userSlice.actions.setAuthorizationType('vk'));
+        localStorage.setItem('authorization', 'vk');
         dispatch(userSlice.actions.setAuth(true));
         dispatch(
             userSlice.actions.setUser({
                 user: response.data.email,
                 token: response.data.accessToken,
-                role: 'user',
+                role: response.data.roles[0].value,
             }),
         );
     } catch (e: any) {
@@ -233,7 +231,7 @@ export const logout = () => async (dispatch: AppDispatch) => {
         await AuthService.logout();
         localStorage.removeItem('accessToken');
         localStorage.removeItem('currentUser');
-        //dispatch(userSlice.actions.setAuthorizationType('gmail'));
+        localStorage.removeItem('authorization');
         dispatch(userSlice.actions.setAuth(false));
         dispatch(userSlice.actions.setUser({} as IUser));
     } catch (e: any) {

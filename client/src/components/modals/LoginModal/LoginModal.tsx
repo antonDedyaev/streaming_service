@@ -64,16 +64,15 @@ const LoginModal = ({ type }: LoginModalProps) => {
 
     const signInGoogleHandler = async () => {
         signIn('google');
-        console.log(session?.user);
         if (session) {
-            dispatch(loginGoogle(session?.user?.email!, '108697593771772318412'));
+            dispatch(loginGoogle(session?.user?.email!, session?.user?.sub!));
         }
     };
 
     const signInVKHandler = async () => {
         signIn('vk');
         if (session) {
-            dispatch(loginVK(session?.user?.name!, String(session?.user?.sub!)));
+            dispatch(loginVK(session?.user?.name!, session?.user?.sub!));
         }
     };
 
@@ -181,16 +180,6 @@ const LoginModal = ({ type }: LoginModalProps) => {
                     </div>
                 )
             ) : (
-                // <div className={styles.container}>
-                //     <h3 className={styles.container__user}>{`${t('loginModal.welcomeMessage')}, ${user.user}`}</h3>
-                //     <TransparentButton
-                //         textColor="faded"
-                //         className={styles.container__link}
-                //         onClick={() => logoutHandler()}
-                //     >
-                //         <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" /> {t('loginModal.signOut')}
-                //     </TransparentButton>
-                // </div>
                 <div className={styles.container} onClick={(event) => clickHandler(event)}>
                     <div className={styles.container__content}>
                         <div
