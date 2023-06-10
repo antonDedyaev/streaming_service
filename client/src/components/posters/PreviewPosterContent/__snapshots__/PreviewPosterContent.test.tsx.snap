@@ -18,6 +18,7 @@ exports[`PREVIEWPOSTERCONTENT SNAPSHOTS TESTS PreviewPosterContent should not be
       src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
       srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
       style="color: transparent;"
+      title="Смотреть позже"
       width="40"
     />
     <img
@@ -30,6 +31,7 @@ exports[`PREVIEWPOSTERCONTENT SNAPSHOTS TESTS PreviewPosterContent should not be
       src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
       srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
       style="color: transparent;"
+      title="Похожее"
       width="40"
     />
     <img
@@ -42,6 +44,7 @@ exports[`PREVIEWPOSTERCONTENT SNAPSHOTS TESTS PreviewPosterContent should not be
       src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
       srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
       style="color: transparent;"
+      title="Уже смотрел, оценить"
       width="40"
     />
     <img
@@ -54,6 +57,7 @@ exports[`PREVIEWPOSTERCONTENT SNAPSHOTS TESTS PreviewPosterContent should not be
       src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
       srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
       style="color: transparent;"
+      title="Не нравится такое"
       width="40"
     />
   </div>

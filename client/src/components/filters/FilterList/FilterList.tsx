@@ -4,20 +4,11 @@ import { useAppDispatch, useAppSelector } from '../../../store/hooks/redux';
 import { genresFilterAdded, countriesFilterAdded, addFilteredMovies } from '../../../store/slices/moviesSlice';
 import axios from 'axios';
 import { checkFiltersStatus } from '../../../utils/functions';
-/*import IMovies from '@/models/IMovies';
-import IGenre from '@/models/IGenre';
-import ICountry from '@/models/ICountry';*/
 
 interface IList {
     items: string[];
     category: 'genres' | 'countries';
 }
-
-/*interface IFiltered {
-    film: IMovies;
-    genres: IGenre[];
-    countries: ICountry[];
-}*/
 
 const FilterList = ({ items, category }: IList) => {
     const dispatch = useAppDispatch();

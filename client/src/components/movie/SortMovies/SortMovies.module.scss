@@ -1,8 +1,4 @@
 .container {
-    // width: 1216px;
-    // margin-left: auto;
-    // margin-right: auto;
-
     &__sortingControl {
         display: flex;
         align-items: center;
@@ -157,7 +153,6 @@
     .container {
         &__sortingControl {
             margin-top: 24px;
-            // padding-left: 12px;
             padding-right: 12px;
         }
     }

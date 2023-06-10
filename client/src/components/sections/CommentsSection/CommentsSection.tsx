@@ -9,7 +9,7 @@ import { addNewComment, setComments } from '@/store/ActionCreators';
 import { useEffect } from 'react';
 
 interface CommentsSectionProps {
-    comments: IComment[]
+    comments: IComment[];
 }
 
 const CommentsSection = ({ comments }: CommentsSectionProps) => {
@@ -19,21 +19,23 @@ const CommentsSection = ({ comments }: CommentsSectionProps) => {
 
     const currentUser = useAppSelector((state) => state.user.user);
     const commentsState = useAppSelector((state) => state.comments);
-    const movieid = asPath.replace(/\D/g,'');
-    
+    const movieid = asPath.replace(/\D/g, '');
+
     useEffect(() => {
         dispatch(setComments(comments));
-    }, []);
+    }, [asPath]);
 
     const handleAdd = (value: string) => {
         if (currentUser.user && value != '') {
-            dispatch(addNewComment({
-                text: value, 
-                movieid: +movieid, 
-                user: currentUser.user
-            }));
+            dispatch(
+                addNewComment({
+                    text: value,
+                    movieid: +movieid,
+                    user: currentUser.user,
+                }),
+            );
         }
-    }
+    };
 
     return (
         <div className={styles.section}>
@@ -46,7 +48,7 @@ const CommentsSection = ({ comments }: CommentsSectionProps) => {
                 <CommentsList comments={commentsState.comments} />
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default CommentsSection;
