@@ -150,7 +150,7 @@ export const validateUser =
             const response = await getValidationFunc(authorization);
 
             const obj = {
-                user: response?.data.email,
+                user: authorization === 'vk' ? response?.data.name : response?.data.email,
                 role: response?.data.roles[0].value,
             };
 
@@ -160,7 +160,7 @@ export const validateUser =
             dispatch(userSlice.actions.setAuth(true));
             dispatch(
                 userSlice.actions.setUser({
-                    user: response?.data.email,
+                    user: authorization === 'vk' ? response?.data.name : response?.data.email,
                     token: accessToken.split(' ')[1],
                     role: response?.data.roles[0].value,
                 }),
@@ -169,6 +169,7 @@ export const validateUser =
             console.log(e.response?.data?.message);
             localStorage.removeItem('accessToken');
             localStorage.removeItem('currentUser');
+            localStorage.removeItem('authorization');
             dispatch(userSlice.actions.setError(e.response?.data?.message));
         }
     };

@@ -180,16 +180,6 @@ const LoginModal = ({ type }: LoginModalProps) => {
                     </div>
                 )
             ) : (
-                // <div className={styles.container}>
-                //     <h3 className={styles.container__user}>{`${t('loginModal.welcomeMessage')}, ${user.user}`}</h3>
-                //     <TransparentButton
-                //         textColor="faded"
-                //         className={styles.container__link}
-                //         onClick={() => logoutHandler()}
-                //     >
-                //         <Image src={exitIcon} height={20} width={20} alt="Иконка 'Выход'" /> {t('loginModal.signOut')}
-                //     </TransparentButton>
-                // </div>
                 <div className={styles.container} onClick={(event) => clickHandler(event)}>
                     <div className={styles.container__content}>
                         <div
