@@ -12,10 +12,10 @@ const CommentsList = ({ comments }: CommentsListProps) => {
             {comments.map((comment) => {
                 return (
                     <>
-                        <CommentItem key={comment.id} comment={comment} />
+                        <CommentItem key={`comment ${comment.id}`} comment={comment} />
                         <div className={styles.container__childcomments}>
                             {comment.childComment?.map((child) => (
-                                <CommentItem key={child.id} comment={child} />
+                                <CommentItem key={`childComment ${child.id}`} comment={child} />
                             ))}
                         </div>
                     </>
