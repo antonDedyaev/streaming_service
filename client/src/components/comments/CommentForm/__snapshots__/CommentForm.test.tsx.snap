@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMMENTFORM SNAPSHOTS TESTS CommentForm should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="commentForm"
+>
+  <div
+    class="container__inputWrapper"
+  >
+    <div
+      class="container container_comment "
+      data-testid="input"
+    >
+      <div
+        class="container__placeholder"
+      >
+        comments.placeholder
+      </div>
+      <input
+        class="container__input"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <button
+    class="button button_large button_gray container__button"
+    type="button"
+  >
+    comments.send
+  </button>
+</div>
+`;

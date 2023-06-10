@@ -5,5 +5,5 @@ export default interface IComment {
     text: string;
     movieid: number;
     childComment?: IComment[];
-    parentId?: number | null
+    parentId?: number | null;
 }

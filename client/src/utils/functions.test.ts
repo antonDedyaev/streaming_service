@@ -1,4 +1,11 @@
-import { declineWord, firstCapitalLetter, minutesToHours, professionInTheSingular } from './functions';
+import {
+    checkFiltersStatus,
+    declineWord,
+    firstCapitalLetter,
+    formatDate,
+    minutesToHours,
+    professionInTheSingular,
+} from './functions';
 
 describe('DECLENSION OF WORD FROM NUMBER TESTS', () => {
     const array = ['фильм', 'фильма', 'фильмов'];
@@ -57,5 +64,38 @@ describe('PROFESSION IN THE SINGULAR TESTS', () => {
     test('professionInTheSingular should return an empty string if the value is not in the list', () => {
         const result = professionInTheSingular('слово');
         expect(result).toBe('');
+    });
+});
+
+describe('CHECK FILTERS STATUS TESTS', () => {
+    test('checkFiltersStatus should return true if all values match', () => {
+        const result = checkFiltersStatus({
+            genres: [],
+            countries: [],
+            ratingKp: 0,
+            votesKp: 0,
+            director: '',
+            actor: '',
+        });
+        expect(result).toBe(true);
+    });
+
+    test('checkFiltersStatus should return false if at least one value does not match', () => {
+        const result = checkFiltersStatus({
+            genres: [],
+            countries: [],
+            ratingKp: 1,
+            votesKp: 0,
+            director: '',
+            actor: '',
+        });
+        expect(result).toBe(false);
+    });
+});
+
+describe('FORMAT DATE TESTS', () => {
+    test('formatDate should return return the date in the format "day month(string) year"', () => {
+        const result = formatDate('Sat Jun 10 2023 15:33:19 GMT+0700 (Красноярск, стандартное время)');
+        expect(result).toBe('10 июня 2023');
     });
 });

@@ -8,22 +8,21 @@ interface CommentsListProps {
 
 const CommentsList = ({ comments }: CommentsListProps) => {
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid={'commentsList'}>
             {comments.map((comment) => {
                 return (
                     <>
                         <CommentItem key={comment.id} comment={comment} />
                         <div className={styles.container__childcomments}>
-                            {
-                                comment.childComment?.map(child => 
-                                    <CommentItem key={child.id} comment={child} />)
-                            }
+                            {comment.childComment?.map((child) => (
+                                <CommentItem key={child.id} comment={child} />
+                            ))}
                         </div>
                     </>
-                )
+                );
             })}
         </div>
-    )
-}
+    );
+};
 
 export default CommentsList;

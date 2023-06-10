@@ -41,9 +41,8 @@ const Breadcrumbs = ({ path, genre, tailName, type = 'slash', linked = true }: B
                 )}
                 {localizedPaths.map((item, index) => {
                     const last = index === path.length - 1;
-                    const ref = path[index]; /*.slice(0, index).join('/')*/
-                    /* console.log('localizedPaths', localizedPaths);
-                     */
+                    const ref = path[index];
+
                     if (!linked) {
                         return localizedPaths.length > 1 && index === 0 ? (
                             <li key={`${index}${type}`}>

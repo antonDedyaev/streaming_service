@@ -49,7 +49,6 @@ const FilterSearch = ({ suggestionsList, category }: ISearch) => {
         const searchInput = target as HTMLInputElement;
         if (key === 'Enter') {
             setSearchedPerson(searchInput!.value);
-            //setInputValue('');
         }
     };
 
