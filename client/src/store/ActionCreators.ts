@@ -262,7 +262,6 @@ export const setComments = (comments: IComment[]) => (dispatch: AppDispatch) => 
 export const addNewComment =
     (comment: { text: string; movieid: number; user: string }) => async (dispatch: AppDispatch) => {
         const token = localStorage.getItem('accessToken');
-        console.log(token);
 
         try {
             const response = await axios.post('http://localhost:6125/comment/film', comment, {
@@ -292,8 +291,6 @@ export const addChildComment =
                     Authorization: token,
                 },
             });
-
-            console.log(response.data);
 
             dispatch(
                 commentsSlice.actions.addChildComment({
