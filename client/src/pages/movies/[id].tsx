@@ -60,7 +60,7 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
     const queryParams = Object.keys(query);
 
     const [loading, setLoading] = useState(true);
-    const { error, authorizationType } = useAppSelector((state) => state.user);
+    const { error } = useAppSelector((state) => state.user);
 
     useEffect(() => {
         isReady && setLoading(false);
@@ -71,13 +71,20 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
         dispatch(getDataFromLocalStorage());
 
         const validate = async () => {
-            console.log(authorizationType);
+            console.log(localStorage.getItem('authorization'));
             if (localStorage.getItem('accessToken') && localStorage.getItem('currentUser')) {
                 console.log('fetchToken', localStorage.getItem('accessToken'));
-                const refreshToken = await getRefreshToken(localStorage.getItem('accessToken')!, authorizationType);
+                const refreshToken = await getRefreshToken(
+                    localStorage.getItem('accessToken')!,
+                    localStorage.getItem('authorization')!,
+                );
 
                 dispatch(
-                    validateUser(localStorage.getItem('accessToken') || '', refreshToken || '', authorizationType),
+                    validateUser(
+                        localStorage.getItem('accessToken') || '',
+                        refreshToken || '',
+                        localStorage.getItem('authorization')!,
+                    ),
                 );
             }
         };
