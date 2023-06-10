@@ -71,13 +71,13 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
         dispatch(getGenresAndCountries());
         dispatch(getDataFromLocalStorage());
 
-        if (localStorage.getItem('token') && localStorage.getItem('currentUser')) {
+        /*  if (localStorage.getItem('token') && localStorage.getItem('currentUser')) {
             console.log('fetchToken', localStorage.getItem('token'));
             dispatch(validateEmail(localStorage.getItem('token') || ''));
-        }
+        }*/
     }, [locale, asPath]);
 
-    useEffect(() => {
+    /*useEffect(() => {
         if (error === 'Internal server error') {
             router.push(
                 {
@@ -88,7 +88,7 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
                 { shallow: true },
             );
         }
-    }, [error]);
+    }, [error]);*/
 
     return (
         <MainContainer

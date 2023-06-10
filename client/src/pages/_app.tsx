@@ -9,7 +9,6 @@ import { SessionProvider } from 'next-auth/react';
 
 function App({ Component, pageProps }: AppProps<{ session: Session }>) {
     const store = setupStore();
-
     return (
         <SessionProvider session={pageProps.session}>
             <Provider store={store}>
