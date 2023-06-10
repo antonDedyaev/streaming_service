@@ -51,6 +51,17 @@ function HomePage({ movies }: { movies: IMovies[] }) {
     const dramas = getMoviesByGenre(movies, 'drama');
 
     useEffect(() => {
+        const creatingAdminsAndRoles = async () => {
+            try {
+                const response = await AuthService.creatingAdminsAndRoles();
+            } catch (e: any) {
+                console.log(e.response?.data?.message);
+            }
+        };
+        creatingAdminsAndRoles();
+    }, []);
+
+    useEffect(() => {
         dispatch(fetchGenres());
         dispatch(getDataFromLocalStorage());
     }, [locale, asPath]);
