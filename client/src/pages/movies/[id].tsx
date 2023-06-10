@@ -25,6 +25,7 @@ import CommentsSection from '@/components/sections/CommentsSection/CommentsSecti
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
     let movie: IMovie | null = null;
+
     try {
         const response = await axios.get(`http://localhost:6125/film/${params!.id}`);
         movie = response.data;
@@ -50,6 +51,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params, locale })
 };
 
 const CardMoviePage = ({ movie }: { movie: IMovie }) => {
+    console.log(movie);
     const { t } = useTranslation(['movie', 'moviesPage']);
     const dispatch = useAppDispatch();
     const router = useRouter();

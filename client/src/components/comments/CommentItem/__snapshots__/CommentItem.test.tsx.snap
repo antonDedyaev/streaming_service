@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`COMMENTITEM SNAPSHOTS TESTS CommentItem should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="commentItem"
+>
+  <div
+    class="container__header"
+  >
+    <div
+      class="container__info"
+    >
+      <p
+        class="container__username"
+      >
+        Slater
+      </p>
+      <time
+        class="container__date"
+        datetime="Sat Jun 10 2023 15:33:19 GMT+0700 (Красноярск, стандартное время)"
+      >
+        10 июня 2023
+      </time>
+    </div>
+    <div
+      class="container"
+      data-testid="voteWidget"
+    >
+      <button
+        class="button button_bright button button_dislike"
+        type="button"
+      >
+        <img
+          alt="dislike"
+          class="button__image"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </button>
+      <div
+        class="container__votes"
+      >
+        10
+      </div>
+      <button
+        class="button button_bright button button_like"
+        type="button"
+      >
+        <img
+          alt="like"
+          class="button__image"
+          data-nimg="1"
+          decoding="async"
+          height="40"
+          loading="lazy"
+          src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+          srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+          style="color: transparent;"
+          width="40"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    class="container__content"
+  >
+    <div
+      class="container__text"
+    >
+      Великий Эверест пытаются покорить многие. Зачем? Как по мне в этом нет смысла. Но все люди разные, именно о тех, кто готов рискнуть и достигнуть поставленной цели фильм и повествует. И он на реальных событиях. Фильм хороший, но не стоит вдохновляться. Не все пройдет гладко при подъеме. В фильме хорошо показаны глупости людей, амбиции вразрез разуму, и беспомощность перед силой природы.
+    </div>
+  </div>
+  <div
+    class="container__actions"
+  >
+    <button
+      class="button button_faded container__button"
+      type="button"
+    >
+      comments.reply
+    </button>
+  </div>
+</div>
+`;

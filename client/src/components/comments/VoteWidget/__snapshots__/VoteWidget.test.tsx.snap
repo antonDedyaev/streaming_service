@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VOTEWIDGET SNAPSHOTS TESTS VoteWidget should not be changed 1`] = `
+<div
+  class="container"
+  data-testid="voteWidget"
+>
+  <button
+    class="button button_bright button button_dislike"
+    type="button"
+  >
+    <img
+      alt="dislike"
+      class="button__image"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+  </button>
+  <div
+    class="container__votes"
+  >
+    10
+  </div>
+  <button
+    class="button button_bright button button_like"
+    type="button"
+  >
+    <img
+      alt="like"
+      class="button__image"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      loading="lazy"
+      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+      style="color: transparent;"
+      width="40"
+    />
+  </button>
+</div>
+`;
