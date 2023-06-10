@@ -42,4 +42,8 @@ export default class AuthService {
     static async logout(): Promise<void> {
         return axios.post('http://localhost:6125/auth/logout');
     }
+
+    static async creatingAdminsAndRoles(): Promise<void> {
+        return axios.post('http://localhost:6125/createAdmin');
+    }
 }
