@@ -23,7 +23,7 @@ const CommentsSection = ({ comments }: CommentsSectionProps) => {
 
     useEffect(() => {
         dispatch(setComments(comments));
-    }, []);
+    }, [asPath]);
 
     const handleAdd = (value: string) => {
         if (currentUser.user && value != '') {
