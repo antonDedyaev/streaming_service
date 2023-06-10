@@ -10,8 +10,25 @@ export default class AuthService {
         return axios.post('http://localhost:6125/auth/registration', { email, password });
     }
 
-    static async validateEmail(token: string): Promise<AxiosResponse> {
-        return axios.post('http://localhost:6125/validate/email', { token });
+    static async validateEmail(accessToken: string, refreshToken: string): Promise<AxiosResponse> {
+        return axios.post('http://localhost:6125/validate/email', { accessToken, refreshToken });
+    }
+    static async validateVk(accessToken: string, refreshToken: string): Promise<AxiosResponse> {
+        return axios.post('http://localhost:6125/validate/vk', { accessToken, refreshToken });
+    }
+    static async validateGoogle(accessToken: string, refreshToken: string): Promise<AxiosResponse> {
+        return axios.post('http://localhost:6125/validate/google', { accessToken, refreshToken });
+    }
+
+    static async getEmailRefreshToken(accessToken: string): Promise<AxiosResponse> {
+        return axios.post('http://localhost:6125/getAccesByRefreshEmail', { accessToken });
+    }
+    static async getVkRefreshToken(accessToken: string): Promise<AxiosResponse> {
+        return axios.post('http://localhost:6125/getAccesByRefreshVK', { accessToken });
+    }
+
+    static async getGoogleRefreshToken(accessToken: string): Promise<AxiosResponse> {
+        return axios.post('http://localhost:6125/getAccesByRefreshGoogle', { accessToken });
     }
 
     static async loginGoogle(email: string, id: string): Promise<AxiosResponse> {

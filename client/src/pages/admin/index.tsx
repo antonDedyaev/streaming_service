@@ -31,8 +31,8 @@ const AdminPage = () => {
 
     useEffect(() => {
         dispatch(getDataFromLocalStorage());
-        if (localStorage.getItem('token') && localStorage.getItem('currentUser')) {
-            dispatch(validateEmail(localStorage.getItem('token') || ''));
+        if (localStorage.getItem('accessToken') && localStorage.getItem('currentUser')) {
+            dispatch(validateEmail(localStorage.getItem('accessToken') || ''));
         }
     }, []);
 

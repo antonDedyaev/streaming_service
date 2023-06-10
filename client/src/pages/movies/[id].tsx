@@ -20,7 +20,7 @@ import Loading from '@/components/Loading/Loading';
 import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
-import { getDataFromLocalStorage, getGenresAndCountries, validateEmail } from '@/store/ActionCreators';
+import { getDataFromLocalStorage, getGenresAndCountries, getRefreshToken, validateUser } from '@/store/ActionCreators';
 import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
@@ -60,8 +60,7 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
     const queryParams = Object.keys(query);
 
     const [loading, setLoading] = useState(true);
-
-    const { error } = useAppSelector((state) => state.user);
+    const { error, authorizationType } = useAppSelector((state) => state.user);
 
     useEffect(() => {
         isReady && setLoading(false);
@@ -71,13 +70,21 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
         dispatch(getGenresAndCountries());
         dispatch(getDataFromLocalStorage());
 
-        /*  if (localStorage.getItem('token') && localStorage.getItem('currentUser')) {
-            console.log('fetchToken', localStorage.getItem('token'));
-            dispatch(validateEmail(localStorage.getItem('token') || ''));
-        }*/
+        const validate = async () => {
+            console.log(authorizationType);
+            if (localStorage.getItem('accessToken') && localStorage.getItem('currentUser')) {
+                console.log('fetchToken', localStorage.getItem('accessToken'));
+                const refreshToken = await getRefreshToken(localStorage.getItem('accessToken')!, authorizationType);
+
+                dispatch(
+                    validateUser(localStorage.getItem('accessToken') || '', refreshToken || '', authorizationType),
+                );
+            }
+        };
+        validate();
     }, [locale, asPath]);
 
-    /*useEffect(() => {
+    useEffect(() => {
         if (error === 'Internal server error') {
             router.push(
                 {
@@ -88,7 +95,7 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
                 { shallow: true },
             );
         }
-    }, [error]);*/
+    }, [error]);
 
     return (
         <MainContainer

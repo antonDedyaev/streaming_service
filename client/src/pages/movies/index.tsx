@@ -28,10 +28,10 @@ import IMovies from '@/models/IMovies';
 import { getDynamicUrl } from '@/utils/moviesHelpers';
 import IFilters from '@/models/IFilters';
 
-
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');
     const movies = response.data;
+    await axios.get('http://localhost:6125/createAdmin');
 
     return {
         props: {
