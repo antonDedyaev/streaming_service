@@ -66,3 +66,42 @@
         font-weight: 500;
     }
 }
+
+@media (max-width: 930px) {
+    .container {
+        &__header {
+            & span {
+                left: -100px;
+            }
+            & h1 {
+                font-size: 20px;
+            }
+        }
+
+        &__headerArrow {
+            left: -120px;
+        }
+
+        &__searchField {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        &__header {
+            & span {
+                left: auto;
+                padding-left: 10px;
+                top: -50px;
+            }
+        }
+
+        &__headerArrow {
+            left: auto;
+            top: -27px;
+        }
+    }
+}

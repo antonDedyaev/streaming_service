@@ -1,5 +1,3 @@
-/*import React from 'react'
-import '@testing-library/jest-dom'*/
 import { act, render, renderHook } from '@testing-library/react';
 import { useWindowSize } from './useWindowSize';
 import HomePage from '@/pages/index';

@@ -34,3 +34,16 @@
         }
     }
 }
+
+@media (max-width: 500px) {
+    .container {
+        &__links {
+            display: flex;
+            margin-top: 50px;
+
+            & > div > a > div {
+                font-size: 16px;
+            }
+        }
+    }
+}

@@ -105,3 +105,33 @@
         }
     }
 }
+
+@media (max-width: 930px) {
+    .container {
+        &__form {
+            width: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+
+            label {
+                margin-bottom: 10px;
+            }
+
+            input {
+                margin-bottom: 10px;
+            }
+        }
+        &__editButton,
+        &__deleteButton,
+        &__saveButton {
+            margin-bottom: 10px;
+        }
+
+        &_visible {
+            min-height: 150px;
+            max-height: 200px;
+        }
+    }
+}

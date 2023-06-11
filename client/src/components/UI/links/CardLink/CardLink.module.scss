@@ -30,3 +30,11 @@
         text-align: center;
     }
 }
+
+@media (max-width: 500px) {
+    .container {
+        min-width: 100px;
+        width: 100px;
+        height: 180px;
+    }
+}
