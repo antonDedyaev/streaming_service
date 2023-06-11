@@ -13,6 +13,7 @@ import TextLinkUI from '@/components/UI/links/TextLink/TextLinkUI';
 import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
 import { useTranslation } from 'next-i18next';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { fetchGenres } from '@/store/ActionCreators';
 
 interface HeaderProps {
     page: 'home' | 'other';
@@ -20,6 +21,7 @@ interface HeaderProps {
 
 const Header = ({ page }: HeaderProps) => {
     const { t } = useTranslation(['header', 'collection']);
+    const dispatch = useAppDispatch();
     const [isShowMoviesDrop, setIsShowMoviesDrop] = useState<boolean>(false);
     const [isMouseOver, setIsMouseOver] = useState<boolean>(false);
 
@@ -62,6 +64,12 @@ const Header = ({ page }: HeaderProps) => {
         });
         return array;
     };
+
+    useEffect(() => {
+        if (genres.length === 0) {
+            dispatch(fetchGenres());
+        }
+    }, [genres]);
 
     return (
         <div onMouseLeave={clearMouseHandlers} className="container" data-testid={'header'}>
