@@ -13,6 +13,7 @@ import exitIcon from '../../../../public/icons/exit.svg';
 import TransparentButton from '@/components/UI/buttons/TransparentButton/TransparentButton';
 import { userSlice } from '../../../store/slices/userSlice';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import axios from 'axios';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up' | 'authorized';
@@ -20,6 +21,7 @@ interface LoginModalProps {
 
 const LoginModal = ({ type }: LoginModalProps) => {
     const { t } = useTranslation('modals');
+    const router = useRouter();
     const location = useRouter();
     const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?trailer)|(\?more)/, '');
     const hrefSing = type === 'sign-in' ? `${backPath}?sign-up` : `${backPath}?sign-in`;
@@ -47,8 +49,17 @@ const LoginModal = ({ type }: LoginModalProps) => {
 
     const [isValid, setIsValid] = useState(false);
 
+    /* const [signIn, {}] = loginAPI.useFetchLoginMutation();
+    const [signUp, {}] = loginAPI.useFetchRegistrationMutation();
+    console.log(signIn.bind);*/
+
+    // const [signInWithVK, {}] = loginAPI.useFetchAuthWithVKQuery()
+    // const [signInWithGoogle, {}] = loginAPI.useFetchAuthWithGoogleQuery()
+
     const signInHandler = async () => {
         dispatch(login(email, password));
+
+        /* await signIn({ email: email, password: password });*/
     };
 
     const signInGoogleHandler = async () => {
@@ -67,6 +78,7 @@ const LoginModal = ({ type }: LoginModalProps) => {
 
     const signUpHandler = async () => {
         dispatch(registration(email, password));
+        /*await signUp({ email: email, password: password });*/
     };
 
     const logoutHandler = () => {
