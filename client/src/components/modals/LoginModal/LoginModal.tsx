@@ -12,8 +12,7 @@ import { getDataFromLocalStorage, login, loginGoogle, loginVK, logout, registrat
 import exitIcon from '../../../../public/icons/exit.svg';
 import TransparentButton from '@/components/UI/buttons/TransparentButton/TransparentButton';
 import { userSlice } from '../../../store/slices/userSlice';
-import { useSession, signIn, signOut } from 'next-auth/react';
-import axios from 'axios';
+import { useSession, signIn } from 'next-auth/react';
 
 interface LoginModalProps {
     type: 'sign-in' | 'sign-up' | 'authorized';
@@ -49,39 +48,33 @@ const LoginModal = ({ type }: LoginModalProps) => {
 
     const [isValid, setIsValid] = useState(false);
 
-    /* const [signIn, {}] = loginAPI.useFetchLoginMutation();
-    const [signUp, {}] = loginAPI.useFetchRegistrationMutation();
-    console.log(signIn.bind);*/
-
-    // const [signInWithVK, {}] = loginAPI.useFetchAuthWithVKQuery()
-    // const [signInWithGoogle, {}] = loginAPI.useFetchAuthWithGoogleQuery()
 
     const signInHandler = async () => {
         dispatch(login(email, password));
-
-        /* await signIn({ email: email, password: password });*/
     };
 
     const signInGoogleHandler = async () => {
-        signIn('google');
+        signIn('google', { redirect: false });
         if (session) {
             dispatch(loginGoogle(session?.user?.email!, session?.user?.sub!));
         }
     };
 
     const signInVKHandler = async () => {
-        signIn('vk');
+        signIn('vk', { redirect: false }); 
         if (session) {
             dispatch(loginVK(session?.user?.name!, session?.user?.sub!));
         }
+            
     };
 
     const signUpHandler = async () => {
         dispatch(registration(email, password));
-        /*await signUp({ email: email, password: password });*/
+
     };
 
     const logoutHandler = () => {
+        //signOut();
         setIsClose(true);
         dispatch(logout());
     };

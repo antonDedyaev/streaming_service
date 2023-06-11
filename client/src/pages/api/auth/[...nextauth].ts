@@ -13,6 +13,9 @@ export default NextAuth({
             clientSecret: process.env.VK_CLIENT_SECRET!,
         }),
     ],
+    session: {
+            strategy: "jwt",    
+    },
     secret: process.env.JWT_SECRET,
 
     callbacks: {
