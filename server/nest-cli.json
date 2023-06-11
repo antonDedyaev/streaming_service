@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/microservices/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/microservices/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/microservices",
+  "projects": {
+    "microservices": {
+      "type": "application",
+      "root": "apps/microservices",
+      "entryFile": "main",
+      "sourceRoot": "apps/microservices/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/microservices/tsconfig.app.json"
+      }
+    },
+    "films": {
+      "type": "application",
+      "root": "apps/films",
+      "entryFile": "main",
+      "sourceRoot": "apps/films/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/films/tsconfig.app.json"
+      }
+    },
+    "persons": {
+      "type": "application",
+      "root": "apps/persons",
+      "entryFile": "main",
+      "sourceRoot": "apps/persons/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/persons/tsconfig.app.json"
+      }
+    },
+    "genres": {
+      "type": "application",
+      "root": "apps/genres",
+      "entryFile": "main",
+      "sourceRoot": "apps/genres/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/genres/tsconfig.app.json"
+      }
+    },
+    "genresnames": {
+      "type": "application",
+      "root": "apps/genresnames",
+      "entryFile": "main",
+      "sourceRoot": "apps/genresnames/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/genresnames/tsconfig.app.json"
+      }
+    },
+    "countries": {
+      "type": "application",
+      "root": "apps/countries",
+      "entryFile": "main",
+      "sourceRoot": "apps/countries/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/countries/tsconfig.app.json"
+      }
+    },
+    "videos": {
+      "type": "application",
+      "root": "apps/videos",
+      "entryFile": "main",
+      "sourceRoot": "apps/videos/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/videos/tsconfig.app.json"
+      }
+    },
+    "countriesnames": {
+      "type": "application",
+      "root": "apps/countriesnames",
+      "entryFile": "main",
+      "sourceRoot": "apps/countriesnames/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/countriesnames/tsconfig.app.json"
+      }
+    },
+    "new-auth": {
+      "type": "application",
+      "root": "apps/new-auth",
+      "entryFile": "main",
+      "sourceRoot": "apps/new-auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/new-auth/tsconfig.app.json"
+      }
+    },
+    "comments": {
+      "type": "application",
+      "root": "apps/comments",
+      "entryFile": "main",
+      "sourceRoot": "apps/comments/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/comments/tsconfig.app.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,395 @@
+version: '3.0'
+services:
+
+  rabbitmq:
+    image: rabbitmq:3.12.0-beta.6-management-alpine
+    hostname: rabbitmq
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    env_file:
+      - apps/microservices/.development.env
+    restart: always
+    container_name: rabbitmq
+    networks:
+      - app
+  microservices:
+    build:
+      context: ./
+      dockerfile: ./apps/microservices/Dockerfile
+    depends_on:
+      - rabbitmq
+    ports:
+      - 6125:6125
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules
+    restart: always
+    command: npm run start:dev microservices 
+    container_name: microservices
+    networks:
+      - app
+
+  films:
+    build:
+      context: ./
+      dockerfile: ./apps/films/Dockerfile
+    env_file:
+      - apps/films/.development.env
+    depends_on:
+      - rabbitmq
+      - films_postgres
+    ports:
+      - 6126:6126
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules
+    command: npm run start:dev films 
+    restart: always
+    container_name: films
+    networks:
+      - app
+
+    
+  films_postgres:
+    container_name: films_postgres
+    image: postgres:12
+    env_file:
+      - apps/films/.development.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdatafilm:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - app
+
+  countriesnames:
+    build:
+      context: ./
+      dockerfile: ./apps/countriesnames/Dockerfile
+    env_file:
+      - apps/countriesnames/.development.env
+    depends_on:
+      - rabbitmq
+      - countriesnames_postgres
+      - films
+    ports:
+      - 6154:6154
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules
+    command: npm run start:dev countriesnames 
+    restart: always
+    container_name: countriesnames
+    networks:
+      - app
+
+    
+  countriesnames_postgres:
+    container_name: countriesnames_postgres
+    image: postgres:12
+    env_file:
+      - apps/countriesnames/.development.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5434:5432
+    depends_on:
+      - films_postgres
+    volumes:
+      - pgdatacountriesnames:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - app
+
+
+  
+  countries:
+    build:
+      context: ./
+      dockerfile: ./apps/countries/Dockerfile
+    env_file:
+      - apps/countries/.development.env
+    depends_on:
+      - rabbitmq
+      - countries_postgres
+      - films
+      - countriesnames
+    ports:
+      - 6129:6129
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules
+    command: npm run start:dev countries 
+    restart: always
+    container_name: countries
+    networks:
+      - app
+
+    
+  countries_postgres:
+    container_name: countries_postgres
+    image: postgres:12
+    env_file:
+      - apps/countries/.development.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5435:5432
+    depends_on:
+      - films_postgres
+    volumes:
+      - pgdatacountries:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - app
+
+  
+  
+  genresnames:
+    build:
+      context: ./
+      dockerfile: ./apps/genresnames/Dockerfile
+    env_file:
+      - apps/genresnames/.development.env
+    depends_on:
+      - rabbitmq
+      - genresnames_postgres
+      - films
+    ports:
+      - 6141:6141
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules
+    command: npm run start:dev genresnames 
+    restart: always
+    container_name: genresnames
+    networks:
+      - app
+
+    
+  genresnames_postgres:
+    container_name: genresnames_postgres
+    image: postgres:12
+    env_file:
+      - apps/genresnames/.development.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5447:5432
+    depends_on:
+      - films_postgres
+    volumes:
+      - pgdatagenresnames:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - app
+
+  genres:
+    build:
+      context: ./
+      dockerfile: ./apps/genres/Dockerfile
+    env_file:
+      - apps/genres/.development.env
+    depends_on:
+      - rabbitmq
+      - genres_postgres
+      - films
+      - genresnames
+    ports:
+      - 6131:6131
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules
+    command: npm run start:dev genres 
+    restart: always
+    container_name: genres
+    networks:
+      - app
+
+    
+  genres_postgres:
+    container_name: genres_postgres
+    image: postgres:12
+    env_file:
+      - apps/genres/.development.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5437:5432
+    depends_on:
+      - films_postgres
+    volumes:
+      - pgdatagenres:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - app
+
+
+  persons:
+    build:
+      context: ./
+      dockerfile: ./apps/persons/Dockerfile
+    env_file:
+      - apps/persons/.development.env
+    depends_on:
+      - rabbitmq
+      - persons_postgres
+      - films
+    ports:
+      - 6134:6134
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules
+    command: npm run start:dev persons 
+    restart: always
+    container_name: persons
+    networks:
+      - app
+
+    
+  persons_postgres:
+    container_name: persons_postgres
+    image: postgres:12
+    env_file:
+      - apps/persons/.development.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5440:5432
+    volumes:
+      - pgdatapersons:/var/lib/postgresql/data
+    depends_on:
+      - films_postgres
+    restart: always
+    networks:
+      - app
+
+  
+
+
+  
+  videos:
+    build:
+      context: ./
+      dockerfile: ./apps/videos/Dockerfile
+    env_file:
+      - apps/videos/.development.env
+    depends_on:
+      - rabbitmq
+      - videos_postgres
+      - films
+    ports:
+      - 6139:6139
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules
+    command: npm run start:dev videos 
+    restart: always
+    container_name: videos
+    networks:
+      - app
+
+    
+  videos_postgres:
+    container_name: videos_postgres
+    image: postgres:12
+    env_file:
+      - apps/videos/.development.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5445:5432
+    volumes:
+      - pgdatavideos:/var/lib/postgresql/data
+    depends_on:
+      - films_postgres
+    restart: always
+    networks:
+      - app
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    container_name: adminer
+
+  new-auth:
+    build:
+      context: ./
+      dockerfile: ./apps/new-auth/Dockerfile
+    env_file:
+      - apps/new-auth/.development.env
+    depends_on:
+      - rabbitmq
+      - auth_postgres
+    ports:
+      - 3002:3002
+    command: npm run start:dev new-auth 
+    restart: always
+    container_name: new-auth
+    networks:
+      - app
+
+  
+  auth_postgres:
+    container_name: auth_postgres
+    image: postgres
+    env_file:
+      - apps/new-auth/.development.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5470:5432
+    volumes:
+      - pgdataauth:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - app
+  comments:
+    build:
+      context: ./
+      dockerfile: ./apps/comments/Dockerfile
+    env_file:
+      - apps/comments/.development.env
+    depends_on:
+      - rabbitmq
+      - auth_postgres
+    ports:
+      - 3003:3003
+    command: npm run start:dev comments
+    restart: always
+    container_name: comments
+    networks:
+      - app
+
+  comments_postgres:
+    container_name: comments_postgres
+    image: postgres
+    env_file:
+      - apps/comments/.development.env
+    environment:
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - 5490:5432
+    volumes:
+      - pgdatacomments:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - app
+volumes:
+  pgdatafilm:
+  pgdatacountries:
+  pgdatagenres:
+  pgdatapersons:
+  pgdatavideos:
+  pgdatagenresnames:
+  pgdatacountriesnames:
+  pgdataauth:
+  pgdatacomments:
+networks:
+  app:
