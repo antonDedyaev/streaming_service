@@ -32,9 +32,7 @@ const AdminPage = () => {
     useEffect(() => {
         dispatch(getDataFromLocalStorage());
         const validate = async () => {
-            console.log(localStorage.getItem('authorization'));
             if (localStorage.getItem('accessToken') && localStorage.getItem('currentUser')) {
-                console.log('fetchToken', localStorage.getItem('accessToken'));
                 const refreshToken = await getRefreshToken(
                     localStorage.getItem('accessToken')!,
                     localStorage.getItem('authorization')!,

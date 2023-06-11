@@ -24,6 +24,8 @@ const GenreEditPage = ({ genres }: { genres: IGenre[] }) => {
     const { t } = useTranslation('adminPage');
     const router = useRouter();
 
+    const sortedGenres = genres.sort((a, b) => a.id - b.id);
+
     return (
         <div className={styles.container}>
             <div className={styles.container__content}>
@@ -38,7 +40,7 @@ const GenreEditPage = ({ genres }: { genres: IGenre[] }) => {
                     <h1>{t('editing.editGenres')}</h1>
                 </div>
                 <ul>
-                    {genres.map((genre, index) => (
+                    {sortedGenres.map((genre, index) => (
                         <li key={index}>
                             <EditForm deletable={false} item={genre} />
                         </li>
