@@ -29,7 +29,7 @@ $ npm run dev
 Start the app in prod environment:
 
 ```sh
-$ npm build
+$ npm run build
 
 $ npm start
 ```
