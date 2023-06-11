@@ -44,40 +44,21 @@ Start the services:
 
 ```bash
 
-# start with docker in watch mode
+$ docker-compose build
+
 $ docker-compose up
 ```
 
+Swagger:
+
 ```bash
-# start microservices in watch mode
-$ npm run start:dev microservices
+http://localhost:6125/api/docs
+```
 
-# start service films in watch mode
-$ npm run start:dev films
+Parse data using swagger endpoint:
 
-# start service genresnames in watch mode
-$ npm run start:dev genresnames
-
-# start service genres in watch mode
-$ npm run start:dev genres
-
-# start service countriesnames in watch mode
-$ npm run start:dev countriesnames
-
-# start service countries in watch mode
-$ npm run start:dev countries
-
-# start service persons in watch mode
-$ npm run start:dev persons
-
-# start service videos in watch mode
-$ npm run start:dev videos
-
-# start service new-auth in watch mode
-$ npm run start:dev new-auth
-
-# start service comments in watch mode
-$ npm run start:dev comments
+```bash
+http://localhost:6125/admin/films/parsing
 ```
 
 ### Used frameworks and tools:
