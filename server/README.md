@@ -1,4 +1,4 @@
-# FORK FROM  REPO
+# API
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -37,7 +37,8 @@ $ npm install
 
 ```bash
 
-# start with docker in watch mode 
+# start with docker in watch mode
+$ docker-compose build
 $ docker-compose up
 ```
 ```bash

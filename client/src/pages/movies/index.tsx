@@ -13,7 +13,7 @@ import votesIcon from '../../../public/icons/userRank.svg';
 import FilterSearch from '@/components/filters/FilterSearch/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
@@ -28,7 +28,7 @@ import IMovies from '@/models/IMovies';
 import { getDynamicUrl } from '@/utils/moviesHelpers';
 import IFilters from '@/models/IFilters';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');
     const movies = response.data;
 

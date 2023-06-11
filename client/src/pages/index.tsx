@@ -11,7 +11,7 @@ import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { useAppDispatch } from '@/store/hooks/redux';
 import { useEffect, useMemo, useState } from 'react';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
@@ -19,11 +19,9 @@ import { useRouter } from 'next/router';
 import { fetchGenres, getDataFromLocalStorage, loginGoogle } from '@/store/ActionCreators';
 import axios from 'axios';
 import IMovies from '@/models/IMovies';
-import ColoredButton from '@/components/UI/buttons/ColoredButton/ColoredButton';
-import Link from 'next/link';
 import AuthService from '@/store/services/AuthService';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
     const response = await axios.get('http://localhost:6125/filmswithinfo');
     const movies = response.data;
 

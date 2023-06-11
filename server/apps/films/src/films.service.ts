@@ -1374,6 +1374,7 @@ shortDescription%20technology%20imagesInfo&sortField=votes.kp&sortType=-1&page=1
     async updateNameMovie(dto:FilmDto){
         const film =  await this.filmRepository.findOne({where: {id: dto.id}})
         film.name = dto.name;
+        film.enName = dto.enName;
         film.save();
         return film
 
