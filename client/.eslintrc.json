@@ -4,7 +4,6 @@
         "es2021": true
     },
     "extends": [
-        "next",
         "next/core-web-vitals",
         "plugin:storybook/recommended",
         "eslint:recommended",
@@ -16,5 +15,6 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["@typescript-eslint"]
+    "plugins": ["@typescript-eslint"],
+    "root": true
 }
