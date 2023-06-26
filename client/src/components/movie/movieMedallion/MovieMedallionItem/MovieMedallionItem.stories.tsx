@@ -30,7 +30,7 @@ export const Active: Story = {
     },
 };
 
-export const inActive: Story = {
+export const InActive: Story = {
     decorators: [
         (Story) => (
             <div style={{ background: '#100e19', padding: '10px 10px 0px', width: '100px' }}>

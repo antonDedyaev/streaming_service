@@ -1,4 +1,4 @@
-interface IUser {
+export default interface IUser {
     id?: number;
     user: string;
     password?: string;

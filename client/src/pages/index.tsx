@@ -13,10 +13,10 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { GetServerSideProps } from 'next';
 import { useAppDispatch } from '@/store/hooks/redux';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect } from 'react';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import { useRouter } from 'next/router';
-import { fetchGenres, getDataFromLocalStorage, loginGoogle } from '@/store/ActionCreators';
+import { fetchGenres, getDataFromLocalStorage } from '@/store/ActionCreators';
 import axios from 'axios';
 import IMovies from '@/models/IMovies';
 import AuthService from '@/store/services/AuthService';
@@ -51,7 +51,7 @@ function HomePage({ movies }: { movies: IMovies[] }) {
     useEffect(() => {
         const creatingAdminsAndRoles = async () => {
             try {
-                const response = await AuthService.creatingAdminsAndRoles();
+                await AuthService.creatingAdminsAndRoles();
             } catch (e: any) {
                 console.log(e.response?.data?.message);
             }

@@ -16,7 +16,7 @@ interface BreadcrumbsProps {
 
 const Breadcrumbs = ({ path, genre, tailName, type = 'slash', linked = true }: BreadcrumbsProps) => {
     const { t } = useTranslation('collection');
-    const { locale, asPath } = useRouter();
+    const { locale } = useRouter();
     const { genres, countries } = useAppSelector((state) => state.staticData);
 
     const localizedPaths = path.map((item) => {

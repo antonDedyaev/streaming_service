@@ -15,6 +15,7 @@ import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import { firstCapitalLetter, professionInTheSingular } from '@/utils/functions';
 import { getDataFromLocalStorage, getGenresAndCountries } from '@/store/ActionCreators';
 import { useAppDispatch } from '@/store/hooks/redux';
+import Image from 'next/image';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
     let person: IPerson | null = null;
@@ -99,7 +100,7 @@ const CardActorPage = ({ person }: { person: IPerson }) => {
             ) : person ? (
                 <div className="container">
                     <div className={styles.back} onClick={() => back()}>
-                        <img src="/icons/arrows/arrow_left.svg" alt="arrow left" />
+                        <Image src="/icons/arrows/arrow_left.svg" alt="arrow left" />
                         {t('person:back')}
                     </div>
 

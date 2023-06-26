@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './SortMovies.module.scss';
-import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
+import { useAppDispatch } from '@/store/hooks/redux';
 import { getSortedMovies } from '@/utils/moviesHelpers';
 import IMovies from '@/models/IMovies';
 import { useTranslation } from 'next-i18next';

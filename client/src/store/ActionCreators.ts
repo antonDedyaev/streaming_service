@@ -5,6 +5,7 @@ import { staticDataSlice } from './slices/staticDataSlice';
 import { userSlice } from './slices/userSlice';
 import { AppDispatch } from './store';
 import axios from 'axios';
+import IUser from '@/models/IUser';
 
 export const fetchGenres = () => async (dispatch: AppDispatch) => {
     try {

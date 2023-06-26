@@ -1,11 +1,9 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect } from 'react';
 import styles from './ModalUI.module.scss';
 import Image from 'next/image';
 import closeIcon from '../../../../public/icons/close.svg';
 import { useRouter } from 'next/router';
 import TransparentButton from '../buttons/TransparentButton/TransparentButton';
-import { useAppSelector } from '@/store/hooks/redux';
-
 interface ModalUIProps {
     children: ReactNode;
     className?: string;

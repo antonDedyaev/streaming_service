@@ -51,7 +51,7 @@ export const getMoviesByCountry = (arrOfMovies: IMovies[], country: string) =>
 
 export const getMoviesByForeign = (arrOfMovies: IMovies[]) => {
     return arrOfMovies.flatMap((movie) => {
-        let isCountry: boolean = false;
+        let isCountry = false;
         movie.countries.forEach((item) => {
             if (item.enName === 'Russia' || item.enName === 'USSR') {
                 isCountry = true;

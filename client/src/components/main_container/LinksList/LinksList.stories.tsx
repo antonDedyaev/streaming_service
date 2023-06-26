@@ -47,7 +47,7 @@ export const Row: Story = {
     },
 };
 
-export const Сolumn: Story = {
+export const Column: Story = {
     args: {
         direction: 'column',
         links: [

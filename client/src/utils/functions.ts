@@ -2,8 +2,8 @@ import IFilters from "@/models/IFilters";
 
 
 export const declineWord = (number: number, arrayOfOptions: string[]): string => {
-    let dozens = number % 100;
-    let units = number % 10;
+    const dozens = number % 100;
+    const units = number % 10;
     if (dozens > 10 && dozens < 20) return arrayOfOptions[2];
     if (units > 1 && units < 5) return arrayOfOptions[1];
     if (units == 1) return arrayOfOptions[0];
@@ -11,8 +11,8 @@ export const declineWord = (number: number, arrayOfOptions: string[]): string =>
 };
 
 export const minutesToHours = (minutes: number, text: string[]): string => {
-    let m = minutes % 60;
-    let h = (minutes - m) / 60;
+    const m = minutes % 60;
+    const h = (minutes - m) / 60;
     if (h <= 0) return `${(m < 10 ? '0' : '') + m.toString()} ${text[1]}`;
     if (m <= 0) return `${h.toString()} ${text[0]}`;
     return `${h.toString()} ${text[0]} ${(m < 10 ? '0' : '') + m.toString()} ${text[1]}`;

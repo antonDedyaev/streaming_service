@@ -51,7 +51,7 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
 const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const { asPath, locale, basePath } = useRouter();
+    const { asPath, locale } = useRouter();
     const backPath = asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?authorized)/, '');
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);

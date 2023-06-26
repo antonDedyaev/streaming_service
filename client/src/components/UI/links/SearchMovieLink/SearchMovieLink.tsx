@@ -12,10 +12,10 @@ interface SearchMovieItemProps {
 }
 
 const SearchMovieItem = ({ href, name, year, value, onClick }: SearchMovieItemProps) => {
-    let starOfLine = name.toLowerCase().indexOf(value.toLowerCase());
-    let start = name.slice(0, starOfLine);
-    let search = name.slice(starOfLine, starOfLine + value.length);
-    let end = name.slice(starOfLine + value.length);
+    const starOfLine = name.toLowerCase().indexOf(value.toLowerCase());
+    const start = name.slice(0, starOfLine);
+    const search = name.slice(starOfLine, starOfLine + value.length);
+    const end = name.slice(starOfLine + value.length);
 
     return (
         <Link className={styles.container} href={href} onClick={onClick}>

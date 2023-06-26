@@ -20,7 +20,6 @@ interface LoginModalProps {
 
 const LoginModal = ({ type }: LoginModalProps) => {
     const { t } = useTranslation('modals');
-    const router = useRouter();
     const location = useRouter();
     const backPath = location.asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?trailer)|(\?more)/, '');
     const hrefSing = type === 'sign-in' ? `${backPath}?sign-up` : `${backPath}?sign-in`;
@@ -48,7 +47,6 @@ const LoginModal = ({ type }: LoginModalProps) => {
 
     const [isValid, setIsValid] = useState(false);
 
-
     const signInHandler = async () => {
         dispatch(login(email, password));
     };
@@ -56,25 +54,22 @@ const LoginModal = ({ type }: LoginModalProps) => {
     const signInGoogleHandler = async () => {
         signIn('google', { redirect: false });
         if (session) {
-            dispatch(loginGoogle(session?.user?.email!, session?.user?.sub!));
+            dispatch(loginGoogle(session.user.email!, session.user.sub!));
         }
     };
 
     const signInVKHandler = async () => {
-        signIn('vk', { redirect: false }); 
+        signIn('vk', { redirect: false });
         if (session) {
-            dispatch(loginVK(session?.user?.name!, session?.user?.sub!));
+            dispatch(loginVK(session.user.name!, session.user.sub!));
         }
-            
     };
 
     const signUpHandler = async () => {
         dispatch(registration(email, password));
-
     };
 
     const logoutHandler = () => {
-        //signOut();
         setIsClose(true);
         dispatch(logout());
     };

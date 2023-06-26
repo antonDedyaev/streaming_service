@@ -101,7 +101,7 @@ const FilterSearch = ({ suggestionsList, category }: ISearch) => {
                     onSuggestionsClearRequested={() => {
                         setSuggestions([]);
                     }}
-                    onSuggestionSelected={(event, { suggestion, method }) => {
+                    onSuggestionSelected={(event, { method }) => {
                         const target = event.target as HTMLInputElement;
                         if (method === 'enter') {
                             setSearchedPerson(target.value);
