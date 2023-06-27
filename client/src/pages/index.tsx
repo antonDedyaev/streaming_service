@@ -22,12 +22,12 @@ import IMovies from '@/models/IMovies';
 import AuthService from '@/store/services/AuthService';
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-    // const response = await axios.get('http://localhost:6125/filmswithinfo');
-    // const movies = response.data;
+    const response = await axios.get(`${process.env.SERVER_URL}/filmswithinfo`);
+    const movies = response.data;
 
     return {
         props: {
-            //movies,
+            movies,
             ...(await serverSideTranslations(locale!, [
                 'collection',
                 'common',
@@ -45,8 +45,9 @@ function HomePage({ movies }: { movies: IMovies[] }) {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const { locale, asPath } = useRouter();
-    // const fantasies = getMoviesByGenre(movies, 'fantasy');
-    // const dramas = getMoviesByGenre(movies, 'drama');
+    const fantasies = getMoviesByGenre(movies, 'fantasy');
+    const dramas = getMoviesByGenre(movies, 'drama');
+    console.log(fantasies);
 
     // useEffect(() => {
     //     const creatingAdminsAndRoles = async () => {
@@ -119,7 +120,7 @@ function HomePage({ movies }: { movies: IMovies[] }) {
                             </SpoilerUI>
                         </div>
 
-                        {/* <div className={styles.container__section}>
+                        <div className={styles.container__section}>
                             <MoviesSection
                                 title={t('mainPage:fantasy')}
                                 movies={fantasies.slice(0, 20)}
@@ -133,7 +134,7 @@ function HomePage({ movies }: { movies: IMovies[] }) {
                                 movies={dramas.slice(0, 20)}
                                 href="/collections/drama"
                             />
-                        </div> */}
+                        </div>
                     </div>
                 </div>
             </MainContainer>
