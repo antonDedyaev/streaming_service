@@ -45,8 +45,8 @@ function HomePage({ movies }: { movies: IMovies[] }) {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const { locale, asPath } = useRouter();
-    const fantasies = getMoviesByGenre(movies, 'fantasy');
-    const dramas = getMoviesByGenre(movies, 'drama');
+    // const fantasies = getMoviesByGenre(movies, 'fantasy');
+    // const dramas = getMoviesByGenre(movies, 'drama');
 
     // useEffect(() => {
     //     const creatingAdminsAndRoles = async () => {
