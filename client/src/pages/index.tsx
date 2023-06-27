@@ -22,7 +22,7 @@ import IMovies from '@/models/IMovies';
 import AuthService from '@/store/services/AuthService';
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-    await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/admin/films/parsing`);
+    // await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/admin/films/parsing`);
 
     const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/filmswithinfo`);
     const movies = response.data;
