@@ -22,12 +22,12 @@ import IMovies from '@/models/IMovies';
 import AuthService from '@/store/services/AuthService';
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-    const response = await axios.get('http://localhost:6125/filmswithinfo');
-    const movies = response.data;
+    // const response = await axios.get('http://localhost:6125/filmswithinfo');
+    // const movies = response.data;
 
     return {
         props: {
-            movies,
+            //movies,
             ...(await serverSideTranslations(locale!, [
                 'collection',
                 'common',
@@ -48,21 +48,21 @@ function HomePage({ movies }: { movies: IMovies[] }) {
     const fantasies = getMoviesByGenre(movies, 'fantasy');
     const dramas = getMoviesByGenre(movies, 'drama');
 
-    useEffect(() => {
-        const creatingAdminsAndRoles = async () => {
-            try {
-                await AuthService.creatingAdminsAndRoles();
-            } catch (e: any) {
-                console.log(e.response?.data?.message);
-            }
-        };
-        creatingAdminsAndRoles();
-    }, []);
+    // useEffect(() => {
+    //     const creatingAdminsAndRoles = async () => {
+    //         try {
+    //             await AuthService.creatingAdminsAndRoles();
+    //         } catch (e: any) {
+    //             console.log(e.response?.data?.message);
+    //         }
+    //     };
+    //     creatingAdminsAndRoles();
+    // }, []);
 
-    useEffect(() => {
-        dispatch(fetchGenres());
-        dispatch(getDataFromLocalStorage());
-    }, [locale, asPath]);
+    // useEffect(() => {
+    //     dispatch(fetchGenres());
+    //     dispatch(getDataFromLocalStorage());
+    // }, [locale, asPath]);
 
     return (
         <>
