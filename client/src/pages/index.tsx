@@ -23,23 +23,36 @@ import AuthService from '@/store/services/AuthService';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     await axios.get(`${process.env.SERVER_URL}/admin/films/parsing`);
-    const response = await axios.get(`${process.env.SERVER_URL}/filmswithinfo`);
-    const movies = response.data;
 
-    return {
-        props: {
-            movies,
-            ...(await serverSideTranslations(locale!, [
-                'collection',
-                'common',
-                'footer',
-                'header',
-                'mainPage',
-                'modals',
-                'moviesPage',
-            ])),
-        },
-    };
+    try {
+        const response = await axios.get(`${process.env.SERVER_URL}/filmswithinfo`);
+        const movies = response.data;
+
+        if (!movies) {
+            return {
+                notFound: true,
+            };
+        }
+
+        return {
+            props: {
+                movies,
+                ...(await serverSideTranslations(locale!, [
+                    'collection',
+                    'common',
+                    'footer',
+                    'header',
+                    'mainPage',
+                    'modals',
+                    'moviesPage',
+                ])),
+            },
+        };
+    } catch {
+        return {
+            props: { movies: null },
+        };
+    }
 };
 
 function HomePage({ movies }: { movies: IMovies[] }) {
