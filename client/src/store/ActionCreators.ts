@@ -9,7 +9,7 @@ import IUser from '@/models/IUser';
 
 export const fetchGenres = () => async (dispatch: AppDispatch) => {
     try {
-        const response = await axios.get('http://localhost:6125/namesgenres');
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/namesgenres`);
         dispatch(staticDataSlice.actions.setGenres(response.data));
     } catch (e: any) {
         console.log(e.response?.data?.message);
@@ -18,7 +18,7 @@ export const fetchGenres = () => async (dispatch: AppDispatch) => {
 
 export const fetchCountries = () => async (dispatch: AppDispatch) => {
     try {
-        const response = await axios.get('http://localhost:6125/namesOfCountries');
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/namesOfCountries`);
         dispatch(staticDataSlice.actions.setCountries(response.data));
     } catch (e: any) {
         console.log(e.response?.data?.message);
@@ -27,7 +27,7 @@ export const fetchCountries = () => async (dispatch: AppDispatch) => {
 
 export const fetchActors = () => async (dispatch: AppDispatch) => {
     try {
-        const response = await axios.get('http://localhost:6125/getAllActors');
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/getAllActors`);
         dispatch(staticDataSlice.actions.setActors(response.data));
     } catch (e: any) {
         console.log(e.response?.data?.message);
@@ -36,7 +36,7 @@ export const fetchActors = () => async (dispatch: AppDispatch) => {
 
 export const fetchDirectors = () => async (dispatch: AppDispatch) => {
     try {
-        const response = await axios.get('http://localhost:6125/getAllDirectors');
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/getAllDirectors`);
         dispatch(staticDataSlice.actions.setDirectors(response.data));
     } catch (e: any) {
         console.log(e.response?.data?.message);
@@ -265,7 +265,7 @@ export const addNewComment =
         const token = localStorage.getItem('accessToken');
 
         try {
-            const response = await axios.post('http://localhost:6125/comment/film', comment, {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/comment/film`, comment, {
                 headers: {
                     Authorization: token,
                 },
@@ -287,7 +287,7 @@ export const addChildComment =
         const token = localStorage.getItem('accessToken');
 
         try {
-            const response = await axios.post('http://localhost:6125/comment/childComment', comment, {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/comment/childComment`, comment, {
                 headers: {
                     Authorization: token,
                 },
