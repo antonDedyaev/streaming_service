@@ -119,7 +119,7 @@ function HomePage({ movies }: { movies: IMovies[] }) {
                             </SpoilerUI>
                         </div>
 
-                        <div className={styles.container__section}>
+                        {/* <div className={styles.container__section}>
                             <MoviesSection
                                 title={t('mainPage:fantasy')}
                                 movies={fantasies.slice(0, 20)}
@@ -133,7 +133,7 @@ function HomePage({ movies }: { movies: IMovies[] }) {
                                 movies={dramas.slice(0, 20)}
                                 href="/collections/drama"
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </MainContainer>
