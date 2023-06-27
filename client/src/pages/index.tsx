@@ -24,35 +24,23 @@ import AuthService from '@/store/services/AuthService';
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     //await axios.get(`${process.env.SERVER_URL}/admin/films/parsing`);
 
-    try {
-        const response = await axios.get(`${process.env.SERVER_URL}/filmswithinfo`);
-        const movies = response.data;
+    const response = await axios.get(`${process.env.SERVER_URL}/filmswithinfo`);
+    const movies = response.data;
 
-        if (!movies) {
-            return {
-                notFound: true,
-            };
-        }
-
-        return {
-            props: {
-                movies,
-                ...(await serverSideTranslations(locale!, [
-                    'collection',
-                    'common',
-                    'footer',
-                    'header',
-                    'mainPage',
-                    'modals',
-                    'moviesPage',
-                ])),
-            },
-        };
-    } catch {
-        return {
-            props: { movies: null },
-        };
-    }
+    return {
+        props: {
+            movies,
+            ...(await serverSideTranslations(locale!, [
+                'collection',
+                'common',
+                'footer',
+                'header',
+                'mainPage',
+                'modals',
+                'moviesPage',
+            ])),
+        },
+    };
 };
 
 function HomePage({ movies }: { movies: IMovies[] }) {
@@ -61,17 +49,17 @@ function HomePage({ movies }: { movies: IMovies[] }) {
     const { locale, asPath } = useRouter();
     const fantasies = getMoviesByGenre(movies, 'fantasy');
     const dramas = getMoviesByGenre(movies, 'drama');
-    console.log(fantasies);
 
     useEffect(() => {
-        //     const creatingAdminsAndRoles = async () => {
-        //         try {
-        //             await AuthService.creatingAdminsAndRoles();
-        //         } catch (e: any) {
-        //             console.log(e.response?.data?.message);
-        //         }
-        //     };
-        //     creatingAdminsAndRoles();
+        const creatingAdminsAndRoles = async () => {
+            try {
+                await axios.get(`${process.env.SERVER_URL}/admin/films/parsing`);
+                await AuthService.creatingAdminsAndRoles();
+            } catch (e: any) {
+                console.log(e.response?.data?.message);
+            }
+        };
+        creatingAdminsAndRoles();
     }, []);
 
     // useEffect(() => {
