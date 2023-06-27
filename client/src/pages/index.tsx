@@ -11,7 +11,7 @@ import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 import { useAppDispatch } from '@/store/hooks/redux';
 import { useEffect } from 'react';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
@@ -21,7 +21,8 @@ import axios from 'axios';
 import IMovies from '@/models/IMovies';
 import AuthService from '@/store/services/AuthService';
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    await axios.get(`${process.env.SERVER_URL}/admin/films/parsing`);
     const response = await axios.get(`${process.env.SERVER_URL}/filmswithinfo`);
     const movies = response.data;
 
@@ -49,16 +50,16 @@ function HomePage({ movies }: { movies: IMovies[] }) {
     const dramas = getMoviesByGenre(movies, 'drama');
     console.log(fantasies);
 
-    // useEffect(() => {
-    //     const creatingAdminsAndRoles = async () => {
-    //         try {
-    //             await AuthService.creatingAdminsAndRoles();
-    //         } catch (e: any) {
-    //             console.log(e.response?.data?.message);
-    //         }
-    //     };
-    //     creatingAdminsAndRoles();
-    // }, []);
+    useEffect(() => {
+        //     const creatingAdminsAndRoles = async () => {
+        //         try {
+        //             await AuthService.creatingAdminsAndRoles();
+        //         } catch (e: any) {
+        //             console.log(e.response?.data?.message);
+        //         }
+        //     };
+        //     creatingAdminsAndRoles();
+    }, []);
 
     // useEffect(() => {
     //     dispatch(fetchGenres());
