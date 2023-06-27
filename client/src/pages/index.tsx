@@ -22,7 +22,7 @@ import IMovies from '@/models/IMovies';
 import AuthService from '@/store/services/AuthService';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-    await axios.get(`${process.env.SERVER_URL}/admin/films/parsing`);
+    //await axios.get(`${process.env.SERVER_URL}/admin/films/parsing`);
 
     try {
         const response = await axios.get(`${process.env.SERVER_URL}/filmswithinfo`);
