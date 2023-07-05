@@ -1,6 +1,8 @@
 import ICountry from '@/models/ICountry';
 import IGenre from '@/models/IGenre';
 import IPerson from '@/models/IPerson';
+import { mockCountries, mockGenres } from '@/pages/api/mocks/mockGenresAndCountries';
+import { mockActors, mockDirectors } from '@/pages/api/mocks/mockPersons';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface staticDataState {
@@ -11,10 +13,10 @@ interface staticDataState {
 }
 
 const initialState: staticDataState = {
-    genres: [],
-    countries: [],
-    actors: [],
-    directors: [],
+    genres: mockGenres,
+    countries: mockCountries,
+    actors: mockActors as IPerson[],
+    directors: mockDirectors as IPerson[],
 };
 
 export const staticDataSlice = createSlice({

@@ -4,6 +4,8 @@ import { useAppDispatch, useAppSelector } from '../../../store/hooks/redux';
 import { genresFilterAdded, countriesFilterAdded, addFilteredMovies } from '../../../store/slices/moviesSlice';
 import axios from 'axios';
 import { checkFiltersStatus } from '../../../utils/functions';
+import { mockMovies } from '@/pages/api/mocks/mockMovies';
+import IMovies from '@/models/IMovies';
 
 interface IList {
     items: string[];

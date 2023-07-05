@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import styles from '../../styles/pages/EditItemsPage.module.scss';
-import { GetServerSideProps } from 'next';
-import axios from 'axios';
+import { GetStaticProps } from 'next';
 import EditForm from '@/components/EditForm/EditForm';
 import ArrowButton from '@/components/UI/buttons/ArrowButton/ArrowButtonUI';
 import IMovies from '@/models/IMovies';
@@ -9,6 +8,7 @@ import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButto
 import { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import fetchFromEndpoint from '@/utils/fetcher';
 
 interface IMovieEditable {
     id: number;
@@ -16,28 +16,47 @@ interface IMovieEditable {
     enName: string;
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-    const response = await axios.get('http://localhost:6125/filmswithinfo');
-    const movies = response.data.map((item: IMovies) => {
-        return { id: item.id, name: item.name, enName: item.enName };
-    });
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    try {
+        const response = await fetch(`${process.env.API_HOST}/movies`);
+        const data = await response.json();
 
-    return {
-        props: {
-            movies,
-            ...(await serverSideTranslations(locale!, ['adminPage'])),
-        },
-    };
+        if (!data) {
+            return {
+                notFound: true,
+            };
+        }
+
+        return {
+            props: {
+                allMovies: data,
+                ...(await serverSideTranslations(locale!, ['adminPage'])),
+            },
+        };
+    } catch {
+        return {
+            props: {
+                allMovies: null,
+            },
+        };
+    }
 };
 
-const MovieEditPage = ({ movies }: { movies: IMovieEditable[] }) => {
+const MovieEditPage = ({ allMovies }: { allMovies: IMovies[] }) => {
     const { t } = useTranslation('adminPage');
     const router = useRouter();
     const [shownMoviesLimit, setShownMoviesLimit] = useState(50);
     const [searchInput, setSearchInput] = useState('');
     const [filteredMovies, setFilteredMovies] = useState<IMovieEditable[]>([]);
 
-    const sortedMovies = movies.sort((a, b) => (a.name !== b.name ? (a.name < b.name ? -1 : 1) : 0));
+    const movies: IMovies[] = fetchFromEndpoint('filmswithinfo') ?? allMovies;
+    const mappedMovies = movies
+        ? movies.map((item: IMovies) => {
+              return { id: item.id, name: item.name, enName: item.enName };
+          })
+        : [];
+
+    const sortedMovies = mappedMovies.sort((a, b) => (a.name !== b.name ? (a.name < b.name ? -1 : 1) : 0));
 
     const handleSearchClicked = () => {
         const searchResults = movies.filter((movie) => {

@@ -13,7 +13,6 @@ import { GetServerSideProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { useEffect, useState } from 'react';
 import IMovie from '@/models/IMovie';
-import axios from 'axios';
 import TrailerModal from '@/components/modals/TrailerModal/TrailerModal';
 import { firstCapitalLetter } from '@/utils/functions';
 import Loading from '@/components/Loading/Loading';
@@ -22,20 +21,12 @@ import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { getDataFromLocalStorage, getGenresAndCountries, getRefreshToken, validateUser } from '@/store/ActionCreators';
 import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
+import fetchFromEndpoint from '@/utils/fetcher';
+import { moviePages } from '../api/mocks/mockMoviePage';
 
-export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
-    let movie: IMovie | null = null;
-
-    try {
-        const response = await axios.get(`http://localhost:6125/film/${params!.id}`);
-        movie = response.data;
-    } catch (error) {
-        console.log(error);
-    }
-
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
     return {
         props: {
-            movie,
             ...(await serverSideTranslations(locale!, [
                 'collection',
                 'common',
@@ -50,8 +41,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params, locale })
     };
 };
 
-const CardMoviePage = ({ movie }: { movie: IMovie }) => {
-    console.log(movie);
+const CardMoviePage = () => {
     const { t } = useTranslation(['movie', 'moviesPage']);
     const dispatch = useAppDispatch();
     const router = useRouter();
@@ -62,6 +52,8 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
     const [loading, setLoading] = useState(true);
     const { error } = useAppSelector((state) => state.user);
 
+    const movie: IMovie = fetchFromEndpoint(`film/${query.id}`) ?? moviePages.find(({ id }) => String(id) === query.id);
+
     useEffect(() => {
         isReady && setLoading(false);
     }, []);
@@ -71,9 +63,7 @@ const CardMoviePage = ({ movie }: { movie: IMovie }) => {
         dispatch(getDataFromLocalStorage());
 
         const validate = async () => {
-            console.log(localStorage.getItem('authorization'));
             if (localStorage.getItem('accessToken') && localStorage.getItem('currentUser')) {
-                console.log('fetchToken', localStorage.getItem('accessToken'));
                 const refreshToken = await getRefreshToken(
                     localStorage.getItem('accessToken')!,
                     localStorage.getItem('authorization')!,

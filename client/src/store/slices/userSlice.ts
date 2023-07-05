@@ -1,4 +1,5 @@
 import IUser from '@/models/IUser';
+import { mockAdmin } from '@/pages/api/mocks/mockAdmin';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface UserState {
@@ -8,8 +9,8 @@ interface UserState {
 }
 
 const initialState: UserState = {
-    user: {} as IUser,
-    isAuth: false,
+    user: mockAdmin,
+    isAuth: true,
     error: '',
 };
 

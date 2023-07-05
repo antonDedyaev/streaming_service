@@ -23,17 +23,25 @@ import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs';
 import BorderedButton from '@/components/UI/buttons/BorderedButton/BorderedButton';
 import SortMovies from '@/components/movie/SortMovies/SortMovies';
 import { getAllStaticData, getDataFromLocalStorage } from '@/store/ActionCreators';
-import axios from 'axios';
 import IMovies from '@/models/IMovies';
+import fetchFromEndpoint from '@/utils/fetcher';
+import { mockMovies } from '../api/mocks/mockMovies';
 
 export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-    const response = await axios.get('http://localhost:6125/filmswithinfo');
-    const movies = response.data;
+    // try {
+    //     const response = await fetch(`${process.env.API_HOST}/movies`);
+    //     const data = await response.json();
+
+    //     if (!data) {
+    //         return {
+    //             notFound: true,
+    //         };
+    //     }
 
     return {
         props: {
-            movies,
-            ...(await serverSideTranslations(locale!, [
+            //allMovies: data,
+            ...(await serverSideTranslations(locale ?? 'ru', [
                 'collection',
                 'common',
                 'footer',
@@ -45,9 +53,16 @@ export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
             ])),
         },
     };
+    //     } catch {
+    //         return {
+    //             props: {
+    //                 allMovies: null,
+    //             },
+    //         };
+    //     }
 };
 
-const Collection = ({ movies }: { movies: IMovies[] }) => {
+const Collection = () => {
     const { t } = useTranslation();
     const { asPath, locale } = useRouter();
     const dispatch = useAppDispatch();
@@ -57,6 +72,8 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
     const [shownPostersLimit, setShownPostersLimit] = useState(35);
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
+
+    const movies: IMovies[] = fetchFromEndpoint('filmswithinfo') ?? mockMovies;
 
     useEffect(() => {
         setIsFilterApplied(filteredList.length !== 0);
@@ -110,8 +127,7 @@ const Collection = ({ movies }: { movies: IMovies[] }) => {
 
     useEffect(() => {
         const urlTail = urlString.length !== 0 ? 'filters' + urlString : '';
-
-        history.pushState(null, 'Filters', `http://localhost:3000${asPath}/${urlTail}`);
+        history.pushState(null, 'Filters', asPath + '/' + urlTail);
     }, [urlString]);
 
     const currentFilters = Object.entries(allFilters).filter(([, value]) => value.length !== 0 && value !== 0);

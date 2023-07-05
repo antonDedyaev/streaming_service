@@ -11,49 +11,63 @@ import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import { useAppDispatch } from '@/store/hooks/redux';
 import { useEffect } from 'react';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
 import { useRouter } from 'next/router';
 import { fetchGenres, getDataFromLocalStorage } from '@/store/ActionCreators';
-import axios from 'axios';
 import IMovies from '@/models/IMovies';
 import AuthService from '@/store/services/AuthService';
+import fetchFromEndpoint from '@/utils/fetcher';
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-    // await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/admin/films/parsing`);
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    try {
+        const response = await fetch(`${process.env.API_HOST}/movies`);
+        const data = await response.json();
 
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/filmswithinfo`);
-    const movies = response.data;
+        if (!data) {
+            return {
+                notFound: true,
+            };
+        }
 
-    return {
-        props: {
-            movies,
-            ...(await serverSideTranslations(locale!, [
-                'collection',
-                'common',
-                'footer',
-                'header',
-                'mainPage',
-                'modals',
-                'moviesPage',
-            ])),
-        },
-    };
+        return {
+            props: {
+                allMovies: data,
+                ...(await serverSideTranslations(locale ?? 'ru', [
+                    'collection',
+                    'common',
+                    'footer',
+                    'header',
+                    'mainPage',
+                    'modals',
+                    'moviesPage',
+                ])),
+            },
+        };
+    } catch {
+        return {
+            props: {
+                allMovies: null,
+            },
+        };
+    }
 };
 
-function HomePage({ movies }: { movies: IMovies[] }) {
+function HomePage({ allMovies }: { allMovies: IMovies[] }) {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const { locale, asPath } = useRouter();
+
+    const movies: IMovies[] = fetchFromEndpoint('filmswithinfo') ?? allMovies;
+
     const fantasies = getMoviesByGenre(movies, 'fantasy');
     const dramas = getMoviesByGenre(movies, 'drama');
 
     useEffect(() => {
         const creatingAdminsAndRoles = async () => {
             try {
-                //await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/admin/films/parsing`);
                 await AuthService.creatingAdminsAndRoles();
             } catch (e: any) {
                 console.log(e.response?.data?.message);

@@ -84,6 +84,24 @@ export const login = (email: string, password: string) => async (dispatch: AppDi
         console.log(e.response?.data?.message);
         dispatch(userSlice.actions.setError(e.response?.data?.message));
     }
+    // } finally {
+    //     localStorage.setItem(
+    //         'currentUser',
+    //         JSON.stringify({
+    //             user: 'admin@admin.com',
+    //             role: 'admin',
+    //         }),
+    //     );
+    //     localStorage.setItem('authorization', 'mail');
+    //     dispatch(userSlice.actions.setAuth(true));
+    //     dispatch(
+    //         userSlice.actions.setUser({
+    //             user: 'admin@admin.com',
+    //             token: 'admin@admin.com',
+    //             role: 'admin',
+    //         }),
+    //     );
+    // }
 };
 
 export const registration = (email: string, password: string) => async (dispatch: AppDispatch) => {

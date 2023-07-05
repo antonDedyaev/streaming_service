@@ -8,7 +8,6 @@ import { useTranslation } from 'next-i18next';
 import IPerson from '@/models/IPerson';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import PageNotCreated from '@/components/PageNotCreated/PageNotCreated';
 import Loading from '@/components/Loading/Loading';
 import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
@@ -16,19 +15,12 @@ import { firstCapitalLetter, professionInTheSingular } from '@/utils/functions';
 import { getDataFromLocalStorage, getGenresAndCountries } from '@/store/ActionCreators';
 import { useAppDispatch } from '@/store/hooks/redux';
 import Image from 'next/image';
+import fetchFromEndpoint from '@/utils/fetcher';
+import { allPersons } from '../api/mocks/mockPersons';
 
-export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
-    let person: IPerson | null = null;
-    try {
-        const response = await axios.get(`http://localhost:6125/personswithinfo/${params!.id}`);
-        person = response.data;
-    } catch (error) {
-        console.log(error);
-    }
-
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
     return {
         props: {
-            person,
             ...(await serverSideTranslations(locale!, [
                 'collection',
                 'common',
@@ -44,12 +36,15 @@ export const getServerSideProps: GetServerSideProps = async ({ params, locale })
     };
 };
 
-const CardActorPage = ({ person }: { person: IPerson }) => {
+const CardActorPage = () => {
     const { t } = useTranslation(['person', 'moviesPage']);
     const dispatch = useAppDispatch();
-    const { locale, asPath, isReady, back } = useRouter();
+    const { query, locale, asPath, isReady, back } = useRouter();
 
     const [loading, setLoading] = useState(true);
+
+    const person: IPerson =
+        fetchFromEndpoint(`personswithinfo/${query.id}`) ?? allPersons.find(({ id }) => String(id) === query.id);
 
     useEffect(() => {
         isReady && setLoading(false);
@@ -100,7 +95,7 @@ const CardActorPage = ({ person }: { person: IPerson }) => {
             ) : person ? (
                 <div className="container">
                     <div className={styles.back} onClick={() => back()}>
-                        <Image src="/icons/arrows/arrow_left.svg" alt="arrow left" />
+                        <Image src="/icons/arrows/arrow_left.svg" alt="arrow left" height={40} width={40} />
                         {t('person:back')}
                     </div>
 

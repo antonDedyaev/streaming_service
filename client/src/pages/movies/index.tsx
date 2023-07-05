@@ -13,9 +13,8 @@ import votesIcon from '../../../public/icons/userRank.svg';
 import FilterSearch from '@/components/filters/FilterSearch/FilterSearch';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useAppDispatch, useAppSelector } from '@/store/hooks/redux';
 import { useRouter } from 'next/router';
 
@@ -27,32 +26,49 @@ import { getAllStaticData, getDataFromLocalStorage } from '@/store/ActionCreator
 import IMovies from '@/models/IMovies';
 import { getDynamicUrl } from '@/utils/moviesHelpers';
 import IFilters from '@/models/IFilters';
+import fetchFromEndpoint from '@/utils/fetcher';
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-    const response = await axios.get('http://localhost:6125/filmswithinfo');
-    const movies = response.data;
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    try {
+        const response = await fetch(`${process.env.API_HOST}/movies`);
+        const data = await response.json();
 
-    return {
-        props: {
-            movies,
-            ...(await serverSideTranslations(locale!, [
-                'collection',
-                'common',
-                'footer',
-                'header',
-                'mainPage',
-                'modals',
-                'moviesPage',
-            ])),
-        },
-    };
+        if (!data) {
+            return {
+                notFound: true,
+            };
+        }
+
+        return {
+            props: {
+                allMovies: data,
+                ...(await serverSideTranslations(locale ?? 'ru', [
+                    'collection',
+                    'common',
+                    'footer',
+                    'header',
+                    'mainPage',
+                    'modals',
+                    'moviesPage',
+                ])),
+            },
+        };
+    } catch {
+        return {
+            props: {
+                allMovies: null,
+            },
+        };
+    }
 };
 
-const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
+const MoviesPage = ({ allMovies }: { allMovies: IMovies[] }) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const { asPath, locale } = useRouter();
     const backPath = asPath.replace(/(\?ivi_search)|(\?sign-in)|(\?sign-up)|(\?authorized)/, '');
+
+    const movies: IMovies[] = fetchFromEndpoint('filmswithinfo') ?? allMovies;
 
     const filteredList = useAppSelector((state) => state.movies.filteredMovies);
 
@@ -93,11 +109,7 @@ const MoviesPage = ({ movies }: { movies: IMovies[] }) => {
 
     useEffect(() => {
         const urlTail = urlString.length !== 0 && 'filters' + urlString;
-        history.pushState(
-            null,
-            'Filters',
-            urlTail ? `http://localhost:3000${backPath}/${urlTail}` : `http://localhost:3000${backPath}`,
-        );
+        history.pushState(null, 'Filters', urlTail ? backPath + '/' + urlTail : backPath);
     }, [urlString]);
 
     useEffect(() => {
