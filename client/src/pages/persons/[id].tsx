@@ -18,30 +18,40 @@ import { useAppDispatch } from '@/store/hooks/redux';
 import Image from 'next/image';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
-    let person: IPerson | null = null;
     try {
         const response = await axios.get(`http://localhost:6125/personswithinfo/${params!.id}`);
-        person = response.data;
-    } catch (error) {
-        console.log(error);
-    }
+        const person = response.data;
 
-    return {
-        props: {
-            person,
-            ...(await serverSideTranslations(locale!, [
-                'collection',
-                'common',
-                'footer',
-                'header',
-                'mainPage',
-                'modals',
-                'moviesPage',
-                'movie',
-                'person',
-            ])),
-        },
-    };
+        if (!person) {
+            return {
+                notFound: true,
+            };
+        }
+
+        return {
+            props: {
+                person,
+                ...(await serverSideTranslations(locale!, [
+                    'collection',
+                    'common',
+                    'footer',
+                    'header',
+                    'mainPage',
+                    'modals',
+                    'moviesPage',
+                    'movie',
+                    'person',
+                ])),
+            },
+        };
+    } catch (e: any) {
+        console.log(e.response?.data?.message);
+        return {
+            props: {
+                person: null,
+            },
+        };
+    }
 };
 
 const CardActorPage = ({ person }: { person: IPerson }) => {

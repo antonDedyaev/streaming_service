@@ -24,30 +24,39 @@ import { getDataFromLocalStorage, getGenresAndCountries, getRefreshToken, valida
 import CommentsSection from '@/components/sections/CommentsSection/CommentsSection';
 
 export const getServerSideProps: GetServerSideProps = async ({ params, locale }) => {
-    let movie: IMovie | null = null;
-
     try {
         const response = await axios.get(`http://localhost:6125/film/${params!.id}`);
-        movie = response.data;
-    } catch (error) {
-        console.log(error);
-    }
+        const movie = response.data;
 
-    return {
-        props: {
-            movie,
-            ...(await serverSideTranslations(locale!, [
-                'collection',
-                'common',
-                'footer',
-                'header',
-                'mainPage',
-                'modals',
-                'moviesPage',
-                'movie',
-            ])),
-        },
-    };
+        if (!movie) {
+            return {
+                notFound: true,
+            };
+        }
+
+        return {
+            props: {
+                movie,
+                ...(await serverSideTranslations(locale!, [
+                    'collection',
+                    'common',
+                    'footer',
+                    'header',
+                    'mainPage',
+                    'modals',
+                    'moviesPage',
+                    'movie',
+                ])),
+            },
+        };
+    } catch (e: any) {
+        console.log(e.response?.data?.message);
+        return {
+            props: {
+                movie: null,
+            },
+        };
+    }
 };
 
 const CardMoviePage = ({ movie }: { movie: IMovie }) => {

@@ -11,7 +11,7 @@ import ShapedLinkUI from '@/components/UI/links/ShapedLink/ShapedLinkUI';
 import Image from 'next/image';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import { useAppDispatch } from '@/store/hooks/redux';
 import { useEffect } from 'react';
 import { getMoviesByGenre } from '@/utils/moviesHelpers';
@@ -21,10 +21,8 @@ import axios from 'axios';
 import IMovies from '@/models/IMovies';
 import AuthService from '@/store/services/AuthService';
 
-export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
-    // await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/admin/films/parsing`);
-
-    const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/filmswithinfo`);
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    const response = await axios.get('http://localhost:6125/filmswithinfo');
     const movies = response.data;
 
     return {
@@ -53,7 +51,6 @@ function HomePage({ movies }: { movies: IMovies[] }) {
     useEffect(() => {
         const creatingAdminsAndRoles = async () => {
             try {
-                //await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/admin/films/parsing`);
                 await AuthService.creatingAdminsAndRoles();
             } catch (e: any) {
                 console.log(e.response?.data?.message);

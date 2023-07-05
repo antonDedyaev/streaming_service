@@ -54,7 +54,7 @@ const Header = ({ page }: HeaderProps) => {
 
     const { genres } = useAppSelector((state) => state.staticData);
 
-    const genersLinks = () => {
+    const genresLinks = () => {
         const array: {
             text: string;
             href: string;
@@ -181,7 +181,7 @@ const Header = ({ page }: HeaderProps) => {
                             ? [
                                   {
                                       title: t('header:dropmenu.genres'),
-                                      links: genersLinks(),
+                                      links: genresLinks(),
                                   },
                                   {
                                       title: t('header:dropmenu.countries'),
