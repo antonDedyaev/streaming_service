@@ -6,7 +6,8 @@ You can browse through movie pages, view movie cast and read all available infor
 
 ## **Watch demo record of the app:**
 
-https://youtu.be/HwDlF19e-wM
+ [![Watch demo record](https://img.youtube.com/vi/HwDlF19e-wM/hqdefault.jpg)](https://youtu.be/HwDlF19e-wM):
+
 
 **\*To log in as administrator use the following credentials:**<br>
 
