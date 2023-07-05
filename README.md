@@ -4,7 +4,9 @@ This is a NextJS-based streaming service SPA. The App uses Kinopoisk API as data
 There are collections of movies that you can filter, sort and even edit genres and movie names or delete them(as admin).
 You can browse through movie pages, view movie cast and read all available information about each movie and its crew.
 
-## **[Watch demo record of the app]('./client/src/assets/Demo.mov')**
+## **Watch demo record of the app:**
+
+https://youtu.be/HwDlF19e-wM
 
 **\*To log in as administrator use the following credentials:**<br>
 
