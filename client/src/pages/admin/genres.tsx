@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import styles from '../../styles/pages/EditItemsPage.module.scss';
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import IGenre from '@/models/IGenre';
 import EditForm from '@/components/EditForm/EditForm';
@@ -8,7 +8,7 @@ import ArrowButton from '@/components/UI/buttons/ArrowButton/ArrowButtonUI';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
     const response = await axios.get('http://localhost:6125/namesgenres');
     const genres = response.data;
 

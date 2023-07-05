@@ -41,10 +41,10 @@ const EditForm = ({ item, deletable }: IEditFormProps) => {
     const handleDeleteItem = async () => {
         try {
             await axios.delete(`http://localhost:6125/film/${item.id}`);
+            setIsItemDeleted(true);
         } catch (e: any) {
             console.log(e.response?.data?.message);
         }
-        setIsItemDeleted(true);
     };
 
     const handleSaveResult = async () => {
